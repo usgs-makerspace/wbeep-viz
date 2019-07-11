@@ -24,9 +24,15 @@ var style = {
             url: "http://localhost:8085/data/new2.json",
             // amazon S3 "tiles": ["http://wbeep-test-website.s3-website-us-west-2.amazonaws.com/tiles/{z}/{x}/{y}.pbf"],
             // locally, you can run tileserver https://www.npmjs.com/package/tileserver-gl-light 
-            // host the tiles in the /tiles dir with tileserver-gl-light /path/to/repo/tiles/new2.mbtiles -p 8085 
+            // host the tiles in the /mbtiles dir with tileserver-gl-light /path/to/repo/mbtiles/new2.mbtiles -p 8085 
             // then change the line above to have the map look for local tileserver instead of s3 path
             // url: 'http://127.0.0.1:8085/data/new2.json'
+        },
+        "stamen": {
+        "type": "raster",
+        "tiles": ["http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"],
+        "tileSize": 256,
+        "attribution": 'Map tiles by <a target="_top" rel="noopener" href="http://stamen.com">Stamen Design</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
         }
     },
     layers: [
@@ -166,6 +172,13 @@ var style = {
             },
             "line-width": 1
         }
+    },
+    {
+      "id": "watercolor",
+      "type": "raster",
+      "source": "stamen",
+      "minzoom": 0,
+      "maxzoom": 22
     }
   ]
 }
