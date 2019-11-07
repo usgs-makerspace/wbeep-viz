@@ -43,7 +43,7 @@
     "@vue/cli-service": "^4.0.4",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vue": "^6.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1",
     "vue-svg-loader": "^0.10.0",
