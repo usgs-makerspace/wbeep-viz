@@ -12,6 +12,7 @@
         @clickedInfoIcon="toggleMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
+      <MapAvailableDataDate />
       <MglMap
         id="mapgl-water-temperature-mapbox-map"
         :container="container"
@@ -57,6 +58,7 @@
 <script>
     import LoadingScreenInternal from "../../components/LoadingScreenInternal";
     import MapSubtitle from "../../components/MapSubtitle";
+    import MapAvailableDataDate from "../../components/MapAvailableDataDate";
     import MapLayers from "../../components/MapLayers";
     import QuestionControl from "../../components/QuestionControl";
     import {
@@ -74,6 +76,7 @@
         components: {
             LoadingScreenInternal,
             MapSubtitle,
+            MapAvailableDataDate,
             MglMap,
             MglNavigationControl,
             MglGeolocateControl,
