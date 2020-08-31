@@ -17,9 +17,19 @@
             };
         },
         mounted() {
-            // If we can get a URL, try to get the date the model data was received and add it to the component data
-            if (process.env.VUE_APP_DATA_DATE_URL) {
+            // If we can get a URL, try to get the date the water storage model data was received and add it to the component data
+            if (process.env.VUE_APP_DATA_DATE_URL && this.$route.name==='waterStorage') {
                 fetch(process.env.VUE_APP_DATA_DATE_URL)
+                        .then(response => {
+                            if (!response.ok) { throw Error(response.statusText + ' The call to retrieve the model date has failed.') }
+                            return response
+                        })
+                        .then(response => response.text())
+                        .then(data => this.dataDate = data);
+            }
+            // water temperature model data date 
+            if (process.env.VUE_APP_TEMP_DATA_DATE_URL && this.$route.name==='waterTemperature') {
+                fetch(process.env.VUE_APP_TEMP_DATA_DATE_URL)
                         .then(response => {
                             if (!response.ok) { throw Error(response.statusText + ' The call to retrieve the model date has failed.') }
                             return response
