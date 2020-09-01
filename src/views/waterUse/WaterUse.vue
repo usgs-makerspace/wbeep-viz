@@ -35,9 +35,8 @@
         <router-link to="/water-use/questions-answers">
           <div
             id="waterUseQuestion"
-            class="icon-map-control-question"
           >
-            <font-awesome-icon icon="question" />
+            <font-awesome-icon icon="question" class="icon-map-control-question" />
           </div>
         </router-link>
       </div>
