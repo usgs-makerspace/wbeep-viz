@@ -26,6 +26,14 @@
           due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces that may change a stream's temperature and negatively impact aquatic life or the usability of the stream for other purposes. Learn more about these impacts below.​
         </p>
       </div>
+      <div v-if="currentFeature === 'waterUse'">
+        <p>
+          Sed nec aliquam turpis. In tincidunt enim ac nulla suscipit, ac aliquet elit condimentum. Nullam eleifend egestas feugiat. Nullam pellentesque, nisi non consectetur vestibulum, risus libero sodales massa, vitae molestie dolor nunc eget leo. Mauris et magna eu magna scelerisque vestibulum non non metus. Cras lobortis gravida quam sit amet pharetra. In hac habitasse platea dictumst. Morbi et cursus ipsum, eu sagittis neque.
+        </p>
+        <p>
+          Enjoy the Map!
+        </p>
+      </div>
       <router-link to="/questionsandanswers">
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
@@ -49,8 +57,7 @@ export default {
 <style scoped lang="scss">
 #subtitleInfoModal {
   min-height: 30px;
-  position: absolute;
-  top: 85px;
+  margin-top: 10px;
   z-index: 1000;
   border-radius: 5px;
   border: 1px solid rgb(200, 200, 200);
@@ -60,13 +67,16 @@ export default {
   #infoContainer {
     min-height: 20px;
     position: relative;
-    padding: 20px 5px 0 5px;
+    padding: 5px 10px 0 10px;
     font-size: 0.9em;
     text-align: center;
     max-width: 260px;
 
     #subtitleModalExit{
       text-align: right;
+      position: absolute;
+      right: 5px;
+      top: 5px;
     }
 
     #exit {
@@ -88,14 +98,13 @@ export default {
     p {
       text-align: left;
       margin: 0 0 10px 0;
-      padding: 0 10px;
     }
 
     h2 {
       font-size: 1.2em;
       font-weight: bold;
       padding: 0;
-      margin: 8px 0;
+      margin: 30px 0 10px 0;
     }
 
     button {
@@ -113,8 +122,8 @@ export default {
 }
 
 @media screen and (min-width: 360px){
-    #subtitleInfoModal{
-      top: 70px;
-    }
+    // #subtitleInfoModal{
+    //   top: 70px;
+    // }
   }
 </style>
