@@ -7,7 +7,14 @@
         <button class="waterUseButton">Irrigation</button>
         <button class="waterUseButton">Public Supply</button>
       </div>
-      <div id="waterUseMapContainer" class="bordered">Map</div>
+      <div id="waterUseMapContainer">
+        Map
+        <router-link to="/water-use/questions-answers">
+          <div id="waterUseQuestion" class="icon-map-control-question">
+            <font-awesome-icon icon="question" />
+          </div>
+        </router-link>
+      </div>
       <div id="waterUseBarChartContainer" class="bordered">BarChart</div>
     </div>
   </div>
@@ -66,6 +73,9 @@
   flex: 1;
   margin: 20px 0;
   padding: 0 10px;
+  a{
+    color: #000;
+  }
 }
 #water-use-content{
   width: 100%;
@@ -93,6 +103,30 @@
 #waterUseMapContainer{
   flex: 2;
   margin: 20px 0;
+  position: relative;
+}
+
+#waterUseQuestion{
+  position:absolute;
+  top: 0px;
+  right: 0px;
+  width: 29px;
+  height: 29px;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  cursor: pointer;
+  text-align: center;
+  svg{
+    width: 18px;
+    height: 18px;
+    margin: 4px 1px 0 0;
+  }
 }
 
 #waterUseBarChartContainer{
