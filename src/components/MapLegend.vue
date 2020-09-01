@@ -18,6 +18,7 @@
         </a>
       </div>
       <div
+        v-if="currentFeature === 'waterStorage'"
         id="infoTab"
         class="tab"
       >
@@ -92,11 +93,16 @@ export default {
     return {
       legend: null,
       hidden: false,
-      infoShowing: false
+      infoShowing: false,
+      currentFeature: this.$route.name
     };
   },
   mounted() {
-    this.createLegend();
+    if(this.currentFeature === "waterStorage"){
+      this.createWaterStorageLegend();
+    }else{
+      this.createWaterTempLegend();
+    }
   },
   methods: {
     runGoogleAnalytics(eventName, action, label) {
@@ -109,7 +115,7 @@ export default {
     modalToggle(){
       this.infoShowing = !this.infoShowing;
     },
-    createLegend() {
+    createWaterStorageLegend() {
       // get the style layers from the map styles object
       let styleLayers = mapStyles.style.layers;
       let legendColorValues = [];
@@ -168,6 +174,43 @@ export default {
         item.appendChild(textContainer);
         legend.appendChild(item);
       }
+    },
+    createWaterTempLegend(){
+      let keys = document.getElementById("keysAndText");
+      //create main container
+      let mainContainer = document.createElement('div');
+      mainContainer.id = "mainContainer";
+
+      let mainContainerContent = document.createElement('div');
+      mainContainerContent.id = "mainContainerContent";
+      //create gradient container
+      let gradientContainer = document.createElement('div');
+      gradientContainer.id = "legendGradientContainer";
+      //create gradient
+      let gradient = document.createElement('div');
+      gradient.id = "legendGradient";
+      //create temps container
+      let tempContainer = document.createElement('div');
+      tempContainer.id = "tempContainer";
+      //create top temp div
+      let topTemp = document.createElement('div');
+      topTemp.id = "topTemp";
+      topTemp.innerHTML = "30&#8451;"
+      //create bottom temp div
+      let bottomTemp = document.createElement('div');
+      bottomTemp.id = "bottomTemp";
+      bottomTemp.innerHTML = "<div>0&#8451;</div>"
+      //add classes to temp divs
+      topTemp.classList.add('temp');
+      bottomTemp.classList.add('temp');
+      //append divs to parents
+      gradientContainer.appendChild(gradient);
+      tempContainer.appendChild(topTemp);
+      tempContainer.appendChild(bottomTemp);
+      mainContainerContent.appendChild(gradientContainer);
+      mainContainerContent.appendChild(tempContainer);
+      mainContainer.appendChild(mainContainerContent);
+      keys.appendChild(mainContainer);
     }
   }
 };
@@ -244,7 +287,7 @@ $buttonActiveTextColor: #fff;
 }
 
 #tabs {
-  height: 60px;
+  align-self: flex-start;
   width: 25px;
   order: 2;
   background: $background;
@@ -308,5 +351,41 @@ $buttonActiveTextColor: #fff;
     }
   }
 }
+}
+</style>
+<style lang="scss">
+#mainContainer{
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+}
+#mainContainerContent{
+  display: flex;
+}
+#legendGradientContainer{
+  padding: 5px 0;
+}
+#legendGradient{
+  background-image: linear-gradient(180deg, #730000, #c4c1b6, #10305d);
+  min-height: 100px;
+  width: 30px;
+  margin: 0 5px 0 0;
+  border-radius: 5px;
+}
+#tempContainer{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.temp{
+  flex: 1;
+}
+#bottomTemp{
+  position: relative;
+  div{
+    position: absolute;
+    bottom: 0;
+  }
 }
 </style>
