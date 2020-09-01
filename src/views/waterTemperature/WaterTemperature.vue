@@ -12,6 +12,9 @@
         @clickedInfoIcon="toggleMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
+      <MapLegend
+        :legend-title="legendTitle"
+      />
       <MglMap
         id="mapgl-water-temperature-mapbox-map"
         :container="container"
@@ -58,6 +61,7 @@
     import LoadingScreenInternal from "../../components/LoadingScreenInternal";
     import MapSubtitle from "../../components/MapSubtitle";
     import MapLayers from "../../components/MapLayers";
+    import MapLegend from "../../components/MapLegend";
     import { icon } from "@fortawesome/fontawesome-svg-core";
     import QuestionControl from "../../components/QuestionControl";
     import {
@@ -81,6 +85,7 @@
             MglFullscreenControl,
             MglScaleControl,
             MglAttributionControl,
+            MapLegend,
             MapLayers,
             QuestionControl
         },
@@ -97,6 +102,7 @@
                 bearing: 0, // starting rotation of the map from 0 to 360
                 maxBounds: [[-168.534393,-4.371744], [-19.832382,71.687625]], // The coordinates needed to make a bounding box for the continental United States.
                 isInteractive: true,
+                legendTitle: 'Water Temp',
                 isLoading: true,
                 currentZoom: null,
                 isAboutMapInfoBoxOpen: true,
