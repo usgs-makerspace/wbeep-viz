@@ -175,10 +175,14 @@
   }
   #mapContainer {
     position: relative;
-    height: 80vh;
+    flex: 1;
     min-height: 550px;
     display: flex;
     flex-direction: column;
+  }
+
+  #mapgl-water-temperature-mapbox-map{
+    flex: 1;
   }
 
   .zoom-in-selection-controls {
@@ -225,10 +229,6 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-    }
-    #mapContainer {
-      flex: 1;
-      height: auto;
     }
   }
 </style>
