@@ -1,5 +1,6 @@
 <template>
   <div
+    @click.once="clickAnywhereToCloseMapInfoBox"
     id="water-use-container"
     class="centeredContent waterUseFlex"
   >
@@ -32,6 +33,13 @@
         class="bordered"
       >
         Map
+        <router-link to="/water-use/questions-answers">
+          <div
+            id="waterUseQuestion"
+          >
+            <font-awesome-icon icon="question" class="icon-map-control-question" />
+          </div>
+        </router-link>
       </div>
       <div
         id="waterUseBarChartContainer"
@@ -77,6 +85,10 @@
       toggleMapInfoBox() {
         !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
       },
+      clickAnywhereToCloseMapInfoBox() {
+        this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
+        this.isFirstClick = false;
+      },
     }
   }
 </script>
@@ -102,6 +114,9 @@
   flex: 1;
   padding: 0 10px;
   position: relative;
+  a{
+    color: #000;
+  }
 }
 #water-use-content{
   width: 100%;
@@ -129,7 +144,31 @@
 }
 #waterUseMapContainer{
   flex: 2;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  position: relative;
+}
+
+#waterUseQuestion{
+  position:absolute;
+  top: 0px;
+  right: 0px;
+  width: 29px;
+  height: 29px;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  cursor: pointer;
+  text-align: center;
+  svg{
+    width: 18px;
+    height: 18px;
+    margin: 4px 1px 0 0;
+  }
 }
 
 #waterUseBarChartContainer{
