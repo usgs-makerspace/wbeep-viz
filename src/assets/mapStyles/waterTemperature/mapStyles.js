@@ -225,8 +225,7 @@ export default {
                 'layout': {
                     'visibility': 'none'
                 },
-                'showButtonLayerToggle': true,
-                'showButtonStreamToggle': false,
+                'showButtonLayerToggle': true
             },
             {
                 'id': 'Counties',
