@@ -1,5 +1,6 @@
 <template>
   <div
+    @click.once="clickAnywhereToCloseMapInfoBox"
     id="water-use-container"
     class="centeredContent waterUseFlex"
   >
@@ -83,6 +84,10 @@
       },
       toggleMapInfoBox() {
         !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
+      },
+      clickAnywhereToCloseMapInfoBox() {
+        this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
+        this.isFirstClick = false;
       },
     }
   }
