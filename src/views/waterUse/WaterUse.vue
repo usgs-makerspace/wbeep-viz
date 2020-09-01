@@ -1,19 +1,44 @@
 <template>
-  <div id="water-use-container" class="centeredContent waterUseFlex">
+  <div
+    id="water-use-container"
+    class="centeredContent waterUseFlex"
+  >
     <MapSubtitle 
       :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
       @clickedInfoIcon="toggleMapInfoBox()"
       @clickedExit="toggleMapInfoBox()"
     />
-    <div id="water-use-content" class="waterUseFlex">
+    <div
+      id="water-use-content"
+      class="waterUseFlex"
+    >
       <LoadingScreenInternal />
-      <div id="buttonsContainer" class="centeredContent">
-        <button class="waterUseButton">Thermoelectric</button>
-        <button class="waterUseButton">Irrigation</button>
-        <button class="waterUseButton">Public Supply</button>
+      <div
+        id="buttonsContainer"
+        class="centeredContent"
+      >
+        <button class="waterUseButton">
+          Thermoelectric
+        </button>
+        <button class="waterUseButton">
+          Irrigation
+        </button>
+        <button class="waterUseButton">
+          Public Supply
+        </button>
       </div>
-      <div id="waterUseMapContainer" class="bordered">Map</div>
-      <div id="waterUseBarChartContainer" class="bordered">BarChart</div>
+      <div
+        id="waterUseMapContainer"
+        class="bordered"
+      >
+        Map
+      </div>
+      <div
+        id="waterUseBarChartContainer"
+        class="bordered"
+      >
+        BarChart
+      </div>
     </div>
   </div>
 </template>

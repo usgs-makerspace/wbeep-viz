@@ -4,8 +4,12 @@
     class="subtitle"
   >
     <div class="subtitleText">
-      <p v-if="this.$route.name==='waterStorage' || this.$route.name==='waterTemperature'">Showing Latest Available Data: <span class="nowrap"><strong>{{ dataDate }}</strong></span></p>
-      <p v-if="this.$route.name==='waterUse'">Showing Data for all of <span class="nowrap"><strong>2015</strong></span></p>
+      <p v-if="this.$route.name==='waterStorage' || this.$route.name==='waterTemperature'">
+        Showing Latest Available Data: <span class="nowrap"><strong>{{ dataDate }}</strong></span>
+      </p>
+      <p v-if="this.$route.name==='waterUse'">
+        Showing Data for all of <span class="nowrap"><strong>2015</strong></span>
+      </p>
     </div>
   </div>
 </template>
