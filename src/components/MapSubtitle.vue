@@ -26,7 +26,7 @@
           </a>
         </div>
       </div>
-      <MapAvailableDataDate v-if="currentFeature === 'waterStorage' || currentFeature === 'waterTemperature'" />
+      <MapAvailableDataDate />
       <SubtitleModal
         v-if="isAboutMapInfoBoxOpen"
         @clickedExit="$emit('clickedExit')"

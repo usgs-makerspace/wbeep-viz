@@ -87,7 +87,7 @@
 #buttonsContainer{
   height: 40px;
   display: flex;
-  margin: 50px 0 20px 0;
+  margin: 90px 0 20px 0;
   .waterUseButton{
     flex: 1;
     background: #000;
