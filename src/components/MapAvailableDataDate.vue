@@ -4,7 +4,12 @@
     class="subtitle"
   >
     <div class="subtitleText">
-      <p>Showing Latest Available Data: <span class="nowrap"><strong>{{ dataDate }}</strong></span></p>
+      <p v-if="this.$route.name==='waterStorage' || this.$route.name==='waterTemperature'">
+        Showing Latest Available Data: <span class="nowrap"><strong>{{ dataDate }}</strong></span>
+      </p>
+      <p v-if="this.$route.name==='waterUse'">
+        Showing Data for all of <span class="nowrap"><strong>2015</strong></span>
+      </p>
     </div>
   </div>
 </template>
@@ -45,19 +50,13 @@
   .subtitle {
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.8);
-    position: absolute;
-    top: 47px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px;
     z-index: 1;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     text-align: center;
     border: 1px solid rgb(200, 200, 200);
-    width: 70%;
-    max-width: 260px;
-
 
     p {
       margin: 0;

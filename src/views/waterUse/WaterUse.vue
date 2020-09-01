@@ -1,8 +1,14 @@
 <template>
   <div
+    @click.once="clickAnywhereToCloseMapInfoBox"
     id="water-use-container"
     class="centeredContent waterUseFlex"
   >
+    <MapSubtitle 
+      :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
+      @clickedInfoIcon="toggleMapInfoBox()"
+      @clickedExit="toggleMapInfoBox()"
+    />
     <div
       id="water-use-content"
       class="waterUseFlex"
@@ -27,6 +33,13 @@
         class="bordered"
       >
         Map
+        <router-link to="/water-use/questions-answers">
+          <div
+            id="waterUseQuestion"
+          >
+            <font-awesome-icon icon="question" class="icon-map-control-question" />
+          </div>
+        </router-link>
       </div>
       <div
         id="waterUseBarChartContainer"
@@ -40,11 +53,13 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
+  import MapSubtitle from "../../components/MapSubtitle";
 
   export default {
     name: 'WaterUse',
     components: {
-        LoadingScreenInternal
+        LoadingScreenInternal,
+        MapSubtitle
     },
     data() {
       return {
@@ -52,7 +67,8 @@
         titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
-        isLoading: true
+        isLoading: true,
+        isAboutMapInfoBoxOpen: true
       }
     },
     mounted(){
@@ -65,7 +81,14 @@
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
         this.$ga.event(eventName, action, label);
-      }
+      },
+      toggleMapInfoBox() {
+        !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
+      },
+      clickAnywhereToCloseMapInfoBox() {
+        this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
+        this.isFirstClick = false;
+      },
     }
   }
 </script>
@@ -89,8 +112,11 @@
 }
 #water-use-container {
   flex: 1;
-  margin: 20px 0;
   padding: 0 10px;
+  position: relative;
+  a{
+    color: #000;
+  }
 }
 #water-use-content{
   width: 100%;
@@ -101,6 +127,7 @@
 #buttonsContainer{
   height: 40px;
   display: flex;
+  margin: 90px 0 20px 0;
   .waterUseButton{
     flex: 1;
     background: #000;
@@ -118,6 +145,30 @@
 #waterUseMapContainer{
   flex: 2;
   margin: 20px 0;
+  position: relative;
+}
+
+#waterUseQuestion{
+  position:absolute;
+  top: 0px;
+  right: 0px;
+  width: 29px;
+  height: 29px;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  cursor: pointer;
+  text-align: center;
+  svg{
+    width: 18px;
+    height: 18px;
+    margin: 4px 1px 0 0;
+  }
 }
 
 #waterUseBarChartContainer{

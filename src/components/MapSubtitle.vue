@@ -1,41 +1,48 @@
 <template>
   <div id="subTitleContainer">
-    <div id="subtitle">
-      <div id="subtitleText">
-        <p v-if="currentFeature === 'waterStorage'">
-          An Indicator of Natural Water Storage
-        </p>
-        <p v-if="currentFeature === 'waterTemperature'">
-          Stream Temperature
-        </p>
+    <div id="subtitleContent">
+      <div id="subtitle">
+        <div id="subtitleText">
+          <p v-if="currentFeature === 'waterStorage'">
+            An Indicator of Natural Water Storage
+          </p>
+          <p v-if="currentFeature === 'waterTemperature'">
+            Stream Temperature
+          </p>
+          <p v-if="currentFeature === 'waterUse'">
+            Water Use
+          </p>
+        </div>
+        <div id="subtitleInfoButton">
+          <a
+            id="subtitleIcon"
+            v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user opened about text box')"
+            href="javascript:void(0);"
+            aria-label="more information link"
+            class="icon"
+            @click="$emit('clickedInfoIcon')"
+          >
+            <font-awesome-icon icon="info" />
+          </a>
+        </div>
       </div>
-      <div id="subtitleInfoButton">
-        <a
-          id="subtitleIcon"
-          v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user opened about text box')"
-          href="javascript:void(0);"
-          aria-label="more information link"
-          class="icon"
-          @click="$emit('clickedInfoIcon')"
-        >
-          <font-awesome-icon icon="info" />
-        </a>
-      </div>
+      <MapAvailableDataDate />
+      <SubtitleModal
+        v-if="isAboutMapInfoBoxOpen"
+        @clickedExit="$emit('clickedExit')"
+      />
     </div>
-    <div id="data-date-div" />
-    <SubtitleModal
-      v-if="isAboutMapInfoBoxOpen"
-      @clickedExit="$emit('clickedExit')"
-    />
   </div>
 </template>
 
 <script>
 import SubtitleModal from "./SubtitleModal";
+import MapAvailableDataDate from "./MapAvailableDataDate";
 export default {
   name: "MapSubtitle",
   components: {
-    SubtitleModal
+    SubtitleModal,
+    MapAvailableDataDate
   },
   props: {
     isAboutMapInfoBoxOpen: {
