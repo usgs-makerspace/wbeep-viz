@@ -1,8 +1,8 @@
 <template>
   <div
-    @click.once="clickAnywhereToCloseMapInfoBox"
     id="water-use-container"
     class="centeredContent waterUseFlex"
+    @click.once="clickAnywhereToCloseMapInfoBox"
   >
     <MapSubtitle 
       :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -37,7 +37,10 @@
           <div
             id="waterUseQuestion"
           >
-            <font-awesome-icon icon="question" class="icon-map-control-question" />
+            <font-awesome-icon
+              icon="question"
+              class="icon-map-control-question"
+            />
           </div>
         </router-link>
       </div>
