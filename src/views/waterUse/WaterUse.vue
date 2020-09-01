@@ -109,13 +109,10 @@
 #water-use-container {
   flex: 1;
   padding: 0 10px;
-<<<<<<< HEAD
+  position: relative;
   a{
     color: #000;
   }
-=======
-  position: relative;
->>>>>>> 6bb621f0e557996cae140cb1d082d67158e20755
 }
 #water-use-content{
   width: 100%;
@@ -143,7 +140,6 @@
 }
 #waterUseMapContainer{
   flex: 2;
-<<<<<<< HEAD
   margin: 20px 0;
   position: relative;
 }
@@ -169,9 +165,6 @@
     height: 18px;
     margin: 4px 1px 0 0;
   }
-=======
-  margin-bottom: 20px;
->>>>>>> 6bb621f0e557996cae140cb1d082d67158e20755
 }
 
 #waterUseBarChartContainer{
