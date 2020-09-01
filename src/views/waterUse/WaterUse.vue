@@ -1,25 +1,57 @@
 <template>
-  <div id="water-use-container" class="centeredContent waterUseFlex">
-    <div id="water-use-content" class="waterUseFlex">
+  <div
+    id="water-use-container"
+    class="centeredContent waterUseFlex"
+  >
+    <MapSubtitle 
+      :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
+      @clickedInfoIcon="toggleMapInfoBox()"
+      @clickedExit="toggleMapInfoBox()"
+    />
+    <div
+      id="water-use-content"
+      class="waterUseFlex"
+    >
       <LoadingScreenInternal />
-      <div id="buttonsContainer" class="centeredContent">
-        <button class="waterUseButton">Thermoelectric</button>
-        <button class="waterUseButton">Irrigation</button>
-        <button class="waterUseButton">Public Supply</button>
+      <div
+        id="buttonsContainer"
+        class="centeredContent"
+      >
+        <button class="waterUseButton">
+          Thermoelectric
+        </button>
+        <button class="waterUseButton">
+          Irrigation
+        </button>
+        <button class="waterUseButton">
+          Public Supply
+        </button>
       </div>
-      <div id="waterUseMapContainer" class="bordered">Map</div>
-      <div id="waterUseBarChartContainer" class="bordered">BarChart</div>
+      <div
+        id="waterUseMapContainer"
+        class="bordered"
+      >
+        Map
+      </div>
+      <div
+        id="waterUseBarChartContainer"
+        class="bordered"
+      >
+        BarChart
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
+  import MapSubtitle from "../../components/MapSubtitle";
 
   export default {
     name: 'WaterUse',
     components: {
-        LoadingScreenInternal
+        LoadingScreenInternal,
+        MapSubtitle
     },
     data() {
       return {
@@ -27,7 +59,8 @@
         titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
-        isLoading: true
+        isLoading: true,
+        isAboutMapInfoBoxOpen: true
       }
     },
     mounted(){
@@ -40,7 +73,10 @@
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
         this.$ga.event(eventName, action, label);
-      }
+      },
+      toggleMapInfoBox() {
+        !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
+      },
     }
   }
 </script>
@@ -64,8 +100,8 @@
 }
 #water-use-container {
   flex: 1;
-  margin: 20px 0;
   padding: 0 10px;
+  position: relative;
 }
 #water-use-content{
   width: 100%;
@@ -76,6 +112,7 @@
 #buttonsContainer{
   height: 40px;
   display: flex;
+  margin: 90px 0 20px 0;
   .waterUseButton{
     flex: 1;
     background: #000;
@@ -92,7 +129,7 @@
 }
 #waterUseMapContainer{
   flex: 2;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 #waterUseBarChartContainer{

@@ -22,7 +22,6 @@
         @clickedInfoIcon="toggleMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
-      <MapAvailableDataDate />
       <MapLegend
         :legend-title="legendTitle"
       />
@@ -71,7 +70,6 @@
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapSubtitle from "../../components/MapSubtitle";
-  import MapAvailableDataDate from "../../components/MapAvailableDataDate";
   import MapLegend from "../../components/MapLegend";
   import MapLayers from "../../components/MapLayers";
   import { icon } from "@fortawesome/fontawesome-svg-core";
@@ -93,7 +91,6 @@
           LoadingScreenInternal,
           MglMap,
           MapSubtitle,
-          MapAvailableDataDate,
           MglNavigationControl,
           MglGeolocateControl,
           MglFullscreenControl,
