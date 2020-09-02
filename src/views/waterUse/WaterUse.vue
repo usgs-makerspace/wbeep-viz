@@ -42,7 +42,7 @@
         id="waterUseBarChartContainer"
         class="bordered"
       >
-        BarChart
+        <DynamicBarChart @click.native="test($event)" :barchart="barchart" />
       </div>
     </div>
   </div>
@@ -52,13 +52,15 @@
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapSubtitle from "../../components/MapSubtitle";
   import DynamicIcon from "../../components/DynamicIcon";
+  import DynamicBarChart from "../../components/DynamicBarChart";
 
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
         MapSubtitle,
-        DynamicIcon
+        DynamicIcon,
+        DynamicBarChart
     },
     data() {
       return {
@@ -68,7 +70,10 @@
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,
         isAboutMapInfoBoxOpen: true,
-        icon: "thermoelectric"
+        icon: "thermoelectricSpring",
+        barchart: "barChart",
+        useParemeter: "thermoelectric",
+        season: "Spring"
       }
     },
     mounted(){
@@ -78,8 +83,13 @@
       }, 100)
     },
     methods: {
+      test(event){
+        this.season = event.target.id;
+        this.icon = this.useParemeter + this.season;
+      },
       useButtonClick(event){
-        this.icon = event.target.id;
+        this.useParemeter = event.target.id;
+        this.icon =  this.useParemeter + this.season;
       },
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
@@ -176,6 +186,31 @@
 
 #waterUseBarChartContainer{
   flex: 1;
+  svg{
+    path{
+      stroke: #000;
+    }
+  }
+}
+
+#Fall, #Spring, #Summer, #Winter{
+  opacity: 0;
+}
+
+.cls-1{
+  fill: orange;
+}
+#summerGroup .cls-2{
+  fill: #000;
+}
+#summerGroup path{
+  fill: red;
+}
+.cls-5{
+  fill: greenyellow;
+}
+.cls-6{
+  fill: aquamarine;
 }
 
 @media screen and (min-width: 600px){
