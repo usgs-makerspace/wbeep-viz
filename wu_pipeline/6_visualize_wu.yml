@@ -1,0 +1,82 @@
+target_default: 6_visualize_wu
+
+packages:
+  - dplyr
+  - sf
+  - xml2
+
+sources:
+  - 6_visualize/src/seasonal_map_tasks.R
+  - 6_visualize/src/build_svg_map.R
+  - 6_visualize/src/build_svg_bars.R
+  - 6_visualize/src/svg_utils.R
+
+targets:
+  6_visualize_wu:
+    depends:
+      - seasonal_maps_te
+      - seasonal_maps_ir
+      - 6_visualize/out/svg_bars_te.svg
+      - 6_visualize/out/svg_bars_ir.svg
+      - svg_bars_te_copied
+      - svg_bars_ir_copied
+  
+  svg_height:
+    command: c(800)
+  svg_width:
+    command: c(1000)
+  
+  ##### Create SVGs for maps #####
+  
+  svg_huc_locations:
+    command: convert_hucs_to_svg(
+      huc_locations_sf = huc12_centroids, 
+      svg_width)
+  
+  seasonal_maps_te:
+    command: make_seasonal_maps(
+      seasons = seasons,
+      wu_type_cd = I('te'),
+      '2_process/src/process_per_season.R',
+      '6_visualize/src/build_svg_map.R')
+    depends:
+      - svg_huc_locations
+  
+  seasonal_maps_ir:
+    command: make_seasonal_maps(
+      seasons = seasons,
+      wu_type_cd = I('ir'),
+      '2_process/src/process_per_season.R',
+      '6_visualize/src/build_svg_map.R')
+    depends:
+      - svg_huc_locations
+  
+  ##### Create SVGs for bar charts #####
+  
+  6_visualize/out/svg_bars_te.svg:
+    command: build_svg_bars(
+      target_name,
+      wu_te_totals,
+      wu_type_cd = I("te"),
+      svg_height,
+      svg_width)
+  
+  # Copy SVG over to Vue location
+  svg_bars_te_copied:
+    command: file.copy(
+      from = "6_visualize/out/svg_bars_te.svg",
+      to = I("../src/assets/wuBarSVGs/svg_bars_te.svg"))
+  
+  6_visualize/out/svg_bars_ir.svg:
+    command: build_svg_bars(
+      target_name,
+      wu_ir_totals,
+      wu_type_cd = I("ir"),
+      svg_height,
+      svg_width)
+  
+  # Copy SVG over to Vue location
+  svg_bars_ir_copied:
+    command: file.copy(
+      from = "6_visualize/out/svg_bars_ir.svg",
+      to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"))

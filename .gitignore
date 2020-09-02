@@ -22,3 +22,11 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# R pipeline stuff
+.Rproj.user
+*.Rproj
+.Rhistory
+.remake/
+*/*/out/*
+*tasks*.yml
