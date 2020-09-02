@@ -1,0 +1,54 @@
+target_default: 1_fetch_wu
+
+packages:
+  - sbtools
+
+sources:
+  - 1_fetch/src/fetch_sb_files.R
+
+targets:
+  1_fetch_wu:
+    depends:
+      - 1_fetch/out/wuval_te.csv
+      - 1_fetch/out/wuval_ir.csv
+      - 1_fetch/out/huc12_polys.json
+  
+  sb_dl_date:
+    command: c(I("2020-08-21"))
+  
+  sbid_thermoelectric:
+    command: c(I("5ee3d77682ce3bd58d7e1dcb"))
+  sbid_irrigation:
+    command: c(I("5ee3d70d82ce3bd58d7e1dc0"))
+  
+  1_fetch/out/wuval_te.csv:
+    command: download_sb_single_file(
+      target_name = target_name,
+      sb_id = sbid_thermoelectric, 
+      sb_filename = I('HUC12_TE_2015_SWGWwith.csv'),
+      dummy = sb_dl_date,
+      user_specific = TRUE)
+      
+  1_fetch/out/wuval_ir.csv:
+    command: download_sb_single_file(
+      target_name = target_name,
+      sb_id = sbid_irrigation, 
+      sb_filename = I('HUC12_Irr_Daily_ETa_ratio5_TW.csv'),
+      dummy = sb_dl_date,
+      user_specific = TRUE)
+  
+  1_fetch/out/huc12_polys.7z:
+    command: download_sb_single_file(
+      target_name = target_name,
+      sb_id = sbid_thermoelectric, 
+      sb_filename = I('HUC12_CONUS.7z'),
+      dummy = sb_dl_date,
+      user_specific = TRUE)
+  
+  # [lplatt, Windows user] cannot figure out automated way to unzip 7z files
+  # So, it is a manual step built into the pipeline - which will pause, wait 
+  # for the user to unzip, and then continue.
+  1_fetch/out/huc12_polys.json:
+    command: manually_unzip_file(
+      target_name = target_name,
+      zipped_fn = "1_fetch/out/huc12_polys.7z")

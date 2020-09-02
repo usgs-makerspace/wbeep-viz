@@ -1,0 +1,11 @@
+include:
+  - 1_fetch_wu.yml
+  - 2_process_wu.yml
+  - 6_visualize_wu.yml
+
+targets:
+  all:
+    depends:
+      - 1_fetch_wu
+      - 2_process_wu
+      - 6_visualize_wu
