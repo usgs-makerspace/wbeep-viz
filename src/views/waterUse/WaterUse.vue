@@ -18,21 +18,15 @@
         id="buttonsContainer"
         class="centeredContent"
       >
-        <button class="waterUseButton">
-          Thermoelectric
-        </button>
-        <button class="waterUseButton">
-          Irrigation
-        </button>
-        <button class="waterUseButton">
-          Public Supply
-        </button>
+        <button @click="useButtonClick($event)" id="thermoelectric" class="waterUseButton">Thermoelectric</button>
+        <button @click="useButtonClick($event)" id="irrigation" class="waterUseButton">Irrigation</button>
+        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
         class="bordered"
       >
-        Map
+        <DynamicIcon :icon="icon" />
         <router-link to="/water-use/questions-answers">
           <div
             id="waterUseQuestion"
@@ -57,12 +51,14 @@
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapSubtitle from "../../components/MapSubtitle";
+  import DynamicIcon from "../../components/DynamicIcon";
 
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
-        MapSubtitle
+        MapSubtitle,
+        DynamicIcon
     },
     data() {
       return {
@@ -71,7 +67,8 @@
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,
-        isAboutMapInfoBoxOpen: true
+        isAboutMapInfoBoxOpen: true,
+        icon: "thermoelectric"
       }
     },
     mounted(){
@@ -81,6 +78,9 @@
       }, 100)
     },
     methods: {
+      useButtonClick(event){
+        this.icon = event.target.id;
+      },
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
         this.$ga.event(eventName, action, label);
