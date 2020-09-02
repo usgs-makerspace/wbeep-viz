@@ -1,0 +1,53 @@
+target_default: 2_process_wu
+
+packages:
+  - dplyr
+  - dataRetrieval # needed for zeroPad
+  - geojsonsf
+  - sf
+
+sources:
+  - 2_process/src/read_prep_files.R
+  - 2_process/src/process_per_season.R
+  - 2_process/src/summarize_wu.R
+
+targets:
+  2_process_wu:
+    depends:
+      - huc12_centroids
+      - wu_te
+      - wu_ir
+      - wu_te_totals
+      - wu_ir_totals
+  
+  # Setup seasonal map tasks
+  winter_date:
+    command: as.Date(I("2015-01-15"))
+  spring_date:
+    command: as.Date(I("2015-04-15"))
+  summer_date:
+    command: as.Date(I("2015-07-15"))
+  fall_date:
+    command: as.Date(I("2015-10-15"))
+  seasons:
+    command: c(I("winter"), I("spring"), I("summer"), I("fall"))
+  
+  # Takes 16 minutes
+  huc12_polys:
+    command: read_and_parse_huc12(huc12_fn = "1_fetch/out/huc12_polys.json")
+  huc12_centroids:
+    command: st_centroid(huc12_polys)
+  huc10_polys:
+    command: read_and_parse_huc10(huc10_fn = I("https://earthengine-stac.storage.googleapis.com/catalog/USGS_WBD_2017_HUC10.json"))
+  
+  # Load water use data, standardize, and change to long format
+  wu_te:
+    command: read_and_parse_wu("1_fetch/out/wuval_te.csv")
+  wu_ir:
+    command: read_and_parse_wu("1_fetch/out/wuval_ir.csv", is_irr = TRUE)
+  
+  # Total daily water use values for bar chart
+  wu_te_totals:
+    command: summarize_wu(wu_te)
+  wu_ir_totals:
+    command: summarize_wu(wu_ir)
