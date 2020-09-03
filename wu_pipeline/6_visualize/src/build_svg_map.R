@@ -57,16 +57,15 @@ add_background_map <- function(svg, svg_width) {
   
   map_data <- maps::map("usa", fill = TRUE, plot=FALSE) %>% 
     sf::st_as_sf() %>% 
-    st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs") %>% 
-    convert_coords_to_svg(svg_width)
+    st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
   
-  # Build path
-  first_pt_x <- head(map_data$x, 1)
-  first_pt_y <- head(map_data$y, 1)
-  d <- sprintf("M%s %s %s Z", first_pt_x, head(map_data$y, 1),
-               paste0("L", c(tail(map_data$x, -1), first_pt_x), " ", 
-                      c(tail(map_data$y, -1), first_pt_y), collapse = " "))
-  
-  xml_add_child(svg, 'g', id = "bkgrd-map-grp") %>% 
-    xml_add_child('path', d = d, class='map-bkgrd')
+  bkgrd_grp <- xml_add_child(svg, 'g', id = "bkgrd-map-grp")
+  purrr::map(map_data$ID, function(polygon_id, map_data, svg_width) {
+    d <- map_data %>% 
+      filter(ID == polygon_id) %>% 
+      convert_coords_to_svg(view_bbox = st_bbox(map_data), svg_width) %>% 
+      build_path_from_coords()
+    xml_add_child(bkgrd_grp, 'path', d = d, class='map-bkgrd')
+  }, map_data, svg_width)
+    
 }

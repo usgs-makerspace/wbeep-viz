@@ -13,27 +13,46 @@ convert_hucs_to_svg <- function(huc_locations_sf, svg_width) {
     mutate(HUC12 = huc_locations_sf$HUC12)
 }
 
+build_path_from_coords <- function(coords) {
+  # Build path
+  first_pt_x <- head(coords$x, 1)
+  first_pt_y <- head(coords$y, 1)
+  d <- sprintf("M%s %s %s Z", first_pt_x, head(coords$y, 1),
+               paste0("L", c(tail(coords$x, -1), first_pt_x), " ", 
+                      c(tail(coords$y, -1), first_pt_y), collapse = " "))
+  return(d)
+}
+
 #TODO: might be able to use round() to simplify the SVG decimals used
 #TODO: one path element per polygon
-convert_coords_to_svg <- function(sf_obj, svg_width) {
+convert_coords_to_svg <- function(sf_obj, svg_width, view_bbox = NULL) {
   
   coords <- st_coordinates(sf_obj)
   x_dec <- coords[,1]
   y_dec <- coords[,2]
   
+  # Using the whole view, figure out coordinates
+  # If view_bbox isn't provided, assume sf_obj is the whole view
+  if(is.null(view_bbox)) view_bbox <- st_bbox(sf_obj)
+  
+  x_extent <- c(view_bbox$xmin, view_bbox$xmax)
+  y_extent <- c(view_bbox$ymin, view_bbox$ymax)
+  
   # Calculate aspect ratio
-  aspect_ratio <- diff(range(x_dec))/diff(range(y_dec))
+  aspect_ratio <- diff(x_extent)/diff(y_extent)
   
   # Figure out what the svg_height is based on svg_width, maintaining the aspect ratio
   svg_height <- svg_width / aspect_ratio
   
   # Convert longitude and latitude to SVG horizontal and vertical positions
   # Remember that SVG vertical position has 0 on top
-  x_pixels <- (x_dec - min(x_dec)) # Make it so that the minimum longitude = 0 pixels
-  y_pixels <- (y_dec - min(y_dec)) # Make it so that the maximum latitude = 0
+  x_extent_pixels <- x_extent - view_bbox$xmin
+  y_extent_pixels <- y_extent - view_bbox$ymin
+  x_pixels <- x_dec - view_bbox$xmin # Make it so that the minimum longitude = 0 pixels
+  y_pixels <- y_dec - view_bbox$ymin # Make it so that the maximum latitude = 0
   
   data.frame(
-    x = approx(range(x_pixels), c(0, svg_width), x_pixels)$y,
-    y = approx(range(y_pixels), c(svg_height, 0), y_pixels)$y
+    x = approx(x_extent_pixels, c(0, svg_width), x_pixels)$y,
+    y = approx(y_extent_pixels, c(svg_height, 0), y_pixels)$y
   )
 }
