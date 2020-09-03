@@ -68,7 +68,8 @@ targets:
   svg_bars_te_copied:
     command: file.copy(
       from = "6_visualize/out/svg_bars_te.svg",
-      to = I("../src/assets/wuBarSVGs/svg_bars_te.svg"))
+      to = I("../src/assets/wuBarSVGs/svg_bars_te.svg"),
+      overwrite = TRUE)
   
   6_visualize/out/svg_bars_ir.svg:
     command: build_svg_bars(
@@ -82,4 +83,5 @@ targets:
   svg_bars_ir_copied:
     command: file.copy(
       from = "6_visualize/out/svg_bars_ir.svg",
-      to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"))
+      to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"),
+      overwrite = TRUE)

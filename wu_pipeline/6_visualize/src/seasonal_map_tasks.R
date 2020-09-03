@@ -63,8 +63,10 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
       sprintf("svg_map_%s_%s_copied", wu_type_cd, task_name)
     },
     command = function(steps, task_name, ...) {
-      sprintf("file.copy(from = '%s', to = I('../src/assets/wuMapSVGs/svg_map_%s_%s.svg'))",
-              steps[["buildsvg"]]$target_name, wu_type_cd, task_name)
+      psprintf("file.copy(",
+               "from = '%s'," = steps[["buildsvg"]]$target_name,
+               "to = I('../src/assets/wuMapSVGs/svg_map_%s_%s.svg')," = c(wu_type_cd, task_name),
+               "overwrite = TRUE)")
     }
   )
   
