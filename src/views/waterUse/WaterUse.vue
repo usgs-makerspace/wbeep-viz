@@ -4,11 +4,13 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
-    <MapSubtitle 
-      :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
-      @clickedInfoIcon="toggleMapInfoBox()"
-      @clickedExit="toggleMapInfoBox()"
-    />
+    <div id="mapSubtitleContainer">
+      <MapSubtitle 
+        :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
+        @clickedInfoIcon="toggleMapInfoBox()"
+        @clickedExit="toggleMapInfoBox()"
+      />
+    </div>
     <div
       id="water-use-content"
       class="waterUseFlex"
@@ -18,15 +20,15 @@
         id="buttonsContainer"
         class="centeredContent"
       >
-        <button @click="useButtonClick($event)" id="thermoelectric" class="waterUseButton">Thermoelectric</button>
-        <button @click="useButtonClick($event)" id="irrigation" class="waterUseButton">Irrigation</button>
+        <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
+        <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
         <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
         class="bordered"
       >
-        <DynamicIcon :icon="icon" />
+        <DynamicSVG :svg="svg" />
         <router-link to="/water-use/questions-answers">
           <div
             id="waterUseQuestion"
@@ -42,7 +44,7 @@
         id="waterUseBarChartContainer"
         class="bordered"
       >
-        <DynamicBarChart @click.native="test($event)" :barchart="barchart" />
+        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
       </div>
     </div>
   </div>
@@ -51,7 +53,7 @@
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapSubtitle from "../../components/MapSubtitle";
-  import DynamicIcon from "../../components/DynamicIcon";
+  import DynamicSVG from "../../components/DynamicSVG";
   import DynamicBarChart from "../../components/DynamicBarChart";
 
   export default {
@@ -59,7 +61,7 @@
     components: {
         LoadingScreenInternal,
         MapSubtitle,
-        DynamicIcon,
+        DynamicSVG,
         DynamicBarChart
     },
     data() {
@@ -70,26 +72,27 @@
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,
         isAboutMapInfoBoxOpen: true,
-        icon: "thermoelectricSpring",
+        svg: "svg_map_te_spring",
         barchart: "barChart",
-        useParemeter: "thermoelectric",
-        season: "Spring"
+        useParemeter: "te",
+        season: "spring"
       }
     },
     mounted(){
       let self = this;
+      document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
         this.isLoading = false;
       }, 100)
     },
     methods: {
-      test(event){
+      changeSeason(event){
         this.season = event.target.id;
-        this.icon = this.useParemeter + this.season;
+        this.svg = "svg_map_" + this.useParemeter + "_" + this.season;
       },
       useButtonClick(event){
         this.useParemeter = event.target.id;
-        this.icon =  this.useParemeter + this.season;
+        this.svg =  "svg_map_" + this.useParemeter + "_" + this.season;
       },
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
@@ -126,7 +129,6 @@
 #water-use-container {
   flex: 1;
   padding: 0 10px;
-  position: relative;
   a{
     color: #000;
   }
@@ -137,10 +139,15 @@
   flex: 1;
   display: flex;
 }
+#mapSubtitleContainer{
+  position: relative;
+  width: 100%;
+  height:78px;
+}
 #buttonsContainer{
   height: 40px;
   display: flex;
-  margin: 90px 0 20px 0;
+  margin: 10px 0 0 0;
   .waterUseButton{
     flex: 1;
     background: #000;
@@ -156,7 +163,6 @@
   }
 }
 #waterUseMapContainer{
-  flex: 2;
   margin: 20px 0;
   position: relative;
 }
@@ -185,18 +191,20 @@
 }
 
 #waterUseBarChartContainer{
-  flex: 1;
   svg{
     path{
       stroke: #000;
     }
   }
 }
-
+path.wu-dots{
+  stroke: #0080FF;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
 #Fall, #Spring, #Summer, #Winter{
   opacity: 0;
 }
-
 .cls-1{
   fill: orange;
 }
@@ -212,7 +220,6 @@
 .cls-6{
   fill: aquamarine;
 }
-
 @media screen and (min-width: 600px){
   #buttonsContainer{
     .waterUseButton{
@@ -220,6 +227,4 @@
     }
   }
 }
-
-
 </style>

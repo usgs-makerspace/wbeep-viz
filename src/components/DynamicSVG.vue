@@ -1,22 +1,22 @@
 <template>
-    <component :is="dynamicIcon" />
+    <component :is="dynamicSVG" />
 </template>
 <script>
 export default {
-    name: "DynamicIcon",
+    name: "DynamicSVG",
     props: {
-        icon: {
+        svg: {
             type: String,
             required: true,
         },
     },
     computed: {
-        dynamicIcon () {
-            this.icon;
+        dynamicSVG() {
+            this.svg;
             return () => import(
-                /* webpackChunkName: "icons" */
+                /* webpackChunkName: "MapSVGs" */
                 /* webpackMode: "lazy-once" */ 
-                `@/assets/images/icons/${this.icon}.svg`
+                `@/assets/wuMapSVGs/${this.svg}.svg`
             )
         }
     }

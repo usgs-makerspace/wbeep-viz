@@ -55,7 +55,7 @@ export default {
                     'visibility': 'visible'
                 },
                 'paint': {
-                    'line-color': 'hsl(0, 0%, 97%)',
+                    'line-color': '#000',
                     'line-width': {
                         'base': 1.55,
                         'stops': [
@@ -67,7 +67,6 @@ export default {
                 'source': 'openmaptiles',
                 'source-layer': 'transportation',
                 'type': 'line',
-                'minzoom': 5,
                 'maxzoom': 24,
                 'showButtonLayerToggle': true
             },

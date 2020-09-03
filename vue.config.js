@@ -9,7 +9,20 @@ module.exports = {
                 .loader('babel-loader')
                 .end()
                 .use('vue-svg-loader')
-                .loader('vue-svg-loader');
+                .loader('vue-svg-loader')
+                .options({
+                    svgo:{
+                        plugins: [
+                            {removeDoctype: true},
+                            {removeComments: true},
+                            {convertStyleToAttrs: false},
+                            {convertPathData: false},
+                            {cleanupIDs: false},
+                            {collapseGroups: false},
+                            {removeEmptyContainers: false}
+                        ]
+                    }
+                })
     },
     devServer: {                // this allows the use of Localtunnel to view your development environment on a mobile device or another computer
         disableHostCheck: true

@@ -14,7 +14,7 @@ export default {
         dynamicBarChart () {
             this.barchart;
             return () => import(
-                /* webpackChunkName: "icons" */
+                /* webpackChunkName: "barcharts" */
                 /* webpackMode: "lazy-once" */ 
                 `@/assets/images/barchart/${this.barchart}.svg`
             )
