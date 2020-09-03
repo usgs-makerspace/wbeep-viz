@@ -24,7 +24,6 @@ build_path_from_coords <- function(coords) {
 }
 
 #TODO: might be able to use round() to simplify the SVG decimals used
-#TODO: one path element per polygon
 convert_coords_to_svg <- function(sf_obj, svg_width, view_bbox = NULL) {
   
   coords <- st_coordinates(sf_obj)
