@@ -54,10 +54,7 @@ add_wu_data <- function(svg, wu_dat, wu_grp, class) {
 }
 
 add_background_map <- function(svg, svg_width) {
-  
-  map_data <- maps::map("usa", fill = TRUE, plot=FALSE) %>% 
-    sf::st_as_sf() %>% 
-    st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
+  map_data <- generate_usa_map_data()
   
   bkgrd_grp <- xml_add_child(svg, 'g', id = "bkgrd-map-grp")
   purrr::map(map_data$ID, function(polygon_id, map_data, svg_width) {

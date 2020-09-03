@@ -9,7 +9,7 @@ init_svg <- function(width = 8, height = 5, ppi = 72, id_keyword, is_pixels = FA
 
 convert_hucs_to_svg <- function(huc_locations_sf, svg_width) {
   huc_locations_sf %>% 
-    convert_coords_to_svg(svg_width) %>% 
+    convert_coords_to_svg(svg_width, view_bbox = st_bbox(generate_usa_map_data())) %>% 
     mutate(HUC12 = huc_locations_sf$HUC12)
 }
 
@@ -55,4 +55,15 @@ convert_coords_to_svg <- function(sf_obj, svg_width, view_bbox = NULL) {
     x = approx(x_extent_pixels, c(0, svg_width), x_pixels)$y,
     y = approx(y_extent_pixels, c(svg_height, 0), y_pixels)$y
   )
+}
+
+generate_usa_map_data <- function(proj_str = NULL) {
+  if(is.null(proj_str)) {
+    # Albers Equal Area
+    proj_str <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
+  }
+  
+  maps::map("usa", fill = TRUE, plot=FALSE) %>% 
+    sf::st_as_sf() %>% 
+    st_transform(proj_str)
 }
