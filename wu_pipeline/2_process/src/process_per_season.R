@@ -2,9 +2,9 @@ filter_to_season <- function(wu_dat, date) {
   wu_dat %>% filter(Date == date)
 }
 
-join_wu_to_huc_centroids <- function(wu_dat, huc_sf) {
+join_wu_to_huc_centroids <- function(wu_dat, huc_sf, huc_colname = "HUC12") {
   stopifnot(length(unique(wu_dat$Date)) == 1)
-  huc_sf %>% left_join(wu_dat, by = "HUC12")
+  huc_sf %>% left_join(wu_dat, by = huc_colname)
 }
 
 prep_wu_data_for_map <- function(wu_dat, stroke_width_range = c(2, 60)) {

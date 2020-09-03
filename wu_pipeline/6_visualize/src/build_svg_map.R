@@ -1,4 +1,4 @@
-build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, svg_height, svg_width, season, wu_type_cd) {
+build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, svg_height, svg_width, season, wu_type_cd, huc_colname = "HUC12") {
   
   ##### Create whole SVG #####
   svg_root <- init_svg(svg_width, svg_height, id_keyword = paste(wu_type_cd, season, sep="-"), is_pixels = TRUE)
@@ -8,7 +8,7 @@ build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, svg_height, svg_wid
   add_background_map(svg_root, svg_width)
   
   # Add HUC dots and size by water use values
-  add_wu_points(svg_root, wu_dat, svg_huc_locations, season, wu_type_cd)
+  add_wu_points(svg_root, wu_dat, svg_huc_locations, season, wu_type_cd, huc_colname)
 
   ##### Write out final SVG to file #####
   
@@ -16,11 +16,11 @@ build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, svg_height, svg_wid
   
 }
 
-add_wu_points <- function(svg, wu_dat, svg_huc_locations, season, wu_type_cd) {
+add_wu_points <- function(svg, wu_dat, svg_huc_locations, season, wu_type_cd, huc_colname) {
   
   # Prepare dot locations for SVG land
   wu_dat_svg <- wu_dat %>% 
-    left_join(svg_huc_locations, by = "HUC12")
+    left_join(svg_huc_locations, by = huc_colname)
   
   # Add a group for all of these pts
   wu_dot_grp <- xml_add_child(svg, 'g', id = sprintf("wu-dots-%s-%s", wu_type_cd, season))

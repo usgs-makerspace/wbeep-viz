@@ -30,13 +30,15 @@ targets:
   
   svg_huc_locations:
     command: convert_hucs_to_svg(
-      huc_locations_sf = huc12_centroids, 
-      svg_width)
+      huc_locations_sf = huc10_centroids, 
+      svg_width,
+      huc_colname = I("HUC10"))
   
   seasonal_maps_te:
     command: make_seasonal_maps(
       seasons = seasons,
       wu_type_cd = I('te'),
+      isHUC10 = TRUE,
       '2_process/src/process_per_season.R',
       '6_visualize/src/build_svg_map.R')
     depends:
@@ -46,6 +48,7 @@ targets:
     command: make_seasonal_maps(
       seasons = seasons,
       wu_type_cd = I('ir'),
+      isHUC10 = TRUE,
       '2_process/src/process_per_season.R',
       '6_visualize/src/build_svg_map.R')
     depends:

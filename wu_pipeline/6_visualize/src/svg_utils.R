@@ -7,10 +7,10 @@ init_svg <- function(width = 8, height = 5, ppi = 72, id_keyword, is_pixels = FA
   return(svg_root)
 }
 
-convert_hucs_to_svg <- function(huc_locations_sf, svg_width) {
+convert_hucs_to_svg <- function(huc_locations_sf, svg_width, huc_colname) {
   huc_locations_sf %>% 
-    convert_coords_to_svg(svg_width, view_bbox = st_bbox(generate_usa_map_data())) %>% 
-    mutate(HUC12 = huc_locations_sf$HUC12)
+    convert_coords_to_svg(svg_width, view_bbox = st_bbox(generate_usa_map_data())) %>%
+    mutate(!!huc_colname := huc_locations_sf[[huc_colname]]) 
 }
 
 build_path_from_coords <- function(coords) {
