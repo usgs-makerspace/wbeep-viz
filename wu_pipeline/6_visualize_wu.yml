@@ -22,7 +22,7 @@ targets:
       - svg_bars_ir_copied
   
   svg_height:
-    command: c(800)
+    command: c(625)
   svg_width:
     command: c(1000)
   
