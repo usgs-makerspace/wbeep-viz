@@ -5,10 +5,9 @@ read_and_parse_huc12 <- function(huc12_fn) {
     st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
 }
 
-read_and_parse_huc10<- function(huc10_fn) {
-  geojson_sf(huc10_fn) %>% 
-    st_make_valid() %>% 
-    select(HUC12, NAME, geometry) %>% 
+read_and_parse_huc10<- function(wbd_gdb_fn, layer_nm) {
+  st_read(wbd_gdb_fn, layer_nm) %>% 
+    select(HUC10 = huc10, NAME = name, geometry = shape) %>% 
     st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
 }
 
