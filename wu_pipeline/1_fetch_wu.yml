@@ -5,13 +5,14 @@ packages:
 
 sources:
   - 1_fetch/src/fetch_sb_files.R
+  - 1_fetch/src/fetch_wbd_gdb.R
 
 targets:
   1_fetch_wu:
     depends:
       - 1_fetch/out/wuval_te.csv
       - 1_fetch/out/wuval_ir.csv
-      - 1_fetch/out/huc12_polys.json
+      - 1_fetch/out/wbd.gdb
   
   sb_dl_date:
     command: c(I("2020-08-21"))
@@ -52,3 +53,9 @@ targets:
     command: manually_unzip_file(
       target_name = target_name,
       zipped_fn = "1_fetch/out/huc12_polys.7z")
+
+  1_fetch/out/wbd.gdb:
+    command: download_gdb(
+      target_name,
+      gdb_zip_url = I("https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/National/GDB/WBD_National_GDB.zip"), 
+      gdb_file = I("WBD_National_GDB.gdb"))

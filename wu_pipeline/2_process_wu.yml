@@ -14,7 +14,7 @@ sources:
 targets:
   2_process_wu:
     depends:
-      - huc12_centroids
+      - huc10_centroids
       - wu_te
       - wu_ir
       - wu_te_totals
@@ -38,13 +38,22 @@ targets:
   huc12_centroids:
     command: st_centroid(huc12_polys)
   huc10_polys:
-    command: read_and_parse_huc10(huc10_fn = I("https://earthengine-stac.storage.googleapis.com/catalog/USGS_WBD_2017_HUC10.json"))
+    command: read_and_parse_huc10(
+      wbd_gdb_fn = "1_fetch/out/wbd.gdb",
+      layer_nm = I("WBDHU10"))
+  huc10_centroids:
+    command: st_centroid(huc10_polys)
   
   # Load water use data, standardize, and change to long format
   wu_te:
     command: read_and_parse_wu("1_fetch/out/wuval_te.csv")
   wu_ir:
     command: read_and_parse_wu("1_fetch/out/wuval_ir.csv", is_irr = TRUE)
+  
+  wu_te_huc10:
+    command: summarize_to_huc10(wu_te)
+  wu_ir_huc10:
+    command: summarize_to_huc10(wu_ir)
   
   # Total daily water use values for bar chart
   wu_te_totals:

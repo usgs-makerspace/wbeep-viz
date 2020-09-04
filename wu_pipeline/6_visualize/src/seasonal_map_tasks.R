@@ -1,18 +1,4 @@
-make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), ...) {
-  
-  # wu_te_winter:
-  #   command: filter_to_season(wu_te, winter_date)
-  # wu_te_winter_sf:
-  #   command: join_wu_to_huc_centroids(wu_te_winter, huc12_centroids)
-  # wu_te_winter_svg_ready:
-  #   command: prep_wu_data_for_map(wu_te_winter_sf)
-  # 6_visualize/out/svg_map_te_winter.svg:
-  #   command: build_svg_map(
-  #     target_name,
-  #     wu_te_winter_svg_ready,
-  #     svg_huc_locations,
-  #     svg_height,
-  #     svg_width)
+make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FALSE, ...) {
   
   ##### Define steps #####
   
@@ -23,7 +9,8 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), ...) {
       sprintf("wu_%s_%s", wu_type_cd, task_name)
     },
     command = function(task_name, ...) {
-      sprintf("filter_to_season(wu_%s, %s_date)", wu_type_cd, task_name)
+      sprintf("filter_to_season(wu_%s%s, %s_date)", 
+              wu_type_cd, ifelse(isHUC10, "_huc10", ""), task_name)
     }
   )
   
@@ -34,7 +21,8 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), ...) {
       sprintf("wu_%s_%s_sf", wu_type_cd, task_name)
     },
     command = function(steps, ...) {
-      sprintf("join_wu_to_huc_centroids(%s, huc12_centroids)", steps[["filter"]]$target_name)
+      sprintf("join_wu_to_huc_centroids(%s, %s_centroids, I('%s'))", steps[["filter"]]$target_name,
+              ifelse(isHUC10, "huc10", "huc12"), ifelse(isHUC10, "HUC10", "HUC12"))
     }
   )
   
@@ -63,7 +51,8 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), ...) {
                "svg_height,",
                "svg_width,",
                "wu_type_cd = I('%s')," = wu_type_cd,
-               "season = I('%s'))" = task_name)
+               "season = I('%s')," = task_name,
+               "huc_colname = I('%s'))" = ifelse(isHUC10, "HUC10", "HUC12"))
     }
   )
   
@@ -74,8 +63,10 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), ...) {
       sprintf("svg_map_%s_%s_copied", wu_type_cd, task_name)
     },
     command = function(steps, task_name, ...) {
-      sprintf("file.copy(from = '%s', to = I('../src/assets/wuMapSVGs/svg_map_%s_%s.svg'))",
-              steps[["buildsvg"]]$target_name, wu_type_cd, task_name)
+      psprintf("file.copy(",
+               "from = '%s'," = steps[["buildsvg"]]$target_name,
+               "to = I('../src/assets/wuMapSVGs/svg_map_%s_%s.svg')," = c(wu_type_cd, task_name),
+               "overwrite = TRUE)")
     }
   )
   

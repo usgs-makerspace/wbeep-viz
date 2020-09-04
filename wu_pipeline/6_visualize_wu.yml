@@ -30,13 +30,15 @@ targets:
   
   svg_huc_locations:
     command: convert_hucs_to_svg(
-      huc_locations_sf = huc12_centroids, 
-      svg_width)
+      huc_locations_sf = huc10_centroids, 
+      svg_width,
+      huc_colname = I("HUC10"))
   
   seasonal_maps_te:
     command: make_seasonal_maps(
       seasons = seasons,
       wu_type_cd = I('te'),
+      isHUC10 = TRUE,
       '2_process/src/process_per_season.R',
       '6_visualize/src/build_svg_map.R')
     depends:
@@ -46,6 +48,7 @@ targets:
     command: make_seasonal_maps(
       seasons = seasons,
       wu_type_cd = I('ir'),
+      isHUC10 = TRUE,
       '2_process/src/process_per_season.R',
       '6_visualize/src/build_svg_map.R')
     depends:
@@ -65,7 +68,8 @@ targets:
   svg_bars_te_copied:
     command: file.copy(
       from = "6_visualize/out/svg_bars_te.svg",
-      to = I("../src/assets/wuBarSVGs/svg_bars_te.svg"))
+      to = I("../src/assets/wuBarSVGs/svg_bars_te.svg"),
+      overwrite = TRUE)
   
   6_visualize/out/svg_bars_ir.svg:
     command: build_svg_bars(
@@ -79,4 +83,5 @@ targets:
   svg_bars_ir_copied:
     command: file.copy(
       from = "6_visualize/out/svg_bars_ir.svg",
-      to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"))
+      to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"),
+      overwrite = TRUE)
