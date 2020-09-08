@@ -20,6 +20,9 @@
         id="buttonsContainer"
         class="centeredContent"
       >
+        <div id="buttonExplanation" class="explanation">
+          <p>Click on water use type to look at annual patterns.</p>
+        </div>
         <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
         <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
         <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
@@ -43,6 +46,9 @@
         id="waterUseBarChartContainer"
       >
         <DynamicBarChart @load="check()" @click.native="changeSeason($event)" :barchart="barchart" />
+        <div id="chartExplanation" class="explanation">
+          <p>Choose a season to look at seasonal use</p> 
+        </div>
       </div>
     </div>
   </div>
@@ -158,6 +164,14 @@
   align-items: center;
   justify-content: center;
 }
+.explanation{
+  width: 100%;
+  text-align: center;
+  p{
+    margin: 0;
+    font-size: 100%;
+  }
+}
 #water-use-container {
   flex: 1;
   padding: 0 10px;
@@ -177,9 +191,12 @@
   height:78px;
 }
 #buttonsContainer{
-  height: 40px;
   display: flex;
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
+  flex-wrap: wrap;
+  #buttonExplanation{
+    margin-bottom: 10px;
+  }
   .waterUseButton{
     flex: 1;
     background: #000;
@@ -249,6 +266,9 @@ path.wu-dots{
   }
   #fallGroup .wu-bars{
     fill: #D95204;
+  }
+  #chartExplanation{
+    margin: 5px 0 20px 0;
   }
 }
 @media screen and (min-width: 600px){
