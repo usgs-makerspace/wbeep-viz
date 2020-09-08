@@ -55,7 +55,7 @@ add_hover_rect <- function(svg, wu_dat, max_wu = NULL) {
   end_doy <- max(wu_dat$doy)
   
   # Build a rectangle shape around the data
-  d <- sprintf("M%s,%s v%s h%s v%s Z", start_doy-1, 0, -max_wu, end_doy-start_doy, max_wu)
+  d <- sprintf("M%s,%s v%s h%s v%s Z", start_doy-1, 0, -max_wu, end_doy-start_doy+1, max_wu)
   
   xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover")
 }
