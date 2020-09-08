@@ -4,11 +4,13 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
-    <MapSubtitle 
-      :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
-      @clickedInfoIcon="toggleMapInfoBox()"
-      @clickedExit="toggleMapInfoBox()"
-    />
+    <div id="mapSubtitleContainer">
+      <MapSubtitle 
+        :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
+        @clickedInfoIcon="toggleMapInfoBox()"
+        @clickedExit="toggleMapInfoBox()"
+      />
+    </div>
     <div
       id="water-use-content"
       class="waterUseFlex"
@@ -18,21 +20,17 @@
         id="buttonsContainer"
         class="centeredContent"
       >
-        <button class="waterUseButton">
-          Thermoelectric
-        </button>
-        <button class="waterUseButton">
-          Irrigation
-        </button>
-        <button class="waterUseButton">
-          Public Supply
-        </button>
+        <div id="buttonExplanation" class="explanation">
+          <p>Click on water use type to look at annual patterns.</p>
+        </div>
+        <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
+        <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
+        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
-        class="bordered"
       >
-        Map
+        <DynamicSVG :svg="svg" />
         <router-link to="/water-use/questions-answers">
           <div
             id="waterUseQuestion"
@@ -46,9 +44,11 @@
       </div>
       <div
         id="waterUseBarChartContainer"
-        class="bordered"
       >
-        BarChart
+        <DynamicBarChart @load="check()" @click.native="changeSeason($event)" :barchart="barchart" />
+        <div id="chartExplanation" class="explanation">
+          <p>Choose a season to look at seasonal use</p> 
+        </div>
       </div>
     </div>
   </div>
@@ -57,12 +57,16 @@
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapSubtitle from "../../components/MapSubtitle";
+  import DynamicSVG from "../../components/DynamicSVG";
+  import DynamicBarChart from "../../components/DynamicBarChart";
 
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
-        MapSubtitle
+        MapSubtitle,
+        DynamicSVG,
+        DynamicBarChart
     },
     data() {
       return {
@@ -71,16 +75,41 @@
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,
-        isAboutMapInfoBoxOpen: true
+        isAboutMapInfoBoxOpen: true,
+        svg: "svg_map_te_spring",
+        barchart: "svg_bars_te",
+        useParemeter: "te",
+        season: "spring"
       }
     },
     mounted(){
       let self = this;
+      document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
         this.isLoading = false;
+        self.addSeasonClass();
       }, 100)
     },
     methods: {
+      changeSeason(event){
+        this.season = event.target.id;
+        this.svg = "svg_map_" + this.useParemeter + "_" + this.season;
+        this.checkForClass();
+        if(this.season === "winter"){
+          this.winterSolution();
+        }else{
+          event.target.classList.add("activeSeason");
+        }
+      },
+      useButtonClick(event){
+        let self = this;
+        this.useParemeter = event.target.id;
+        this.svg =  "svg_map_" + this.useParemeter + "_" + this.season;
+        this.barchart = "svg_bars_"  + this.useParemeter;
+        setTimeout(function(){
+          self.addSeasonClass();
+        }, 10)
+      },
       runGoogleAnalytics(eventName, action, label) {
         this.$ga.set({ dimension2: Date.now() });
         this.$ga.event(eventName, action, label);
@@ -92,6 +121,32 @@
         this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
         this.isFirstClick = false;
       },
+      addSeasonClass(){
+        let element = document.getElementById(this.season);
+        if(this.season === "winter"){
+          this.winterSolution();
+        }else{
+          element.classList.add("activeSeason");
+        }
+      },
+      winterSolution(){
+        let winters = document.querySelectorAll(".wu-bars-hover");
+        winters.forEach(function(winter){
+          if(winter.id === "winter"){
+            winter.classList.add("activeSeason");
+          }
+        });
+      },
+      checkForClass(){
+        let activeClasses = document.querySelectorAll(".activeSeason");
+        activeClasses.forEach(function(activeClass){
+          if(activeClass){
+            activeClass.classList.remove("activeSeason")
+          }else{
+            return;
+          }
+        })
+      }
     }
   }
 </script>
@@ -109,14 +164,17 @@
   align-items: center;
   justify-content: center;
 }
-.bordered{
-  border: 1px solid #000;
-  padding: 10px;
+.explanation{
+  width: 100%;
+  text-align: center;
+  p{
+    margin: 0;
+    font-size: 100%;
+  }
 }
 #water-use-container {
   flex: 1;
   padding: 0 10px;
-  position: relative;
   a{
     color: #000;
   }
@@ -127,10 +185,18 @@
   flex: 1;
   display: flex;
 }
+#mapSubtitleContainer{
+  position: relative;
+  width: 100%;
+  height:78px;
+}
 #buttonsContainer{
-  height: 40px;
   display: flex;
-  margin: 90px 0 20px 0;
+  margin: 20px 0 0 0;
+  flex-wrap: wrap;
+  #buttonExplanation{
+    margin-bottom: 10px;
+  }
   .waterUseButton{
     flex: 1;
     background: #000;
@@ -146,11 +212,10 @@
   }
 }
 #waterUseMapContainer{
-  flex: 2;
   margin: 20px 0;
   position: relative;
+  padding-top: 20px;
 }
-
 #waterUseQuestion{
   position:absolute;
   top: 0px;
@@ -173,11 +238,39 @@
     margin: 4px 1px 0 0;
   }
 }
-
-#waterUseBarChartContainer{
-  flex: 1;
+path.wu-dots{
+  stroke: #0080FF;
+  stroke-linecap: round;
+  opacity: 0.6;
 }
-
+#waterUseBarChartContainer{
+  .wu-bars-hover{
+    fill-opacity: 0;
+    &:hover, &:focus{
+      fill: yellow;
+      fill-opacity: .5;
+    }
+  }
+  .activeSeason{
+    fill: yellow;
+    fill-opacity: .5;
+  }
+  #winterGroup .wu-bars{
+    fill: #52A5D9
+  }
+  #springGroup .wu-bars{
+    fill: #2AA617
+  }
+  #summerGroup .wu-bars{
+    fill: #347307;
+  }
+  #fallGroup .wu-bars{
+    fill: #D95204;
+  }
+  #chartExplanation{
+    margin: 5px 0 20px 0;
+  }
+}
 @media screen and (min-width: 600px){
   #buttonsContainer{
     .waterUseButton{
@@ -185,6 +278,4 @@
     }
   }
 }
-
-
 </style>
