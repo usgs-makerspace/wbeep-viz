@@ -85,7 +85,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
   create_task_makefile(
     task_plan = task_plan,
     makefile = task_makefile,
-    include = c('2_process_wu.yml', '6_visualize_wu.yml'),
+    include = c('1_fetch_wu.yml', '2_process_wu.yml', '6_visualize_wu.yml'),
     sources = c(...),
     packages = c('sf', 'dplyr', 'xml2'),
     final_targets = final_target,

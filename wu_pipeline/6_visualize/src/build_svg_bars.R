@@ -20,11 +20,11 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
           doy >= doy_list$startDates[1] & doy <= doy_list$endDates[1]
       )
     
+    season_fix <- gsub("[0-9]", "", season) # erase numbers used to denote winter 1 and winter 2
     max_wu <- max(wu_dat$wu_total)
     
     svg_root %>% 
-      xml_add_child("g", id = sprintf("%sGroup", 
-                                      gsub("[0-9]", "", season)), # erase numbers used to denote winter 1 and winter 2
+      xml_add_child("g", id = sprintf("%sGroup",  season_fix), 
                     transform = sprintf("translate(0 %s) scale(%s %s)", 
                                         svg_height, 
                                         svg_width/max(wu_dat$doy), 
@@ -32,7 +32,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
       # Add path for the bars
       add_bar_path(season_data) %>% 
       # Add rectangle overtop for hovering
-      add_hover_rect(season_data, max_wu)
+      add_hover_rect(season_data, id_nm = season_fix, max_wu)
   }
   
   
@@ -48,7 +48,7 @@ add_bar_path <- function(svg, wu_dat) {
   xml_add_child(svg, "path", d = d, class = "wu-bars")
 }
 
-add_hover_rect <- function(svg, wu_dat, max_wu = NULL) {
+add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
   
   if(is.null(max_wu)) max_wu <- max(wu_dat$wu_total)
   start_doy <- min(wu_dat$doy)
@@ -57,7 +57,8 @@ add_hover_rect <- function(svg, wu_dat, max_wu = NULL) {
   # Build a rectangle shape around the data
   d <- sprintf("M%s,%s v%s h%s v%s Z", start_doy-1, 0, -max_wu, end_doy-start_doy+1, max_wu)
   
-  xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover")
+  xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover",
+                  id = id_nm)
 }
 
 build_path_from_counts <- function(wu_dat, mx = 0, my = 0) {
