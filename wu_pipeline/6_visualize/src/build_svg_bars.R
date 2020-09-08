@@ -1,4 +1,4 @@
-build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, svg_height, svg_width) {
+build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
   ##### Create whole SVG #####
   svg_root <- init_svg(svg_width, svg_height, id_keyword = sprintf("wu-bars-%s", wu_type_cd), is_pixels = TRUE)
