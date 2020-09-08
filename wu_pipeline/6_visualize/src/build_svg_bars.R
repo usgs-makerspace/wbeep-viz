@@ -5,10 +5,38 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
   
   ##### Add the SVG nodes #####
   
-  # Add path for the bars
-  add_bar_path(svg_root, wu_dat, svg_height, 
-               scale_x = svg_width/max(wu_dat$doy),
-               scale_y = svg_height/max(wu_dat$wu_total))
+  # One group per season
+  
+  for(season in names(season_info)) {
+    
+    doy_list <- lapply(season_info[[season]], function(dates) {
+      as.numeric(format(dates, "%j"))
+    })
+    
+    season_data <- wu_dat %>% 
+      filter( 
+        if(length(doy_list$startDates) > 1) 
+          doy >= doy_list$startDates[1] & doy <= doy_list$endDates[1] |
+          doy >= doy_list$startDates[2] & doy <= doy_list$endDates[2] 
+        else
+          doy >= doy_list$startDates[1] & doy <= doy_list$endDates[1]
+      )
+    
+    max_wu <- max(wu_dat$wu_total)
+    
+    svg_root %>% 
+      xml_add_child("g", id = sprintf("%sGroup", season),
+                    transform = sprintf("translate(0 %s) scale(%s %s)", 
+                                        svg_height, 
+                                        svg_width/max(wu_dat$doy), 
+                                        svg_height/max_wu)) %>% 
+      # Add path for the bars
+      add_bar_path(season_data) %>% 
+      # Add rectangle overtop for hovering
+      add_hover_rect(season_data, max_wu)
+  }
+  
+  
   
   ##### Write out final SVG to file #####
   
@@ -16,11 +44,21 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
   
 }
 
-add_bar_path <- function(svg, wu_dat, svg_height, scale_x = 1, scale_y = 1) {
-  d <- build_path_from_counts(wu_dat)
-  xml_add_child(svg, "path", d = d, 
-                class = "wu-bars",
-                transform = sprintf("translate(0 %s) scale(%s %s)", svg_height, scale_x, scale_y))
+add_bar_path <- function(svg, wu_dat) {
+  d <- build_path_from_counts(wu_dat, mx = min(wu_dat$doy-1))
+  xml_add_child(svg, "path", d = d, class = "wu-bars")
+}
+
+add_hover_rect <- function(svg, wu_dat, max_wu = NULL) {
+  
+  if(is.null(max_wu)) max_wu <- max(wu_dat$wu_total)
+  start_doy <- min(wu_dat$doy)
+  end_doy <- max(wu_dat$doy)
+  
+  # Build a rectangle shape around the data
+  d <- sprintf("M%s,%s v%s h%s v%s Z", start_doy-1, 0, -max_wu, end_doy-start_doy, max_wu)
+  
+  xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover")
 }
 
 build_path_from_counts <- function(wu_dat, mx = 0, my = 0) {
