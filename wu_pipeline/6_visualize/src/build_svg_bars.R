@@ -6,9 +6,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
   ##### Add the SVG nodes #####
   
   # One group per season
-  
   for(season in names(season_info)) {
-    
     doy_list <- lapply(season_info[[season]], function(dates) {
       as.numeric(format(dates, "%j"))
     })
@@ -25,7 +23,8 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
     max_wu <- max(wu_dat$wu_total)
     
     svg_root %>% 
-      xml_add_child("g", id = sprintf("%sGroup", season),
+      xml_add_child("g", id = sprintf("%sGroup", 
+                                      gsub("[0-9]", "", season)), # erase numbers used to denote winter 1 and winter 2
                     transform = sprintf("translate(0 %s) scale(%s %s)", 
                                         svg_height, 
                                         svg_width/max(wu_dat$doy), 

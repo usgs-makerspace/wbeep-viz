@@ -1,8 +1,8 @@
 setup_season_dates <- function() {
   list(
-    winter = list(
-      startDates = as.Date(c("2015-01-01", "2015-12-01")),
-      endDates = as.Date(c("2015-02-28", "2015-12-31"))
+    winter1 = list(
+      startDates = as.Date("2015-01-01"),
+      endDates = as.Date("2015-02-28")
     ),
     spring = list(
       startDates = as.Date("2015-03-01"),
@@ -15,6 +15,10 @@ setup_season_dates <- function() {
     fall = list(
       startDates = as.Date("2015-09-01"),
       endDates = as.Date("2015-11-30")
+    ),
+    winter2 = list(
+      startDates = as.Date("2015-12-01"),
+      endDates = as.Date("2015-12-31")
     )
   ) 
 }
