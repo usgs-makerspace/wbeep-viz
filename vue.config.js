@@ -15,7 +15,7 @@ module.exports = {
                         plugins: [
                             {removeDoctype: true},
                             {removeComments: true},
-                            {convertStyleToAttrs: false},
+                            {convertTransform: false},
                             {convertPathData: false},
                             {cleanupIDs: false},
                             {collapseGroups: false},
@@ -23,6 +23,7 @@ module.exports = {
                         ]
                     }
                 })
+                .end();
     },
     devServer: {                // this allows the use of Localtunnel to view your development environment on a mobile device or another computer
         disableHostCheck: true

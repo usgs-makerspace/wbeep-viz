@@ -16,7 +16,7 @@ export default {
             return () => import(
                 /* webpackChunkName: "barcharts" */
                 /* webpackMode: "lazy-once" */ 
-                `@/assets/images/barchart/${this.barchart}.svg`
+                `@/assets/wuBarSVGs/${this.barchart}.svg`
             )
         }
     }
