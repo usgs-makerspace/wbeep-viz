@@ -6,6 +6,7 @@ packages:
 sources:
   - 1_fetch/src/fetch_sb_files.R
   - 1_fetch/src/fetch_wbd_gdb.R
+  - 1_fetch/src/setup_season_dates.R
 
 targets:
   1_fetch_wu:
@@ -21,6 +22,10 @@ targets:
     command: c(I("5ee3d77682ce3bd58d7e1dcb"))
   sbid_irrigation:
     command: c(I("5ee3d70d82ce3bd58d7e1dc0"))
+  
+  # Season start/end dates to be used in SVG creation
+  season_info:
+    command: setup_season_dates()
   
   1_fetch/out/wuval_te.csv:
     command: download_sb_single_file(
