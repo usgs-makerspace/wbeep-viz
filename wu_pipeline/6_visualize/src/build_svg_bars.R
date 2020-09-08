@@ -58,7 +58,7 @@ add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
   d <- sprintf("M%s,%s v%s h%s v%s Z", start_doy-1, 0, -max_wu, end_doy-start_doy+1, max_wu)
   
   xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover",
-                  id = sprintf("%sHovers", id_nm))
+                  id = id_nm)
 }
 
 build_path_from_counts <- function(wu_dat, mx = 0, my = 0) {
