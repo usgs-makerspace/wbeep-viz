@@ -1,6 +1,9 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
-  wu_dat$wu_total <- wu_dat$wu_total/1000
+  # Need to scale data down because FF won't let `scale()` be small
+  wu_dat <- wu_dat %>% 
+    mutate(wu_total_actual = wu_total,
+           wu_total = wu_total/1000) 
   
   ##### Create whole SVG #####
   svg_root <- init_svg(svg_width, svg_height, id_keyword = sprintf("wu-bars-%s", wu_type_cd), is_pixels = TRUE)
@@ -27,15 +30,15 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
     
     svg_root %>% 
       xml_add_child("g", id = sprintf("%sGroup",  season_fix), 
-                    transform = sprintf("translate(0 %s) scale(%.5f %.5f)", 
-                                        svg_height, 
-                                        round_for_firefox(svg_width/max(wu_dat$doy)), 
-                                        round_for_firefox(svg_height/max_wu))) %>%
+                    transform = translate_bars(svg_width, svg_height, 
+                                               max(wu_dat$doy), max_wu)) %>%
       # Add path for the bars
       add_bar_path(season_data) %>% 
       # Add rectangle overtop for hovering
-      add_hover_rect(season_data, id_nm = season_fix, max_wu)
+      add_hover_rect(season_data, id_nm = season_fix, max_wu) 
   }
+  
+  svg_root %>% add_y_axis(wu_dat, svg_height)
   
   ##### Write out final SVG to file #####
   
@@ -59,6 +62,30 @@ add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
   
   xml_add_sibling(svg, "path", d = d, class = "wu-bars-hover",
                   id = id_nm)
+}
+
+add_y_axis <- function(svg, wu_dat, svg_height) {
+  
+  max_wu_val <- max(wu_dat$wu_total_actual)
+  
+  # Create line segment for y axis with appropriate labels
+  svg %>% 
+    xml_add_child("g", id = "barchartAxis", translate = sprintf("translate(0 %s)", svg_height)) %>% 
+    xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 v%s", svg_height)) %>% 
+    xml_add_sibling("text", id = "yAxisLabelLow", class = "wu-bars-axis", `text-anchor`="end",
+                    x = -20, y = svg_height - 2, "0") %>% 
+    xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
+                    x = -20, y = 10, sprintf("%s", signif(max_wu_val,5))) %>% 
+    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", "Daily water use, mgd", `text-anchor`="middle",
+                    transform=sprintf("rotate(-90) translate(-%s -20)", svg_height/2))
+  
+}
+
+translate_bars <- function(svg_width, svg_height, max_doy, max_wu) {
+  sprintf("translate(0 %s) scale(%.5f %.5f)", 
+          svg_height, 
+          round_for_firefox(svg_width/max_doy), 
+          round_for_firefox(svg_height/max_wu))
 }
 
 build_path_from_counts <- function(wu_dat, mx = 0, my = 0) {
