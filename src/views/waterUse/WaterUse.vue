@@ -93,10 +93,7 @@
     methods: {
       changeSeason(event){
         this.season = event.target.id;
-        console.log(event.target.id);
-        console.log(this.svg, this.useParemeter, this.season);
         this.svg = "svg_map_" + this.useParemeter + "_" + this.season;
-        console.log(this.svg, this.useParemeter, this.season);
         this.checkForClass();
         if(this.season === "winter"){
           this.winterSolution();
