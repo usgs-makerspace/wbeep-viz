@@ -55,7 +55,7 @@ export default {
                     'visibility': 'visible'
                 },
                 'paint': {
-                    'line-color': '#000',
+                    'line-color': '#40251C',
                     'line-width': {
                         'base': 1.55,
                         'stops': [
