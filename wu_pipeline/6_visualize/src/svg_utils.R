@@ -23,7 +23,6 @@ build_path_from_coords <- function(coords) {
   return(d)
 }
 
-#TODO: might be able to use round() to simplify the SVG decimals used
 convert_coords_to_svg <- function(sf_obj, svg_width, view_bbox = NULL) {
   
   coords <- st_coordinates(sf_obj)
@@ -51,8 +50,8 @@ convert_coords_to_svg <- function(sf_obj, svg_width, view_bbox = NULL) {
   y_pixels <- y_dec - view_bbox$ymin # Make it so that the maximum latitude = 0
   
   data.frame(
-    x = approx(x_extent_pixels, c(0, svg_width), x_pixels)$y,
-    y = approx(y_extent_pixels, c(svg_height, 0), y_pixels)$y
+    x = round(approx(x_extent_pixels, c(0, svg_width), x_pixels)$y, 6),
+    y = round(approx(y_extent_pixels, c(svg_height, 0), y_pixels)$y, 6)
   )
 }
 

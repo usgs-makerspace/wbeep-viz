@@ -27,8 +27,8 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
       xml_add_child("g", id = sprintf("%sGroup",  season_fix), 
                     transform = sprintf("translate(0 %s) scale(%s %s)", 
                                         svg_height, 
-                                        svg_width/max(wu_dat$doy), 
-                                        svg_height/max_wu)) %>% 
+                                        round(svg_width/max(wu_dat$doy), 6), 
+                                        round(svg_height/max_wu, 8))) %>% 
       # Add path for the bars
       add_bar_path(season_data) %>% 
       # Add rectangle overtop for hovering
