@@ -1,6 +1,9 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
-  wu_dat$wu_total <- wu_dat$wu_total/1000
+  # Need to scale data down because FF won't let `scale()` be small
+  wu_dat <- wu_dat %>% 
+    mutate(wu_total_actual = wu_total,
+           wu_total = wu_total/1000) 
   
   ##### Create whole SVG #####
   svg_root <- init_svg(svg_width, svg_height, id_keyword = sprintf("wu-bars-%s", wu_type_cd), is_pixels = TRUE)
