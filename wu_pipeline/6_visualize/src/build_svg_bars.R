@@ -25,17 +25,15 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
     
     svg_root %>% 
       xml_add_child("g", id = sprintf("%sGroup",  season_fix), 
-                    transform = sprintf("translate(0 %s) scale(%s %s)", 
+                    transform = sprintf("translate(0 %s) scale(%.5f %.5f)", 
                                         svg_height, 
-                                        round(svg_width/max(wu_dat$doy), 6), 
-                                        round(svg_height/max_wu, 8))) %>% 
+                                        round_for_firefox(svg_width/max(wu_dat$doy)), 
+                                        round_for_firefox(svg_height/max_wu))) %>% 
       # Add path for the bars
       add_bar_path(season_data) %>% 
       # Add rectangle overtop for hovering
       add_hover_rect(season_data, id_nm = season_fix, max_wu)
   }
-  
-  
   
   ##### Write out final SVG to file #####
   
@@ -72,4 +70,11 @@ build_path_from_counts <- function(wu_dat, mx = 0, my = 0) {
   # Build path string with equal widths
   hv_path_str <- paste(paste0("v", v_vec), collapse = sprintf(" h%s ", 1)) # v=vertical, h=horizontal
   sprintf('M%s,%s %sZ', mx, my, hv_path_str)
+}
+
+round_for_firefox <- function(val) {
+  # Firefox couldn't handle anything smaller than e-5
+  # If the value cannot be rounded to e-6, then fudge it.
+  # These are small enough, that it shouldn't make that much of a difference.
+  ifelse(round(val, 5) == 0, 0.00001, round(val, 5)) 
 }
