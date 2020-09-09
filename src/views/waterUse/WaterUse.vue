@@ -87,7 +87,7 @@
       document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
         this.isLoading = false;
-        // self.addSeasonClass();
+        self.addSeasonClass();
       }, 100)
     },
     methods: {
