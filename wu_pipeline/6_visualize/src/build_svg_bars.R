@@ -1,5 +1,7 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
+  wu_dat$wu_total <- wu_dat$wu_total/1000
+  
   ##### Create whole SVG #####
   svg_root <- init_svg(svg_width, svg_height, id_keyword = sprintf("wu-bars-%s", wu_type_cd), is_pixels = TRUE)
   
@@ -28,7 +30,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
                     transform = sprintf("translate(0 %s) scale(%.5f %.5f)", 
                                         svg_height, 
                                         round_for_firefox(svg_width/max(wu_dat$doy)), 
-                                        round_for_firefox(svg_height/max_wu))) %>% 
+                                        round_for_firefox(svg_height/max_wu))) %>%
       # Add path for the bars
       add_bar_path(season_data) %>% 
       # Add rectangle overtop for hovering
