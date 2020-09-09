@@ -25,7 +25,7 @@
         </div>
         <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
         <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
-        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
+        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton disabled" disabled>Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
@@ -45,7 +45,7 @@
       <div
         id="waterUseBarChartContainer"
       >
-        <DynamicBarChart @load="check()" @click.native="changeSeason($event)" :barchart="barchart" />
+        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
         <div id="chartExplanation" class="explanation">
           <p>Choose a season to look at seasonal use</p> 
         </div>
@@ -123,6 +123,7 @@
       },
       addSeasonClass(){
         let element = document.getElementById(this.season);
+        console.log(element)
         if(this.season === "winter"){
           this.winterSolution();
         }else{
@@ -155,6 +156,9 @@
 .loader {
   top: 107px;
   height: 100%;
+}
+.disabled{
+  opacity: .3;
 }
 .waterUseFlex{
   display: flex;
