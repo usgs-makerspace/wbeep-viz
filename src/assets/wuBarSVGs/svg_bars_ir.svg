@@ -20,4 +20,10 @@
     <path d="M334,0 v-5264 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v303 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v717Z" class="wu-bars"/>
     <path d="M334,0 v-1475844.01225865 h31 v1475844.01225865 Z" class="wu-bars-hover" id="winter"/>
   </g>
+  <g id="barchartAxis" translate="translate(0 625)">
+    <path class="wu-bars-axis" d="M0,0 v625"/>
+    <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="623">0</text>
+    <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">1475800000</text>
+    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-312.5 -20)">Daily water use, mgd</text>
+  </g>
 </svg>
