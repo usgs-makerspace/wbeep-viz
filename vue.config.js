@@ -15,8 +15,11 @@ module.exports = {
                         plugins: [
                             {removeDoctype: true},
                             {removeComments: true},
+                            // {convertStyleToAttrs: false},
                             {convertTransform: false},
-                            {convertPathData: false},
+                            {convertPathData: {
+                                removeUseless: false
+                            }},
                             {cleanupIDs: false},
                             {collapseGroups: false},
                             {removeEmptyContainers: false}

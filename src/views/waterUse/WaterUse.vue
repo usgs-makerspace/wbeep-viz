@@ -25,7 +25,7 @@
         </div>
         <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
         <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
-        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton">Public Supply</button>
+        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton disabled" disabled>Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
@@ -45,7 +45,7 @@
       <div
         id="waterUseBarChartContainer"
       >
-        <DynamicBarChart @load="check()" @click.native="changeSeason($event)" :barchart="barchart" />
+        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
         <div id="chartExplanation" class="explanation">
           <p>Choose a season to look at seasonal use</p> 
         </div>
@@ -87,13 +87,16 @@
       document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
         this.isLoading = false;
-        self.addSeasonClass();
+        // self.addSeasonClass();
       }, 100)
     },
     methods: {
       changeSeason(event){
         this.season = event.target.id;
+        console.log(event.target.id);
+        console.log(this.svg, this.useParemeter, this.season);
         this.svg = "svg_map_" + this.useParemeter + "_" + this.season;
+        console.log(this.svg, this.useParemeter, this.season);
         this.checkForClass();
         if(this.season === "winter"){
           this.winterSolution();
@@ -123,6 +126,7 @@
       },
       addSeasonClass(){
         let element = document.getElementById(this.season);
+        console.log(element)
         if(this.season === "winter"){
           this.winterSolution();
         }else{
@@ -155,6 +159,9 @@
 .loader {
   top: 107px;
   height: 100%;
+}
+.disabled{
+  opacity: .3;
 }
 .waterUseFlex{
   display: flex;
