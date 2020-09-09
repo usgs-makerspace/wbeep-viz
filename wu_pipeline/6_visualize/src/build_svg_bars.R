@@ -38,7 +38,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
       add_hover_rect(season_data, id_nm = season_fix, max_wu) 
   }
   
-  svg_root %>% add_y_axis(wu_dat, svg_width, svg_height)
+  svg_root %>% add_y_axis(wu_dat, svg_height)
   
   ##### Write out final SVG to file #####
   
@@ -64,11 +64,9 @@ add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
                   id = id_nm)
 }
 
-add_y_axis <- function(svg, wu_dat, svg_width, svg_height) {
+add_y_axis <- function(svg, wu_dat, svg_height) {
   
-  max_wu_svg <- max(wu_dat$wu_total)
   max_wu_val <- max(wu_dat$wu_total_actual)
-  max_doy <- max(wu_dat$doy)
   
   # Create line segment for y axis with appropriate labels
   svg %>% 
