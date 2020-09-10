@@ -21,17 +21,17 @@ targets:
       - svg_bars_te_copied
       - svg_bars_ir_copied
   
-  svg_height:
-    command: c(625)
-  svg_width:
-    command: c(1000)
-  
   ##### Create SVGs for maps #####
+  
+  svg_height_map:
+    command: c(625)
+  svg_width_map:
+    command: c(1000)
   
   svg_huc_locations:
     command: convert_hucs_to_svg(
       huc_locations_sf = huc10_centroids, 
-      svg_width,
+      svg_width_map,
       huc_colname = I("HUC10"))
   
   seasonal_maps_te:
@@ -56,14 +56,19 @@ targets:
   
   ##### Create SVGs for bar charts #####
   
+  svg_height_bars:
+    command: c(260)
+  svg_width_bars:
+    command: c(1083)
+  
   6_visualize/out/svg_bars_te.svg:
     command: build_svg_bars(
       target_name,
       wu_te_totals,
       wu_type_cd = I("te"),
       season_info,
-      svg_height,
-      svg_width)
+      svg_height_bars,
+      svg_width_bars)
   
   # Copy SVG over to Vue location
   svg_bars_te_copied:
@@ -78,8 +83,8 @@ targets:
       wu_ir_totals,
       wu_type_cd = I("ir"),
       season_info,
-      svg_height,
-      svg_width)
+      svg_height_bars,
+      svg_width_bars)
   
   # Copy SVG over to Vue location
   svg_bars_ir_copied:

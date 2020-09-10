@@ -48,8 +48,8 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
                "target_name,",
                "wu_dat = %s," = steps[["prepdatasvg"]]$target_name,
                "svg_huc_locations,",
-               "svg_height,",
-               "svg_width,",
+               "svg_height_map,",
+               "svg_width_map,",
                "wu_type_cd = I('%s')," = wu_type_cd,
                "season = I('%s')," = task_name,
                "huc_colname = I('%s'))" = ifelse(isHUC10, "HUC10", "HUC12"))
