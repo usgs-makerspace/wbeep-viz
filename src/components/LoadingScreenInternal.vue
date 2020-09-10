@@ -24,7 +24,11 @@ export default {
     fixed.addEventListener('touchmove', function(e){
       e.preventDefault();
     }, false);
-    document.body.classList.add("stop-scrolling");
+    if(this.isLoading === true){
+      document.body.classList.add("stop-scrolling");
+    }else{
+      document.body.classList.remove("stop-scrolling");
+    }
   }
   
 };
