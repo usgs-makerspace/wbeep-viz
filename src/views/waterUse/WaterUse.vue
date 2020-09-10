@@ -90,7 +90,6 @@
     },
     mounted(){
       let self = this;
-      document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
         self.addSeasonClass();
       }, 100)
@@ -125,6 +124,7 @@
         }, 10)
       },
       addSeasonClass(){
+        console.log("Season class function fired")
         let element = document.getElementById(this.season);
         if(this.season === "winter"){
           this.winterSolution();
@@ -279,19 +279,16 @@ $highlight: #1C4755;
   opacity: 0.6;
 }
 #waterUseBarChartContainer{
-  svg{
-    overflow: visible;
-  }
   .wu-bars-hover{
     fill-opacity: 0;
     &:hover, &:focus{
-      fill: yellow;
+      fill: rebeccapurple;
       fill-opacity: .5;
     }
   }
   .activeSeason{
-    fill: yellow;
-    fill-opacity: .5;
+    fill: rebeccapurple;
+    fill-opacity: .7;
   }
   #winterGroup .wu-bars{
     fill: #52A5D9
@@ -304,9 +301,6 @@ $highlight: #1C4755;
   }
   #fallGroup .wu-bars{
     fill: #D95204;
-  }
-  .wu-bars-axis {
-    font-size: 20px;
   }
   path.wu-bars-axis {
     stroke: black;
