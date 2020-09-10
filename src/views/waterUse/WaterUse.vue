@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div 
     id="water-use-container"
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
@@ -15,7 +15,7 @@
       id="water-use-content"
       class="waterUseFlex"
     >
-      <LoadingScreenInternal v-if="checkIfSVGMapIsRendered" />
+      <LoadingScreenInternal v-if="!isLoading" />
       <div
         id="buttonsContainer"
         class="centeredContent"
@@ -56,17 +56,13 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
-  import MapSubtitle from "../../components/MapSubtitle";
-  import DynamicSVG from "../../components/DynamicSVG";
-  import DynamicBarChart from "../../components/DynamicBarChart";
-
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
-        MapSubtitle,
-        DynamicSVG,
-        DynamicBarChart
+        MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
+        DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
+        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
     },
     data() {
       return {
@@ -74,7 +70,7 @@
         titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
-        isLoading: true,
+        isLoading: this.$store.state.mapSVGRenderOnInitialLoad,
         isAboutMapInfoBoxOpen: true,
         svg: "svg_map_te_spring",
         barchart: "svg_bars_te",
@@ -84,15 +80,16 @@
     },
     computed: {
       checkIfSVGMapIsRendered() {
-        console.log("Water Use Function");
         return this.$store.state.mapSVGRenderOnInitialLoad;
       }
     },
-    mounted(){
-      let self = this;
-      setTimeout(function(){
-        self.addSeasonClass();
-      }, 100)
+    watch: {
+      checkIfSVGMapIsRendered(newState, oldState){
+        let self = this;
+        setTimeout(function(){
+          self.addSeasonClass();
+        },200);
+      }
     },
     methods: {
       changeSeason(event){
@@ -124,7 +121,6 @@
         }, 10)
       },
       addSeasonClass(){
-        console.log("Season class function fired")
         let element = document.getElementById(this.season);
         if(this.season === "winter"){
           this.winterSolution();
@@ -273,10 +269,16 @@ $highlight: #1C4755;
     margin: 4px 1px 0 0;
   }
 }
-.wu-dots{
-  stroke: $thermo;
+.wu-dots-te,
+.wu-dots-ir{
   stroke-linecap: round;
   opacity: 0.6;
+}
+.wu-dots-te{
+  stroke: $thermo;
+}
+.wu-dots-ir{
+  stroke: $irrigation;
 }
 #waterUseBarChartContainer{
   .wu-bars-hover{
@@ -285,6 +287,9 @@ $highlight: #1C4755;
       fill: rebeccapurple;
       fill-opacity: .5;
     }
+  }
+  .wu-bars-axis{
+    font-size: 15pt;
   }
   .activeSeason{
     fill: rebeccapurple;
