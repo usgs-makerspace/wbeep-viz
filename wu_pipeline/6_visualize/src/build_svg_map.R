@@ -30,7 +30,7 @@ add_wu_points <- function(svg, wu_dat, svg_huc_locations, season, wu_type_cd, hu
   unique_widths <- sort(unique(wu_dat_svg$stroke_width), decreasing = TRUE)
   for(w in unique_widths) {
     wu_dat_w <- filter(wu_dat_svg, stroke_width == w) 
-    add_wu_data(wu_dot_grp, wu_dat_w, w)
+    add_wu_data(wu_dot_grp, wu_dat_w, w, class = sprintf("wu-dots-%s", wu_type_cd))
   }
   
 }
@@ -49,7 +49,7 @@ add_wu_data <- function(svg, wu_dat, wu_grp, class) {
   xml_add_child(svg, 'path', 
                 d = paste("M", wu_dat$x, " ",  wu_dat$y, "v0", collapse="", sep=''), 
                 # style stuff is CSS except for stroke-width
-                class = "wu-dots",
+                class = class,
                 style = sprintf("stroke-width:%s", wu_grp))
 }
 
