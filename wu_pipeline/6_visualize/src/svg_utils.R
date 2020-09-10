@@ -1,13 +1,13 @@
-init_svg <- function(width = 8, height = 5, ppi = 72, id_keyword, is_pixels = FALSE) {
+init_svg <- function(viewbox_dims, id_keyword) {
   # create the main "parent" svg node. This is the top-level part of the svg
-  svg_root <- xml_new_root('svg', viewBox = sprintf("0 0 %s %s", width, height), 
+  svg_root <- xml_new_root('svg', viewBox = paste(viewbox_dims, collapse=" "), 
                            preserveAspectRatio="xMidYMid meet", id = sprintf("svg-%s", id_keyword),
                            xmlns="http://www.w3.org/2000/svg", `xmlns:xlink`="http://www.w3.org/1999/xlink", 
                            version="1.1")
   return(svg_root)
 }
 
-convert_hucs_to_svg <- function(huc_locations_sf, svg_width, huc_colname) {
+convert_hucs_to_svg <- function(huc_locations_sf, svg_width, huc_colname) { 
   huc_locations_sf %>% 
     convert_coords_to_svg(svg_width, view_bbox = st_bbox(generate_usa_map_data())) %>%
     mutate(!!huc_colname := huc_locations_sf[[huc_colname]]) 

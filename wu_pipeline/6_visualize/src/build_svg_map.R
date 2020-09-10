@@ -1,7 +1,7 @@
 build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, svg_height, svg_width, season, wu_type_cd, huc_colname = "HUC12") {
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(svg_width, svg_height, id_keyword = paste(wu_type_cd, season, sep="-"), is_pixels = TRUE)
+  svg_root <- init_svg(viewbox_dims = c(0, 0, svg_width, svg_height), id_keyword = paste(wu_type_cd, season, sep="-"))
   
   ##### Add the SVG nodes #####
   

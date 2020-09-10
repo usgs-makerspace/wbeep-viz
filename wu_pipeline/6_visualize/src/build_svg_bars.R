@@ -6,7 +6,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
            wu_total = wu_total/1000) 
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(svg_width, svg_height, id_keyword = sprintf("wu-bars-%s", wu_type_cd), is_pixels = TRUE)
+  svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width, svg_height), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   

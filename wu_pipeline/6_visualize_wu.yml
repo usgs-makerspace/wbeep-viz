@@ -57,9 +57,9 @@ targets:
   ##### Create SVGs for bar charts #####
   
   svg_height_bars:
-    command: c(260)
+    command: c(265)
   svg_width_bars:
-    command: c(1083)
+    command: c(1183)
   
   6_visualize/out/svg_bars_te.svg:
     command: build_svg_bars(
