@@ -17,8 +17,10 @@ targets:
       - huc10_centroids
       - wu_te
       - wu_ir
+      - wu_ps
       - wu_te_totals
       - wu_ir_totals
+      - wu_ps_totals
   
   # Setup seasonal map tasks
   winter_date:
@@ -49,14 +51,20 @@ targets:
     command: read_and_parse_wu("1_fetch/out/wuval_te.csv")
   wu_ir:
     command: read_and_parse_wu("1_fetch/out/wuval_ir.csv", is_irr = TRUE)
+  wu_ps:
+    command: read_and_parse_wu("1_fetch/out/wuval_ps.csv")
   
   wu_te_huc10:
     command: summarize_to_huc10(wu_te)
   wu_ir_huc10:
     command: summarize_to_huc10(wu_ir)
+  wu_ps_huc10:
+    command: summarize_to_huc10(wu_ps)
   
   # Total daily water use values for bar chart
   wu_te_totals:
     command: summarize_wu(wu_te)
   wu_ir_totals:
     command: summarize_wu(wu_ir)
+  wu_ps_totals:
+    command: summarize_wu(wu_ps)
