@@ -19,6 +19,12 @@ export default {
                 `@/assets/wuMapSVGs/${this.svg}.svg`
             )
         }
+    },
+    mounted(){
+        this.$nextTick(function () {
+            console.log("next tick running")
+            this.$store.commit('changeBooleanStateOnSVGMapRender');
+        });
     }
 }
 </script>

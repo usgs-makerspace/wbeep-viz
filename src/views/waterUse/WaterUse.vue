@@ -15,7 +15,7 @@
       id="water-use-content"
       class="waterUseFlex"
     >
-      <LoadingScreenInternal />
+      <LoadingScreenInternal v-if="checkIfSVGMapIsRendered" />
       <div
         id="buttonsContainer"
         class="centeredContent"
@@ -23,7 +23,7 @@
         <div id="buttonExplanation" class="explanation">
           <p>Click on water use type to look at annual patterns.</p>
         </div>
-        <button @click="useButtonClick($event)" id="te" class="waterUseButton">Thermoelectric</button>
+        <button @click="useButtonClick($event)" id="te" class="waterUseButton activeParameter">Thermoelectric</button>
         <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
         <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton disabled" disabled>Public Supply</button>
       </div>
@@ -78,23 +78,29 @@
         isAboutMapInfoBoxOpen: true,
         svg: "svg_map_te_spring",
         barchart: "svg_bars_te",
-        useParemeter: "te",
+        useParameter: "te",
         season: "spring"
+      }
+    },
+    computed: {
+      checkIfSVGMapIsRendered() {
+        console.log("Water Use Function");
+        return this.$store.state.mapSVGRenderOnInitialLoad;
       }
     },
     mounted(){
       let self = this;
       document.body.classList.remove("stop-scrolling");
       setTimeout(function(){
-        this.isLoading = false;
         self.addSeasonClass();
       }, 100)
     },
     methods: {
       changeSeason(event){
         this.season = event.target.id;
-        this.svg = "svg_map_" + this.useParemeter + "_" + this.season;
-        this.checkForClass();
+        //Update SVG map by season
+        this.svg = "svg_map_" + this.useParameter + "_" + this.season;
+        this.checkForClass("activeSeason");
         if(this.season === "winter"){
           this.winterSolution();
         }else{
@@ -103,27 +109,23 @@
       },
       useButtonClick(event){
         let self = this;
-        this.useParemeter = event.target.id;
-        this.svg =  "svg_map_" + this.useParemeter + "_" + this.season;
-        this.barchart = "svg_bars_"  + this.useParemeter;
+        let button = event.target;
+        //update useParameter
+        this.useParameter = event.target.id;
+        //concat to change svg map
+        this.svg =  "svg_map_" + this.useParameter + "_" + this.season;
+        //concat to change svg barchart
+        this.barchart = "svg_bars_"  + this.useParameter;
+        //check to see if class exists and remove it
+        this.checkForClass("activeParameter");
+        //add class to new button
+        button.classList.add("activeParameter");
         setTimeout(function(){
           self.addSeasonClass();
         }, 10)
       },
-      runGoogleAnalytics(eventName, action, label) {
-        this.$ga.set({ dimension2: Date.now() });
-        this.$ga.event(eventName, action, label);
-      },
-      toggleMapInfoBox() {
-        !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
-      },
-      clickAnywhereToCloseMapInfoBox() {
-        this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
-        this.isFirstClick = false;
-      },
       addSeasonClass(){
         let element = document.getElementById(this.season);
-        console.log(element)
         if(this.season === "winter"){
           this.winterSolution();
         }else{
@@ -138,27 +140,38 @@
           }
         });
       },
-      checkForClass(){
-        let activeClasses = document.querySelectorAll(".activeSeason");
+      checkForClass(className){
+        let activeClasses = document.querySelectorAll("." + className);
         activeClasses.forEach(function(activeClass){
           if(activeClass){
-            activeClass.classList.remove("activeSeason")
+            activeClass.classList.remove(className)
           }else{
             return;
           }
         })
+      },
+      runGoogleAnalytics(eventName, action, label) {
+        this.$ga.set({ dimension2: Date.now() });
+        this.$ga.event(eventName, action, label);
+      },
+      toggleMapInfoBox() {
+        !this.isFirstClick ? this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen : null;
+      },
+      clickAnywhereToCloseMapInfoBox() {
+        this.isAboutMapInfoBoxOpen = !this.isAboutMapInfoBoxOpen;
+        this.isFirstClick = false;
       }
     }
   }
 </script>
 
 <style lang="scss">
+$thermo: #EFC458;
+$irrigation: #00A08F;
+$highlight: #1C4755;
 .loader {
   top: 107px;
   height: 100%;
-}
-.disabled{
-  opacity: .3;
 }
 .waterUseFlex{
   display: flex;
@@ -208,11 +221,29 @@
     border-radius: 5px;
     margin-right: 10px;
     height: 40px;
-    border: none;
+    border: 1px solid #fff;
     font-size: 11pt;
+    outline: none;
     &:last-child{
       margin-right: 0;
     }
+    &:hover{
+      opacity: 1;
+      border: 2px solid #1C4755;
+    }
+  }
+  .disabled{
+    opacity: .3;
+    pointer-events: none;
+  }
+  #te{
+    background: $thermo;
+  }
+  #ir{
+    background: $irrigation;
+  }
+  .activeParameter{
+    border: 2px solid #1C4755;
   }
 }
 #waterUseMapContainer{
@@ -242,12 +273,15 @@
     margin: 4px 1px 0 0;
   }
 }
-path.wu-dots{
-  stroke: #0080FF;
+.wu-dots{
+  stroke: $thermo;
   stroke-linecap: round;
   opacity: 0.6;
 }
 #waterUseBarChartContainer{
+  svg{
+    overflow: visible;
+  }
   .wu-bars-hover{
     fill-opacity: 0;
     &:hover, &:focus{
@@ -270,6 +304,16 @@ path.wu-dots{
   }
   #fallGroup .wu-bars{
     fill: #D95204;
+  }
+  .wu-bars-axis {
+    font-size: 20px;
+  }
+  path.wu-bars-axis {
+    stroke: black;
+    stroke-width: 5;
+  }
+  .wu-bars-hover {
+    opacity: 0.2;
   }
   #chartExplanation{
     margin: 5px 0 20px 0;
