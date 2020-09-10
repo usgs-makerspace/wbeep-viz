@@ -23,7 +23,7 @@
   <g id="barchartAxis" translate="translate(0 260)">
     <path class="wu-bars-axis" d="M0,0 v260"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="258">0</text>
-    <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">473520000</text>
+    <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">4.735e+08</text>
     <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-130 -20)">Daily water use, mgd</text>
   </g>
 </svg>
