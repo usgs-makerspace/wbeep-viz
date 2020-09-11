@@ -52,7 +52,7 @@ targets:
   wu_ir:
     command: read_and_parse_wu("1_fetch/out/wuval_ir.csv", is_irr = TRUE)
   wu_ps:
-    command: read_and_parse_wu("1_fetch/out/wuval_ps.csv")
+    command: read_and_parse_wu("1_fetch/out/wuval_ps.csv", is_ps = TRUE)
   
   wu_te_huc10:
     command: summarize_to_huc10(wu_te)
