@@ -2,7 +2,7 @@ export default {
     pageContents: {
         title: "Got Questions? We're Here to Provide Answers. ",
         introText: "So you have a question about the National Integrated Water Availability Assessments (IWAAs) map, but you don't see it listed here? No problem!",
-        accordionSections: [
+        waterStorageAccordionSections: [
             {
                 "sectionTitle": "About the Water Storage Map",
                 "questionsAndAnswers": [
@@ -134,9 +134,10 @@ export default {
                                 "      >National Water Census</a> as established through the SECURE Water Act.\n" +
                                 "    </p>"
                     }
-
                 ]
-            },
+            }
+        ],
+        waterUseAccordionSections: [
             {
                 "sectionTitle": "About the Water Use Map",
                 "questionsAndAnswers": [
@@ -148,7 +149,7 @@ export default {
                         "question": "How does the water withdrawal map relate to the daily bar chart?",
                         "answer": ""
                     }
-                ]
+                ],
             },
             {
                 "sectionTitle": "Deep in the Science for Water Use",
@@ -158,7 +159,9 @@ export default {
                         "answer": " "
                     }
                 ]
-            },
+            }
+        ],
+        waterTempAccordionSections: [
             {
                 "sectionTitle": "About the Water Temperature Map",
                 "questionsAndAnswers": [

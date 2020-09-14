@@ -55,7 +55,7 @@ export default {
         title: "Water Use References",
         references: [
             {
-                reference: "Test",
+                reference: "Test2",
                 href: "https://doi.org/10.1002/joc.3413",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
             }
