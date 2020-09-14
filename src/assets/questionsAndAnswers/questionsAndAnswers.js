@@ -4,7 +4,7 @@ export default {
         introText: "So you have a question about the National Integrated Water Availability Assessments (IWAAs) map, but you don't see it listed here? No problem!",
         accordionSections: [
             {
-                "sectionTitle": "About the Map",
+                "sectionTitle": "About the Water Storage Map",
                 "questionsAndAnswers": [
                     {
                         "question": "What does this map show me?",
@@ -44,7 +44,7 @@ export default {
                 ]
             },
             {
-                "sectionTitle": "Deep in the Science",
+                "sectionTitle": "Deep in the Science for Water Storage",
                 "questionsAndAnswers": [
                     {
                         "question": "How are the categories for availability determined?",
@@ -135,6 +135,50 @@ export default {
                                 "    </p>"
                     }
 
+                ]
+            },
+            {
+                "sectionTitle": "About the Water Use Map",
+                "questionsAndAnswers": [
+                    {
+                        "question": "What is the difference between water withdrawal and water consumption?",
+                        "answer": ""
+                    },
+                    {
+                        "question": "How does the water withdrawal map relate to the daily bar chart?",
+                        "answer": ""
+                    }
+                ]
+            },
+            {
+                "sectionTitle": "Deep in the Science for Water Use",
+                "questionsAndAnswers": [
+                    {
+                        "question": " ",
+                        "answer": " "
+                    }
+                ]
+            },
+            {
+                "sectionTitle": "About the Water Temperature Map",
+                "questionsAndAnswers": [
+                    {
+                        "question": "How does stream temperature impact aquatic biology and the availability of water for beneficial uses?",
+                        "answer": ""
+                    },
+                    {
+                        "question": "Do stream temperature data reflect impacts of on-stream lakes and dams?",
+                        "answer": ""
+                    }
+                ]
+            },
+            {
+                "sectionTitle": "Deep in the Science for Water Temperature",
+                "questionsAndAnswers": [
+                    {
+                        "question": " ",
+                        "answer": " "
+                    }
                 ]
             }
         ]
