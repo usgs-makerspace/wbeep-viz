@@ -9,19 +9,20 @@
         inject: ["mapbox", "map", "actions"],
         data() {
             return {
-                control: null
+                control: null,
+                currentFeature: this.$route.name
             }
         },
         mounted() {
-            this.createCustomControl(this.runGoogleAnalytics, this.$router);
+            this.createCustomControl();
+            this.prepareClickEvent(this.runGoogleAnalytics, this.$router);
         },
         methods: {
             runGoogleAnalytics(eventName, action, label) {
                 this.$ga.set({ dimension2: Date.now() });
                 this.$ga.event(eventName, action, label)
             },
-
-            createCustomControl(googleAnalytics, router) {
+            createCustomControl() {
                 class customControl {
                     onAdd(map) {
                         const self = this;
@@ -32,12 +33,6 @@
                         this.button.id = "icon-map-control-question";
                         this.button.className = "mapboxgl-ctrl-icon icon-map-control icon-map-control-question";
                         this.button.setAttribute("aria-label", "questions" );
-                        this.button.onclick = function(e) {
-                            googleAnalytics('about', 'click', 'user went to about page');
-                            e.preventDefault();
-                            e.stopPropagation();
-                            router.push({ path: 'QuestionsAndAnswers' });
-                        };
                         this.icon = document.createElement("span");
                         this.icon.innerHTML = icon({
                             prefix: "fas",
@@ -54,6 +49,22 @@
                 }
                 const myCustomControl = new customControl();
                 this.map.addControl(myCustomControl, "top-right");
+            },
+            //Trash function to deal with how we have two different question button situtations
+            prepareClickEvent(googleAnalytics, router){
+                let element = document.getElementById("icon-map-control-question")
+                element.classList.add(this.currentFeature);
+                element.onclick = function(e){
+                    googleAnalytics('about', 'click', 'user went to about page');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if(element.classList.contains("waterTemperature")){
+                        router.push({ path: 'QuestionsAndAnswers#waterTempSection' });
+                    }else{
+                        router.push({ path: 'QuestionsAndAnswers' });
+                    }
+                }
+                    
             }
         }
     };

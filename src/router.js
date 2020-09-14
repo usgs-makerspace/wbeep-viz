@@ -61,5 +61,12 @@ export default new Router({
             path: '*',
             redirect: { name: 'error404' }
         }
-    ]
+    ],
+    scrollBehavior: function(to){
+        if(to.hash){
+            return{
+                selector: to.hash
+            }
+        }
+    }
 });

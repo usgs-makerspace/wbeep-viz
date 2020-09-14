@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!-- Water Storage -->
     <div
-      v-for="section in pageContents.accordionSections"
+      v-for="section in pageContents.waterStorageAccordionSections"
       :key="section.sectionTitle"
     >
       <h6 class="section-title">
@@ -14,7 +15,84 @@
           </button>
         </router-link>
       </h6>
-
+      <div class="usa-accordion usa-accordion--bordered">
+        <div
+          v-for="question in section.questionsAndAnswers"
+          :key="question.question"
+        >
+          <h2 class="usa-accordion__heading">
+            <button
+              class="usa-accordion__button"
+              aria-expanded="true"
+              :aria-controls="question.question"
+            >
+              {{ question.question }}
+            </button>
+          </h2>
+          <div
+            :id="question.question"
+            class="usa-accordion__content usa-prose"
+          >
+            <p><span v-html="question.answer" /></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Water Use -->
+    <div
+      v-for="section in pageContents.waterUseAccordionSections"
+      id="waterUseSection"
+      :key="section.sectionTitle"
+    >
+      <h6 class="section-title">
+        {{ section.sectionTitle }}
+        <router-link
+          to="/water-use"
+        >
+          <button>
+            back to map
+          </button>
+        </router-link>
+      </h6>
+      <div class="usa-accordion usa-accordion--bordered">
+        <div
+          v-for="question in section.questionsAndAnswers"
+          :key="question.question"
+        >
+          <h2 class="usa-accordion__heading">
+            <button
+              class="usa-accordion__button"
+              aria-expanded="true"
+              :aria-controls="question.question"
+            >
+              {{ question.question }}
+            </button>
+          </h2>
+          <div
+            :id="question.question"
+            class="usa-accordion__content usa-prose"
+          >
+            <p><span v-html="question.answer" /></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Water Temp -->
+    <div
+      v-for="section in pageContents.waterTempAccordionSections"
+      id="waterTempSection"
+      :key="section.sectionTitle"
+    >
+      <h6 class="section-title">
+        {{ section.sectionTitle }}
+        <router-link
+          to="/water-temperature"
+        >
+          <button>
+            back to map
+          </button>
+        </router-link>
+      </h6>
       <div class="usa-accordion usa-accordion--bordered">
         <div
           v-for="question in section.questionsAndAnswers"
