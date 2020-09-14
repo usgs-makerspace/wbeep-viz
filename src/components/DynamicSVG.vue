@@ -22,7 +22,6 @@ export default {
     },
     mounted(){
         this.$nextTick(function () {
-            console.log("next tick running")
             this.$store.commit('changeBooleanStateOnSVGMapRender');
         });
     }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-120 -5 1183 265" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 0.00160)">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-120 -5 1300 270" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
+  <g id="winterGroup" transform="translate(0 270) scale(3.24110 0.00160)">
     <path d="M0,0 v-126279 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v30 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v125727Z" class="wu-bars"/>
     <path d="M0,0 v-165883.24759343 h59 v165883.24759343 Z" class="wu-bars-hover" id="winter"/>
   </g>
-  <g id="springGroup" transform="translate(0 265) scale(3.24110 0.00160)">
+  <g id="springGroup" transform="translate(0 270) scale(3.24110 0.00160)">
     <path d="M59,0 v-125690 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v36 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-306 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-342 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v152703Z" class="wu-bars"/>
     <path d="M59,0 v-165883.24759343 h92 v165883.24759343 Z" class="wu-bars-hover" id="spring"/>
   </g>
-  <g id="summerGroup" transform="translate(0 265) scale(3.24110 0.00160)">
+  <g id="summerGroup" transform="translate(0 270) scale(3.24110 0.00160)">
     <path d="M151,0 v-153189 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-485 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-168 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v-28 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v159598Z" class="wu-bars"/>
     <path d="M151,0 v-165883.24759343 h92 v165883.24759343 Z" class="wu-bars-hover" id="summer"/>
   </g>
-  <g id="fallGroup" transform="translate(0 265) scale(3.24110 0.00160)">
+  <g id="fallGroup" transform="translate(0 270) scale(3.24110 0.00160)">
     <path d="M243,0 v-159205 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v393 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v448 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v361 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127156Z" class="wu-bars"/>
     <path d="M243,0 v-165883.24759343 h91 v165883.24759343 Z" class="wu-bars-hover" id="fall"/>
   </g>
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 0.00160)">
+  <g id="winterGroup" transform="translate(0 270) scale(3.24110 0.00160)">
     <path d="M334,0 v-127028 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v127 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v-61 h1 v126218Z" class="wu-bars"/>
     <path d="M334,0 v-165883.24759343 h31 v165883.24759343 Z" class="wu-bars-hover" id="winter"/>
   </g>
-  <g id="barchartAxis" translate="translate(0 265)">
-    <path class="wu-bars-axis" d="M0,0 v265"/>
+  <g id="barchartAxis" translate="translate(0 270)">
+    <path class="wu-bars-axis" d="M0,0 v270"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">1.659e+08</text>
     <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -20)">Daily water use, mgd</text>

@@ -25,7 +25,7 @@
         </div>
         <button @click="useButtonClick($event)" id="te" class="waterUseButton activeParameter">Thermoelectric</button>
         <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
-        <button @click="useButtonClick($event)" id="publicSupply" class="waterUseButton disabled" disabled>Public Supply</button>
+        <button @click="useButtonClick($event)" id="ps" class="waterUseButton">Public Supply</button>
       </div>
       <div
         id="waterUseMapContainer"
@@ -164,6 +164,7 @@
 <style lang="scss">
 $thermo: #EFC458;
 $irrigation: #00A08F;
+$publicSupply: #D35400;
 $highlight: #1C4755;
 .loader {
   top: 107px;
@@ -228,15 +229,14 @@ $highlight: #1C4755;
       border: 2px solid #1C4755;
     }
   }
-  .disabled{
-    opacity: .3;
-    pointer-events: none;
-  }
   #te{
     background: $thermo;
   }
   #ir{
     background: $irrigation;
+  }
+  #ps{
+    background: $publicSupply;
   }
   .activeParameter{
     border: 2px solid #1C4755;
@@ -270,7 +270,8 @@ $highlight: #1C4755;
   }
 }
 .wu-dots-te,
-.wu-dots-ir{
+.wu-dots-ir,
+.wu-dots-ps{
   stroke-linecap: round;
   opacity: 0.6;
 }
@@ -280,12 +281,18 @@ $highlight: #1C4755;
 .wu-dots-ir{
   stroke: $irrigation;
 }
+.wu-dots-ps{
+  stroke: $publicSupply;
+}
 #waterUseBarChartContainer{
   .wu-bars-hover{
     fill-opacity: 0;
+    stroke: rebeccapurple;
+    stroke-opacity: 0;
     &:hover, &:focus{
       fill: rebeccapurple;
-      fill-opacity: .5;
+      fill-opacity: .3;
+      stroke-opacity: 1; 
     }
   }
   .wu-bars-axis{
@@ -293,7 +300,8 @@ $highlight: #1C4755;
   }
   .activeSeason{
     fill: rebeccapurple;
-    fill-opacity: .7;
+    fill-opacity: .3;
+    stroke-opacity: 1; 
   }
   #winterGroup .wu-bars{
     fill: #52A5D9
@@ -310,9 +318,6 @@ $highlight: #1C4755;
   path.wu-bars-axis {
     stroke: black;
     stroke-width: 5;
-  }
-  .wu-bars-hover {
-    opacity: 0.2;
   }
   #chartExplanation{
     margin: 5px 0 20px 0;

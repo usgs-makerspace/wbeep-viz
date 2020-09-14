@@ -10,7 +10,6 @@ export const store = new Vuex.Store({
     mutations: {
         changeBooleanStateOnSVGMapRender(state){
             state.mapSVGRenderOnInitialLoad = true;
-            console.log('SVG Rendered');
         }
     }
 });
