@@ -16,10 +16,13 @@ targets:
     depends:
       - seasonal_maps_te
       - seasonal_maps_ir
+      - seasonal_maps_ps
       - 6_visualize/out/svg_bars_te.svg
       - 6_visualize/out/svg_bars_ir.svg
+      - 6_visualize/out/svg_bars_ps.svg
       - svg_bars_te_copied
       - svg_bars_ir_copied
+      - svg_bars_ps_copied
   
   ##### Create SVGs for maps #####
   
@@ -48,6 +51,16 @@ targets:
     command: make_seasonal_maps(
       seasons = seasons,
       wu_type_cd = I('ir'),
+      isHUC10 = TRUE,
+      '2_process/src/process_per_season.R',
+      '6_visualize/src/build_svg_map.R')
+    depends:
+      - svg_huc_locations
+  
+  seasonal_maps_ps:
+    command: make_seasonal_maps(
+      seasons = seasons,
+      wu_type_cd = I('ps'),
       isHUC10 = TRUE,
       '2_process/src/process_per_season.R',
       '6_visualize/src/build_svg_map.R')
@@ -91,4 +104,20 @@ targets:
     command: file.copy(
       from = "6_visualize/out/svg_bars_ir.svg",
       to = I("../src/assets/wuBarSVGs/svg_bars_ir.svg"),
+      overwrite = TRUE)
+  
+  6_visualize/out/svg_bars_ps.svg:
+    command: build_svg_bars(
+      target_name,
+      wu_ps_totals,
+      wu_type_cd = I("ps"),
+      season_info,
+      svg_height_bars,
+      svg_width_bars)
+  
+  # Copy SVG over to Vue location
+  svg_bars_ps_copied:
+    command: file.copy(
+      from = "6_visualize/out/svg_bars_ps.svg",
+      to = I("../src/assets/wuBarSVGs/svg_bars_ps.svg"),
       overwrite = TRUE)
