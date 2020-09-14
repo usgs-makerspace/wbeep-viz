@@ -19,19 +19,12 @@
       </p>
       <div v-if="currentFeature === 'waterTemperature'">
         <p>
-          What can stream temperature tell me about water quality?​
-        </p>
-        <p>
-          Stream temperature is one factor of overall water quality
-          due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces that may change a stream's temperature and negatively impact aquatic life or the usability of the stream for other purposes. Learn more about these impacts below.​
+          This is a <strong>demonstration map and is not for decision making</strong>. It shows the latest available daily estimates of natural water temperature for approximately 110,000 stream reaches across the lower forty-eight states. Stream temperature is one factor of overall water quality due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces such as thermoelectric power plants that may change a stream's temperature and impact aquatic life or the usability of the stream for other purposes.  
         </p>
       </div>
       <div v-if="currentFeature === 'waterUse'">
         <p>
-          Sed nec aliquam turpis. In tincidunt enim ac nulla suscipit, ac aliquet elit condimentum. Nullam eleifend egestas feugiat. Nullam pellentesque, nisi non consectetur vestibulum, risus libero sodales massa, vitae molestie dolor nunc eget leo. Mauris et magna eu magna scelerisque vestibulum non non metus. Cras lobortis gravida quam sit amet pharetra. In hac habitasse platea dictumst. Morbi et cursus ipsum, eu sagittis neque.
-        </p>
-        <p>
-          Enjoy the Map!
+          This is a <strong>demonstration map and is not for decision making</strong>. It shows an estimate of daily water withdrawals in approximately 85,000 watershed units across the lower forty-eight states. These daily estimates of thermoelectric, public supply, and irrigation water user are derived from monthly 2015 estimates of water withdrawals from surface and groundwater sources. Withdrawals do not reflect water consumed and/or returned.
         </p>
       </div>
       <router-link to="/questionsandanswers">
