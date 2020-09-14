@@ -31,7 +31,7 @@
         id="waterUseMapContainer"
       >
         <DynamicSVG :svg="svg" />
-        <router-link to="/water-use/questions-answers">
+        <router-link to="QuestionsAndAnswers#waterUseSection">
           <div
             id="waterUseQuestion"
           >

@@ -41,7 +41,9 @@
           position="top-right"
           :show-compass="false"
         />
+         
         <QuestionControl :feature-name="featureName" />
+         
         <MglScaleControl
           position="bottom-right"
           unit="imperial"
