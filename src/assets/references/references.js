@@ -6,8 +6,8 @@
 // }
 
 export default {
-    referenceSection: {
-        title: "References",
+    referenceSectionWaterStorage: {
+        title: "Water Storage References",
         references: [
             {
                 reference: "Abatzoglou, J.T., 2013. Development of gridded surface meteorological data for ecological applications and modelling. Int. J. Climatol. 33, 121–131.",
@@ -37,6 +37,26 @@ export default {
             {
                 reference: "Markstrom, S.L., Regan, R.S., Hay, L.E., Viger, R.J., Webb, R.M.T., Payn, R.A., LaFontaine, J.H., 2015. PRMS-IV, the precipitation-runoff modeling system, version 4, in: U.S. Geological Survey Techniques and Methods, Book 6. U.S. Geological Survey, p. 158.",
                 href: "https://doi.org/10.3133/tm6B7",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            }
+        ]
+    },
+    referenceSectionWaterTemp: {
+        title: "Water Temperature References",
+        references: [
+            {
+                reference: "Test",
+                href: "https://doi.org/10.1002/joc.3413",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            }
+        ]
+    },
+    referenceSectionWaterUse: {
+        title: "Water Use References",
+        references: [
+            {
+                reference: "Test",
+                href: "https://doi.org/10.1002/joc.3413",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
             }
         ]
