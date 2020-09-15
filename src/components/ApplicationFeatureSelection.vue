@@ -107,7 +107,6 @@
   background-color: #00264c;
 
   h1 {
-    font-family: Merriweather Web, Georgia, Cambria, Times New Roman, Times, serif;
     font-size: 0.8em;
     color: white;
     margin: 0;
@@ -115,7 +114,6 @@
   }
   ul {
     display: flex;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 0.8rem;
     background-color: white;
     padding: 2px 0 2px 0;
@@ -154,7 +152,6 @@
       background-color: #00264c;
       li {
           white-space: nowrap;
-          font-family: Merriweather Web, Georgia, Cambria, Times New Roman, Times, serif;
           font-weight: bold;
           font-size: 0.8rem;
           color: white;
