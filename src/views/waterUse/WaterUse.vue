@@ -93,14 +93,17 @@
     },
     methods: {
       changeSeason(event){
-        this.season = event.target.id;
-        //Update SVG map by season
-        this.svg = "svg_map_" + this.useParameter + "_" + this.season;
-        this.checkForClass("activeSeason");
-        if(this.season === "winter"){
-          this.winterSolution();
-        }else{
-          event.target.classList.add("activeSeason");
+        let checkClass = event.target.classList.value;
+        if(checkClass === "wu-bars-hover"){
+          this.season = event.target.id;
+          //Update SVG map by season
+          this.svg = "svg_map_" + this.useParameter + "_" + this.season;
+          this.checkForClass("activeSeason");
+          if(this.season === "winter"){
+            this.winterSolution();
+          }else{
+            event.target.classList.add("activeSeason");
+          }
         }
       },
       useButtonClick(event){
@@ -162,10 +165,16 @@
 </script>
 
 <style lang="scss">
-$thermo: #EFC458;
-$irrigation: #00A08F;
-$publicSupply: #D35400;
-$highlight: #1C4755;
+$thermo: #E6B348;
+$irrigation: #2B594E;
+$publicSupply: #446FA6;
+$mapBG: rgb(200,200,200);
+$winter: steelBlue;
+$spring: khaki;
+$summer: green;
+$fall: orange; 
+$highlight: #68C6A4;
+$barChartHighlight: rgb(100,100,100);
 .loader {
   top: 107px;
   height: 100%;
@@ -213,39 +222,62 @@ $highlight: #1C4755;
   }
   .waterUseButton{
     flex: 1;
-    background: #000;
-    color: #fff;
+    background: #fff;
     border-radius: 5px;
     margin-right: 10px;
     height: 40px;
-    border: 1px solid #fff;
     font-size: 11pt;
+    font-weight: bold;
     outline: none;
     &:last-child{
       margin-right: 0;
     }
-    &:hover{
-      opacity: 1;
-      border: 2px solid #1C4755;
-    }
   }
   #te{
-    background: $thermo;
+    color: $thermo;
+    border: 2px solid $thermo;
+    &:hover{
+      color: #fff;
+      background: $thermo;
+    }
   }
   #ir{
-    background: $irrigation;
+    color: $irrigation;
+    border: 2px solid $irrigation;
+    &:hover{
+      color: #fff;
+      background: $irrigation;
+    }
   }
   #ps{
-    background: $publicSupply;
+    color: $publicSupply;
+    border: 2px solid $publicSupply;
+    &:hover{
+      color: #fff;
+      background: $publicSupply;
+    }
   }
-  .activeParameter{
-    border: 2px solid #1C4755;
+  #te.activeParameter{
+    color: #fff;
+    background: $thermo;
+  }
+  #ir.activeParameter{
+    color: #fff;
+    background: $irrigation;
+  }
+  #ps.activeParameter{
+    color: #fff;
+    background: $publicSupply;
   }
 }
 #waterUseMapContainer{
   margin: 20px 0;
   position: relative;
   padding-top: 20px;
+  svg{
+    stroke: $mapBG;
+    fill: #fff;
+  }
 }
 #waterUseQuestion{
   position:absolute;
@@ -286,34 +318,34 @@ $highlight: #1C4755;
 }
 #waterUseBarChartContainer{
   .wu-bars-hover{
+    cursor: pointer;
     fill-opacity: 0;
-    stroke: rebeccapurple;
-    stroke-opacity: 0;
     &:hover, &:focus{
-      fill: rebeccapurple;
+      fill: $barChartHighlight;
       fill-opacity: .3;
-      stroke-opacity: 1; 
     }
   }
+  #barchartAxis{
+    pointer-events: none;
+  }
   .wu-bars-axis{
-    font-size: 15pt;
+    font-size: 1.3rem;
   }
   .activeSeason{
-    fill: rebeccapurple;
+    fill: $barChartHighlight;
     fill-opacity: .3;
-    stroke-opacity: 1; 
   }
   #winterGroup .wu-bars{
-    fill: #52A5D9
+    fill: $winter;
   }
   #springGroup .wu-bars{
-    fill: #2AA617
+    fill: $spring;
   }
   #summerGroup .wu-bars{
-    fill: #347307;
+    fill: $summer;
   }
   #fallGroup .wu-bars{
-    fill: #D95204;
+    fill: $fall;
   }
   path.wu-bars-axis {
     stroke: black;
