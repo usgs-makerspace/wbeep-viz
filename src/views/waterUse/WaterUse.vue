@@ -7,7 +7,7 @@
     <div id="mapSubtitleContainer">
       <MapSubtitle 
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
-        @clickedInfoIcon="toggleMapInfoBox()"
+        @clickedInfoIcon="clickAnywhereToCloseMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
     </div>
@@ -72,6 +72,7 @@
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: this.$store.state.mapSVGRenderOnInitialLoad,
         isAboutMapInfoBoxOpen: true,
+        isFirstClick: true,
         svg: "svg_map_te_spring",
         barchart: "svg_bars_te",
         useParameter: "te",
