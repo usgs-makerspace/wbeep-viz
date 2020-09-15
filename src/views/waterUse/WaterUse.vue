@@ -76,7 +76,11 @@
         svg: "svg_map_te_spring",
         barchart: "svg_bars_te",
         useParameter: "te",
-        season: "spring"
+        season: "spring",
+        teColor: "#E6B348",
+        irColor: "#2B594E",
+        psColor: "#446FA6",
+        basicBarChunkColor: "rgb(209,211,212)"
       }
     },
     computed: {
@@ -89,21 +93,54 @@
         let self = this;
         setTimeout(function(){
           self.addSeasonClass();
+          self.watchWuBarsHovers();
         },200);
       }
     },
     methods: {
+      addSeasonClass(){
+        let element = document.getElementById(this.season);
+        if(this.season === "winter"){
+          this.winterSolution();
+        }else{
+          element.previousElementSibling.classList.add("activeSeason");
+          this.changeWuBarFill();
+        }
+      },
+      watchWuBarsHovers(){
+        let self = this;
+        let wuBarHovers = document.querySelectorAll(".wu-bars-hover");
+        wuBarHovers.forEach(function(wuBarHover){
+          let wuBar = wuBarHover.previousElementSibling;
+          wuBarHover.addEventListener("mouseover", function(){
+            //Make sure wuBar is not the active class
+            if(!wuBar.classList.contains("activeSeason")){
+              self.checkUseParameter(wuBar);
+              wuBar.style.fillOpacity = .5;
+            }
+          });
+          wuBarHover.addEventListener("mouseout", function(){
+            //Make sure wuBar is not the active class
+            if(!wuBar.classList.contains("activeSeason")){
+              wuBar.style.fill = self.basicBarChunkColor;
+              wuBar.style.fillOpacity = 1;
+            }
+          });
+        });
+      },
       changeSeason(event){
         let checkClass = event.target.classList.value;
+        let target = event.target;
+        let className = document.querySelector(".activeSeason");
         if(checkClass === "wu-bars-hover"){
-          this.season = event.target.id;
+          this.season = target.id;
           //Update SVG map by season
           this.svg = "svg_map_" + this.useParameter + "_" + this.season;
           this.checkForClass("activeSeason");
           if(this.season === "winter"){
             this.winterSolution();
           }else{
-            event.target.classList.add("activeSeason");
+            this.addSeasonClass();
           }
         }
       },
@@ -122,31 +159,50 @@
         button.classList.add("activeParameter");
         setTimeout(function(){
           self.addSeasonClass();
-        }, 10)
+          //wubarhovercolorsolution
+          self.watchWuBarsHovers();
+        }, 10);
       },
-      addSeasonClass(){
-        let element = document.getElementById(this.season);
-        if(this.season === "winter"){
-          this.winterSolution();
-        }else{
-          element.classList.add("activeSeason");
+      changeWuBarFill(){
+        let self = this;
+        let activeSeasons = document.querySelectorAll(".activeSeason");
+        activeSeasons.forEach(function(activeSeason){
+          self.checkUseParameter(activeSeason);
+          activeSeason.style.fillOpacity = 1;
+        });
+      },
+      checkUseParameter(element){
+        //Find out which parameter is in use and color elements accordingly
+        let self = this;
+        switch(self.useParameter){
+          case "te":
+            element.style.fill = self.teColor;
+            break;
+          case "ir":
+            element.style.fill = self.irColor;
+            break;
+          case "ps":
+            element.style.fill =  self.psColor;
+            break;
         }
       },
       winterSolution(){
         let winters = document.querySelectorAll(".wu-bars-hover");
         winters.forEach(function(winter){
+          let winterSibling = winter.previousElementSibling;
           if(winter.id === "winter"){
-            winter.classList.add("activeSeason");
+            winterSibling.classList.add("activeSeason");
           }
         });
+        this.changeWuBarFill();
       },
       checkForClass(className){
+        let self = this;
         let activeClasses = document.querySelectorAll("." + className);
         activeClasses.forEach(function(activeClass){
           if(activeClass){
+            activeClass.style.fill = self.basicBarChunkColor;
             activeClass.classList.remove(className)
-          }else{
-            return;
           }
         })
       },
@@ -175,7 +231,7 @@ $spring: khaki;
 $summer: green;
 $fall: orange; 
 $highlight: #68C6A4;
-$barChartHighlight: rgb(100,100,100);
+$barChartHighlight: red;
 .loader {
   top: 107px;
   height: 100%;
@@ -318,43 +374,26 @@ $barChartHighlight: rgb(100,100,100);
   stroke: $publicSupply;
 }
 #waterUseBarChartContainer{
-  .wu-bars-hover{
-    cursor: pointer;
-    fill-opacity: 0;
-    &:hover, &:focus{
-      fill: $barChartHighlight;
-      fill-opacity: .3;
-    }
-  }
   #barchartAxis{
     pointer-events: none;
-  }
-  .wu-bars-axis{
-    font-size: 1.3rem;
-  }
-  .activeSeason{
-    fill: $barChartHighlight;
-    fill-opacity: .3;
-  }
-  #winterGroup .wu-bars{
-    fill: $winter;
-  }
-  #springGroup .wu-bars{
-    fill: $spring;
-  }
-  #summerGroup .wu-bars{
-    fill: $summer;
-  }
-  #fallGroup .wu-bars{
-    fill: $fall;
-  }
-  path.wu-bars-axis {
-    stroke: black;
-    stroke-width: 5;
   }
   #chartExplanation{
     margin: 5px 0 20px 0;
   }
+}
+.wu-bars-hover{
+  cursor: pointer;
+  fill-opacity: 0;
+}
+.wu-bars-axis{
+  font-size: 1.3rem;
+}
+.wu-bars{
+  fill: rgb(209,211,212);
+}
+path.wu-bars-axis {
+  stroke: black;
+  stroke-width: 5;
 }
 @media screen and (min-width: 600px){
   #buttonsContainer{
