@@ -47,7 +47,7 @@
       >
         <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
         <div id="chartExplanation" class="explanation">
-          <p>Select a season to look at seasonal use</p> 
+          <p>Click a season to look at seasonal use</p> 
         </div>
       </div>
     </div>
