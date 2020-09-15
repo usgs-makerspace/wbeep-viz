@@ -114,6 +114,7 @@
   }
   ul {
     display: flex;
+    font-size: 0.8rem;
     background-color: white;
     padding: 2px 0 2px 0;
     margin: 0;
