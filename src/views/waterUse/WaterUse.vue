@@ -94,7 +94,7 @@
         setTimeout(function(){
           self.addSeasonClass();
           self.watchWuBarsHovers();
-        },200);
+        },300);
       }
     },
     mounted(){
@@ -103,7 +103,7 @@
         setTimeout(function(){
           self.addSeasonClass();
           self.watchWuBarsHovers();
-        },100);
+        },300);
       }
     },
     methods: {
