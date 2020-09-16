@@ -99,10 +99,12 @@
     },
     mounted(){
       let self = this;
-      setTimeout(function(){
+      if(this.$store.state.mapSVGRenderOnInitialLoad === true){
+        setTimeout(function(){
           self.addSeasonClass();
           self.watchWuBarsHovers();
         },100);
+      }
     },
     methods: {
       addSeasonClass(){
