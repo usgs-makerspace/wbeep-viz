@@ -262,7 +262,7 @@ $barChartHighlight: red;
 }
 #water-use-content{
   width: 100%;
-  max-width: 960px;
+  max-width: 800px;
   flex: 1;
   display: flex;
 }
@@ -408,7 +408,7 @@ path.wu-bars-axis {
     width: 650px;
   }
 }
-@media screen and (min-width: 1300px) and (max-height: 652px){
+@media screen and (min-width: 1000px) and (max-height: 652px){
   #water-use-content{
     width: 530px;
   }
