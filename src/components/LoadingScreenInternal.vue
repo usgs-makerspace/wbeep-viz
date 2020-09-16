@@ -24,13 +24,8 @@ export default {
     fixed.addEventListener('touchmove', function(e){
       e.preventDefault();
     }, false);
-    if(this.isLoading === true){
-      document.body.classList.add("stop-scrolling");
-    }else{
-      document.body.classList.remove("stop-scrolling");
-    }
+    document.body.classList.remove("stop-scrolling");
   }
-  
 };
 </script>
 <style lang="scss">
@@ -88,7 +83,7 @@ export default {
 }
 
 .fadeout {
-  animation: fadeout 2s forwards;
+  animation: fadeout 1s forwards;
 }
 
 @keyframes fadeout {
