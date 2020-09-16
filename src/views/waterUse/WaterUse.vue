@@ -45,10 +45,10 @@
       <div
         id="waterUseBarChartContainer"
       >
-        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
         <div id="chartExplanation" class="explanation">
           <p>Click a season to look at seasonal use</p> 
         </div>
+        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
       </div>
     </div>
   </div>
@@ -247,9 +247,10 @@ $barChartHighlight: red;
 .explanation{
   width: 100%;
   text-align: center;
+  font-weight: bold;
   p{
     margin: 0;
-    font-size: 100%;
+    font-size: 98%;
   }
 }
 #water-use-container {
@@ -282,7 +283,7 @@ $barChartHighlight: red;
     background: #fff;
     border-radius: 5px;
     margin-right: 10px;
-    height: 40px;
+    height: 35px;
     font-size: 11pt;
     font-weight: bold;
     outline: none;
@@ -398,8 +399,20 @@ path.wu-bars-axis {
 @media screen and (min-width: 600px){
   #buttonsContainer{
     .waterUseButton{
-      font-size: 16pt;
+      font-size: 14pt;
     }
   }
 }
+@media screen and (min-width: 1300px) and (max-height: 768px){
+  #water-use-content{
+    width: 650px;
+  }
+}
+@media screen and (min-width: 1000px) and (max-height: 652px){
+  #water-use-content{
+    width: 530px;
+  }
+}
+
+
 </style>
