@@ -97,6 +97,13 @@
         },200);
       }
     },
+    mounted(){
+      let self = this;
+      setTimeout(function(){
+          self.addSeasonClass();
+          self.watchWuBarsHovers();
+        },100);
+    },
     methods: {
       addSeasonClass(){
         let element = document.getElementById(this.season);
@@ -161,7 +168,7 @@
           self.addSeasonClass();
           //wubarhovercolorsolution
           self.watchWuBarsHovers();
-        }, 10);
+        }, 100);
       },
       changeWuBarFill(){
         let self = this;
