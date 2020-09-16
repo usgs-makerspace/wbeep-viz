@@ -287,6 +287,7 @@ $barChartHighlight: red;
     font-size: 11pt;
     font-weight: bold;
     outline: none;
+    cursor: pointer;
     &:last-child{
       margin-right: 0;
     }

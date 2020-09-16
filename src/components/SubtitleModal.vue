@@ -24,7 +24,7 @@
       </div>
       <div v-if="currentFeature === 'waterUse'">
         <p>
-          This is a <strong>demonstration map and is not for decision making</strong>. It shows an estimate of daily water withdrawals in approximately 85,000 watershed units across the lower forty-eight states. These daily estimates of thermoelectric, public supply, and irrigation water user are derived from monthly 2015 estimates of water withdrawals from surface and groundwater sources. Withdrawals do not reflect water consumed and/or returned.
+          This is a <strong>demonstration map and is not for decision making</strong>. It shows an estimate of daily water withdrawals in approximately 85,000 watershed units across the lower forty-eight states. These daily estimates of thermoelectric, public supply, and irrigation water use are derived from monthly 2015 estimates of water withdrawals from surface and groundwater sources. Withdrawals do not reflect water consumed and/or returned.
         </p>
       </div>
       <router-link v-if="currentFeature === 'waterStorage'" to="/questionsandanswers">
@@ -69,7 +69,7 @@ export default {
   border-radius: 5px;
   border: 1px solid rgb(200, 200, 200);
   background: rgb(255, 255, 255);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
 
   #infoContainer {
     min-height: 20px;
