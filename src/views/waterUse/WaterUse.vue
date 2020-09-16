@@ -15,7 +15,7 @@
       id="water-use-content"
       class="waterUseFlex"
     >
-      <LoadingScreenInternal v-if="!isLoading" />
+      <LoadingScreenInternal :is-loading="isLoading" />
       <div
         id="buttonsContainer"
         class="centeredContent"
@@ -70,7 +70,7 @@
         titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
-        isLoading: this.$store.state.mapSVGRenderOnInitialLoad,
+        isLoading: true,
         isAboutMapInfoBoxOpen: true,
         isFirstClick: true,
         svg: "svg_map_te_spring",
@@ -115,6 +115,7 @@
           element.previousElementSibling.classList.add("activeSeason");
           this.changeWuBarFill();
         }
+        this.isLoading = false;
       },
       watchWuBarsHovers(){
         let self = this;
