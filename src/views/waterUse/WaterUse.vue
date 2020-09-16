@@ -94,7 +94,16 @@
         setTimeout(function(){
           self.addSeasonClass();
           self.watchWuBarsHovers();
-        },200);
+        },300);
+      }
+    },
+    mounted(){
+      let self = this;
+      if(this.$store.state.mapSVGRenderOnInitialLoad === true){
+        setTimeout(function(){
+          self.addSeasonClass();
+          self.watchWuBarsHovers();
+        },300);
       }
     },
     methods: {
@@ -161,7 +170,7 @@
           self.addSeasonClass();
           //wubarhovercolorsolution
           self.watchWuBarsHovers();
-        }, 10);
+        }, 100);
       },
       changeWuBarFill(){
         let self = this;
@@ -287,6 +296,7 @@ $barChartHighlight: red;
     font-size: 11pt;
     font-weight: bold;
     outline: none;
+    cursor: pointer;
     &:last-child{
       margin-right: 0;
     }
