@@ -1,5 +1,5 @@
-filter_to_season <- function(wu_dat, date) {
-  wu_dat %>% filter(Date == date)
+filter_to_season <- function(wu_dat, season_nm) {
+  wu_dat %>% filter(season == season_nm) 
 }
 
 join_wu_to_huc_centroids <- function(wu_dat, huc_sf, huc_colname = "HUC12") {
