@@ -20,7 +20,8 @@ add_wu_points <- function(svg, wu_dat, svg_huc_locations, season, wu_type_cd, hu
   
   # Prepare dot locations for SVG land
   wu_dat_svg <- wu_dat %>% 
-    left_join(svg_huc_locations, by = huc_colname)
+    left_join(svg_huc_locations, by = huc_colname) %>% 
+    filter(!is.na(x), !is.na(y))
   
   # Add a group for all of these pts
   wu_dot_grp <- xml_add_child(svg, 'g', id = sprintf("wu-dots-%s-%s", wu_type_cd, season))
