@@ -3,8 +3,8 @@ filter_to_season <- function(wu_dat, season_nm) {
 }
 
 join_wu_to_huc_centroids <- function(wu_dat, huc_sf, huc_colname = "HUC12") {
-  stopifnot(length(unique(wu_dat$Date)) == 1)
-  huc_sf %>% left_join(wu_dat, by = huc_colname)
+  stopifnot(length(unique(wu_dat$season)) == 1)
+  huc_sf %>% left_join(wu_dat, by = huc_colname) %>% filter(!is.na(wu_val))
 }
 
 calc_wu_type_max <- function(wu_dat) {
