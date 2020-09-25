@@ -33,7 +33,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
       sprintf("wu_%s_%s_svg_ready", wu_type_cd, task_name)
     },
     command = function(steps, ...) {
-      sprintf("prep_wu_data_for_map(%s)", steps[["joinspatial"]]$target_name)
+      sprintf("prep_wu_data_for_map(%s, wu_%s_max)", steps[["joinspatial"]]$target_name, wu_type_cd)
     }
   )
   

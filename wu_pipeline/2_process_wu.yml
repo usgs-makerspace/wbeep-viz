@@ -61,6 +61,14 @@ targets:
   wu_ps_seasonal_avg:
     command: summarize_per_season(wu_ps_huc10, season_info)
   
+  # Find maximums for each wu type to use to set scale dots
+  wu_te_max:
+    command: calc_wu_type_max(wu_te_seasonal_avg)
+  wu_ir_max:
+    command: calc_wu_type_max(wu_ir_seasonal_avg)
+  wu_ps_max:
+    command: calc_wu_type_max(wu_ps_seasonal_avg)
+  
   # Total daily water use values for bar chart
   wu_te_totals:
     command: summarize_wu(wu_te)
