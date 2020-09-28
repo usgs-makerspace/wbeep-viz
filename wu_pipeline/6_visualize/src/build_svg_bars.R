@@ -75,7 +75,7 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
     xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="end",
                     transform=sprintf("translate(-20 %s)", svg_height/2)) %>% 
     xml_add_child("tspan", "Daily water use", x = 0, dy = 0) %>% 
-    xml_add_sibling("tspan", class = "y-units", "million gallons per day", x = 0, dy=20)
+    xml_add_sibling("tspan", id = "yUnits", "million gallons per day", x = 0, dy=20)
   
 }
 
