@@ -55,7 +55,7 @@ add_wu_data <- function(svg, wu_dat, wu_grp, class) {
 }
 
 add_background_map <- function(svg, svg_width) {
-  map_data <- generate_usa_map_data()
+  map_data <- generate_usa_map_data(outline_states = TRUE)
   
   bkgrd_grp <- xml_add_child(svg, 'g', id = "bkgrd-map-grp")
   purrr::map(map_data$ID, function(polygon_id, map_data, svg_width) {
