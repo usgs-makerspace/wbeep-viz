@@ -23,14 +23,6 @@ targets:
       - wu_ps_totals
   
   # Setup seasonal map tasks
-  winter_date:
-    command: as.Date(I("2015-01-15"))
-  spring_date:
-    command: as.Date(I("2015-04-15"))
-  summer_date:
-    command: as.Date(I("2015-07-15"))
-  fall_date:
-    command: as.Date(I("2015-10-15"))
   seasons:
     command: c(I("winter"), I("spring"), I("summer"), I("fall"))
   
@@ -60,6 +52,22 @@ targets:
     command: summarize_to_huc10(wu_ir)
   wu_ps_huc10:
     command: summarize_to_huc10(wu_ps)
+  
+  # Average each HUC to a seasonal value
+  wu_te_seasonal_avg:
+    command: summarize_per_season(wu_te_huc10, season_info)
+  wu_ir_seasonal_avg:
+    command: summarize_per_season(wu_ir_huc10, season_info)
+  wu_ps_seasonal_avg:
+    command: summarize_per_season(wu_ps_huc10, season_info)
+  
+  # Find maximums for each wu type to use to set scale dots
+  wu_te_max:
+    command: calc_wu_type_max(wu_te_seasonal_avg)
+  wu_ir_max:
+    command: calc_wu_type_max(wu_ir_seasonal_avg)
+  wu_ps_max:
+    command: calc_wu_type_max(wu_ps_seasonal_avg)
   
   # Total daily water use values for bar chart
   wu_te_totals:

@@ -14,7 +14,7 @@ read_and_parse_huc10<- function(wbd_gdb_fn, layer_nm) {
 read_and_parse_wu <- function(filepath, is_irr = FALSE, is_ps = FALSE) {
   
   # Columns have different names between water use types
-  col_name <- ifelse(is_irr, "HUC_12", "huc12")
+  col_name <- ifelse(is_irr, "HUC_12t", "huc12")
   col_name <- ifelse(is_ps, "HUC12t", col_name) # PS huc12 col was in sci notation...
   col_prefix <- ifelse(is_ps, "C", "W_") # PS just has "C" as the prefix due to an error but is withdrawal values
   date_format <- ifelse(is_ps, "%m_%d_%Y", "%m-%d-%Y")
