@@ -6,7 +6,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
            wu_total = wu_total/1000) 
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width, svg_height), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
+  svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   
@@ -39,6 +39,7 @@ build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, 
   }
   
   svg_root %>% add_y_axis(wu_dat, svg_height)
+  svg_root %>% add_x_axis(wu_dat, svg_height, svg_width, season_info)
   
   ##### Write out final SVG to file #####
   
@@ -70,7 +71,7 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
   
   # Create line segment for y axis with appropriate labels
   svg %>% 
-    xml_add_child("g", id = "barchartAxis", translate = sprintf("translate(0 %s)", svg_height)) %>% 
+    xml_add_child("g", id = "yAxis", translate = sprintf("translate(0 %s)", svg_height)) %>% 
     xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 v%s", svg_height)) %>% 
     xml_add_sibling("text", id = "yAxisLabelLow", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = svg_height - 2, "0") %>% 
@@ -78,6 +79,33 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
                     x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
     xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", "Daily water use, mgd", `text-anchor`="middle",
                     transform=sprintf("rotate(-90) translate(-%s -20)", svg_height/2))
+  
+}
+
+add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
+  
+  season_start_doy <- unlist(lapply(season_info, get_startDate_as_doy))
+  season_end_doy <- unlist(lapply(season_info, get_endDate_as_doy))
+  season_middle_doy <- colMeans(rbind(season_start_doy, season_end_doy), na.rm=TRUE)
+  max_doy <- max(wu_dat$doy, na.rm=TRUE)
+  scale_x_factor <- svg_width/max_doy # Needed to change x values rather than scaling which warps text
+  
+  svg %>% 
+    xml_add_child("g", id = "xAxis", 
+                  transform = sprintf("translate(0 %s)", svg_height)) %>%  
+    xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 h%s", max_doy*scale_x_factor)) %>%
+    xml_add_sibling("path", class = "wu-bars-axis", 
+                    d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter1"]]*scale_x_factor, 15)) %>% 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Spring", 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["spring"]]*scale_x_factor, 15)) %>% 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Summer", 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["summer"]]*scale_x_factor, 15)) %>% 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Fall", 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["fall"]]*scale_x_factor, 15)) %>% 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter2"]]*scale_x_factor, 15))
   
 }
 
@@ -106,4 +134,12 @@ round_for_firefox <- function(val) {
   # If the value cannot be rounded to e-6, then fudge it.
   # These are small enough, that it shouldn't make that much of a difference.
   ifelse(round(val, 5) == 0, 0.00001, round(val, 5)) 
+}
+
+get_endDate_as_doy <- function(season_dates_list) {
+  as.numeric(format(season_dates_list$endDates, "%j"))
+}
+
+get_startDate_as_doy <- function(season_dates_list) {
+  as.numeric(format(season_dates_list$startDates, "%j"))
 }

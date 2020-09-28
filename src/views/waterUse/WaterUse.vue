@@ -10,6 +10,16 @@
         @clickedInfoIcon="clickAnywhereToCloseMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
+      <router-link to="QuestionsAndAnswers#waterUseSection">
+        <div
+          id="waterUseQuestion"
+        >
+          <font-awesome-icon
+            icon="question"
+            class="icon-map-control-question"
+          />
+        </div>
+      </router-link>
     </div>
     <div
       id="water-use-content"
@@ -31,16 +41,7 @@
         id="waterUseMapContainer"
       >
         <DynamicSVG :svg="svg" />
-        <router-link to="QuestionsAndAnswers#waterUseSection">
-          <div
-            id="waterUseQuestion"
-          >
-            <font-awesome-icon
-              icon="question"
-              class="icon-map-control-question"
-            />
-          </div>
-        </router-link>
+        <MapLegend :legend-title="legendTitle" :use-parameter="useParameter" />
       </div>
       <div
         id="waterUseBarChartContainer"
@@ -56,13 +57,15 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
+  import MapLegend from "../../components/MapLegend";
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
+        MapLegend,
         MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
         DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
-        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
+        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart")
     },
     data() {
       return {
@@ -73,8 +76,10 @@
         isLoading: true,
         isAboutMapInfoBoxOpen: true,
         isFirstClick: true,
+        legendTitle: 'Water Use',
         svg: "svg_map_te_spring",
         barchart: "svg_bars_te",
+        legend: "thermo",
         useParameter: "te",
         season: "spring",
         teColor: "#E6B348",
@@ -171,6 +176,7 @@
           self.addSeasonClass();
           //wubarhovercolorsolution
           self.watchWuBarsHovers();
+          self.$root.$emit('SwapLegendIcon');
         }, 100);
       },
       changeWuBarFill(){
@@ -235,11 +241,7 @@
 $thermo: #E6B348;
 $irrigation: #2B594E;
 $publicSupply: #446FA6;
-$mapBG: rgb(200,200,200);
-$winter: steelBlue;
-$spring: khaki;
-$summer: green;
-$fall: orange; 
+$mapBG: rgb(220,220,220);
 $highlight: #68C6A4;
 $barChartHighlight: red;
 .loader {
@@ -280,6 +282,28 @@ $barChartHighlight: red;
   position: relative;
   width: 100%;
   height:78px;
+}
+#waterUseQuestion{
+  position:absolute;
+  top: 10px;
+  right: 0px;
+  width: 29px;
+  height: 29px;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  cursor: pointer;
+  text-align: center;
+  svg{
+    width: 18px;
+    height: 18px;
+    margin: 4px 1px 0 0;
+  }
 }
 #buttonsContainer{
   display: flex;
@@ -342,32 +366,16 @@ $barChartHighlight: red;
 #waterUseMapContainer{
   margin: 20px 0;
   position: relative;
-  padding-top: 20px;
+  /*colors the SVG map*/
   svg{
     stroke: $mapBG;
     fill: #fff;
   }
-}
-#waterUseQuestion{
-  position:absolute;
-  top: 0px;
-  right: 0px;
-  width: 29px;
-  height: 29px;
-  display: block;
-  padding: 0;
-  outline: none;
-  border: 0;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
-  cursor: pointer;
-  text-align: center;
-  svg{
-    width: 18px;
-    height: 18px;
-    margin: 4px 1px 0 0;
+  #legendContainer{
+    min-height: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 }
 .wu-dots-te,

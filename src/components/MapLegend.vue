@@ -46,7 +46,13 @@
       <div id="legendTitle">
         <p>{{ legendTitle }}</p>
       </div>
-      <div id="keysAndText" />
+      <div id="keysAndText">
+        <div v-if="currentFeature === 'waterUse'" id="waterUseLegendContainer">
+          <thermoLegend v-if="waterUseParameter === 'te'" class="waterUseLegendIcon"/>
+          <irrigationLegend v-if="waterUseParameter === 'ir'" class="waterUseLegendIcon"/>
+          <publicSupplyLegend v-if="waterUseParameter === 'ps'" class="waterUseLegendIcon"/>
+        </div>
+      </div>
     </div>
     <LegendModal
       v-show="infoShowing && !hidden"
@@ -76,17 +82,26 @@
 <script>
 import mapStyles from "../assets/mapStyles/waterStorage/mapStyles";
 import LegendModal from "./LegendModal";
-
+import thermoLegend from "@/assets/images/legend/thermo.svg";
+import irrigationLegend from "@/assets/images/legend/irrigation.svg";
+import publicSupplyLegend from "@/assets/images/legend/publicSupply.svg";
 
 export default {
   name: "MapLegend",
   components:{
-    LegendModal
+    LegendModal,
+    thermoLegend,
+    irrigationLegend,
+    publicSupplyLegend
   },
   props: {
     legendTitle: {
       type: String,
       default: "Add your title for the legend in MapBox.vue or make this blank"
+    },
+    useParameter: {
+      type: String,
+      default: "te"
     }
   },
   data() {
@@ -94,15 +109,19 @@ export default {
       legend: null,
       hidden: false,
       infoShowing: false,
-      currentFeature: this.$route.name
+      currentFeature: this.$route.name,
+      waterUseParameter: this.useParameter
     };
   },
   mounted() {
     if(this.currentFeature === "waterStorage"){
       this.createWaterStorageLegend();
-    }else{
+    }else if(this.currentFeature === "waterTemperature"){
       this.createWaterTempLegend();
     }
+    this.$root.$on("SwapLegendIcon", () => {
+      this.SwapLegendIcon();
+    });
   },
   methods: {
     runGoogleAnalytics(eventName, action, label) {
@@ -211,6 +230,9 @@ export default {
       mainContainerContent.appendChild(tempContainer);
       mainContainer.appendChild(mainContainerContent);
       keys.appendChild(mainContainer);
+    },
+    SwapLegendIcon(){
+      this.waterUseParameter = this.useParameter;
     }
   }
 };
@@ -235,11 +257,9 @@ $buttonActiveTextColor: #fff;
   bottom: 10px;
   left: 10px;
   z-index: 1000;
-
   p{
     margin:0;
   }
-
   a{
     display: inline-block;
     width:100%;
@@ -248,31 +268,27 @@ $buttonActiveTextColor: #fff;
     cursor: pointer;
   }
 }
-
 #legend{
   background: $background;
   border: $border;
   border-radius: $borderRadius 0 $borderRadius $borderRadius;
   overflow: hidden;
 }
-
 #collapsedLegend{
   display: flex;
+  border: $border;
   background: $background;
   border-radius: $borderRadius;
   overflow: hidden;
 }
-
 #collaspedLegendText{
   flex: 1;
   padding: 5px 5px;
   font-size:.9em;
 }
-
 #collapsedLegendIcon{
   width: 25px;
   border-left: $border;
-
   a{
     &:active{
       background: $buttonColorActive;
@@ -281,11 +297,10 @@ $buttonActiveTextColor: #fff;
     svg{
       height: $arrowHeight;
       width: $arrowWidth;
-      margin: 4px 0 0 0;
+      margin: 3px 0 0 0;
     }
   }
 }
-
 #tabs {
   align-self: flex-start;
   width: 25px;
@@ -293,38 +308,33 @@ $buttonActiveTextColor: #fff;
   background: $background;
   border-radius: 0 $borderRadius $borderRadius 0;
   border-top: $border;
+  border-right: $border;
 }
-
 .tab {
   height: 30px;
 }
-
 .tabIcon {
   display: inline-block;
   width: 100%;
   height: 100%;
   text-align: center;
   cursor: pointer;
-
   &:active {
     background: $buttonColorActive;
     color: $buttonActiveTextColor;
   }
-
   svg {
     margin: 7px 0 0 0;
   }
 }
-
 #legendMinimize{
   border-bottom: $border;
   svg{
     height: $arrowHeight;
     width: $arrowWidth;
-    margin: 3px 0 0 0;
+    margin: 4px 0 0 0;
   }
 }
-
 #legendTitle {
   padding: 0 5px;
   border-bottom: $border;
@@ -334,7 +344,17 @@ $buttonActiveTextColor: #fff;
     font-size: 0.9em;
   }
 }
-
+#waterUseLegendContainer{
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  svg.waterUseLegendIcon{
+    width: 55px;
+    stroke: #000;
+    stroke-width: .75;
+  }
+}
 @media screen and (min-width: 960px){
   .tab {
     &:hover{
