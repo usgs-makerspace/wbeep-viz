@@ -27,14 +27,13 @@ read_and_parse_wu <- function(filepath, is_irr = FALSE, is_ps = FALSE) {
     tidyr::pivot_longer(cols = starts_with(col_prefix), names_to = "prefixdate", values_to = "wu_val") %>% 
     mutate(Date = as.Date(gsub(col_prefix, "", prefixdate), format = date_format)) %>% 
     select(HUC12, Date, wu_val) %>% 
-    # Convert from cubic ft per second to million gal per day
-    mutate(wu_val = convert_ft3s_to_mgd(wu_val))
+    # Convert from cubic meters per day to million gal per day
+    mutate(wu_val = convert_m3d_to_mgd(wu_val))
   
 }
 
-convert_ft3s_to_mgd <- function(vals_ft3s) {
-  # seconds to days: 60 sec/min * 60 min/hr * 24 hr/day = 86400 sec/day
-  # ft3 to gal: 1 ft3 = 7.48 gallons
+convert_m3d_to_mgd <- function(vals_m3s) {
+  # m3 to gal: 1 m3 = 264.172 gallons
   # convert to millions of gallons by dividing by 10^6
-  vals_ft3s * 86400 * 7.48 / 10^6
+  vals_m3s * 264.172 / 10^6
 }
