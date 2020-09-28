@@ -214,11 +214,11 @@ export default {
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451;"
+      topTemp.innerHTML = "30&#8451; = 86&#8457;"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
-      bottomTemp.innerHTML = "<div>0&#8451;</div>"
+      bottomTemp.innerHTML = "<div>0&#8451; = 32&#8457;</div>"
       //add classes to temp divs
       topTemp.classList.add('temp');
       bottomTemp.classList.add('temp');
