@@ -20,10 +20,19 @@
     <path d="M334,0 v-322457 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-333 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v-2194 h1 v362222Z" class="wu-bars"/>
     <path d="M334,0 v-473523.741433216 h31 v473523.741433216 Z" class="wu-bars-hover" id="winter"/>
   </g>
-  <g id="barchartAxis" translate="translate(0 265)">
+  <g id="yAxis" translate="translate(0 265)">
     <path class="wu-bars-axis" d="M0,0 v265"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">4.735e+08</text>
     <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -20)">Daily water use, mgd</text>
+  </g>
+  <g id="xAxis" transform="translate(0 265)">
+    <path class="wu-bars-axis" d="M0,0 h1183"/>
+    <path class="wu-bars-axis" d="M191.224657534247,0 v10 M489.405479452055,0 v10 M787.586301369863,0 v10 M1082.52602739726,0 v10"/>
+    <text class="wu-bars-text seasonLabel" transform="translate(97.2328767123288 15)">Winter</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(341.935616438356 15)">Spring</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(640.116438356164 15)">Summer</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(936.676712328767 15)">Fall</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(1134.38356164384 15)">Winter</text>
   </g>
 </svg>
