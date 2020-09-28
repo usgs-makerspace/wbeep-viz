@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-120 -5 1183 265" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ir" version="1.1">
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 0.67639)">
-    <path d="M0,0 v-1 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v12Z" class="wu-bars"/>
-    <path d="M0,0 v-391.786466857997 h59 v391.786466857997 Z" class="wu-bars-hover" id="winter"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-135 -5 1305 305" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ir" version="1.1">
+  <g id="winterGroup" transform="translate(0 265) scale(3.24658 0.00068)">
+    <path d="M0,0 v-1393 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v11503Z" class="wu-bars"/>
+    <path d="M0,0 v-391786.466857997 h59 v391786.466857997 Z" class="wu-bars-hover" id="winter"/>
   </g>
-  <g id="springGroup" transform="translate(0 265) scale(3.24110 0.67639)">
-    <path d="M59,0 v-12 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-5 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v245Z" class="wu-bars"/>
-    <path d="M59,0 v-391.786466857997 h92 v391.786466857997 Z" class="wu-bars-hover" id="spring"/>
+  <g id="springGroup" transform="translate(0 265) scale(3.24658 0.00068)">
+    <path d="M59,0 v-12240 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-737 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-995 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-5141 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v244916Z" class="wu-bars"/>
+    <path d="M59,0 v-391786.466857997 h92 v391786.466857997 Z" class="wu-bars-hover" id="spring"/>
   </g>
-  <g id="summerGroup" transform="translate(0 265) scale(3.24110 0.67639)">
-    <path d="M151,0 v-247 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-2 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v-4 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v209Z" class="wu-bars"/>
-    <path d="M151,0 v-391.786466857997 h92 v391.786466857997 Z" class="wu-bars-hover" id="summer"/>
+  <g id="summerGroup" transform="translate(0 265) scale(3.24658 0.00068)">
+    <path d="M151,0 v-247076 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-2159 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v-3693 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v2712 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v208735Z" class="wu-bars"/>
+    <path d="M151,0 v-391786.466857997 h92 v391786.466857997 Z" class="wu-bars-hover" id="summer"/>
   </g>
-  <g id="fallGroup" transform="translate(0 265) scale(3.24110 0.67639)">
-    <path d="M243,0 v-202 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v7 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v3 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v1Z" class="wu-bars"/>
-    <path d="M243,0 v-391.786466857997 h91 v391.786466857997 Z" class="wu-bars-hover" id="fall"/>
+  <g id="fallGroup" transform="translate(0 265) scale(3.24658 0.00068)">
+    <path d="M243,0 v-202135 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v6600 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v3360 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v97 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v1471Z" class="wu-bars"/>
+    <path d="M243,0 v-391786.466857997 h91 v391786.466857997 Z" class="wu-bars-hover" id="fall"/>
   </g>
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 0.67639)">
-    <path d="M334,0 v-1 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0Z" class="wu-bars"/>
-    <path d="M334,0 v-391.786466857997 h31 v391.786466857997 Z" class="wu-bars-hover" id="winter"/>
+  <g id="winterGroup" transform="translate(0 265) scale(3.24658 0.00068)">
+    <path d="M334,0 v-1391 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v80 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v189Z" class="wu-bars"/>
+    <path d="M334,0 v-391786.466857997 h31 v391786.466857997 Z" class="wu-bars-hover" id="winter"/>
   </g>
   <g id="yAxis" translate="translate(0 265)">
     <path class="wu-bars-axis" d="M0,0 v265"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">392,000</text>
-    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -20)">Daily water use, mgd</text>
+    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="end" transform="translate(-20 132.5)">
+      <tspan x="0" dy="0">Daily water use</tspan>
+      <tspan class="y-units" x="0" dy="20">million gallons per day</tspan>
+    </text>
   </g>
   <g id="xAxis" transform="translate(0 265)">
-    <path class="wu-bars-axis" d="M0,0 h1183"/>
-    <path class="wu-bars-axis" d="M191.224657534247,0 v10 M489.405479452055,0 v10 M787.586301369863,0 v10 M1082.52602739726,0 v10"/>
-    <text class="wu-bars-text seasonLabel" transform="translate(97.2328767123288 15)">Winter</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(341.935616438356 15)">Spring</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(640.116438356164 15)">Summer</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(936.676712328767 15)">Fall</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(1134.38356164384 15)">Winter</text>
+    <path class="wu-bars-axis" d="M0,0 h1185"/>
+    <path class="wu-bars-axis" d="M191.547945205479,0 v10 M490.232876712329,0 v10 M788.917808219178,0 v10 M1084.35616438356,0 v10"/>
+    <text class="wu-bars-text seasonLabel" transform="translate(97.3972602739726 20)">Winter</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(342.513698630137 20)">Spring</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(641.198630136986 20)">Summer</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(938.260273972603 20)">Fall</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(1136.30136986301 20)">Winter</text>
   </g>
 </svg>

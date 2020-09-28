@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-120 -5 1183 265" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 6.04723)">
-    <path d="M0,0 v-33 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v33Z" class="wu-bars"/>
-    <path d="M0,0 v-43.8217092832515 h59 v43.8217092832515 Z" class="wu-bars-hover" id="winter"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-135 -5 1305 305" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
+  <g id="winterGroup" transform="translate(0 265) scale(3.24658 0.00605)">
+    <path d="M0,0 v-33359 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v33213Z" class="wu-bars"/>
+    <path d="M0,0 v-43821.7092832515 h59 v43821.7092832515 Z" class="wu-bars-hover" id="winter"/>
   </g>
-  <g id="springGroup" transform="translate(0 265) scale(3.24110 6.04723)">
-    <path d="M59,0 v-33 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v40Z" class="wu-bars"/>
-    <path d="M59,0 v-43.8217092832515 h92 v43.8217092832515 Z" class="wu-bars-hover" id="spring"/>
+  <g id="springGroup" transform="translate(0 265) scale(3.24658 0.00605)">
+    <path d="M59,0 v-33204 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-81 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-90 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v40340Z" class="wu-bars"/>
+    <path d="M59,0 v-43821.7092832515 h92 v43821.7092832515 Z" class="wu-bars-hover" id="spring"/>
   </g>
-  <g id="summerGroup" transform="translate(0 265) scale(3.24110 6.04723)">
-    <path d="M151,0 v-40 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v42Z" class="wu-bars"/>
-    <path d="M151,0 v-43.8217092832515 h92 v43.8217092832515 Z" class="wu-bars-hover" id="summer"/>
+  <g id="summerGroup" transform="translate(0 265) scale(3.24658 0.00605)">
+    <path d="M151,0 v-40468 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-128 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-44 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v-7 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v42161Z" class="wu-bars"/>
+    <path d="M151,0 v-43821.7092832515 h92 v43821.7092832515 Z" class="wu-bars-hover" id="summer"/>
   </g>
-  <g id="fallGroup" transform="translate(0 265) scale(3.24110 6.04723)">
-    <path d="M243,0 v-42 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v34Z" class="wu-bars"/>
-    <path d="M243,0 v-43.8217092832515 h91 v43.8217092832515 Z" class="wu-bars-hover" id="fall"/>
+  <g id="fallGroup" transform="translate(0 265) scale(3.24658 0.00605)">
+    <path d="M243,0 v-42057 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v104 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v118 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v95 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v33591Z" class="wu-bars"/>
+    <path d="M243,0 v-43821.7092832515 h91 v43821.7092832515 Z" class="wu-bars-hover" id="fall"/>
   </g>
-  <g id="winterGroup" transform="translate(0 265) scale(3.24110 6.04723)">
-    <path d="M334,0 v-34 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v0 h1 v33Z" class="wu-bars"/>
-    <path d="M334,0 v-43.8217092832515 h31 v43.8217092832515 Z" class="wu-bars-hover" id="winter"/>
+  <g id="winterGroup" transform="translate(0 265) scale(3.24658 0.00605)">
+    <path d="M334,0 v-33557 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v34 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v33343Z" class="wu-bars"/>
+    <path d="M334,0 v-43821.7092832515 h31 v43821.7092832515 Z" class="wu-bars-hover" id="winter"/>
   </g>
   <g id="yAxis" translate="translate(0 265)">
     <path class="wu-bars-axis" d="M0,0 v265"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">43,800</text>
-    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -20)">Daily water use, mgd</text>
+    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="end" transform="translate(-20 132.5)">
+      <tspan x="0" dy="0">Daily water use</tspan>
+      <tspan class="y-units" x="0" dy="20">million gallons per day</tspan>
+    </text>
   </g>
   <g id="xAxis" transform="translate(0 265)">
-    <path class="wu-bars-axis" d="M0,0 h1183"/>
-    <path class="wu-bars-axis" d="M191.224657534247,0 v10 M489.405479452055,0 v10 M787.586301369863,0 v10 M1082.52602739726,0 v10"/>
-    <text class="wu-bars-text seasonLabel" transform="translate(97.2328767123288 15)">Winter</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(341.935616438356 15)">Spring</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(640.116438356164 15)">Summer</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(936.676712328767 15)">Fall</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(1134.38356164384 15)">Winter</text>
+    <path class="wu-bars-axis" d="M0,0 h1185"/>
+    <path class="wu-bars-axis" d="M191.547945205479,0 v10 M490.232876712329,0 v10 M788.917808219178,0 v10 M1084.35616438356,0 v10"/>
+    <text class="wu-bars-text seasonLabel" transform="translate(97.3972602739726 20)">Winter</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(342.513698630137 20)">Spring</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(641.198630136986 20)">Summer</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(938.260273972603 20)">Fall</text>
+    <text class="wu-bars-text seasonLabel" transform="translate(1136.30136986301 20)">Winter</text>
   </g>
 </svg>
