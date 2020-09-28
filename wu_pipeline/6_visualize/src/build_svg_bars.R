@@ -1,10 +1,5 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
-  # Need to scale data down because FF won't let `scale()` be small
-  wu_dat <- wu_dat %>% 
-    mutate(wu_total_actual = wu_total,
-           wu_total = wu_total/1000) 
-  
   ##### Create whole SVG #####
   svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
@@ -67,7 +62,7 @@ add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
 
 add_y_axis <- function(svg, wu_dat, svg_height) {
   
-  max_wu_val <- max(wu_dat$wu_total_actual)
+  max_wu_val <- max(wu_dat$wu_total)
   
   # Create line segment for y axis with appropriate labels
   svg %>% 
