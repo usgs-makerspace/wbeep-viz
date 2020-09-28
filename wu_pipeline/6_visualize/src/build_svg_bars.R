@@ -75,7 +75,7 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
     xml_add_sibling("text", id = "yAxisLabelLow", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = svg_height - 2, "0") %>% 
     xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
-                    x = -20, y = 10, formatC(max_wu_val, format = "e", digits = 3)) %>% 
+                    x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
     xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", "Daily water use, mgd", `text-anchor`="middle",
                     transform=sprintf("rotate(-90) translate(-%s -20)", svg_height/2))
   
