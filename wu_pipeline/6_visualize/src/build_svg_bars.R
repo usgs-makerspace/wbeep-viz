@@ -1,7 +1,7 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width+120, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
+  svg_root <- init_svg(viewbox_dims = c(-135, -5, svg_width+120, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   
@@ -72,8 +72,10 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
                     x = -20, y = svg_height - 2, "0") %>% 
     xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
-    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", "Daily water use, mgd", `text-anchor`="middle",
-                    transform=sprintf("rotate(-90) translate(-%s -20)", svg_height/2))
+    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="end",
+                    transform=sprintf("translate(-20 %s)", svg_height/2)) %>% 
+    xml_add_child("tspan", "Daily water use", x = 0, dy = 0) %>% 
+    xml_add_sibling("tspan", class = "y-units", "million gallons per day", x = 0, dy=20)
   
 }
 

@@ -72,7 +72,7 @@ targets:
   svg_height_bars:
     command: c(265)
   svg_width_bars:
-    command: c(1183)
+    command: c(1185)
   
   6_visualize/out/svg_bars_te.svg:
     command: build_svg_bars(
