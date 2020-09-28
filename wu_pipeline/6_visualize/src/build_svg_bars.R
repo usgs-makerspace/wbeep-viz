@@ -1,12 +1,7 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
-  # Need to scale data down because FF won't let `scale()` be small
-  wu_dat <- wu_dat %>% 
-    mutate(wu_total_actual = wu_total,
-           wu_total = wu_total/1000) 
-  
   ##### Create whole SVG #####
-  svg_root <- init_svg(viewbox_dims = c(-120, -5, svg_width, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
+  svg_root <- init_svg(viewbox_dims = c(-135, -5, svg_width+120, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   
@@ -67,7 +62,7 @@ add_hover_rect <- function(svg, wu_dat, id_nm, max_wu = NULL) {
 
 add_y_axis <- function(svg, wu_dat, svg_height) {
   
-  max_wu_val <- max(wu_dat$wu_total_actual)
+  max_wu_val <- max(wu_dat$wu_total)
   
   # Create line segment for y axis with appropriate labels
   svg %>% 
@@ -76,9 +71,11 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
     xml_add_sibling("text", id = "yAxisLabelLow", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = svg_height - 2, "0") %>% 
     xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
-                    x = -20, y = 10, formatC(max_wu_val, format = "e", digits = 3)) %>% 
-    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", "Daily water use, mgd", `text-anchor`="middle",
-                    transform=sprintf("rotate(-90) translate(-%s -20)", svg_height/2))
+                    x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
+    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="end",
+                    transform=sprintf("translate(-20 %s)", svg_height/2)) %>% 
+    xml_add_child("tspan", "Daily water use", x = 0, dy = 0) %>% 
+    xml_add_sibling("tspan", class = "y-units", "million gallons per day", x = 0, dy=20)
   
 }
 
@@ -90,6 +87,8 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
   max_doy <- max(wu_dat$doy, na.rm=TRUE)
   scale_x_factor <- svg_width/max_doy # Needed to change x values rather than scaling which warps text
   
+  y_pos_label <- 20 # distance below x axis to put y label
+  
   svg %>% 
     xml_add_child("g", id = "xAxis", 
                   transform = sprintf("translate(0 %s)", svg_height)) %>%  
@@ -97,15 +96,15 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
     xml_add_sibling("path", class = "wu-bars-axis", 
                     d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
     xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter1"]]*scale_x_factor, 15)) %>% 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter1"]]*scale_x_factor, y_pos_label)) %>% 
     xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Spring", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["spring"]]*scale_x_factor, 15)) %>% 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["spring"]]*scale_x_factor, y_pos_label)) %>% 
     xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Summer", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["summer"]]*scale_x_factor, 15)) %>% 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["summer"]]*scale_x_factor, y_pos_label)) %>% 
     xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Fall", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["fall"]]*scale_x_factor, 15)) %>% 
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["fall"]]*scale_x_factor, y_pos_label)) %>% 
     xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter2"]]*scale_x_factor, 15))
+                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter2"]]*scale_x_factor, y_pos_label))
   
 }
 
