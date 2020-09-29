@@ -41,7 +41,7 @@
       <div
         id="waterUseMapContainer"
       >
-        <DynamicSVG :svg="svg" />
+        <DynamicSVG :svg="svg" id="dynamicSVG" />
         <MapLegend :legend-title="legendTitle" :use-parameter="useParameter" />
       </div>
       <div
@@ -382,7 +382,7 @@ $barChartHighlight: red;
   margin: 20px 0;
   position: relative;
   /*colors the SVG map*/
-  svg{
+  #dynamicSVG{
     stroke: $mapBG;
     fill: #fff;
   }
