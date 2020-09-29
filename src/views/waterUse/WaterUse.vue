@@ -37,7 +37,7 @@
           <div class="instructionNumber">
             1
           </div>
-          <p>Click on water use type to look at annual patterns.</p>
+          <p>First, select water use type (spring default view)</p>
         </div>
         <button
           id="te"
@@ -83,7 +83,7 @@
           <div class="instructionNumber">
             2
           </div>
-          <p>Click a season to look at seasonal use</p> 
+          <p>Next, select season</p> 
         </div>
         <DynamicBarChart
           :barchart="barchart"
