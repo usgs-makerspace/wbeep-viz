@@ -135,10 +135,13 @@
     watch: {
       checkIfSVGMapIsRendered(newState, oldState){
         let self = this;
-        setTimeout(function(){
-          self.addSeasonClass();
-          self.watchWuBarsHovers();
-        },300);
+        //Make sure the state is true
+        if(this.$store.state.mapSVGRenderOnInitialLoad === true){
+          setTimeout(function(){
+            self.addSeasonClass();
+            self.watchWuBarsHovers();
+          },1000);
+        }
       }
     },
     mounted(){
