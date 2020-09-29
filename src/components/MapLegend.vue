@@ -344,17 +344,6 @@ $buttonActiveTextColor: #fff;
     font-size: 0.9em;
   }
 }
-#waterUseLegendContainer{
-  display: flex;
-  padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
-  svg.waterUseLegendIcon{
-    width: 55px;
-    stroke: #000;
-    stroke-width: .75;
-  }
-}
 @media screen and (min-width: 960px){
   .tab {
     &:hover{
@@ -406,6 +395,22 @@ $buttonActiveTextColor: #fff;
   div{
     position: absolute;
     bottom: 0;
+  }
+}
+#waterUseLegendContainer{
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  svg{
+    height: 60px;
+  }
+  svg path{
+    stroke: #000;
+    stroke-width: .75;
+  }
+  svg text{
+    fill: #000;
   }
 }
 </style>
