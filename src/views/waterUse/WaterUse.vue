@@ -31,6 +31,7 @@
         class="centeredContent"
       >
         <div id="buttonExplanation" class="explanation">
+          <div class="instructionNumber">1</div>
           <p>Click on water use type to look at annual patterns.</p>
         </div>
         <button @click="useButtonClick($event)" id="te" class="waterUseButton activeParameter">Thermoelectric</button>
@@ -47,6 +48,7 @@
         id="waterUseBarChartContainer"
       >
         <div id="chartExplanation" class="explanation">
+          <div class="instructionNumber">2</div>
           <p>Click a season to look at seasonal use</p> 
         </div>
         <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
@@ -258,11 +260,24 @@ $barChartHighlight: red;
 }
 .explanation{
   width: 100%;
-  text-align: center;
   font-weight: bold;
+  display: flex;
+  .instructionNumber{
+    background: #003366;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: #fff;
+  }
   p{
     margin: 0;
     font-size: 98%;
+    line-height: 25px;
   }
 }
 #water-use-container {
