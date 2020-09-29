@@ -72,10 +72,10 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
                     x = -20, y = svg_height - 2, "0") %>% 
     xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
-    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="end",
-                    transform=sprintf("translate(-20 %s)", svg_height/2)) %>% 
+    xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="middle",
+                    transform=sprintf("rotate(-90) translate(-%s -50)", svg_height/2)) %>% 
     xml_add_child("tspan", "Daily water use", x = 0, dy = 0) %>% 
-    xml_add_sibling("tspan", class = "y-units", "million gallons per day", x = 0, dy=20)
+    xml_add_sibling("tspan", id = "yUnits", "million gallons per day", x = 0, dy=20)
   
 }
 
@@ -95,15 +95,15 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
     xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 h%s", max_doy*scale_x_factor)) %>%
     xml_add_sibling("path", class = "wu-bars-axis", 
                     d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", `text-anchor`="middle", 
                     transform = sprintf("translate(%s %s)", season_middle_doy[["winter1"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Spring", 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Spring", `text-anchor`="middle", 
                     transform = sprintf("translate(%s %s)", season_middle_doy[["spring"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Summer", 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Summer", `text-anchor`="middle", 
                     transform = sprintf("translate(%s %s)", season_middle_doy[["summer"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Fall", 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Fall", `text-anchor`="middle", 
                     transform = sprintf("translate(%s %s)", season_middle_doy[["fall"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", 
+    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", `text-anchor`="middle", 
                     transform = sprintf("translate(%s %s)", season_middle_doy[["winter2"]]*scale_x_factor, y_pos_label))
   
 }

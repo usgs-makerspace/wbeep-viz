@@ -24,9 +24,9 @@
     <path class="wu-bars-axis" d="M0,0 v265"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">43,800</text>
-    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="translate(-38 128) rotate(-90)">
+    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -50)">
       <tspan x="0" dy="0">Daily water use</tspan>
-      <tspan class="y-units" x="0" dy="20">million gallons per day</tspan>
+      <tspan id="yUnits" x="0" dy="20">million gallons per day</tspan>
     </text>
   </g>
   <g id="xAxis" transform="translate(0 265)">
