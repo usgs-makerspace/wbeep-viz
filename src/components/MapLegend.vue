@@ -311,6 +311,16 @@ $buttonActiveTextColor: #fff;
   border-top: $border;
   border-right: $border;
 }
+#tabs,
+#collapsedLegendIcon
+{
+  a{
+    &:hover{
+      background: $buttonColorActive;
+      color: $buttonActiveTextColor;
+    }
+  } 
+}
 .tab {
   height: 30px;
 }
@@ -344,23 +354,6 @@ $buttonActiveTextColor: #fff;
   p {
     font-size: 0.9em;
   }
-}
-@media screen and (min-width: 960px){
-  .tab {
-    &:hover{
-      background: $buttonColorActive;
-      color: $buttonActiveTextColor;
-    }
-  }
-
-  #collapsedLegendIcon{
-  a{
-    &:hover{
-      background: $buttonColorActive;
-      color: $buttonActiveTextColor;
-    }
-  }
-}
 }
 </style>
 <style lang="scss">
