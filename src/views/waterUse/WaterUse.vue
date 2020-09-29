@@ -440,6 +440,11 @@ path.wu-bars-axis {
     }
   }
 }
+@media screen and (min-width: 1100px) and (min-height: 1400px){
+  #water-use-content{
+    max-width: 1100px;
+  }
+}
 @media screen and (min-width: 1300px) and (max-height: 768px){
   #water-use-content{
     width: 650px;
