@@ -47,10 +47,22 @@
         <p>{{ legendTitle }}</p>
       </div>
       <div id="keysAndText">
-        <div v-if="currentFeature === 'waterUse'" id="waterUseLegendContainer">
-          <thermoLegend v-if="waterUseParameter === 'te'" class="waterUseLegendIcon"/>
-          <irrigationLegend v-if="waterUseParameter === 'ir'" class="waterUseLegendIcon"/>
-          <publicSupplyLegend v-if="waterUseParameter === 'ps'" class="waterUseLegendIcon"/>
+        <div
+          v-if="currentFeature === 'waterUse'"
+          id="waterUseLegendContainer"
+        >
+          <thermoLegend
+            v-if="waterUseParameter === 'te'"
+            class="waterUseLegendIcon"
+          />
+          <irrigationLegend
+            v-if="waterUseParameter === 'ir'"
+            class="waterUseLegendIcon"
+          />
+          <publicSupplyLegend
+            v-if="waterUseParameter === 'ps'"
+            class="waterUseLegendIcon"
+          />
           <p>MGD = Million Gallons/Day</p>
         </div>
       </div>

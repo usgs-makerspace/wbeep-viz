@@ -30,28 +30,65 @@
         id="buttonsContainer"
         class="centeredContent"
       >
-        <div id="buttonExplanation" class="explanation">
-          <div class="instructionNumber">1</div>
+        <div
+          id="buttonExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            1
+          </div>
           <p>Click on water use type to look at annual patterns.</p>
         </div>
-        <button @click="useButtonClick($event)" id="te" class="waterUseButton activeParameter">Thermoelectric</button>
-        <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
-        <button @click="useButtonClick($event)" id="ps" class="waterUseButton">Public Supply</button>
+        <button
+          id="te"
+          class="waterUseButton activeParameter"
+          @click="useButtonClick($event)"
+        >
+          Thermoelectric
+        </button>
+        <button
+          id="ir"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
+          Irrigation
+        </button>
+        <button
+          id="ps"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
+          Public Supply
+        </button>
       </div>
       <div
         id="waterUseMapContainer"
       >
-        <DynamicSVG :svg="svg" id="dynamicSVG" />
-        <MapLegend :legend-title="legendTitle" :use-parameter="useParameter" />
+        <DynamicSVG
+          id="dynamicSVG"
+          :svg="svg"
+        />
+        <MapLegend
+          :legend-title="legendTitle"
+          :use-parameter="useParameter"
+        />
       </div>
       <div
         id="waterUseBarChartContainer"
       >
-        <div id="chartExplanation" class="explanation">
-          <div class="instructionNumber">2</div>
+        <div
+          id="chartExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            2
+          </div>
           <p>Click a season to look at seasonal use</p> 
         </div>
-        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
+        <DynamicBarChart
+          :barchart="barchart"
+          @click.native="changeSeason($event)"
+        />
       </div>
     </div>
   </div>

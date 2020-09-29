@@ -27,21 +27,30 @@
           This is a <strong>demonstration map and is not for decision making</strong>. It shows an estimate average of daily water withdrawals for four seasons in approximately 85,000 watershed units across the lower forty-eight states. These daily estimates of thermoelectric, public supply, and irrigation water uses are derived from monthly 2015 estimates of water withdrawals from surface and groundwater sources. Withdrawals do not reflect water consumed and/or returned.
         </p>
       </div>
-      <router-link v-if="currentFeature === 'waterStorage'" to="/questionsandanswers">
+      <router-link
+        v-if="currentFeature === 'waterStorage'"
+        to="/questionsandanswers"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >
           Learn More
         </button>
       </router-link>
-      <router-link v-if="currentFeature === 'waterUse'" to="/questionsandanswers#waterUseSection">
+      <router-link
+        v-if="currentFeature === 'waterUse'"
+        to="/questionsandanswers#waterUseSection"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >
           Learn More
         </button>
       </router-link>
-      <router-link v-if="currentFeature === 'waterTemperature'" to="/questionsandanswers#waterTempSection">
+      <router-link
+        v-if="currentFeature === 'waterTemperature'"
+        to="/questionsandanswers#waterTempSection"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >
