@@ -24,7 +24,7 @@
     <path class="wu-bars-axis" d="M0,0 v265"/>
     <text id="yAxisLabelLow" class="wu-bars-axis" text-anchor="end" x="-20" y="263">0</text>
     <text id="yAxisLabelHigh" class="wu-bars-axis" text-anchor="end" x="-20" y="10">392,000</text>
-    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="end" transform="translate(-20 132.5)">
+    <text id="yAxisTitle" class="wu-bars-axis" text-anchor="middle" transform="rotate(-90) translate(-132.5 -50)">
       <tspan x="0" dy="0">Daily water use</tspan>
       <tspan id="yUnits" x="0" dy="20">million gallons per day</tspan>
     </text>
@@ -32,10 +32,10 @@
   <g id="xAxis" transform="translate(0 265)">
     <path class="wu-bars-axis" d="M0,0 h1185"/>
     <path class="wu-bars-axis" d="M191.547945205479,0 v10 M490.232876712329,0 v10 M788.917808219178,0 v10 M1084.35616438356,0 v10"/>
-    <text class="wu-bars-text seasonLabel" transform="translate(97.3972602739726 20)">Winter</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(342.513698630137 20)">Spring</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(641.198630136986 20)">Summer</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(938.260273972603 20)">Fall</text>
-    <text class="wu-bars-text seasonLabel" transform="translate(1136.30136986301 20)">Winter</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(97.3972602739726 20)">Winter</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(342.513698630137 20)">Spring</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(641.198630136986 20)">Summer</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(938.260273972603 20)">Fall</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(1136.30136986301 20)">Winter</text>
   </g>
 </svg>
