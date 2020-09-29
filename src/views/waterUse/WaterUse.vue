@@ -280,7 +280,7 @@
 $thermo: #D54C1A;
 $irrigation: #2B594E;
 $publicSupply: #446FA6;
-$mapBG: rgb(220,220,220);
+$mapBG:  rgb(209,211,212);
 $highlight: #68C6A4;
 $barChartHighlight: red;
 .loader {
@@ -420,8 +420,8 @@ $barChartHighlight: red;
   position: relative;
   /*colors the SVG map*/
   #dynamicSVG{
-    stroke: $mapBG;
-    fill: #fff;
+    stroke: #fff;
+    fill: $mapBG;
   }
   #legendContainer{
     min-height: 10px;
@@ -461,7 +461,7 @@ $barChartHighlight: red;
   font-size: 1.3rem;
 }
 .wu-bars{
-  fill: rgb(209,211,212);
+  fill: $mapBG;
 }
 path.wu-bars-axis {
   stroke: black;
