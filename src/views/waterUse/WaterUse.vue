@@ -41,7 +41,7 @@
       <div
         id="waterUseMapContainer"
       >
-        <DynamicSVG :svg="svg" />
+        <DynamicSVG :svg="svg" id="dynamicSVG" />
         <MapLegend :legend-title="legendTitle" :use-parameter="useParameter" />
       </div>
       <div
@@ -84,7 +84,7 @@
         legend: "thermo",
         useParameter: "te",
         season: "spring",
-        teColor: "#E6B348",
+        teColor: "#D54C1A",
         irColor: "#2B594E",
         psColor: "#446FA6",
         basicBarChunkColor: "rgb(209,211,212)"
@@ -240,7 +240,7 @@
 </script>
 
 <style lang="scss">
-$thermo: #E6B348;
+$thermo: #D54C1A;
 $irrigation: #2B594E;
 $publicSupply: #446FA6;
 $mapBG: rgb(220,220,220);
@@ -382,7 +382,7 @@ $barChartHighlight: red;
   margin: 20px 0;
   position: relative;
   /*colors the SVG map*/
-  svg{
+  #dynamicSVG{
     stroke: $mapBG;
     fill: #fff;
   }
@@ -429,6 +429,9 @@ $barChartHighlight: red;
 path.wu-bars-axis {
   stroke: black;
   stroke-width: 5;
+}
+.seasonLabel{
+  font-size: 1.2em;
 }
 @media screen and (min-width: 600px){
   #buttonsContainer{

@@ -51,6 +51,7 @@
           <thermoLegend v-if="waterUseParameter === 'te'" class="waterUseLegendIcon"/>
           <irrigationLegend v-if="waterUseParameter === 'ir'" class="waterUseLegendIcon"/>
           <publicSupplyLegend v-if="waterUseParameter === 'ps'" class="waterUseLegendIcon"/>
+          <p>MGD = Million Gallons/Day</p>
         </div>
       </div>
     </div>
@@ -344,17 +345,6 @@ $buttonActiveTextColor: #fff;
     font-size: 0.9em;
   }
 }
-#waterUseLegendContainer{
-  display: flex;
-  padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
-  svg.waterUseLegendIcon{
-    width: 55px;
-    stroke: #000;
-    stroke-width: .75;
-  }
-}
 @media screen and (min-width: 960px){
   .tab {
     &:hover{
@@ -406,6 +396,25 @@ $buttonActiveTextColor: #fff;
   div{
     position: absolute;
     bottom: 0;
+  }
+}
+#waterUseLegendContainer{
+  display: flex;
+  flex-direction: column;;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  svg{
+    height: 60px;
+    margin-bottom: 5px;
+  }
+  svg path{
+    fill: #000;
+  }
+  p{
+    text-align: center;
+    width: 160px;
+    font-size: .8em;
   }
 }
 </style>

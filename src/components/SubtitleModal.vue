@@ -65,7 +65,6 @@ export default {
 #subtitleInfoModal {
   min-height: 30px;
   margin-top: 10px;
-  z-index: 1000;
   border-radius: 5px;
   border: 1px solid rgb(200, 200, 200);
   background: rgb(255, 255, 255);
