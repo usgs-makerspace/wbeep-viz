@@ -1,5 +1,5 @@
 <template>
-    <component :is="dynamicSVG" />
+  <component :is="dynamicSVG" />
 </template>
 <script>
 export default {

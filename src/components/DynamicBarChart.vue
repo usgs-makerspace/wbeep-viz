@@ -1,5 +1,5 @@
 <template>
-    <component :is="dynamicBarChart" />
+  <component :is="dynamicBarChart" />
 </template>
 <script>
 export default {
