@@ -1,7 +1,7 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(viewbox_dims = c(-135, -5, svg_width+138, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
+  svg_root <- init_svg(viewbox_dims = c(-135, -5, svg_width+138, svg_height+45), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   
@@ -100,7 +100,7 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
     add_season_label("Summer", x_pos = season_middle_doy[["summer"]]*scale_x_factor, y_pos) %>% 
     add_season_label("Fall", x_pos = season_middle_doy[["fall"]]*scale_x_factor, y_pos) %>% 
     add_season_label("Winter", x_pos = season_middle_doy[["winter2"]]*scale_x_factor, y_pos) %>% 
-    add_month_labels(y_pos = 12, scale_x_factor)
+    add_month_labels(y_pos = 15, scale_x_factor)
   
 }
 

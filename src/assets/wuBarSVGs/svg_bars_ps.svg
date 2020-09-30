@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-135 -5 1323 305" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-135 -5 1323 310" preserveAspectRatio="xMidYMid meet" id="svg-wu-bars-ps" version="1.1">
   <g id="winterGroup" transform="translate(0 265) scale(3.24658 0.00605)">
     <path d="M0,0 v-33359 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v-16 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v8 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v10 h1 v33213Z" class="wu-bars"/>
     <path d="M0,0 v-43821.7092832515 h59 v43821.7092832515 Z" class="wu-bars-hover" id="winter"/>
@@ -37,17 +37,17 @@
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(641.198630136986 35)">Summer</text>
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(938.260273972603 35)">Fall</text>
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(1136.30136986301 35)">Winter</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1133.05479452055 12)">Dec</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1035.65753424658 12)">Nov</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(935.013698630137 12)">Oct</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(837.616438356164 12)">Sep</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(736.972602739726 12)">Aug</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(636.328767123288 12)">Jul</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(538.931506849315 12)">Jun</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(438.287671232877 12)">May</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(340.890410958904 12)">Apr</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(240.246575342466 12)">Mar</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(149.342465753425 12)">Feb</text>
-    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(48.6986301369863 12)">Jan</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1133.05479452055 15)">Dec</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1035.65753424658 15)">Nov</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(935.013698630137 15)">Oct</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(837.616438356164 15)">Sep</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(736.972602739726 15)">Aug</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(636.328767123288 15)">Jul</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(538.931506849315 15)">Jun</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(438.287671232877 15)">May</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(340.890410958904 15)">Apr</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(240.246575342466 15)">Mar</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(149.342465753425 15)">Feb</text>
+    <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(48.6986301369863 15)">Jan</text>
   </g>
 </svg>
