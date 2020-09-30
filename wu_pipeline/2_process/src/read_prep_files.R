@@ -5,10 +5,12 @@ read_and_parse_huc12 <- function(huc12_fn) {
     st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
 }
 
-read_and_parse_huc10<- function(wbd_gdb_fn, layer_nm) {
-  st_read(wbd_gdb_fn, layer_nm) %>% 
-    select(HUC10 = huc10, NAME = name, geometry = shape) %>% 
-    st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
+calc_huc10_from_huc12 <- function(huc12_centroids) {
+  huc12_centroids %>%
+    mutate(HUC10 = substr(HUC12, 1, 10)) %>% 
+    group_by(HUC10) %>% 
+    summarize(geometry = st_union(geometry)) %>% 
+    st_centroid()
 }
 
 read_and_parse_wu <- function(filepath, is_irr = FALSE, is_ps = FALSE) {
