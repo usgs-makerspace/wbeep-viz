@@ -473,6 +473,9 @@ path.wu-bars-axis {
 .seasonLabel{
   font-size: 1.2em;
 }
+.monthLabel{
+  fill: rgb(100,100,100);
+}
 @media screen and (min-width: 600px){
   #buttonsContainer{
     .waterUseButton{
