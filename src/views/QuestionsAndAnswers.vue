@@ -48,26 +48,12 @@
   #container-questions-answers {
     background: white;
     margin: 0 auto;
-    padding: 3em 2em 2em 2em;
-    width: 85%;
+    padding: 10px;
     max-width: 50em;
 
     .section-title {
       margin: 0.5em 0 0.5em 0;
       font-size: larger;
-
-      button {
-        float: right;
-        margin: 0 0 10px 0;
-        background: #003366;
-        color: #ffffff;
-        border: none;
-        outline: none;
-        padding: 2px 10px 5px 10px;
-        border-radius: 5px;
-        font-size: .9em;
-        font-weight: bold;
-      }
     }
 
     hr {

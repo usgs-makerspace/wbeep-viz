@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="usa-prose">
     <!-- Water Storage -->
+    <h2>Water Storage</h2>
     <div
       v-for="section in pageContents.waterStorageAccordionSections"
       :key="section.sectionTitle"
@@ -11,7 +12,7 @@
           to="/"
         >
           <button>
-            back to map
+            Return to Water Storage
           </button>
         </router-link>
       </h6>
@@ -38,6 +39,7 @@
         </div>
       </div>
     </div>
+    <h2>Water Use</h2>
     <!-- Water Use -->
     <div
       v-for="section in pageContents.waterUseAccordionSections"
@@ -50,7 +52,7 @@
           to="/water-use"
         >
           <button>
-            back to map
+            Return to Water Use
           </button>
         </router-link>
       </h6>
@@ -77,6 +79,7 @@
         </div>
       </div>
     </div>
+    <h2>Stream Temperature</h2>
     <!-- Water Temp -->
     <div
       v-for="section in pageContents.waterTempAccordionSections"
@@ -89,7 +92,7 @@
           to="/water-temperature"
         >
           <button>
-            back to map
+            Return to Temperature
           </button>
         </router-link>
       </h6>
@@ -134,19 +137,13 @@
 
 <style scoped lang="scss">
   #container-questions-answers {
-    background: white;
-    margin: 0 auto;
-    padding: 3em 2em 2em 2em;
-    width: 85%;
-    max-width: 50em;
-
     .section-title {
       margin: 0.5em 0 0.5em 0;
       font-size: larger;
 
       button {
-        float: right;
-        margin: 0 0 10px 0;
+        margin: 10px 0 10px 0;
+        text-align: center;
         background: #003366;
         color: #ffffff;
         border: none;
@@ -157,9 +154,23 @@
         font-weight: bold;
       }
     }
-
+    .usa-accordion__content{
+      p{
+        display: inline;
+      }
+    }
     hr {
       margin: 1em 0 1em 0;
+    }
+  }
+  @media screen and (min-width: 600px){
+    #container-questions-answers{
+      .section-title {
+        button{
+          margin: 0 0 10px 0;
+          float: right;
+        }
+      }
     }
   }
 </style>
