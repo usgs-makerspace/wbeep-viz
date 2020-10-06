@@ -418,7 +418,7 @@ $buttonActiveTextColor: #fff;
   }
   p{
     text-align: center;
-    width: 130px;
+    width: 132px;
     font-size: .8em;
   }
 }
