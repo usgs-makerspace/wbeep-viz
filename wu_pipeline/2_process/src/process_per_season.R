@@ -11,9 +11,13 @@ calc_wu_type_max <- function(wu_dat) {
   max(wu_dat$wu_val, na.rm=TRUE)
 }
 
-prep_wu_data_for_map <- function(wu_dat, wu_type_max, stroke_width_range = c(2, 60)) {
+prep_wu_data_for_map <- function(wu_dat, wu_type_max, stroke_width_range = c(2, 40)) {
   
-  wu_to_widths <- approx(c(0, wu_type_max), stroke_width_range, wu_dat$wu_val)$y
+  # Scale area with water use. Stroke-width == diameter of "circle"
+  # Idea communicated here: https://github.com/usgs-makerspace/makerspace-sandbox/issues/650#issuecomment-703882213
+  area_range <- pi*(stroke_width_range/2)^2
+  wu_to_area <- approx(c(0, wu_type_max), area_range, wu_dat$wu_val)$y
+  wu_to_widths <- sqrt(4*wu_to_area/pi)
   
   # Now add to data and remove NAs
   wu_dat %>% 
