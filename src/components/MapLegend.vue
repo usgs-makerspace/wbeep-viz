@@ -63,7 +63,7 @@
             v-if="waterUseParameter === 'ps'"
             class="waterUseLegendIcon"
           />
-          <p>MGD = million gallons per day</p>
+          <p>million gallons per day</p>
         </div>
       </div>
     </div>
@@ -410,7 +410,7 @@ $buttonActiveTextColor: #fff;
   align-items: center;
   justify-content: center;
   svg{
-    height: 60px;
+    height: 50px;
     margin-bottom: 5px;
   }
   svg path{
@@ -418,7 +418,7 @@ $buttonActiveTextColor: #fff;
   }
   p{
     text-align: center;
-    width: 180px;
+    width: 130px;
     font-size: .8em;
   }
 }
