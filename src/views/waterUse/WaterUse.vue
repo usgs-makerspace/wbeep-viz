@@ -466,6 +466,7 @@ $barChartHighlight: red;
 }
 .wu-bars-axis{
   font-size: 1.3rem;
+  stroke-linecap: square
 }
 .wu-bars{
   fill: $mapBG;
