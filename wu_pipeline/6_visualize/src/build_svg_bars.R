@@ -87,12 +87,14 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
   max_doy <- max(wu_dat$doy, na.rm=TRUE)
   scale_x_factor <- svg_width/max_doy # Needed to change x values rather than scaling which warps text
   
-  y_pos <- 35 # distance below x axis to put y label
+  y_pos <- 35 # distance below x axis to put label
   
   svg %>% 
     xml_add_child("g", id = "xAxis", 
                   transform = sprintf("translate(0 %s)", svg_height)) %>%  
+    # Line:
     xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 h%s", max_doy*scale_x_factor)) %>%
+    # Ticks:
     xml_add_sibling("path", class = "wu-bars-axis", 
                     d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
     add_season_label("Winter", x_pos = season_middle_doy[["winter1"]]*scale_x_factor, y_pos) %>% 
