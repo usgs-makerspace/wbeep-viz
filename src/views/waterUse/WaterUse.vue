@@ -459,6 +459,10 @@ $barChartHighlight: red;
 .wu-bars-hover{
   cursor: pointer;
   fill-opacity: 0;
+  fill: #000;
+  &:hover{
+    fill-opacity: .1;
+  }
 }
 .wu-bars-axis{
   font-size: 1.3rem;
@@ -498,6 +502,4 @@ path.wu-bars-axis {
     width: 530px;
   }
 }
-
-
 </style>
