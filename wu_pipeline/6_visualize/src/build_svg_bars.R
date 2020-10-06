@@ -87,12 +87,11 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info, axis_str
   max_doy <- max(wu_dat$doy, na.rm=TRUE)
   scale_x_factor <- svg_width/max_doy # Needed to change x values rather than scaling which warps text
   
-  y_shift <- axis_stroke_width/2
-  y_pos <- 35 + y_shift # distance below x axis to put label
+  y_pos <- 37 # distance below x axis to put label
   
   svg %>% 
     xml_add_child("g", id = "xAxis", 
-                  transform = sprintf("translate(0 %s)", svg_height + y_shift)) %>%  
+                  transform = sprintf("translate(0 %s)", svg_height + axis_stroke_width/2)) %>%  
     # Line:
     xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 h%s", max_doy*scale_x_factor)) %>%
     # Ticks:
