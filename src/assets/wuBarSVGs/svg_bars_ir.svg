@@ -32,11 +32,11 @@
   <g id="xAxis" transform="translate(0 267.5)">
     <path class="wu-bars-axis" d="M0,0 h1185"/>
     <path class="wu-bars-axis" d="M191.547945205479,0 v10 M490.232876712329,0 v10 M788.917808219178,0 v10 M1084.35616438356,0 v10"/>
-    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(97.3972602739726 37.5)">Winter</text>
-    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(342.513698630137 37.5)">Spring</text>
-    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(641.198630136986 37.5)">Summer</text>
-    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(938.260273972603 37.5)">Fall</text>
-    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(1136.30136986301 37.5)">Winter</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(97.3972602739726 37)">Winter</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(342.513698630137 37)">Spring</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(641.198630136986 37)">Summer</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(938.260273972603 37)">Fall</text>
+    <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(1136.30136986301 37)">Winter</text>
     <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1133.05479452055 17)">Dec</text>
     <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(1035.65753424658 17)">Nov</text>
     <text class="wu-bars-text monthLabel" text-anchor="middle" transform="translate(935.013698630137 17)">Oct</text>
