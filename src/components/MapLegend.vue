@@ -410,7 +410,7 @@ $buttonActiveTextColor: #fff;
   align-items: center;
   justify-content: center;
   svg{
-    height: 50px;
+    height: 55px;
     margin-bottom: 5px;
   }
   svg path{
