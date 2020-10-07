@@ -167,29 +167,41 @@
       watchWuBarsHovers(){
         let self = this;
         let wuBarHovers = document.querySelectorAll(".wu-bars-hover");
+        let winters = document.querySelectorAll("#winter");
         wuBarHovers.forEach(function(wuBarHover){
           let wuBar = wuBarHover.previousElementSibling;
-          wuBarHover.addEventListener("mouseover", function(){
-            //Make sure wuBar is not the active class
-            if(!wuBar.classList.contains("activeSeason")){
-              self.checkUseParameter(wuBar);
-              wuBar.style.fillOpacity = .5;
-            }
-          });
-          wuBarHover.addEventListener("mouseout", function(){
-            //Make sure wuBar is not the active class
-            if(!wuBar.classList.contains("activeSeason")){
-              wuBar.style.fill = self.basicBarChunkColor;
-              wuBar.style.fillOpacity = 1;
-            }
-          });
+          //Separate winter paths to give it different functionality
+          if(wuBarHover.id === "winter"){
+            wuBarHover.addEventListener("mouseover", function(){
+              self.winterSolution("hover");
+            });
+            wuBarHover.addEventListener("mouseout", function(){
+              self.winterSolution("hover");
+            });
+          }else{
+            //If not winter do the usual mouse functionality
+            wuBarHover.addEventListener("mouseover", function(){
+              //Make sure wuBar is not the active class
+              if(!wuBar.classList.contains("activeSeason")){
+                self.checkUseParameter(wuBar);
+                wuBar.style.fillOpacity = .5;
+              }
+            });
+            wuBarHover.addEventListener("mouseout", function(){
+              //Make sure wuBar is not the active class
+              if(!wuBar.classList.contains("activeSeason")){
+                wuBar.style.fill = self.basicBarChunkColor;
+                wuBar.style.fillOpacity = 1;
+              }
+            });
+          }
         });
       },
       changeSeason(event){
-        let checkClass = event.target.classList.value;
+        let checkClass = event.target.classList.contains("wu-bars-hover");
         let target = event.target;
         let className = document.querySelector(".activeSeason");
-        if(checkClass === "wu-bars-hover"){
+        if(checkClass){
           this.season = target.id;
           //Update SVG map by season
           this.svg = "svg_map_" + this.useParameter + "_" + this.season;
@@ -244,11 +256,24 @@
             break;
         }
       },
-      winterSolution(){
-        let winters = document.querySelectorAll(".wu-bars-hover");
+      winterSolution(hover){
+        let self = this;
+        let winters = document.querySelectorAll("#winter");
         winters.forEach(function(winter){
           let winterSibling = winter.previousElementSibling;
-          if(winter.id === "winter"){
+          //make sure its hover functionality
+          if(hover){
+            if(winter.classList.contains("winterHover")){
+              winter.classList.remove("winterHover");
+              winterSibling.style.fill = self.basicBarChunkColor;
+              winterSibling.style.fillOpacity = 1;
+            }else{
+              winter.classList.add("winterHover");
+              self.checkUseParameter(winterSibling);
+              winterSibling.style.fillOpacity = .5;
+            }
+          }else{
+            //Handle the click functionality
             winterSibling.classList.add("activeSeason");
           }
         });
@@ -463,6 +488,9 @@ $barChartHighlight: red;
   &:hover{
     fill-opacity: .1;
   }
+}
+.winterHover{
+  fill-opacity: .1;
 }
 .wu-bars-axis{
   font-size: 1.3rem;
