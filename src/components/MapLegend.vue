@@ -46,26 +46,7 @@
       <div id="legendTitle">
         <p>{{ legendTitle }}</p>
       </div>
-      <div id="keysAndText">
-        <div
-          v-if="currentFeature === 'waterUse'"
-          id="waterUseLegendContainer"
-        >
-          <thermoLegend
-            v-if="waterUseParameter === 'te'"
-            class="waterUseLegendIcon"
-          />
-          <irrigationLegend
-            v-if="waterUseParameter === 'ir'"
-            class="waterUseLegendIcon"
-          />
-          <publicSupplyLegend
-            v-if="waterUseParameter === 'ps'"
-            class="waterUseLegendIcon"
-          />
-          <p>million gallons per day</p>
-        </div>
-      </div>
+      <div id="keysAndText" />
     </div>
     <LegendModal
       v-show="infoShowing && !hidden"
@@ -95,17 +76,11 @@
 <script>
 import mapStyles from "../assets/mapStyles/waterStorage/mapStyles";
 import LegendModal from "./LegendModal";
-import thermoLegend from "@/assets/images/legend/thermo.svg";
-import irrigationLegend from "@/assets/images/legend/irrigation.svg";
-import publicSupplyLegend from "@/assets/images/legend/publicSupply.svg";
 
 export default {
   name: "MapLegend",
   components:{
-    LegendModal,
-    thermoLegend,
-    irrigationLegend,
-    publicSupplyLegend
+    LegendModal
   },
   props: {
     legendTitle: {
@@ -401,25 +376,6 @@ $buttonActiveTextColor: #fff;
   div{
     position: absolute;
     bottom: 0;
-  }
-}
-#waterUseLegendContainer{
-  display: flex;
-  flex-direction: column;;
-  padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
-  svg{
-    height: 55px;
-    margin-bottom: 5px;
-  }
-  svg path{
-    fill: #000;
-  }
-  p{
-    text-align: center;
-    width: 132px;
-    font-size: .8em;
   }
 }
 </style>
