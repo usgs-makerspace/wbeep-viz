@@ -11,7 +11,7 @@ build_svg_map <- function(svg_fp, wu_dat, svg_huc_locations, legend_size_dat, sv
   add_wu_points(svg_root, wu_dat, svg_huc_locations, season, wu_type_cd, huc_colname)
 
   # Add legend
-  add_legend(svg_root, legend_size_dat, svg_width, svg_height)
+  add_legend(svg_root, legend_size_dat, svg_width, svg_height, wu_type_cd)
   
   ##### Write out final SVG to file #####
   
@@ -71,11 +71,12 @@ add_background_map <- function(svg, svg_width) {
     
 }
 
-add_legend <- function(svg, legend_size_dat, svg_width, svg_height) {
+add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) {
   label_line_length <- 30 # Distance from circles to to draw a line for the text label
   
   # Add a group for all of these pts
-  wu_legend <- xml_add_child(svg, 'g', id = "waterUseLegend", transform = sprintf("translate(%s,%s)", svg_width*0.15, svg_height*0.95))
+  wu_legend <- xml_add_child(svg, 'g', id = "waterUseLegend", class = sprintf("%sLegend", wu_type_cd),
+                             transform = sprintf("translate(%s,%s)", svg_width*0.15, svg_height*0.95))
   
   # Order data from greatest circle size to smallest so that they don't cover each other up
   legend_size_dat <- arrange(legend_size_dat, desc(radius))
