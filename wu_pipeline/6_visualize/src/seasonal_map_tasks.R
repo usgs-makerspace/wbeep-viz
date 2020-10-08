@@ -122,8 +122,8 @@ get_legend_wu_vals <- function(..., legend_sizes = c(20, 10, 5)) {
   
   wu_dat %>% 
     st_drop_geometry() %>% 
-    mutate(stroke_width = stroke_width/2) %>% # turn diameters into radii
-    filter(stroke_width %in% legend_sizes) %>% 
-    group_by(stroke_width) %>% 
+    mutate(radius = stroke_width/2) %>% # turn diameters into radii
+    filter(radius %in% legend_sizes) %>% 
+    group_by(radius) %>% 
     summarize(legend_wu_val = mean(wu_val), .groups="keep")
 }
