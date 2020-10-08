@@ -48,6 +48,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
                "target_name,",
                "wu_dat = %s," = steps[["prepdatasvg"]]$target_name,
                "svg_huc_locations,",
+               "legend_size_dat = legend_size_%s," = wu_type_cd,
                "svg_height_map,",
                "svg_width_map,",
                "wu_type_cd = I('%s')," = wu_type_cd,

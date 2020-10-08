@@ -10,6 +10,7 @@ sources:
   - 6_visualize/src/build_svg_map.R
   - 6_visualize/src/build_svg_bars.R
   - 6_visualize/src/svg_utils.R
+  - 6_visualize/src/get_legend_wu_sizes.R
 
 targets:
   6_visualize_wu:
@@ -30,6 +31,14 @@ targets:
     command: c(625)
   svg_width_map:
     command: c(1000)
+  
+  # For now, do legend sizes manually because it is a bit more of a pipeline headache than I thought
+  legend_size_te:
+    command: get_legend_wu_sizes(I("te"))
+  legend_size_ir:
+    command: get_legend_wu_sizes(I("ir"))
+  legend_size_ps:
+    command: get_legend_wu_sizes(I("ps"))
   
   svg_huc_locations:
     command: convert_hucs_to_svg(
