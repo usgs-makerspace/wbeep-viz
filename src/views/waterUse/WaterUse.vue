@@ -4,6 +4,7 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
+    <WorkInProgressWarning />
     <div id="mapSubtitleContainer">
       <MapSubtitle 
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -97,6 +98,7 @@
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
   import MapLegend from "../../components/MapLegend";
+  import WorkInProgressWarning from "../../components/WorkInProgressWarning";
   export default {
     name: 'WaterUse',
     components: {
@@ -104,7 +106,8 @@
         MapLegend,
         MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
         DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
-        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart")
+        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
+        WorkInProgressWarning
     },
     data() {
       return {
@@ -347,13 +350,13 @@ $barChartHighlight: red;
 }
 #water-use-container {
   flex: 1;
-  padding: 0 10px;
   a{
     color: #000;
   }
 }
 #water-use-content{
   width: 100%;
+  padding: 0 10px;
   max-width: 800px;
   flex: 1;
   display: flex;
@@ -366,7 +369,7 @@ $barChartHighlight: red;
 #waterUseQuestion{
   position:absolute;
   top: 10px;
-  right: 0px;
+  right: 10px;
   width: 29px;
   height: 29px;
   display: block;

@@ -6,6 +6,7 @@
     <LoadingScreenInternal
       :is-loading="isLoading"
     />
+    <WorkInProgressWarning />
     <div id="mapContainer">
       <MapSubtitle
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -66,6 +67,7 @@
     import MapLegend from "../../components/MapLegend";
     import { icon } from "@fortawesome/fontawesome-svg-core";
     import QuestionControl from "../../components/QuestionControl";
+    import WorkInProgressWarning from "../../components/WorkInProgressWarning";
     import {
         MglMap,
         MglNavigationControl,
@@ -89,7 +91,8 @@
             MglAttributionControl,
             MapLegend,
             MapLayers,
-            QuestionControl
+            QuestionControl,
+            WorkInProgressWarning
         },
         data() {
             return {
