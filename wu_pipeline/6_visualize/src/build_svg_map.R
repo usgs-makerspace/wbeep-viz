@@ -81,7 +81,8 @@ add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) 
   # Order data from greatest circle size to smallest so that they don't cover each other up
   legend_size_dat <- arrange(legend_size_dat, desc(radius))
   for(i in 1:nrow(legend_size_dat)) {
-    add_circle_with_label(wu_legend, legend_size_dat$radius[i], legend_size_dat$legend_wu_val[i], label_line_length)
+    extra_label_nudge <- ifelse(i == nrow(legend_size_dat), 5, 0)
+    add_circle_with_label(wu_legend, legend_size_dat$radius[i], legend_size_dat$legend_wu_val[i], label_line_length, extra_label_nudge)
   }
   
   # Add miniscule dot to show that those values represent non-zero water use data
@@ -96,9 +97,9 @@ add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) 
                   "Water use, million gallons per day", class = "legendTitle")
 }
 
-add_circle_with_label <- function(svg, r, label, label_line_length) {
+add_circle_with_label <- function(svg, r, label, label_line_length, extra_label_nudge = 0) {
   svg %>% 
     xml_add_child('circle', cx = 0, cy = -r, r = r) %>% 
     xml_add_sibling('path', d = sprintf('M0 %s h%s', -r*2, label_line_length)) %>% 
-    xml_add_sibling('text', x = label_line_length*1.10, y = -r*2, label)
+    xml_add_sibling('text', x = label_line_length*1.10, y = -r*2+extra_label_nudge, label)
 }
