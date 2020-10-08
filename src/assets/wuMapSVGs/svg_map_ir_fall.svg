@@ -177,7 +177,7 @@
     <text x="33" y="-20">520</text>
     <circle cx="0" cy="-5" r="5"/>
     <path d="M0 -10 h30"/>
-    <text x="33" y="-10">130</text>
+    <text x="33" y="-5">130</text>
     <circle cx="0" cy="10" r="1" class="smallDot"/>
     <text x="33" y="10">&lt; 1</text>
     <text x="15" y="-60" class="legendTitle">Water use, million gallons per day</text>
