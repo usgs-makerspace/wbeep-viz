@@ -87,18 +87,18 @@ add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) 
   # Add miniscule dot to show that those values represent non-zero water use data
   y_pos_tiny_dot <- 10
   wu_legend %>% 
-    xml_add_child('circle', cx = 0, cy = y_pos_tiny_dot, r = 1, style = "fill:#2c594f") %>% 
-    xml_add_sibling('text', x = label_line_length*1.10, y = y_pos_tiny_dot, "< 1", style = "dominant-baseline:middle")
+    xml_add_child('circle', cx = 0, cy = y_pos_tiny_dot, r = 1) %>% 
+    xml_add_sibling('text', x = label_line_length*1.10, y = y_pos_tiny_dot, "< 1")
   
   # Add text above circles
   wu_legend %>% 
     xml_add_child('text', x = label_line_length/2, y = -max(legend_size_dat$radius)*2*1.50, 
-                  "Water use, million gallons per day", style = "text-anchor:middle")
+                  "Water use, million gallons per day")
 }
 
 add_circle_with_label <- function(svg, r, label, label_line_length) {
   svg %>% 
-    xml_add_child('circle', cx = 0, cy = -r, r = r, style = "fill:#2c594f;stroke:#000") %>% 
-    xml_add_sibling('path', d = sprintf('M0 %s h%s', -r*2, label_line_length), style="stroke:#000") %>% 
-    xml_add_sibling('text', x = label_line_length*1.10, y = -r*2, label, style = "dominant-baseline:middle")
+    xml_add_child('circle', cx = 0, cy = -r, r = r) %>% 
+    xml_add_sibling('path', d = sprintf('M0 %s h%s', -r*2, label_line_length)) %>% 
+    xml_add_sibling('text', x = label_line_length*1.10, y = -r*2, label)
 }
