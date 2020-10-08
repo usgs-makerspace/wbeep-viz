@@ -69,10 +69,6 @@
           id="dynamicSVG"
           :svg="svg"
         />
-        <MapLegend
-          :legend-title="legendTitle"
-          :use-parameter="useParameter"
-        />
       </div>
       <div
         id="waterUseBarChartContainer"
@@ -97,13 +93,11 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
-  import MapLegend from "../../components/MapLegend";
   import WorkInProgressWarning from "../../components/WorkInProgressWarning";
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
-        MapLegend,
         MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
         DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
         DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
@@ -454,11 +448,30 @@ $barChartHighlight: red;
     stroke: #fff;
     fill: $mapBG;
   }
-  #legendContainer{
-    min-height: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  #waterUseLegend circle,
+  #waterUseLegend path{
+    stroke: #000;
+  }
+  #waterUseLegend circle.smallDot{
+    stroke: none;
+  }
+  #waterUseLegend text{
+    fill: #000;
+    dominant-baseline: middle;
+    stroke: none;
+    font-size: 1em;
+  }
+  #waterUseLegend text.legendTitle{
+    text-anchor: middle;
+  }
+  .teLegend circle{
+    fill: $thermo;
+  }
+  .irLegend circle{
+    fill: $irrigation;
+  }
+  .psLegend circle{
+    fill: $publicSupply;
   }
 }
 .wu-dots-te,
@@ -477,11 +490,12 @@ $barChartHighlight: red;
   stroke: $publicSupply;
 }
 #waterUseBarChartContainer{
+  margin-bottom: 20px;
   #barchartAxis{
     pointer-events: none;
   }
   #chartExplanation{
-    margin: 5px 0 20px 0;
+    margin: 0 0 10px 0;
   }
 }
 .wu-bars-hover{
