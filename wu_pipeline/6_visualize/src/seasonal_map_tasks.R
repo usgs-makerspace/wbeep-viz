@@ -48,6 +48,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
                "target_name,",
                "wu_dat = %s," = steps[["prepdatasvg"]]$target_name,
                "svg_huc_locations,",
+               "legend_size_dat = legend_size_%s," = wu_type_cd,
                "svg_height_map,",
                "svg_width_map,",
                "wu_type_cd = I('%s')," = wu_type_cd,
@@ -122,8 +123,8 @@ get_legend_wu_vals <- function(..., legend_sizes = c(20, 10, 5)) {
   
   wu_dat %>% 
     st_drop_geometry() %>% 
-    mutate(stroke_width = stroke_width/2) %>% # turn diameters into radii
-    filter(stroke_width %in% legend_sizes) %>% 
-    group_by(stroke_width) %>% 
+    mutate(radius = stroke_width/2) %>% # turn diameters into radii
+    filter(radius %in% legend_sizes) %>% 
+    group_by(radius) %>% 
     summarize(legend_wu_val = mean(wu_val), .groups="keep")
 }
