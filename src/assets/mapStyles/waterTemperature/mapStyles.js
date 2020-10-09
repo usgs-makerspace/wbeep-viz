@@ -170,15 +170,6 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
-                'id': 'Terrain',
-                'type': 'raster',
-                'source': 'hillshade',
-                'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': true
-            },
-            {
                 'id': 'Counties',
                 'type': 'line',
                 'source': 'basemap',
@@ -238,6 +229,15 @@ export default {
                     'fill-color': 'hsl(47, 26%, 88%)'
                 },
                 'showButtonLayerToggle': false
+            },
+            {
+                'id': 'Terrain',
+                'type': 'raster',
+                'source': 'hillshade',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'showButtonLayerToggle': true
             },
             {
                 'filter': ['all', ['==', '$type', 'Polygon'],
