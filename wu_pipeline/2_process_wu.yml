@@ -27,16 +27,10 @@ targets:
     command: c(I("winter"), I("spring"), I("summer"), I("fall"))
   
   # Takes 16 minutes
-  huc12_polys:
-    command: read_and_parse_huc12(huc12_fn = "1_fetch/out/huc12_polys.json")
   huc12_centroids:
-    command: st_centroid(huc12_polys)
-  huc10_polys:
-    command: read_and_parse_huc10(
-      wbd_gdb_fn = "1_fetch/out/wbd.gdb",
-      layer_nm = I("WBDHU10"))
+    command: read_and_parse_huc12(huc12_fn = "1_fetch/out/huc12_centroids.geojson")
   huc10_centroids:
-    command: st_centroid(huc10_polys)
+    command: calc_huc10_from_huc12(huc12_centroids)
   
   # Load water use data, standardize, and change to long format
   wu_te:

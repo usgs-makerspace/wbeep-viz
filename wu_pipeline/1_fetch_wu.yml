@@ -14,7 +14,7 @@ targets:
       - 1_fetch/out/wuval_te.csv
       - 1_fetch/out/wuval_ir.csv
       - 1_fetch/out/wuval_ps.csv
-      - 1_fetch/out/wbd.gdb
+      - 1_fetch/out/huc12_centroids.geojson
   
   sb_dl_date:
     command: c(I("2020-08-21"))
@@ -25,6 +25,8 @@ targets:
     command: c(I("5ee3d70d82ce3bd58d7e1dc0"))
   sbid_publicsupply:
     command: c(I("5f5a3ce682cefd9f20863bb0"))
+  sbid_huc12:
+    command: c(I("5f7fc9a682cebef40f0f1c3b"))
   
   # Season start/end dates to be used in SVG creation
   season_info:
@@ -54,24 +56,16 @@ targets:
       dummy = sb_dl_date,
       user_specific = TRUE)
   
-  1_fetch/out/huc12_polys.7z:
+  1_fetch/out/huc12_centroids.zip:
     command: download_sb_single_file(
       target_name = target_name,
-      sb_id = sbid_thermoelectric, 
-      sb_filename = I('HUC12_CONUS.7z'),
+      sb_id = sbid_huc12, 
+      sb_filename = I('HUC12_Clip_ModCentriodsToCONUS_RestrictedToInsidePolygon.zip'),
       dummy = sb_dl_date,
       user_specific = TRUE)
   
-  # [lplatt, Windows user] cannot figure out automated way to unzip 7z files
-  # So, it is a manual step built into the pipeline - which will pause, wait 
-  # for the user to unzip, and then continue.
-  1_fetch/out/huc12_polys.json:
-    command: manually_unzip_file(
+  1_fetch/out/huc12_centroids.geojson:
+    command: unzip_file(
       target_name = target_name,
-      zipped_fn = "1_fetch/out/huc12_polys.7z")
-
-  1_fetch/out/wbd.gdb:
-    command: download_gdb(
-      target_name,
-      gdb_zip_url = I("https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/National/GDB/WBD_National_GDB.zip"), 
-      gdb_file = I("WBD_National_GDB.gdb"))
+      zipped_fn = '1_fetch/out/huc12_centroids.zip', 
+      file_to_extract = I('HUC12_CONUS_Clip_Centroids_v2.geojson'))

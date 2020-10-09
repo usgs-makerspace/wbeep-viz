@@ -27,3 +27,8 @@ manually_unzip_file <- function(target_name, zipped_fn) {
   readline(prompt = sprintf("Please manually unzip `%s` to `%s`.\nPress enter when done to let the pipeline continue.", 
                             zipped_fn, target_name))
 }
+
+unzip_file <- function(target_name, zipped_fn, file_to_extract) {
+  unzipped_fn <- unzip(zipped_fn, files = file_to_extract, exdir = dirname(target_name))
+  file.rename(unzipped_fn, target_name)
+}
