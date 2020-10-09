@@ -28,7 +28,7 @@ targets:
   
   # Takes 16 minutes
   huc12_centroids:
-    command: read_and_parse_huc12(huc12_fn = "1_fetch/out/huc12_centroids.json")
+    command: read_and_parse_huc12(huc12_fn = "1_fetch/out/huc12_centroids.geojson")
   huc10_centroids:
     command: calc_huc10_from_huc12(huc12_centroids)
   
