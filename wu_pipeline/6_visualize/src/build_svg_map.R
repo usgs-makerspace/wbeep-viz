@@ -89,7 +89,7 @@ add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) 
   y_pos_tiny_dot <- 10
   wu_legend %>% 
     xml_add_child('circle', cx = 0, cy = y_pos_tiny_dot, r = 1, class = "smallDot") %>% 
-    xml_add_sibling('text', x = label_line_length*2, y = y_pos_tiny_dot, "< 1")
+    xml_add_sibling('text', x = label_line_length+37, y = y_pos_tiny_dot, "< 1", class = "legendValues")
   
   # Add text above circles
   wu_legend %>% 
@@ -101,5 +101,5 @@ add_circle_with_label <- function(svg, r, label, label_line_length, extra_label_
   svg %>% 
     xml_add_child('circle', cx = 0, cy = -r, r = r) %>% 
     xml_add_sibling('path', d = sprintf('M0 %s h%s', -r*2, label_line_length)) %>% 
-    xml_add_sibling('text', x = label_line_length*2, y = -r*2+extra_label_nudge, label, class = "legendValues")
+    xml_add_sibling('text', x = label_line_length+37, y = -r*2+extra_label_nudge, label, class = "legendValues")
 }
