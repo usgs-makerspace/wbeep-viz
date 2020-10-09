@@ -460,6 +460,7 @@ $barChartHighlight: red;
     dominant-baseline: middle;
     stroke: none;
     font-size: 1em;
+    text-anchor: end;
   }
   #waterUseLegend text.legendTitle{
     text-anchor: middle;
