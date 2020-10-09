@@ -19,7 +19,7 @@
       </p>
       <div v-if="currentFeature === 'waterTemperature'">
         <p>
-          This is a <strong>demonstration map and is not for decision making</strong>. It shows the latest available daily estimates of natural water temperature for approximately 110,000 stream reaches across the lower forty-eight states. Stream temperature is one factor of overall water quality due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces such as thermoelectric power plants that may change a stream's temperature and impact aquatic life or the usability of the stream for other purposes.  
+          This is a <strong>demonstration map and is not for decision making</strong>. It shows the latest available daily estimates of natural water temperature for approximately 58,000 stream reaches across the lower forty-eight states. Stream temperature is one factor of overall water quality due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces such as thermoelectric power plants that may change a stream's temperature and impact aquatic life or the usability of the stream for other purposes.  
         </p>
       </div>
       <div v-if="currentFeature === 'waterUse'">
@@ -27,21 +27,30 @@
           This is a <strong>demonstration map and is not for decision making</strong>. It shows an estimate average of daily water withdrawals for four seasons in approximately 85,000 watershed units across the lower forty-eight states. These daily estimates of thermoelectric, public supply, and irrigation water uses are derived from monthly 2015 estimates of water withdrawals from surface and groundwater sources. Withdrawals do not reflect water consumed and/or returned.
         </p>
       </div>
-      <router-link v-if="currentFeature === 'waterStorage'" to="/questionsandanswers">
+      <router-link
+        v-if="currentFeature === 'waterStorage'"
+        to="/questionsandanswers"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >
           Learn More
         </button>
       </router-link>
-      <router-link v-if="currentFeature === 'waterUse'" to="/questionsandanswers#waterUseSection">
+      <router-link
+        v-if="currentFeature === 'waterUse'"
+        to="/questionsandanswers#waterUseSection"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >
           Learn More
         </button>
       </router-link>
-      <router-link v-if="currentFeature === 'waterTemperature'" to="/questionsandanswers#waterTempSection">
+      <router-link
+        v-if="currentFeature === 'waterTemperature'"
+        to="/questionsandanswers#waterTempSection"
+      >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
         >

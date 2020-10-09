@@ -1,7 +1,7 @@
 build_svg_bars <- function(svg_fp, wu_dat, wu_type_cd, season_info, svg_height, svg_width) {
   
   ##### Create whole SVG #####
-  svg_root <- init_svg(viewbox_dims = c(-135, -5, svg_width+120, svg_height+40), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
+  svg_root <- init_svg(viewbox_dims = c(-135, -10, svg_width+138, svg_height+55), id_keyword = sprintf("wu-bars-%s", wu_type_cd))
   
   ##### Add the SVG nodes #####
   
@@ -79,7 +79,7 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
   
 }
 
-add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
+add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info, axis_stroke_width = 5) {
   
   season_start_doy <- unlist(lapply(season_info, get_startDate_as_doy))
   season_end_doy <- unlist(lapply(season_info, get_endDate_as_doy))
@@ -87,24 +87,22 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info) {
   max_doy <- max(wu_dat$doy, na.rm=TRUE)
   scale_x_factor <- svg_width/max_doy # Needed to change x values rather than scaling which warps text
   
-  y_pos_label <- 20 # distance below x axis to put y label
+  y_pos <- 37 # distance below x axis to put label
   
   svg %>% 
     xml_add_child("g", id = "xAxis", 
-                  transform = sprintf("translate(0 %s)", svg_height)) %>%  
+                  transform = sprintf("translate(0 %s)", svg_height + axis_stroke_width/2)) %>%  
+    # Line:
     xml_add_child("path", class = "wu-bars-axis", d = sprintf("M0,0 h%s", max_doy*scale_x_factor)) %>%
+    # Ticks:
     xml_add_sibling("path", class = "wu-bars-axis", 
                     d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", `text-anchor`="middle", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter1"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Spring", `text-anchor`="middle", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["spring"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Summer", `text-anchor`="middle", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["summer"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Fall", `text-anchor`="middle", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["fall"]]*scale_x_factor, y_pos_label)) %>% 
-    xml_add_sibling("text", class = "wu-bars-text seasonLabel", "Winter", `text-anchor`="middle", 
-                    transform = sprintf("translate(%s %s)", season_middle_doy[["winter2"]]*scale_x_factor, y_pos_label))
+    add_season_label("Winter", x_pos = season_middle_doy[["winter1"]]*scale_x_factor, y_pos) %>% 
+    add_season_label("Spring", x_pos = season_middle_doy[["spring"]]*scale_x_factor, y_pos) %>% 
+    add_season_label("Summer", x_pos = season_middle_doy[["summer"]]*scale_x_factor, y_pos) %>% 
+    add_season_label("Fall", x_pos = season_middle_doy[["fall"]]*scale_x_factor, y_pos) %>% 
+    add_season_label("Winter", x_pos = season_middle_doy[["winter2"]]*scale_x_factor, y_pos) %>% 
+    add_month_labels(y_pos = 17, scale_x_factor)
   
 }
 
@@ -141,4 +139,34 @@ get_endDate_as_doy <- function(season_dates_list) {
 
 get_startDate_as_doy <- function(season_dates_list) {
   as.numeric(format(season_dates_list$startDates, "%j"))
+}
+
+add_season_label <- function(svg, season_nm, x_pos, y_pos) {
+  svg %>% 
+    xml_add_sibling(
+      "text", class = "wu-bars-text seasonLabel", 
+      season_nm, # The actual text that will be written
+      `text-anchor`="middle", 
+      transform = sprintf("translate(%s %s)", x_pos, y_pos)
+    )
+}
+
+add_month_labels <- function(svg, y_pos, x_scale_factor) {
+  
+  month_middle_dates <- as.Date(sprintf("2015-%02d-15", 1:12))
+  
+  for(m in 1:12) {
+    
+    x_pos <- as.numeric(format(month_middle_dates[m], "%j")) * x_scale_factor
+    
+    svg %>% xml_add_sibling(
+      "text", class = "wu-bars-text monthLabel",
+      month.abb[m],
+      `text-anchor` = "middle",
+      transform = sprintf("translate(%s %s)", x_pos, y_pos)
+    )
+    
+  }
+  
+  
 }

@@ -83,6 +83,12 @@ use_state_outlines <- function(usa_border_sf, proj_str) {
   usa_mainland_sf <- usa_border_sf %>% 
     filter(ID == "main") %>% 
     st_erase(usa_addl_islands_sf) 
+  
+  # Have to manually add in CO because in `maps`, it is an incomplete
+  # polygon and gets dropped somewhere along the way.
+  co_sf <- maps::map("state", "colorado", fill = TRUE, plot=FALSE) %>%
+    sf::st_as_sf() %>%
+    st_transform(proj_str)
 
   maps::map("state", fill = TRUE, plot=FALSE) %>%
     sf::st_as_sf() %>%
@@ -93,17 +99,11 @@ use_state_outlines <- function(usa_border_sf, proj_str) {
     select(-ID.1) %>% # st_intersection artifact that is unneeded
     # Add islands back in as separate polygons from states
     bind_rows(usa_islands_sf) %>%
-    bind_rows(usa_addl_islands_sf) %>%
-    st_buffer(0) %>% 
+    bind_rows(usa_addl_islands_sf) %>% 
+    st_buffer(0) %>%
     st_cast("MULTIPOLYGON") %>% # Needed to bring back to correct type to use st_coordinates
-    rmapshaper::ms_simplify(0.5)
-    
-  
-  # st_read("tl_2019_us_state.shp") %>% 
-  #   st_transform(proj_str) %>% 
-  #   st_intersection(usa_sf) %>% 
-  #   rmapshaper::ms_simplify(0.01) %>% 
-  #   mutate(ID = NAME)
+    rmapshaper::ms_simplify(0.5) %>%
+    bind_rows(co_sf) # bind CO after bc otherwise it gets dropped in st_buffer(0)
   
 }
 

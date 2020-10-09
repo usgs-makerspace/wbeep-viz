@@ -29,7 +29,7 @@ export default {
             streams: {
                 type: 'vector',
                 'tiles': streamsTileUrl,
-                'minzoom': 0,
+                'minzoom': 2,
                 'maxzoom': 6
             }
         },
@@ -170,6 +170,52 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
+                'id': 'Counties',
+                'type': 'line',
+                'source': 'basemap',
+                'source-layer': 'counties',
+                'minzoom': 4.5,
+                'maxzoom': 24,
+                'layout': {
+                    'visibility': 'none'
+                },
+                'paint': {
+                    'line-color': 'rgb(0,0,0)',
+                    'line-dasharray': [2, 4]
+                },
+                'showButtonLayerToggle': true
+            },
+
+            {
+                'id': 'streams_interpolated',
+                'layerDescription': 'all streams',
+                'type': 'line',
+                'source': 'streams',
+                'source-layer': 'segsAllConus',
+                'minzoom': 2,
+                'maxzoom': 6,
+                'layout': {
+                    'visibility': 'visible'
+                },
+                'filter': ["all", ["has", "temp"]],
+                'filter': ['==', ['typeof', ['get', 'temp']], 'number'],
+                "paint": {
+                    "line-width": [
+                        "interpolate", 
+                        ["linear"], ["zoom"],
+                        5, 1,
+                        6, 2
+                    ],
+                    "line-color": [
+                        "interpolate", ["linear"], ["get", "temp"],
+                        0, "#10305d", 
+                        14.08, "#c4c1b6",
+                        25.88, "#730000"
+                    ]
+                  }
+
+            },
+            {
                 'id': 'Neighboring Countries',
                 'type': 'fill',
                 'source': 'basemap',
@@ -183,6 +229,15 @@ export default {
                     'fill-color': 'hsl(47, 26%, 88%)'
                 },
                 'showButtonLayerToggle': false
+            },
+            {
+                'id': 'Terrain',
+                'type': 'raster',
+                'source': 'hillshade',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'showButtonLayerToggle': true
             },
             {
                 'filter': ['all', ['==', '$type', 'Polygon'],
@@ -218,31 +273,6 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
-                'id': 'Terrain',
-                'type': 'raster',
-                'source': 'hillshade',
-                'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': true
-            },
-            {
-                'id': 'Counties',
-                'type': 'line',
-                'source': 'basemap',
-                'source-layer': 'counties',
-                'minzoom': 4.5,
-                'maxzoom': 24,
-                'layout': {
-                    'visibility': 'none'
-                },
-                'paint': {
-                    'line-color': 'rgb(0,0,0)',
-                    'line-dasharray': [2, 4]
-                },
-                'showButtonLayerToggle': true
-            },
-            {
                 'id': 'states',
                 'type': 'line',
                 'source': 'basemap',
@@ -255,35 +285,6 @@ export default {
                 'paint': {
                     'line-color': 'rgb(0,0,0)'
                 }
-
-            },
-            {
-                'id': 'streams_interpolated',
-                'layerDescription': 'all streams',
-                'type': 'line',
-                'source': 'streams',
-                'source-layer': 'segsAllConus',
-                'minzoom': 0,
-                'maxzoom': 6,
-                'layout': {
-                    'visibility': 'visible'
-                },
-                'filter': ["all", ["has", "temp"]],
-                'filter': ['==', ['typeof', ['get', 'temp']], 'number'],
-                "paint": {
-                    "line-width": [
-                        "interpolate", 
-                        ["linear"], ["zoom"],
-                        5, 1,
-                        6, 2
-                    ],
-                    "line-color": [
-                        "interpolate", ["linear"], ["get", "temp"],
-                        0, "#10305d", 
-                        14.08, "#c4c1b6",
-                        25.88, "#730000"
-                    ]
-                  }
 
             },
             {

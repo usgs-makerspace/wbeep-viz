@@ -48,6 +48,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
                "target_name,",
                "wu_dat = %s," = steps[["prepdatasvg"]]$target_name,
                "svg_huc_locations,",
+               "legend_size_dat = legend_size_%s," = wu_type_cd,
                "svg_height_map,",
                "svg_width_map,",
                "wu_type_cd = I('%s')," = wu_type_cd,
@@ -75,7 +76,7 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
   task_plan <- create_task_plan(
     task_names = seasons,
     task_steps = list(filter_step, joinspatial_step, prepdatasvg_step, buildsvg_step, copysvg_step),
-    final_steps = c('buildsvg'),
+    final_steps = c('buildsvg', 'prepdatasvg'),
     add_complete = FALSE)
   
   ##### Create task makefile #####
@@ -88,7 +89,8 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
     include = c('1_fetch_wu.yml', '2_process_wu.yml', '6_visualize_wu.yml'),
     sources = c(...),
     packages = c('sf', 'dplyr', 'xml2'),
-    final_targets = final_target,
+    final_targets = c(final_target, sprintf('legend_vals_%s', wu_type_cd)),
+    finalize_funs = c('combine_svgs_to_ind', 'get_legend_wu_vals'),
     as_promises = TRUE)
   
   ##### Build the tasks #####
@@ -102,4 +104,27 @@ make_seasonal_maps <- function(seasons, wu_type_cd = c("te", "ir"), isHUC10 = FA
   
   return(seasonal_map_files)
   
+}
+
+combine_svgs_to_ind <- function(out_file, ...) {
+  # filter to just those arguments that are character strings (because the only
+  # step outputs that are characters are the plot filenames)
+  dots <- list(...)
+  dots_svg <- dots[purrr::map_lgl(dots, is.character)]
+  do.call(combine_to_ind, c(list(out_file), dots_svg))
+}
+
+get_legend_wu_vals <- function(..., legend_sizes = c(20, 10, 5)) {
+  # filter to just those arguments where the dataframe has (because the only step
+  # outputs that are dfs are the svg_ready dfs)
+  dots <- list(...)
+  dots_df <- dots[purrr::map_lgl(dots, is.data.frame)]
+  wu_dat <- purrr::reduce(dots_df, bind_rows)
+  
+  wu_dat %>% 
+    st_drop_geometry() %>% 
+    mutate(radius = stroke_width/2) %>% # turn diameters into radii
+    filter(radius %in% legend_sizes) %>% 
+    group_by(radius) %>% 
+    summarize(legend_wu_val = mean(wu_val), .groups="keep")
 }

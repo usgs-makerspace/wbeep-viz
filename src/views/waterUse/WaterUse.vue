@@ -4,6 +4,7 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
+    <WorkInProgressWarning />
     <div id="mapSubtitleContainer">
       <MapSubtitle 
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -30,28 +31,61 @@
         id="buttonsContainer"
         class="centeredContent"
       >
-        <div id="buttonExplanation" class="explanation">
-          <div class="instructionNumber">1</div>
-          <p>Click on water use type to look at annual patterns.</p>
+        <div
+          id="buttonExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            1
+          </div>
+          <p>First, select water use type (spring default view)</p>
         </div>
-        <button @click="useButtonClick($event)" id="te" class="waterUseButton activeParameter">Thermoelectric</button>
-        <button @click="useButtonClick($event)" id="ir" class="waterUseButton">Irrigation</button>
-        <button @click="useButtonClick($event)" id="ps" class="waterUseButton">Public Supply</button>
+        <button
+          id="te"
+          class="waterUseButton activeParameter"
+          @click="useButtonClick($event)"
+        >
+          Thermoelectric
+        </button>
+        <button
+          id="ir"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
+          Irrigation
+        </button>
+        <button
+          id="ps"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
+          Public Supply
+        </button>
       </div>
       <div
         id="waterUseMapContainer"
       >
-        <DynamicSVG :svg="svg" id="dynamicSVG" />
-        <MapLegend :legend-title="legendTitle" :use-parameter="useParameter" />
+        <DynamicSVG
+          id="dynamicSVG"
+          :svg="svg"
+        />
       </div>
       <div
         id="waterUseBarChartContainer"
       >
-        <div id="chartExplanation" class="explanation">
-          <div class="instructionNumber">2</div>
-          <p>Click a season to look at seasonal use</p> 
+        <div
+          id="chartExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            2
+          </div>
+          <p>Next, select season</p> 
         </div>
-        <DynamicBarChart @click.native="changeSeason($event)" :barchart="barchart" />
+        <DynamicBarChart
+          :barchart="barchart"
+          @click.native="changeSeason($event)"
+        />
       </div>
     </div>
   </div>
@@ -59,15 +93,15 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
-  import MapLegend from "../../components/MapLegend";
+  import WorkInProgressWarning from "../../components/WorkInProgressWarning";
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
-        MapLegend,
         MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
         DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
-        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart")
+        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
+        WorkInProgressWarning
     },
     data() {
       return {
@@ -98,10 +132,13 @@
     watch: {
       checkIfSVGMapIsRendered(newState, oldState){
         let self = this;
-        setTimeout(function(){
-          self.addSeasonClass();
-          self.watchWuBarsHovers();
-        },300);
+        //Make sure the state is true
+        if(this.$store.state.mapSVGRenderOnInitialLoad === true){
+          setTimeout(function(){
+            self.addSeasonClass();
+            self.watchWuBarsHovers();
+          },1000);
+        }
       }
     },
     mounted(){
@@ -127,29 +164,41 @@
       watchWuBarsHovers(){
         let self = this;
         let wuBarHovers = document.querySelectorAll(".wu-bars-hover");
+        let winters = document.querySelectorAll("#winter");
         wuBarHovers.forEach(function(wuBarHover){
           let wuBar = wuBarHover.previousElementSibling;
-          wuBarHover.addEventListener("mouseover", function(){
-            //Make sure wuBar is not the active class
-            if(!wuBar.classList.contains("activeSeason")){
-              self.checkUseParameter(wuBar);
-              wuBar.style.fillOpacity = .5;
-            }
-          });
-          wuBarHover.addEventListener("mouseout", function(){
-            //Make sure wuBar is not the active class
-            if(!wuBar.classList.contains("activeSeason")){
-              wuBar.style.fill = self.basicBarChunkColor;
-              wuBar.style.fillOpacity = 1;
-            }
-          });
+          //Separate winter paths to give it different functionality
+          if(wuBarHover.id === "winter"){
+            wuBarHover.addEventListener("mouseover", function(){
+              self.winterSolution("hover");
+            });
+            wuBarHover.addEventListener("mouseout", function(){
+              self.winterSolution("hover");
+            });
+          }else{
+            //If not winter do the usual mouse functionality
+            wuBarHover.addEventListener("mouseover", function(){
+              //Make sure wuBar is not the active class
+              if(!wuBar.classList.contains("activeSeason")){
+                self.checkUseParameter(wuBar);
+                wuBar.style.fillOpacity = .5;
+              }
+            });
+            wuBarHover.addEventListener("mouseout", function(){
+              //Make sure wuBar is not the active class
+              if(!wuBar.classList.contains("activeSeason")){
+                wuBar.style.fill = self.basicBarChunkColor;
+                wuBar.style.fillOpacity = 1;
+              }
+            });
+          }
         });
       },
       changeSeason(event){
-        let checkClass = event.target.classList.value;
+        let checkClass = event.target.classList.contains("wu-bars-hover");
         let target = event.target;
         let className = document.querySelector(".activeSeason");
-        if(checkClass === "wu-bars-hover"){
+        if(checkClass){
           this.season = target.id;
           //Update SVG map by season
           this.svg = "svg_map_" + this.useParameter + "_" + this.season;
@@ -204,11 +253,24 @@
             break;
         }
       },
-      winterSolution(){
-        let winters = document.querySelectorAll(".wu-bars-hover");
+      winterSolution(hover){
+        let self = this;
+        let winters = document.querySelectorAll("#winter");
         winters.forEach(function(winter){
           let winterSibling = winter.previousElementSibling;
-          if(winter.id === "winter"){
+          //make sure its hover functionality
+          if(hover){
+            if(winter.classList.contains("winterHover")){
+              winter.classList.remove("winterHover");
+              winterSibling.style.fill = self.basicBarChunkColor;
+              winterSibling.style.fillOpacity = 1;
+            }else{
+              winter.classList.add("winterHover");
+              self.checkUseParameter(winterSibling);
+              winterSibling.style.fillOpacity = .5;
+            }
+          }else{
+            //Handle the click functionality
             winterSibling.classList.add("activeSeason");
           }
         });
@@ -243,7 +305,7 @@
 $thermo: #D54C1A;
 $irrigation: #2B594E;
 $publicSupply: #446FA6;
-$mapBG: rgb(220,220,220);
+$mapBG:  rgb(209,211,212);
 $highlight: #68C6A4;
 $barChartHighlight: red;
 .loader {
@@ -282,13 +344,13 @@ $barChartHighlight: red;
 }
 #water-use-container {
   flex: 1;
-  padding: 0 10px;
   a{
     color: #000;
   }
 }
 #water-use-content{
   width: 100%;
+  padding: 0 10px;
   max-width: 800px;
   flex: 1;
   display: flex;
@@ -301,7 +363,7 @@ $barChartHighlight: red;
 #waterUseQuestion{
   position:absolute;
   top: 10px;
-  right: 0px;
+  right: 10px;
   width: 29px;
   height: 29px;
   display: block;
@@ -383,14 +445,34 @@ $barChartHighlight: red;
   position: relative;
   /*colors the SVG map*/
   #dynamicSVG{
-    stroke: $mapBG;
-    fill: #fff;
+    stroke: #fff;
+    fill: $mapBG;
   }
-  #legendContainer{
-    min-height: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  #waterUseLegend circle,
+  #waterUseLegend path{
+    stroke: #000;
+  }
+  #waterUseLegend circle.smallDot{
+    stroke: none;
+  }
+  #waterUseLegend text{
+    fill: #000;
+    dominant-baseline: middle;
+    stroke: none;
+    font-size: 1em;
+    text-anchor: end;
+  }
+  #waterUseLegend text.legendTitle{
+    text-anchor: middle;
+  }
+  .teLegend circle{
+    fill: $thermo;
+  }
+  .irLegend circle{
+    fill: $irrigation;
+  }
+  .psLegend circle{
+    fill: $publicSupply;
   }
 }
 .wu-dots-te,
@@ -409,22 +491,31 @@ $barChartHighlight: red;
   stroke: $publicSupply;
 }
 #waterUseBarChartContainer{
+  margin-bottom: 20px;
   #barchartAxis{
     pointer-events: none;
   }
   #chartExplanation{
-    margin: 5px 0 20px 0;
+    margin: 0 0 10px 0;
   }
 }
 .wu-bars-hover{
   cursor: pointer;
   fill-opacity: 0;
+  fill: #000;
+  &:hover{
+    fill-opacity: .1;
+  }
+}
+.winterHover{
+  fill-opacity: .1;
 }
 .wu-bars-axis{
   font-size: 1.3rem;
+  stroke-linecap: square
 }
 .wu-bars{
-  fill: rgb(209,211,212);
+  fill: $mapBG;
 }
 path.wu-bars-axis {
   stroke: black;
@@ -433,11 +524,19 @@ path.wu-bars-axis {
 .seasonLabel{
   font-size: 1.2em;
 }
+.monthLabel{
+  fill: rgb(100,100,100);
+}
 @media screen and (min-width: 600px){
   #buttonsContainer{
     .waterUseButton{
       font-size: 14pt;
     }
+  }
+}
+@media screen and (min-width: 1100px) and (min-height: 1400px){
+  #water-use-content{
+    max-width: 1100px;
   }
 }
 @media screen and (min-width: 1300px) and (max-height: 768px){
@@ -450,6 +549,4 @@ path.wu-bars-axis {
     width: 530px;
   }
 }
-
-
 </style>

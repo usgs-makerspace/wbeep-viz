@@ -1,5 +1,5 @@
 <template>
-    <component :is="dynamicSVG" />
+  <component :is="dynamicSVG" />
 </template>
 <script>
 export default {
@@ -14,6 +14,7 @@ export default {
         dynamicSVG() {
             this.svg;
             return () => import(
+                /* webpackPrefetch: true */
                 /* webpackChunkName: "MapSVGs" */
                 /* webpackMode: "lazy-once" */ 
                 `@/assets/wuMapSVGs/${this.svg}.svg`

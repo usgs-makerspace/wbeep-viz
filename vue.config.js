@@ -15,7 +15,6 @@ module.exports = {
                         plugins: [
                             {removeDoctype: true},
                             {removeComments: true},
-                            {convertTransform: false},
                             {convertPathData: {
                                 removeUseless: false
                             }},
