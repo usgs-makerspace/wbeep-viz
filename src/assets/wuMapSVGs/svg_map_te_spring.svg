@@ -232,15 +232,15 @@
   <g id="waterUseLegend" class="teLegend" transform="translate(150,593.75)">
     <circle cx="0" cy="-20" r="20"/>
     <path d="M0 -40 h30"/>
-    <text x="33" y="-40">2700</text>
+    <text x="60" y="-40" class="legendValues">2700</text>
     <circle cx="0" cy="-10" r="10"/>
     <path d="M0 -20 h30"/>
-    <text x="33" y="-20">670</text>
+    <text x="60" y="-20" class="legendValues">670</text>
     <circle cx="0" cy="-5" r="5"/>
     <path d="M0 -10 h30"/>
-    <text x="33" y="-5">170</text>
+    <text x="60" y="-5" class="legendValues">170</text>
     <circle cx="0" cy="10" r="1" class="smallDot"/>
-    <text x="33" y="10">&lt; 1</text>
+    <text x="60" y="10">&lt; 1</text>
     <text x="15" y="-60" class="legendTitle">Water use, million gallons per day</text>
   </g>
 </svg>
