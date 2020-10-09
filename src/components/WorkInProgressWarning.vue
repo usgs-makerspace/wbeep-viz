@@ -4,9 +4,9 @@
       v-if="buttonText === 'I understand'"
       class="warning-open"
     >
-      ATTENTION! - You are viewing a prototype application that is in active development.
-      Contents seen here are for place holding and development only. <strong>DO NOT USE</strong> information
-      contained in this application for ANY purpose.
+      ATTENTION! - You are viewing a prototype application that is in active development. 
+      Contents seen here are preliminary visualizations of model output. <strong>DO NOT CITE</strong> or use information 
+      contained in this application until review and final application is released.
     </p>
     <button @click="toggleWarning">
       {{ buttonText }}
