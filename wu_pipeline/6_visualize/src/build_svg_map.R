@@ -93,8 +93,11 @@ add_legend <- function(svg, legend_size_dat, svg_width, svg_height, wu_type_cd) 
   
   # Add text above circles
   wu_legend %>% 
-    xml_add_child('text', x = label_line_length/2, y = -max(legend_size_dat$radius)*2*1.50, 
-                  "Water use, million gallons per day", class = "legendTitle")
+    xml_add_child('text', class = "legendTitle") %>% 
+    xml_add_child('tspan', x = label_line_length/2, y = -max(legend_size_dat$radius)*2*2.0, 
+                  "Seasonal-average daily water use") %>% 
+    xml_add_sibling('tspan', x = label_line_length/2, y = -max(legend_size_dat$radius)*2*1.50, 
+                    "(million gallons per day)", class = "legendUnits")
 }
 
 add_circle_with_label <- function(svg, r, label, label_line_length, extra_label_nudge = 0) {
