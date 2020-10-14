@@ -73,8 +73,8 @@ add_y_axis <- function(svg, wu_dat, svg_height) {
     xml_add_sibling("text", id = "yAxisLabelHigh", class = "wu-bars-axis", `text-anchor`="end",
                     x = -20, y = 10, formatC(signif(max_wu_val, digits = 3), format = "d", big.mark = ",")) %>% 
     xml_add_sibling("text", id = "yAxisTitle", class = "wu-bars-axis", `text-anchor`="middle",
-                    transform=sprintf("rotate(-90) translate(-%s -50)", svg_height/2)) %>% 
-    xml_add_child("tspan", "Daily water use", x = 0, dy = 0) %>% 
+                    transform=sprintf("rotate(-90) translate(-%s -52)", svg_height/2)) %>% 
+    xml_add_child("tspan", "National daily water use", x = 0, dy = 0) %>% 
     xml_add_sibling("tspan", id = "yUnits", "million gallons per day", x = 0, dy=20)
   
 }
