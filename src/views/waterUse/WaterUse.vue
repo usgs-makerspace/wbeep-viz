@@ -518,8 +518,8 @@ $barChartHighlight: red;
   fill: $mapBG;
 }
 path.wu-bars-axis {
-  stroke: black;
-  stroke-width: 5;
+  stroke: rgb(100,100,100);
+  stroke-width: 2;
 }
 .seasonLabel{
   font-size: 1.2em;
