@@ -238,7 +238,7 @@ export default {
                     },
                     {
                         "id": "tempQuestion5",
-                        "question": "I live in Puerto Rico, why do I not see any stream temperature data there?",
+                        "question": "I live in Puerto Rico, why don't I see any stream temperature data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
@@ -249,7 +249,7 @@ export default {
                     {
                         "id": "tempQuestion7",
                         "question": "Will there be improvements to this map in the future?",
-                        "answer": "Yes. This water temperature concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
+                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
                 ]
             },
