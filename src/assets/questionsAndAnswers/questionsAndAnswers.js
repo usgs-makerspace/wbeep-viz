@@ -157,7 +157,7 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within within each watershed (10-digit hydrologic unit code, USGS 2014) in the continental United States."
+                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within each watershed (10-digit hydrologic unit code, USGS 2014) in the continental United States."
                     },
                     {
                         "id": "useQuestion2",
