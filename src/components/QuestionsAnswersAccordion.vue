@@ -39,11 +39,10 @@
         </div>
       </div>
     </div>
-    <h2>Water Use</h2>
+    <h2 id="waterUseSection">Water Use</h2>
     <!-- Water Use -->
     <div
       v-for="section in pageContents.waterUseAccordionSections"
-      id="waterUseSection"
       :key="section.sectionTitle"
     >
       <h6 class="section-title">
@@ -79,11 +78,10 @@
         </div>
       </div>
     </div>
-    <h2>Stream Temperature</h2>
+    <h2 id="waterTempSection">Stream Temperature</h2>
     <!-- Water Temp -->
     <div
       v-for="section in pageContents.waterTempAccordionSections"
-      id="waterTempSection"
       :key="section.sectionTitle"
     >
       <h6 class="section-title">
