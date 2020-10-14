@@ -85,8 +85,8 @@ export default {
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water use reference')",
             },
             {
-                reference: "U.S. Geological Survey, 2014, National Watershed Boundary Dataset (WBD), vector digital data,",
-                href: "ftp://rockyftp.cr.usgs.gov/vdelivery/Datasets/Staged/WBD/FileGDB101/WBD_National.zip ",
+                reference: "U.S. Geological Survey, 2014, National Watershed Boundary Dataset (WBD), vector digital data.",
+                href: "",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water use reference')",
             }
         ]
