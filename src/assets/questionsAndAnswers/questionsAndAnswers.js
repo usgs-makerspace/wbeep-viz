@@ -166,12 +166,32 @@ export default {
                 "sectionTitle": "About the Water Temperature Map",
                 "questionsAndAnswers": [
                     {
-                        "question": "How does stream temperature impact aquatic biology and the availability of water for beneficial uses?",
-                        "answer": ""
+                        "question": "What does this map show me?",
+                        "answer": "This map displays river networks with daily water temperature represented by colors shaded from light blue to dark red. These temperatures are generated from models that consider daily fluctuations in environmental variables to calculate average of stream temperature conditions for a given day."
                     },
                     {
-                        "question": "Do stream temperature data reflect impacts of on-stream lakes and dams?",
-                        "answer": ""
+                        "question": "What stream network is represented in this map?",
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
+                    },
+                    {
+                        "question": "Why is the “latest available” stream temperature map not for today?",
+                        "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
+                    },
+                    {
+                        "question": "How can I see the previous day’s stream temperature?",
+                        "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
+                    },
+                    {
+                        "question": "I live in Puerto Rico, why do I not see any stream temperature data there?",
+                        "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                    },
+                    {
+                        "question": "Are brook trout streams represented in this map?",
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
+                    },
+                    {
+                        "question": "Will there be improvements to this map in the future?",
+                        "answer": "Yes. This water temperature concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
                 ]
             },
@@ -179,8 +199,20 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Temperature",
                 "questionsAndAnswers": [
                     {
-                        "question": " ",
-                        "answer": " "
+                        "question": "How are the stream temperature estimates generated? ",
+                        "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; Markstrom and others, 2015; Leavesley and others, 1983), and the SNTemp stream temperature model as part of the PRMS (Sanders and others, 2017; Bartholow, 2000)."
+                    },
+                    {
+                        "question": "Why was stream temperature used as an indicator of water quality?",
+                        "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat.  Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
+                    },
+                    {
+                        "question": "How does stream temperature impact aquatic biology? ",
+                        "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (EPA, 2016) to maintain beneficial uses."
+                    },
+                    {
+                        "question": "How does stream temperature impact the availability of water for beneficial uses?",
+                        "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Hot water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
                     }
                 ]
             }

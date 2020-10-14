@@ -45,8 +45,33 @@ export default {
         title: "Water Temperature References",
         references: [
             {
-                reference: "Test",
-                href: "https://doi.org/10.1002/joc.3413",
+                reference: "Bock, A.R., Santiago, M., Wieczorek, M.E., Foks, S.S., and Lombard, M.A., 2020, Geospatial Fabric for National Hydrologic Modeling, version 1.1: U.S. Geological Survey data release, ",
+                href: "https://doi.org/10.5066/P971JAGF",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            },
+            {
+                reference: "Leavesley, G.H., Lichty, R.W., Troutman, B.M., and Saindon, L.G., 1983, Precipitation-Runoff Modeling System—User’s manual: U.S. Geological Survey Water-Resources Investigations Report 83–4238, 207 p.,",
+                href: "https://pubs.usgs.gov/wri/1983/4238/report.pdf",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            },
+            {
+                reference: "Markstrom, S.L., Regan, R.S., Hay, L.E., Viger, R.J., Webb, R.M.T., Payn, R.A., and LaFontaine, J.H., 2015, PRMS-IV, the precipitation-runoff modeling system, version 4: U.S. Geological Survey Techniques and Methods, book 6, chap. B7, 158 p.,",
+                href: "https://doi.org/10.3133/tm6B7",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            },
+            {
+                reference: "Bartholow, J.M., 2000, The stream segment and stream net­work temperature models: A self-study course, Version 2.0: U.S. Geological Survey Open-File Report 99–112, 276 p.,",
+                href: "https://pubs.er.usgs.gov/publication/ofr99112",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            },
+            {
+                reference: "Sanders, M.J., Markstrom, S.L., Regan, R.S., and Atkinson, R.D., 2017, Documentation of a daily mean stream temperature module—An enhancement to the Precipitation-Runoff Modeling System: U.S. Geological Survey Techniques and Methods, book 6, chap. D4, 18 p.,",
+                href: "https://doi.org/10.3133/tm6D4",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
+            },
+            {
+                reference: "US EPA, 2016, Guidelines for Deriving Numerical National Water Quality Criteria for the Protection Of Aquatic Organisms and Their Uses.",
+                href: "https://www.epa.gov/sites/production/files/2016-02/documents/guidelines-water-quality-criteria.pdf ",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to reference')",
             }
         ]
