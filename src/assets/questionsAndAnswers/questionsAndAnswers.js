@@ -187,7 +187,7 @@ export default {
                     {
                         "id": "useQuestion7",
                         "question": "I live in Alaska, why don't I see any water use data there?",
-                        "answer": "The model used currently only has the data it needs in order to calculate water use for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                        "answer": "The water use data are estimated across the lower forty-eight states using geospatial analysis and temporal disaggregation methods, but the data needed for these methods are not available in Hawaii, Alaska and Puerto Rico. In the future, the goal is to expand the water use map to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
                         "id": "useQuestion8",
@@ -275,6 +275,11 @@ export default {
                         "id": "tempDeepScience4",
                         "question": "How does stream temperature impact the availability of water for beneficial uses?",
                         "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Hot water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
+                    },
+                    {
+                        "id": "tempDeepScience5",
+                        "question": "Do stream temperature data reflect impacts of in-stream lakes and dams?",
+                        "answer": "No, the current model application does not represent in-stream lakes or reservoirs, it only represents natural water temperature."
                     }
                 ]
             }
