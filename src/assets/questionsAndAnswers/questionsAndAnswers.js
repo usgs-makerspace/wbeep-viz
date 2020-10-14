@@ -142,12 +142,35 @@ export default {
                 "sectionTitle": "About the Water Use Map",
                 "questionsAndAnswers": [
                     {
-                        "question": "What is the difference between water withdrawal and water consumption?",
-                        "answer": ""
+                        "question": "What does this map show me?",
+                        "answer": "The maps show daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply for each 10-digit hydrologic unit code (HUC 10, USGS 2014) in the continental United States."
                     },
                     {
-                        "question": "How does the water withdrawal map relate to the daily bar chart?",
-                        "answer": ""
+                        "question": "What is the meaning of “water use”? For Thermoelectric, Irrigation, and Public Supply?",
+                        "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Irrigation is water withdrawn for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections. (See Dieter and others, 2018 for more information)"
+                    },
+                    {
+                        "question": "What is the difference between water withdrawal and water consumption? ",
+                        "answer": "Water withdrawal is the total volume removed from a water source such as a river or an aquifer. Often, a portion of this water is returned to the source and is available to be used again. Water consumed is the portion of water that is removed and not returned to its source. For example, the amount of evapotranspiration caused by irrigating a crop is the amount of water consumed."
+                    },
+                    {
+                        "question": "Why are the data for 2015?",
+                        "answer": "The USGS compiled water use estimates by individual counties and states most recently for 2015. These data were used to estimate water use shown in these maps. Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates."
+                    },
+                    {
+                        "question": "How does the water use map relate to the daily bar chart? ",
+                        "answer": "The water use map represents the seasonal-average daily water use or withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national total water use for each day of the year."
+                    },
+                    {
+                        "question": "What is the spatial unit represented by each circle or dot on the map?",
+                        "answer": "The spatial unit on the map represents the water use in each watershed (10-digit hydrologic unit code, USGS 2014) unit in the lower 48-states."
+                    },
+                    {
+                        "question": "I live in Alaska, why do I not see any water use data there?",
+                        "answer": "The model used currently only has the data it needs in order to calculate water use for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                    },{
+                        "question": "Will there be improvements to this map in the future?",
+                        "answer": "Yes. This water use concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
                 ],
             },
@@ -155,8 +178,12 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Use",
                 "questionsAndAnswers": [
                     {
-                        "question": " ",
-                        "answer": " "
+                        "question": "Where does the National Water Use map get the data it is presenting?",
+                        "answer": "Monthly data for each county were compiled from various sources, depending on the category of use and the information available for each state. USGS personnel used the best available sources of information in each state to compile or estimate the data (Dieter and others, 2018). Daily values for each watershed (10-digit hydrologic unit code, USGS 2014) were estimated from county data using geospatial analysis and temporal downscaling methods."
+                    },
+                    {
+                        "question": "How are the categories of water use determined?",
+                        "answer": "Withdrawals are reported by category of use: public supply, domestic (including self-supplied domestic and deliveries from public supply), irrigation, livestock, aquaculture, self-supplied industrial, mining, and self-supplied thermoelectric power. These maps show withdrawals for thermoelectric, irrigation, and public supply because these 3 categories make up more than 90% of the total withdrawals in the U.S. (Dieter and others, 2018)."
                     }
                 ]
             }
@@ -166,12 +193,32 @@ export default {
                 "sectionTitle": "About the Water Temperature Map",
                 "questionsAndAnswers": [
                     {
-                        "question": "How does stream temperature impact aquatic biology and the availability of water for beneficial uses?",
-                        "answer": ""
+                        "question": "What does this map show me?",
+                        "answer": "This map displays river networks with daily water temperature represented by colors shaded from light blue to dark red. These temperatures are generated from models that consider daily fluctuations in environmental variables to calculate average of stream temperature conditions for a given day."
                     },
                     {
-                        "question": "Do stream temperature data reflect impacts of on-stream lakes and dams?",
-                        "answer": ""
+                        "question": "What stream network is represented in this map?",
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
+                    },
+                    {
+                        "question": "Why is the “latest available” stream temperature map not for today?",
+                        "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
+                    },
+                    {
+                        "question": "How can I see the previous day’s stream temperature?",
+                        "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
+                    },
+                    {
+                        "question": "I live in Puerto Rico, why do I not see any stream temperature data there?",
+                        "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                    },
+                    {
+                        "question": "Are brook trout streams represented in this map?",
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
+                    },
+                    {
+                        "question": "Will there be improvements to this map in the future?",
+                        "answer": "Yes. This water temperature concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
                 ]
             },
@@ -179,8 +226,20 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Temperature",
                 "questionsAndAnswers": [
                     {
-                        "question": " ",
-                        "answer": " "
+                        "question": "How are the stream temperature estimates generated? ",
+                        "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; Markstrom and others, 2015; Leavesley and others, 1983), and the SNTemp stream temperature model as part of the PRMS (Sanders and others, 2017; Bartholow, 2000)."
+                    },
+                    {
+                        "question": "Why was stream temperature used as an indicator of water quality?",
+                        "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat.  Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
+                    },
+                    {
+                        "question": "How does stream temperature impact aquatic biology? ",
+                        "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (EPA, 2016) to maintain beneficial uses."
+                    },
+                    {
+                        "question": "How does stream temperature impact the availability of water for beneficial uses?",
+                        "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Hot water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
                     }
                 ]
             }
