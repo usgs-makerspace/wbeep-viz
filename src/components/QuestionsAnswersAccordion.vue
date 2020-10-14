@@ -25,13 +25,13 @@
             <button
               class="usa-accordion__button"
               aria-expanded="true"
-              :aria-controls="question.question"
+              :aria-controls="question.id"
             >
               {{ question.question }}
             </button>
           </h2>
           <div
-            :id="question.question"
+            :id="question.id"
             class="usa-accordion__content usa-prose"
           >
             <p><span v-html="question.answer" /></p>
@@ -39,7 +39,9 @@
         </div>
       </div>
     </div>
-    <h2 id="waterUseSection">Water Use</h2>
+    <h2 id="waterUseSection">
+      Water Use
+    </h2>
     <!-- Water Use -->
     <div
       v-for="section in pageContents.waterUseAccordionSections"
@@ -64,13 +66,13 @@
             <button
               class="usa-accordion__button"
               aria-expanded="true"
-              :aria-controls="question.question"
+              :aria-controls="question.id"
             >
               {{ question.question }}
             </button>
           </h2>
           <div
-            :id="question.question"
+            :id="question.id"
             class="usa-accordion__content usa-prose"
           >
             <p><span v-html="question.answer" /></p>
@@ -78,7 +80,9 @@
         </div>
       </div>
     </div>
-    <h2 id="waterTempSection">Stream Temperature</h2>
+    <h2 id="waterTempSection">
+      Stream Temperature
+    </h2>
     <!-- Water Temp -->
     <div
       v-for="section in pageContents.waterTempAccordionSections"
@@ -103,13 +107,13 @@
             <button
               class="usa-accordion__button"
               aria-expanded="true"
-              :aria-controls="question.question"
+              :aria-controls="question.id"
             >
               {{ question.question }}
             </button>
           </h2>
           <div
-            :id="question.question"
+            :id="question.id"
             class="usa-accordion__content usa-prose"
           >
             <p><span v-html="question.answer" /></p>
