@@ -7,34 +7,42 @@ export default {
                 "sectionTitle": "About the Water Storage Map",
                 "questionsAndAnswers": [
                     {
+                        "id": "storageQuestion1",
                         "question": "What does this map show me?",
                         "answer": "The " + process.env.VUE_APP_TITLE + " shows the latest available daily estimate of natural water storage for approximately 110,000 regions across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical conditions for this time of year."
                     },
                     {
+                        "id": "storageQuestion2",
                        "question": "What is the meaning of \"natural water storage\"?",
                        "answer": "Natural water storage shown here includes water present on the landscape such as standing water and water on trees, snowpack, soil water, and shallow groundwater. It does not include water in rivers or deep groundwater."
                     },
                     {
+                        "id": "storageQuestion3",
                         "question": "Why is the \"latest available\" map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
+                        "id": "storageQuestion3",
                         "question": "What is being highlighted when I move my mouse on the map?",
                         "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
+                        "id": "storageQuestion4",
                         "question": "How can I see a previous day’s natural water storage value for my region?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
+                        "id": "storageQuestion5",
                         "question": "I live in Hawaii, why do I not see any natural water storage data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate daily natural water storage for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
+                        "id": "storageQuestion6",
                         "question": "How can I print or save this map?",
                         "answer": "No specific features are built into this web site to print or save images at this time, but you can use those available in your web browser to save the image locally (In the Menu, look for Save As, which may give you options to save the HTML or PDF). Alternatively, you can use your computer’s screen capture capabilities to grab a screenshot of the map image and paste it into a local image editor to save it (for example, paste it into Microsoft Paint on a Windows computer)."
                     },
                     {
+                        "id": "storageQuestion7",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes! This is the first iteration of a USGS product that displays a near real-time indicator of water availability across the lower forty-eight states. Future plans include additional indicators of near real-time water availability (beyond natural water storage), as well as predictions of future water availability. If you’re interested in contributing ideas or learning more, please reach out to       <a\n" +
                                 "v-ga=\"$ga.commands.trackName.bind(this, 'feedback email-prefooter', 'click', 'user selected feedback prefooter email link')\"\n" +
@@ -47,6 +55,7 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Storage",
                 "questionsAndAnswers": [
                     {
+                        "id": "storageDeepScience1",
                         "question": "How are the categories for availability determined?",
                         "answer": "Over 30 years of data were used to calculate percentiles for natural water storage for each modeling unit. When looking at today’s value for a region compared to over 30 years of data for that region: \n" +
                                 "<ul>\n" +
@@ -57,6 +66,7 @@ export default {
                                 "<li>\"Very Low\" means that the value is lower than 90% of all historic values for the region.</li></ul>"
                     },
                     {
+                        "id": "storageDeepScience2",
                         "question": "Where does the " + process.env.VUE_APP_TITLE + " map get the data it is representing?",
                         "answer": "<p>\n" +
                                 "Estimates of natural water storage are calculated using the National Hydrologic Model (NHM) Infrastructure (Regan et al. 2019)\n" +
@@ -73,14 +83,17 @@ export default {
                                 "</p>"
                     },
                     {
+                        "id": "storageDeepScience3",
                         "question": "Why was \"natural water storage\" used as an indicator of water availability?",
                         "answer": "For the first phase of operationalizing a national hydrologic model to indicate water availability across the lower forty-eight states, the model focused only on natural flows (without human modification from reservoirs and withdrawals). As the model matures, additional hydrologic parameters will be produced by the operational model and additional indicators of water availability will be included on this map."
                     },
                     {
+                        "id": "storageDeepScience4",
                         "question": "Why would a region with a wetland or water body have a lower daily natural water storage than one without?",
                         "answer": "Even if a lake or wetland is in a region, the natural water storage could be considered low for those regions compared to their historic norms."
                     },
                     {
+                        "id": "storageDeepScience5",
                         "question": "What are IWAAs?",
                         "answer": "<p>\n" +
                                 "      The <a\n" +
@@ -142,33 +155,42 @@ export default {
                 "sectionTitle": "About the Water Use Map",
                 "questionsAndAnswers": [
                     {
+                        "id": "useQuestion1",
                         "question": "What does this map show me?",
                         "answer": "The maps show daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply for each 10-digit hydrologic unit code (HUC 10, USGS 2014) in the continental United States."
                     },
                     {
+                        "id": "useQuestion2",
                         "question": "What is the meaning of “water use”? For Thermoelectric, Irrigation, and Public Supply?",
                         "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Irrigation is water withdrawn for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections. (See Dieter and others, 2018 for more information)"
                     },
                     {
+                        "id": "useQuestion3",
                         "question": "What is the difference between water withdrawal and water consumption? ",
                         "answer": "Water withdrawal is the total volume removed from a water source such as a river or an aquifer. Often, a portion of this water is returned to the source and is available to be used again. Water consumed is the portion of water that is removed and not returned to its source. For example, the amount of evapotranspiration caused by irrigating a crop is the amount of water consumed."
                     },
                     {
+                        "id": "useQuestion4",
                         "question": "Why are the data for 2015?",
                         "answer": "The USGS compiled water use estimates by individual counties and states most recently for 2015. These data were used to estimate water use shown in these maps. Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates."
                     },
                     {
+                        "id": "useQuestion5",
                         "question": "How does the water use map relate to the daily bar chart? ",
                         "answer": "The water use map represents the seasonal-average daily water use or withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national total water use for each day of the year."
                     },
                     {
+                        "id": "useQuestion6",
                         "question": "What is the spatial unit represented by each circle or dot on the map?",
                         "answer": "The spatial unit on the map represents the water use in each watershed (10-digit hydrologic unit code, USGS 2014) unit in the lower 48-states."
                     },
                     {
+                        "id": "useQuestion7",
                         "question": "I live in Alaska, why do I not see any water use data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate water use for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
-                    },{
+                    },
+                    {
+                        "id": "useQuestion8",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes. This water use concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
@@ -178,10 +200,12 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Use",
                 "questionsAndAnswers": [
                     {
+                        "id": "useDeepScience1",
                         "question": "Where does the National Water Use map get the data it is presenting?",
                         "answer": "Monthly data for each county were compiled from various sources, depending on the category of use and the information available for each state. USGS personnel used the best available sources of information in each state to compile or estimate the data (Dieter and others, 2018). Daily values for each watershed (10-digit hydrologic unit code, USGS 2014) were estimated from county data using geospatial analysis and temporal downscaling methods."
                     },
                     {
+                        "id": "useDeepScience2",
                         "question": "How are the categories of water use determined?",
                         "answer": "Withdrawals are reported by category of use: public supply, domestic (including self-supplied domestic and deliveries from public supply), irrigation, livestock, aquaculture, self-supplied industrial, mining, and self-supplied thermoelectric power. These maps show withdrawals for thermoelectric, irrigation, and public supply because these 3 categories make up more than 90% of the total withdrawals in the U.S. (Dieter and others, 2018)."
                     }
@@ -193,30 +217,37 @@ export default {
                 "sectionTitle": "About the Water Temperature Map",
                 "questionsAndAnswers": [
                     {
+                        "id": "tempQuestion1",
                         "question": "What does this map show me?",
                         "answer": "This map displays river networks with daily water temperature represented by colors shaded from light blue to dark red. These temperatures are generated from models that consider daily fluctuations in environmental variables to calculate average of stream temperature conditions for a given day."
                     },
                     {
+                        "id": "tempQuestion2",
                         "question": "What stream network is represented in this map?",
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
                     },
                     {
+                        "id": "tempQuestion2",
                         "question": "Why is the “latest available” stream temperature map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
+                        "id": "tempQuestion3",
                         "question": "How can I see the previous day’s stream temperature?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
+                        "id": "tempQuestion4",
                         "question": "I live in Puerto Rico, why do I not see any stream temperature data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
+                        "id": "tempQuestion5",
                         "question": "Are brook trout streams represented in this map?",
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
                     },
                     {
+                        "id": "tempQuestion6",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes. This water temperature concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
@@ -226,18 +257,22 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Temperature",
                 "questionsAndAnswers": [
                     {
+                        "id": "tempDeepScience1",
                         "question": "How are the stream temperature estimates generated? ",
                         "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; Markstrom and others, 2015; Leavesley and others, 1983), and the SNTemp stream temperature model as part of the PRMS (Sanders and others, 2017; Bartholow, 2000)."
                     },
                     {
+                        "id": "tempDeepScience2",
                         "question": "Why was stream temperature used as an indicator of water quality?",
                         "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat.  Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
                     },
                     {
+                        "id": "tempDeepScience3",
                         "question": "How does stream temperature impact aquatic biology? ",
                         "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (EPA, 2016) to maintain beneficial uses."
                     },
                     {
+                        "id": "tempDeepScience4",
                         "question": "How does stream temperature impact the availability of water for beneficial uses?",
                         "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Hot water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
                     }
