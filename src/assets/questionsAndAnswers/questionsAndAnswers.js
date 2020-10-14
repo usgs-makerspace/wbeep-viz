@@ -142,12 +142,35 @@ export default {
                 "sectionTitle": "About the Water Use Map",
                 "questionsAndAnswers": [
                     {
-                        "question": "What is the difference between water withdrawal and water consumption?",
-                        "answer": ""
+                        "question": "What does this map show me?",
+                        "answer": "The maps show daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply for each 10-digit hydrologic unit code (HUC 10, USGS 2014) in the continental United States."
                     },
                     {
-                        "question": "How does the water withdrawal map relate to the daily bar chart?",
-                        "answer": ""
+                        "question": "What is the meaning of “water use”? For Thermoelectric, Irrigation, and Public Supply?",
+                        "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Irrigation is water withdrawn for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections. (See Dieter and others, 2018 for more information)"
+                    },
+                    {
+                        "question": "What is the difference between water withdrawal and water consumption? ",
+                        "answer": "Water withdrawal is the total volume removed from a water source such as a river or an aquifer. Often, a portion of this water is returned to the source and is available to be used again. Water consumed is the portion of water that is removed and not returned to its source. For example, the amount of evapotranspiration caused by irrigating a crop is the amount of water consumed."
+                    },
+                    {
+                        "question": "Why are the data for 2015?",
+                        "answer": "The USGS compiled water use estimates by individual counties and states most recently for 2015. These data were used to estimate water use shown in these maps. Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates."
+                    },
+                    {
+                        "question": "How does the water use map relate to the daily bar chart? ",
+                        "answer": "The water use map represents the seasonal-average daily water use or withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national total water use for each day of the year."
+                    },
+                    {
+                        "question": "What is the spatial unit represented by each circle or dot on the map?",
+                        "answer": "The spatial unit on the map represents the water use in each watershed (10-digit hydrologic unit code, USGS 2014) unit in the lower 48-states."
+                    },
+                    {
+                        "question": "I live in Alaska, why do I not see any water use data there?",
+                        "answer": "The model used currently only has the data it needs in order to calculate water use for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                    },{
+                        "question": "Will there be improvements to this map in the future?",
+                        "answer": "Yes. This water use concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
                 ],
             },
@@ -155,8 +178,12 @@ export default {
                 "sectionTitle": "Deep in the Science for Water Use",
                 "questionsAndAnswers": [
                     {
-                        "question": " ",
-                        "answer": " "
+                        "question": "Where does the National Water Use map get the data it is presenting?",
+                        "answer": "Monthly data for each county were compiled from various sources, depending on the category of use and the information available for each state. USGS personnel used the best available sources of information in each state to compile or estimate the data (Dieter and others, 2018). Daily values for each watershed (10-digit hydrologic unit code, USGS 2014) were estimated from county data using geospatial analysis and temporal downscaling methods."
+                    },
+                    {
+                        "question": "How are the categories of water use determined?",
+                        "answer": "Withdrawals are reported by category of use: public supply, domestic (including self-supplied domestic and deliveries from public supply), irrigation, livestock, aquaculture, self-supplied industrial, mining, and self-supplied thermoelectric power. These maps show withdrawals for thermoelectric, irrigation, and public supply because these 3 categories make up more than 90% of the total withdrawals in the U.S. (Dieter and others, 2018)."
                     }
                 ]
             }
