@@ -157,7 +157,7 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply within each  watershed (10-digit hydrologic unit code, USGS 2014) in the continental United States."
+                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within within each watershed (10-digit hydrologic unit code, USGS 2014) in the continental United States."
                     },
                     {
                         "id": "useQuestion2",
@@ -177,7 +177,7 @@ export default {
                     {
                         "id": "useQuestion5",
                         "question": "How does the water use map relate to the daily bar chart? ",
-                        "answer": "The water use map represents each season's average daily water use rate of withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national total water use for each day of the year."
+                        "answer": "The water use map represents each season's average daily water use rate of withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national daily water use for the selected water use category for each day of the year."
                     },
                     {
                         "id": "useQuestion6",
