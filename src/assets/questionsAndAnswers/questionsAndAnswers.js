@@ -22,27 +22,27 @@ export default {
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
-                        "id": "storageQuestion3",
+                        "id": "storageQuestion4",
                         "question": "What is being highlighted when I move my mouse on the map?",
                         "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
-                        "id": "storageQuestion4",
+                        "id": "storageQuestion5",
                         "question": "How can I see a previous day’s natural water storage value for my region?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
-                        "id": "storageQuestion5",
+                        "id": "storageQuestion6",
                         "question": "I live in Hawaii, why do I not see any natural water storage data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate daily natural water storage for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "storageQuestion6",
+                        "id": "storageQuestion7",
                         "question": "How can I print or save this map?",
                         "answer": "No specific features are built into this web site to print or save images at this time, but you can use those available in your web browser to save the image locally (In the Menu, look for Save As, which may give you options to save the HTML or PDF). Alternatively, you can use your computer’s screen capture capabilities to grab a screenshot of the map image and paste it into a local image editor to save it (for example, paste it into Microsoft Paint on a Windows computer)."
                     },
                     {
-                        "id": "storageQuestion7",
+                        "id": "storageQuestion8",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes! This is the first iteration of a USGS product that displays a near real-time indicator of water availability across the lower forty-eight states. Future plans include additional indicators of near real-time water availability (beyond natural water storage), as well as predictions of future water availability. If you’re interested in contributing ideas or learning more, please reach out to       <a\n" +
                                 "v-ga=\"$ga.commands.trackName.bind(this, 'feedback email-prefooter', 'click', 'user selected feedback prefooter email link')\"\n" +
@@ -227,27 +227,27 @@ export default {
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
                     },
                     {
-                        "id": "tempQuestion2",
+                        "id": "tempQuestion3",
                         "question": "Why is the “latest available” stream temperature map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
-                        "id": "tempQuestion3",
+                        "id": "tempQuestion4",
                         "question": "How can I see the previous day’s stream temperature?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
-                        "id": "tempQuestion4",
+                        "id": "tempQuestion5",
                         "question": "I live in Puerto Rico, why do I not see any stream temperature data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "tempQuestion5",
+                        "id": "tempQuestion6",
                         "question": "Are brook trout streams represented in this map?",
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
                     },
                     {
-                        "id": "tempQuestion6",
+                        "id": "tempQuestion7",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes. This water temperature concept map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
                     }
