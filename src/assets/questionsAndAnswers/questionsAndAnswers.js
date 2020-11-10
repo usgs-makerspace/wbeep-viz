@@ -82,7 +82,7 @@ export default {
                                 "System</a> (PRMS; <a\n" +
                                 "href=\"https://doi.org/10.3133/tm6B7\"\n" +
                                 "target=\"_blank\"\n" +
-                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al 2015')\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al. 2015')\"\n" +
                                 ">Markstrom et al., 2015).</a>\n" +
                                 "The <a\n" +
                                 "href=\"http://www.climatologylab.org/gridmet.html\"\n" +
@@ -95,7 +95,7 @@ export default {
                                 ">Abatzoglou, 2013</a>). The PRMS is a modular, deterministic, distributed-parameter, physical process-based hydrologic simulation code that can be used to evaluate the effects of various combinations of climate and landscape on hydrologic response at the watershed scale  (<a\n"+
                                 "href=\"https://doi.org/10.3133/tm6B9\"\n" +
                                 "target=\"_blank\"\n" +
-                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Regan 2018')\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Regan et al. 2018')\"\n" +
                                 ">Regan et al., 2018</a>). The PRMS application of the NHM (NHM-PRMS) is used here to represent the daily water balance across the diverse range of landscapes of the lower forty-eight states. Further information on the NHM Infrastructure, the PRMS model, and the NHM-PRMS application can be found in the references below.\n" +
                                 "</p>"
                     },
