@@ -69,17 +69,34 @@ export default {
                         "id": "storageDeepScience2",
                         "question": "Where does the " + process.env.VUE_APP_TITLE + " map get the data it is representing?",
                         "answer": "<p>\n" +
-                                "Estimates of natural water storage are calculated using the National Hydrologic Model (NHM) Infrastructure (Regan et al. 2019)\n" +
+                                "Estimates of natural water storage are calculated using the National Hydrologic Model (NHM) Infrastructure (<a\n" +
+                                "href=\"https://doi.org/10.1016/j.envsoft.2018.09.023\"\n" +
+                                "target=\"_blank\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Regan et al. 2019')\"\n" +
+                                ">Regan et al. 2019</a>)\n" +
                                 "configured with the <a\n" +
                                 "href=\"https://www.usgs.gov/software/precipitation-runoff-modeling-system-prms\"\n" +
                                 "target=\"_blank\"\n" +
                                 "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for precipitation-runoff-modeling-system-prms')\"\n" +
                                 ">Precipitation Runoff Modeling\n" +
-                                "System</a> (PRMS; Markstrom et al., 2015). The <a\n" +
+                                "System</a> (PRMS; <a\n" +
+                                "href=\"https://doi.org/10.3133/tm6B7\"\n" +
+                                "target=\"_blank\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al 2015')\"\n" +
+                                ">Markstrom et al., 2015).</a>\n" +
+                                "The <a\n" +
                                 "href=\"http://www.climatologylab.org/gridmet.html\"\n" +
                                 "target=\"_blank\"\n" +
                                 "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for gridMET')\"\n" +
-                                ">gridMET</a> daily weather dataset is used to force both historical and latest-available model runs (Abatzoglou, 2013). The PRMS is a modular, deterministic, distributed-parameter, physical process-based hydrologic simulation code that can be used to evaluate the effects of various combinations of climate and landscape on hydrologic response at the watershed scale  (Regan et al., 2018). The PRMS application of the NHM (NHM-PRMS) is used here to represent the daily water balance across the diverse range of landscapes of the lower forty-eight states. Further information on the NHM Infrastructure, the PRMS model, and the NHM-PRMS application can be found in the references below.\n" +
+                                ">gridMET</a> daily weather dataset is used to force both historical and latest-available model runs (<a\n"+
+                                "href=\"https://doi.org/10.1002/joc.3413\"\n" +
+                                "target=\"_blank\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Abatzoglou 2013')\"\n" +
+                                ">Abatzoglou, 2013</a>). The PRMS is a modular, deterministic, distributed-parameter, physical process-based hydrologic simulation code that can be used to evaluate the effects of various combinations of climate and landscape on hydrologic response at the watershed scale  (<a\n"+
+                                "href=\"https://doi.org/10.3133/tm6B9\"\n" +
+                                "target=\"_blank\"\n" +
+                                "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Regan 2018')\"\n" +
+                                ">Regan et al., 2018</a>). The PRMS application of the NHM (NHM-PRMS) is used here to represent the daily water balance across the diverse range of landscapes of the lower forty-eight states. Further information on the NHM Infrastructure, the PRMS model, and the NHM-PRMS application can be found in the references below.\n" +
                                 "</p>"
                     },
                     {
@@ -192,7 +209,15 @@ export default {
                     {
                         "id": "useQuestion8",
                         "question": "Will there be improvements to this map in the future?",
-                        "answer": "Yes. This water use map is part of a USGS product that displays multiple aspects of the water budget for all watersheds across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov or gs-w_wu-info@usgs.gov for specific water use ideas."
+                        "answer": "Yes. This water use map is part of a USGS product that displays multiple aspects of the water budget for all watersheds across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to <a\n" +
+                        "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_onhm@usgs.gov email link')\"\n" +
+                        ">gs-w_onhm@usgs.gov</a> or <a\n" +
+                        "href=\"mailto:gs-w_wu-info@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_wu-info@usgs.gov email link')\"\n" +
+                        ">gs-w_wu-info@usgs.gov</a> for specific water use ideas."
                     }
                 ],
             },
@@ -202,12 +227,20 @@ export default {
                     {
                         "id": "useDeepScience1",
                         "question": "Where does the National Water Use map get the data it is presenting?",
-                        "answer": "Data for each county were compiled from various sources, depending on the category of use and the information available for each state, and compiled into annual total withdrawals. USGS personnel in each USGS Water Science Center used the best available sources of information in each state to compile measured data, and make estimates to fill gaps in reported data (Dieter and others, 2018). These annual data were downscaled both spatially and temporally to represent average daily values for each watershed using geospatial analysis and temporal downscaling methods that include reference to climate, population and other parameters."
+                        "answer": "Data for each county were compiled from various sources, depending on the category of use and the information available for each state, and compiled into annual total withdrawals. USGS personnel in each USGS Water Science Center used the best available sources of information in each state to compile measured data, and make estimates to fill gaps in reported data (<a\n" +
+                        "href=\"https://doi.org/10.3133/cir1441\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Dieter and others 2018')\"\n" +
+                        ">Dieter and others, 2018</a>). These annual data were downscaled both spatially and temporally to represent average daily values for each watershed using geospatial analysis and temporal downscaling methods that include reference to climate, population and other parameters."
                     },
                     {
                         "id": "useDeepScience2",
                         "question": "What are the categories of water use?",
-                        "answer": "Withdrawals are reported by category of use: public supply, domestic (including self-supplied domestic and deliveries from public supply), irrigation, self-supplied livestock, aquaculture, thermoelectric power, industrial, and mining, and self-supplied thermoelectric power. These maps show withdrawals for only thermoelectric power, irrigation, and public supply because these 3 categories make up more than 90% of the total withdrawals in the U.S. (Dieter and others, 2018)."
+                        "answer": "Withdrawals are reported by category of use: public supply, domestic (including self-supplied domestic and deliveries from public supply), irrigation, self-supplied livestock, aquaculture, thermoelectric power, industrial, and mining, and self-supplied thermoelectric power. These maps show withdrawals for only thermoelectric power, irrigation, and public supply because these 3 categories make up more than 90% of the total withdrawals in the U.S. (<a\n"+
+                        "href=\"https://doi.org/10.3133/cir1441\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Dieter and others 2018')\"\n" +
+                        ">Dieter and others, 2018</a>)."
                     }
                 ]
             }
@@ -249,7 +282,11 @@ export default {
                     {
                         "id": "tempQuestion7",
                         "question": "Will there be improvements to this map in the future?",
-                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to gs-w_onhm@usgs.gov"
+                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to <a\n"+
+                        "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_onhm@usgs.gov email link')\"\n" +
+                        ">gs-w_onhm@usgs.gov</a>."
                     }
                 ]
             },
@@ -259,7 +296,23 @@ export default {
                     {
                         "id": "tempDeepScience1",
                         "question": "How are the stream temperature estimates generated? ",
-                        "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; Markstrom and others, 2015; Leavesley and others, 1983), and the SNTemp stream temperature model as part of the PRMS (Sanders and others, 2017; Bartholow, 2000)."
+                        "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; <a\n"+
+                        "href=\"https://doi.org/10.3133/tm6B7\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al 2015')\"\n" +
+                        ">Markstrom and others, 2015</a>; <a\n"+
+                        "href=\"https://pubs.usgs.gov/wri/1983/4238/report.pdf\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Leavesley and others 1983')\"\n" +
+                        ">Leavesley and others, 1983</a>), and the SNTemp stream temperature model as part of the PRMS (<a\n"+
+                        "href=\"https://doi.org/10.3133/tm6D4\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Sanders and others 2017')\"\n" +
+                        ">Sanders and others, 2017</a>; <a\n"+
+                        "href=\"https://pubs.er.usgs.gov/publication/ofr99112\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Bartholow 2000')\"\n" +
+                        ">Bartholow, 2000</a>)."
                     },
                     {
                         "id": "tempDeepScience2",
@@ -269,7 +322,11 @@ export default {
                     {
                         "id": "tempDeepScience3",
                         "question": "How does stream temperature impact aquatic biology? ",
-                        "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (EPA, 2016) to maintain beneficial uses."
+                        "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (<a\n"+
+                        "href=\"https://www.epa.gov/sites/production/files/2016-02/documents/guidelines-water-quality-criteria.pdf\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for EPA 2016')\"\n" +
+                        ">EPA, 2016</a>) to maintain beneficial uses."
                     },
                     {
                         "id": "tempDeepScience4",
