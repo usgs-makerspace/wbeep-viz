@@ -18,9 +18,9 @@
         </a>
       </p>
     </div>
-    <h2>{{ titleWaterTemp }}</h2>
+    <h2>{{ titleWaterUse }}</h2>
     <div
-      v-for="reference in referencesWaterTemp"
+      v-for="reference in referencesWaterUse"
       :key="reference.reference"
     >
       <p class="about-ref">
@@ -33,9 +33,9 @@
         </a>
       </p>
     </div>
-    <h2>{{ titleWaterUse }}</h2>
+    <h2>{{ titleWaterTemp }}</h2>
     <div
-      v-for="reference in referencesWaterUse"
+      v-for="reference in referencesWaterTemp"
       :key="reference.reference"
     >
       <p class="about-ref">
@@ -60,10 +60,10 @@
           return {
               titleWaterStorage: references.referenceSectionWaterStorage.title,
               referencesWaterStorage: references.referenceSectionWaterStorage.references,
-              titleWaterTemp: references.referenceSectionWaterTemp.title,
-              referencesWaterTemp: references.referenceSectionWaterTemp.references,
               titleWaterUse: references.referenceSectionWaterUse.title,
-              referencesWaterUse: references.referenceSectionWaterUse.references
+              referencesWaterUse: references.referenceSectionWaterUse.references,
+              titleWaterTemp: references.referenceSectionWaterTemp.title,
+              referencesWaterTemp: references.referenceSectionWaterTemp.references
           };
       },
   }
