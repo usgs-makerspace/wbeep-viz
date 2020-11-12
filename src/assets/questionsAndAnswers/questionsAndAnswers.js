@@ -45,9 +45,10 @@ export default {
                         "id": "storageQuestion8",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes! This is the first iteration of a USGS product that displays a near real-time indicator of water availability across the lower forty-eight states. Future plans include additional indicators of near real-time water availability (beyond natural water storage), as well as predictions of future water availability. If you’re interested in contributing ideas or learning more, please reach out to       <a\n" +
-                                "v-ga=\"$ga.commands.trackName.bind(this, 'feedback email-prefooter', 'click', 'user selected feedback prefooter email link')\"\n" +
-                                "href=\"'mailto:'" + process.env.VUE_APP_FEEDBACK_EMAIL_ADDRESS + "\"\n" +
-                                ">" + process.env.VUE_APP_FEEDBACK_EMAIL_ADDRESS + "</a>"
+                        "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_onhm@usgs.gov email link')\"\n" +
+                        ">gs-w_onhm@usgs.gov</a>"
                     }
                 ]
             },
@@ -174,12 +175,20 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within each watershed (10-digit hydrologic unit code, USGS 2014) in the continental United States."
+                        "answer": "The maps show seasonal-average daily average water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within each watershed (<a\n" +
+                        "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for HUC/National Watershed Boundary Dataset 2014')\"\n" +
+                        ">10-digit hydrologic unit code, USGS 2014</a>) in the continental United States."
                     },
                     {
                         "id": "useQuestion2",
                         "question": "What is the meaning of “water use” Thermoelectric, Irrigation, and Public Supply?",
-                        "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Water for irrigation is withdrawn to supplement water needs for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections and is used mostly for domestic purposes but also serves other customers such as commercial and industrial establishments. (See Dieter and others, 2018 for more information)"
+                        "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Water for irrigation is withdrawn to supplement water needs for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections and is used mostly for domestic purposes but also serves other customers such as commercial and industrial establishments. (See <a\n" +
+                        "href=\"https://doi.org/10.3133/cir1441\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Dieter and others 2018')\"\n" +
+                        ">Dieter and others, 2018</a> for more information)"
                     },
                     {
                         "id": "useQuestion3",
@@ -194,12 +203,20 @@ export default {
                     {
                         "id": "useQuestion5",
                         "question": "How does the water use map relate to the daily bar chart? ",
-                        "answer": "The water use map represents each season's average daily water use rate of withdrawal for each watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states.  The daily bar chart represents national daily water use for the selected water use category for each day of the year."
+                        "answer": "The water use map represents each season's average daily water use rate of withdrawal for each watershed (<a\n" +
+                        "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for HUC/National Watershed Boundary Dataset 2014')\"\n" +
+                        ">10-digit hydrologic unit code, USGS 2014</a>) in the lower 48-states.  The daily bar chart represents national daily water use for the selected water use category for each day of the year."
                     },
                     {
                         "id": "useQuestion6",
                         "question": "What is the spatial unit represented by each circle or dot on the map?",
-                        "answer": "Each circle or dot on the map represents the water use referenced to the centroid of a watershed (10-digit hydrologic unit code, USGS 2014) in the lower 48-states."
+                        "answer": "Each circle or dot on the map represents the water use referenced to the centroid of a watershed (<a\n" +
+                        "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for HUC/National Watershed Boundary Dataset 2014')\"\n" +
+                        ">10-digit hydrologic unit code, USGS 2014</a>) in the lower 48-states."
                     },
                     {
                         "id": "useQuestion7",
@@ -257,7 +274,11 @@ export default {
                     {
                         "id": "tempQuestion2",
                         "question": "What stream network is represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +
+                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
                     },
                     {
                         "id": "tempQuestion3",
@@ -277,7 +298,11 @@ export default {
                     {
                         "id": "tempQuestion6",
                         "question": "Are brook trout streams represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +
+                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
                     },
                     {
                         "id": "tempQuestion7",
