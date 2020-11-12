@@ -38,7 +38,7 @@
           <div class="instructionNumber">
             1
           </div>
-          <p>First, select water use type (spring default view)</p>
+          <p>First, select water use type (Spring season is the default view)</p>
         </div>
         <button
           id="te"
