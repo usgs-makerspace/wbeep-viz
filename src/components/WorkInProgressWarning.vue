@@ -1,5 +1,8 @@
 <template>
-  <div id="warning" class="usa-prose">
+  <div
+    id="warning"
+    class="usa-prose"
+  >
     <p
       v-if="buttonText === 'I understand'"
       class="warning-open"
