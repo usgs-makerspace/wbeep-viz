@@ -16,6 +16,12 @@ export default new Router({
                     import('@/views/QuestionsAndAnswers.vue')
         },
         {
+            path: '/about',
+            name: 'about',
+            component: () =>
+                    import('@/views/About.vue')
+        },
+        {
             path: '/water-storage',
             name: 'waterStorage',
             component: () =>
