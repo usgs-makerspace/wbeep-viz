@@ -4,6 +4,12 @@
       {{ title }}{{ titleSuffix }} {{ developmentTier }}
     </h1>
     <ul>
+      <li @click="$router.push({name: 'about'})">
+        <span
+          id="about"
+          class="router-link-name"
+        >{{ about }}</span>
+      </li>
       <li @click="$router.push({name: 'waterStorage'})">
         <span
           id="waterStorage"
@@ -34,6 +40,7 @@
             title: process.env.VUE_APP_TITLE,
             titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
             developmentTier: process.env.VUE_APP_TIER,
+            about: 'About',
             waterStorageName: 'water storage',
             waterUseName: 'water use',
             waterTemperatureName: 'water temperature',
@@ -84,9 +91,9 @@
         },
       changeNameBasedOnScreenSize() {
         if (this.window.width >= this.mobileVersionBelowThisScreenWidth) {
-            this.waterUseName = 'water use';
-            this.waterStorageName = 'water storage';
-            this.waterTemperatureName = 'water temperature';
+            this.waterUseName = 'Water Use';
+            this.waterStorageName = 'Water Storage';
+            this.waterTemperatureName = 'Water Temperature';
         }
         else {
             this.waterUseName = 'use';
@@ -121,6 +128,7 @@
     list-style: none;
     li {
       flex: 1;
+      cursor: pointer;
       text-align: center;
       padding: 0 7px;
       position: relative;
