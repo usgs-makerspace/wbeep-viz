@@ -97,6 +97,12 @@ add_x_axis <- function(svg, wu_dat, svg_height, svg_width, season_info, axis_str
     # Ticks:
     xml_add_sibling("path", class = "wu-bars-axis", 
                     d = paste(sprintf("M%s,0 v10", head(season_end_doy*scale_x_factor, -1)), collapse=" ")) %>% 
+    # Vertical dividers for the season
+    xml_add_sibling("path", class = "wu-season-dividers", 
+                  d = paste(sprintf("M%s,-%s v%s", 
+                                    head(season_end_doy*scale_x_factor, -1), 
+                                    svg_height + axis_stroke_width/2, 
+                                    svg_height), collapse=" ")) %>% 
     add_season_label("Winter", x_pos = season_middle_doy[["winter1"]]*scale_x_factor, y_pos) %>% 
     add_season_label("Spring", x_pos = season_middle_doy[["spring"]]*scale_x_factor, y_pos) %>% 
     add_season_label("Summer", x_pos = season_middle_doy[["summer"]]*scale_x_factor, y_pos) %>% 
