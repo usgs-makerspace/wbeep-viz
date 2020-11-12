@@ -52,7 +52,7 @@ export default {
                 'layout': {
                     'line-cap': 'round',
                     'line-join': 'round',
-                    'visibility': 'visible'
+                    'visibility': 'none'
                 },
                 'paint': {
                     'line-color': '#40251C',
@@ -68,7 +68,7 @@ export default {
                 'source-layer': 'transportation',
                 'type': 'line',
                 'maxzoom': 24,
-                'showButtonLayerToggle': true
+                'showButtonLayerToggle': false
             },
             {
                 'filter': ['all', ['==', '$type', 'Polygon'],
