@@ -24,10 +24,18 @@
     </div>
     <div class="water-use-content">
       <LoadingScreenInternal :is-loading="isLoading" />
-      <div id="buttonsContainer" class="centeredContent">
-        <div id="buttonExplanation" class="explanation">
-          <div class="instructionNumber">1</div>
-          <p>First, select water use type (spring default view)</p>
+      <div
+        id="buttonsContainer"
+        class="centeredContent"
+      >
+        <div
+          id="buttonExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            1
+          </div>
+          <p>First, select water use type (Spring season is the default view)</p>
         </div>
         <button id="te" class="waterUseButton activeParameter" @click="useButtonClick($event)">
           Thermoelectric
