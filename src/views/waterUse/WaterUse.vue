@@ -22,70 +22,34 @@
         </div>
       </router-link>
     </div>
-    <div
-      id="water-use-content"
-      class="waterUseFlex"
-    >
+    <div class="water-use-content">
       <LoadingScreenInternal :is-loading="isLoading" />
-      <div
-        id="buttonsContainer"
-        class="centeredContent"
-      >
-        <div
-          id="buttonExplanation"
-          class="explanation"
-        >
-          <div class="instructionNumber">
-            1
-          </div>
+      <div id="buttonsContainer" class="centeredContent">
+        <div id="buttonExplanation" class="explanation">
+          <div class="instructionNumber">1</div>
           <p>First, select water use type (spring default view)</p>
         </div>
-        <button
-          id="te"
-          class="waterUseButton activeParameter"
-          @click="useButtonClick($event)"
-        >
+        <button id="te" class="waterUseButton activeParameter" @click="useButtonClick($event)">
           Thermoelectric
         </button>
-        <button
-          id="ir"
-          class="waterUseButton"
-          @click="useButtonClick($event)"
-        >
+        <button id="ir" class="waterUseButton" @click="useButtonClick($event)">
           Irrigation
         </button>
-        <button
-          id="ps"
-          class="waterUseButton"
-          @click="useButtonClick($event)"
-        >
+        <button id="ps" class="waterUseButton" @click="useButtonClick($event)">
           Public Supply
         </button>
       </div>
-      <div
-        id="waterUseMapContainer"
-      >
-        <DynamicSVG
-          id="dynamicSVG"
-          :svg="svg"
-        />
-      </div>
-      <div
-        id="waterUseBarChartContainer"
-      >
-        <div
-          id="chartExplanation"
-          class="explanation"
-        >
-          <div class="instructionNumber">
-            2
-          </div>
+    </div>
+    <div id="waterUseMapContainer">
+      <DynamicSVG id="dynamicSVG" :svg="svg" />
+    </div>
+    <div class="water-use-content">
+      <div id="waterUseBarChartContainer">
+        <div id="chartExplanation" class="explanation">
+          <div class="instructionNumber">2</div>
           <p>Next, select season</p> 
         </div>
-        <DynamicBarChart
-          :barchart="barchart"
-          @click.native="changeSeason($event)"
-        />
+        <DynamicBarChart :barchart="barchart" @click.native="changeSeason($event)" />
       </div>
     </div>
   </div>
@@ -348,12 +312,10 @@ $barChartHighlight: red;
     color: #000;
   }
 }
-#water-use-content{
+.water-use-content{
   width: 100%;
   padding: 0 10px;
   max-width: 800px;
-  flex: 1;
-  display: flex;
 }
 #mapSubtitleContainer{
   position: relative;
@@ -441,6 +403,8 @@ $barChartHighlight: red;
   }
 }
 #waterUseMapContainer{
+  width: 100%;
+  max-width: 1500px;
   margin: 20px 0;
   position: relative;
   /*colors the SVG map*/
@@ -535,17 +499,17 @@ path.wu-bars-axis {
   }
 }
 @media screen and (min-width: 1100px) and (min-height: 1400px){
-  #water-use-content{
+  .water-use-content{
     max-width: 1100px;
   }
 }
 @media screen and (min-width: 1300px) and (max-height: 768px){
-  #water-use-content{
+  .water-use-content{
     width: 650px;
   }
 }
 @media screen and (min-width: 1000px) and (max-height: 652px){
-  #water-use-content{
+  .water-use-content{
     width: 530px;
   }
 }
