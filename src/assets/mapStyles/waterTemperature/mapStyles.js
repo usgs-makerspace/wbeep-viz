@@ -50,22 +50,6 @@ export default {
                 'type': 'background',
                 'showButtonLayerToggle': false
             },
-/*             {
-                'filter': ['all', ['==', '$type', 'Polygon'],
-                    ['!=', 'intermittent', 1]
-                ],
-                'id': 'water',
-                'paint': {
-                    'fill-color': 'hsl(205, 56%, 73%)'
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'water',
-                'type': 'fill',
-                'layout': {
-                    'visibility': 'visible'
-                },
-                'showButtonLayerToggle': false
-            }, */
             {
                 'id': 'Counties',
                 'type': 'line',
