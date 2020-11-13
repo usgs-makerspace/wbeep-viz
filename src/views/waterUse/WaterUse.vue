@@ -37,27 +37,50 @@
           </div>
           <p>First, select water use type (Spring season is the default view)</p>
         </div>
-        <button id="te" class="waterUseButton activeParameter" @click="useButtonClick($event)">
+        <button
+          id="te"
+          class="waterUseButton activeParameter"
+          @click="useButtonClick($event)"
+        >
           Thermoelectric
         </button>
-        <button id="ir" class="waterUseButton" @click="useButtonClick($event)">
+        <button
+          id="ir"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
           Irrigation
         </button>
-        <button id="ps" class="waterUseButton" @click="useButtonClick($event)">
+        <button
+          id="ps"
+          class="waterUseButton"
+          @click="useButtonClick($event)"
+        >
           Public Supply
         </button>
       </div>
     </div>
     <div id="waterUseMapContainer">
-      <DynamicSVG id="dynamicSVG" :svg="svg" />
+      <DynamicSVG
+        id="dynamicSVG"
+        :svg="svg"
+      />
     </div>
     <div class="water-use-content">
       <div id="waterUseBarChartContainer">
-        <div id="chartExplanation" class="explanation">
-          <div class="instructionNumber">2</div>
+        <div
+          id="chartExplanation"
+          class="explanation"
+        >
+          <div class="instructionNumber">
+            2
+          </div>
           <p>Next, select season</p> 
         </div>
-        <DynamicBarChart :barchart="barchart" @click.native="changeSeason($event)" />
+        <DynamicBarChart
+          :barchart="barchart"
+          @click.native="changeSeason($event)"
+        />
       </div>
     </div>
   </div>
