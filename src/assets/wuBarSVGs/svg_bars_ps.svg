@@ -32,6 +32,7 @@
   <g id="xAxis" transform="translate(0 267.5)">
     <path class="wu-bars-axis" d="M0,0 h1185"/>
     <path class="wu-bars-axis" d="M191.547945205479,0 v10 M490.232876712329,0 v10 M788.917808219178,0 v10 M1084.35616438356,0 v10"/>
+    <path class="wu-season-dividers" d="M191.547945205479,-267.5 v265 M490.232876712329,-267.5 v265 M788.917808219178,-267.5 v265 M1084.35616438356,-267.5 v265"/>
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(97.3972602739726 37)">Winter</text>
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(342.513698630137 37)">Spring</text>
     <text class="wu-bars-text seasonLabel" text-anchor="middle" transform="translate(641.198630136986 37)">Summer</text>
