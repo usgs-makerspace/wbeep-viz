@@ -209,6 +209,11 @@
           self.checkUseParameter(activeSeason);
           activeSeason.style.fillOpacity = 1;
         });
+        //Color the season diviiders the same as the seasons
+        let dividers = document.querySelectorAll(".wu-season-dividers");
+        dividers.forEach(function(divider){
+          divider.style.stroke = document.querySelector(".activeSeason").style.fill;
+        })
       },
       checkUseParameter(element){
         //Find out which parameter is in use and color elements accordingly
@@ -492,6 +497,10 @@ $barChartHighlight: red;
 path.wu-bars-axis {
   stroke: rgb(100,100,100);
   stroke-width: 2;
+}
+.wu-season-dividers{
+  stroke: $thermo;
+  stroke-dasharray: 5;
 }
 .seasonLabel{
   font-size: 1.2em;
