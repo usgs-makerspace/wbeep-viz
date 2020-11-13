@@ -112,7 +112,7 @@
                 currentZoom: null,
                 isAboutMapInfoBoxOpen: true,
                 isFirstClick: true,
-                mapLayerIdsForZoomDependentButtons: ['Roads', 'Terrain', 'Counties']
+                mapLayerIdsForZoomDependentButtons: ['Terrain', 'Counties']
             }
         },
         methods: {
@@ -489,7 +489,7 @@
   }
 
   #toggleOptions {
-    min-height: 100px;
+    min-height: 75px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
