@@ -15,7 +15,7 @@
         Q: Can I compare the natural water storage value from one region to another?
       </p>
       <p class="bold">
-        A: Yes and no.  Natural water storage is determined daily relative to past storage for that specific region.
+        A: No. Natural water storage is determined daily relative to past storage for that specific region. While two regions may share the same daily water storage category, they are individually calculated.
       </p>
       <hruSVG id="hruSVG" />
       <p>Below are correct and incorrect interpretations:</p>
