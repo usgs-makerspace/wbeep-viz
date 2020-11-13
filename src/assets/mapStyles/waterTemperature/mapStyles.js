@@ -51,6 +51,21 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
+                'id': 'states-fill',
+                'type': 'fill',
+                'source': 'basemap',
+                'source-layer': 'states',
+                'minzoom': 2,
+                'maxzoom': 24,
+                'layout': {
+                    'visibility': 'visible',
+                },
+                'paint': {
+                    'fill-color': 'hsl(47, 26%, 88%)'
+                }
+
+            },
+            {
                 'id': 'Counties',
                 'type': 'line',
                 'source': 'basemap',
@@ -65,21 +80,6 @@ export default {
                     'line-dasharray': [2, 4]
                 },
                 'showButtonLayerToggle': true
-            },
-            {
-                'id': 'states-fill',
-                'type': 'fill',
-                'source': 'basemap',
-                'source-layer': 'states',
-                'minzoom': 2,
-                'maxzoom': 24,
-                'layout': {
-                    'visibility': 'visible',
-                },
-                'paint': {
-                    'fill-color': 'hsl(47, 26%, 88%)'
-                }
-
             },
             {
                 'id': 'streams_interpolated',
