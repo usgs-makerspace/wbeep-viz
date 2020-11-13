@@ -31,6 +31,12 @@ export default {
                 'tiles': streamsTileUrl,
                 'minzoom': 2,
                 'maxzoom': 6
+            },
+            greatlakes: {
+                type: 'vector',
+                'tiles': ['https://maptiles-prod-website.s3-us-west-2.amazonaws.com/greatlakes/{z}/{x}/{y}.pbf'],
+                'minzoom': 2,
+                'maxzoom': 6
             }
         },
         'sprite': '',
@@ -39,110 +45,27 @@ export default {
             {
                 'id': 'background',
                 'paint': {
-                    'background-color': 'hsl(47, 26%, 88%)'
+                    'background-color': 'hsl(205, 56%, 73%)'
                 },
                 'type': 'background',
                 'showButtonLayerToggle': false
             },
-            {
+/*             {
                 'filter': ['all', ['==', '$type', 'Polygon'],
-                    ['==', 'intermittent', 1]
+                    ['!=', 'intermittent', 1]
                 ],
-                'id': 'water_intermittent',
+                'id': 'water',
                 'paint': {
-                    'fill-color': '#DBF3FA',
-                    'fill-opacity': 0.7
+                    'fill-color': 'hsl(205, 56%, 73%)'
                 },
                 'source': 'openmaptiles',
                 'source-layer': 'water',
                 'type': 'fill',
                 'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': false
-            },
-            {
-                'filter': ['all', ['==', '$type', 'LineString'],
-                    ['==', 'brunnel', 'tunnel']
-                ],
-                'id': 'waterway-tunnel',
-                'paint': {
-                    'line-color': '#DBF3FA',
-                    'line-dasharray': [3, 3],
-                    'line-gap-width': {
-                        'stops': [
-                            [12, 0],
-                            [20, 6]
-                        ]
-                    },
-                    'line-opacity': 1,
-                    'line-width': {
-                        'base': 1.4,
-                        'stops': [
-                            [8, 1],
-                            [20, 2]
-                        ]
-                    }
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'waterway',
-                'type': 'line',
-                'layout': {
                     'visibility': 'visible'
                 },
                 'showButtonLayerToggle': false
-            },
-            {
-                'filter': ['all', ['==', '$type', 'LineString'],
-                    ['!in', 'brunnel', 'tunnel', 'bridge'],
-                    ['!=', 'intermittent', 1]
-                ],
-                'id': 'waterway',
-                'paint': {
-                    'line-color': '#DBF3FA',
-                    'line-opacity': 1,
-                    'line-width': {
-                        'base': 1.4,
-                        'stops': [
-                            [8, 1],
-                            [20, 8]
-                        ]
-                    }
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'waterway',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'visible'
-                },
-                'showButtonLayerToggle': false
-            },
-            {
-                'filter': ['all', ['==', '$type', 'LineString'],
-                    ['!in', 'brunnel', 'tunnel', 'bridge'],
-                    ['==', 'intermittent', 1]
-                ],
-                'id': 'waterway_intermittent',
-                'paint': {
-                    'line-color': '#DBF3FA',
-                    'line-opacity': 1,
-                    'line-width': {
-                        'base': 1.4,
-                        'stops': [
-                            [8, 1],
-                            [20, 8]
-                        ]
-                    },
-                    'line-dasharray': [2, 1]
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'waterway',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': false
-            },
+            }, */
             {
                 'id': 'Counties',
                 'type': 'line',
@@ -159,7 +82,21 @@ export default {
                 },
                 'showButtonLayerToggle': true
             },
+            {
+                'id': 'states-fill',
+                'type': 'fill',
+                'source': 'basemap',
+                'source-layer': 'states',
+                'minzoom': 2,
+                'maxzoom': 24,
+                'layout': {
+                    'visibility': 'visible',
+                },
+                'paint': {
+                    'fill-color': 'hsl(47, 26%, 88%)'
+                }
 
+            },
             {
                 'id': 'streams_interpolated',
                 'layerDescription': 'all streams',
@@ -183,8 +120,8 @@ export default {
                     "line-color": [
                         "interpolate", ["linear"], ["get", "temp"],
                         0, "#10305d", 
-                        14.08, "#c4c1b6",
-                        25.88, "#730000"
+                        15, "#c4c1b6",
+                        30, "#730000"
                     ]
                   }
 
@@ -205,46 +142,18 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
-                'id': 'Terrain',
-                'type': 'raster',
-                'source': 'hillshade',
-                'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': true
-            },
-            {
-                'filter': ['all', ['==', '$type', 'Polygon'],
-                    ['!=', 'intermittent', 1]
-                ],
-                'id': 'water',
-                'paint': {
-                    'fill-color': '#CFEEFA',
-                    'fill-opacity': 0.3
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'water',
+                'id': 'Great Lakes',
                 'type': 'fill',
-                'layout': {
+                'source': 'greatlakes',
+                'minzoom' : 0,
+                'maxzoom': 6,
+                'source-layer': 'Great_Lakes',
+                'layout' : {
                     'visibility': 'visible'
                 },
-                'showButtonLayerToggle': false
-            },
-            {
-                'filter': ['all', ['==', '$type', 'Polygon'],
-                    ['!=', 'intermittent', 1]
-                ],
-                'id': 'water-outline',
                 'paint': {
-                    'line-color': "#CFEEFA"
-                },
-                'source': 'openmaptiles',
-                'source-layer': 'water',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'visible'
-                },
-                'showButtonLayerToggle': false
+                    'fill-color': 'hsl(205, 56%, 73%)'
+                }
             },
             {
                 'id': 'states',
@@ -260,6 +169,15 @@ export default {
                     'line-color': 'rgb(0,0,0)'
                 }
 
+            },
+            {
+                'id': 'Terrain',
+                'type': 'raster',
+                'source': 'hillshade',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'showButtonLayerToggle': true
             },
             {
                 'filter': ['all', ['==', '$type', 'Point'],
