@@ -45,11 +45,27 @@ export default {
             {
                 'id': 'background',
                 'paint': {
-                    'background-color': 'hsl(205, 56%, 73%)'
+                    'background-color': 'hsl(47, 26%, 88%)'
                 },
                 'type': 'background',
                 'showButtonLayerToggle': false
             },
+            {
+                'filter': ['all', ['==', '$type', 'Polygon'],
+                    ['!=', 'intermittent', 1]
+                ],
+                'id': 'water',
+                'paint': {
+                    'fill-color': 'hsl(205, 56%, 73%)'
+                },
+                'source': 'openmaptiles',
+                'source-layer': 'water',
+                'type': 'fill',
+                'layout': {
+                    'visibility': 'visible'
+                },
+                'showButtonLayerToggle': false
+            },             
             {
                 'id': 'states-fill',
                 'type': 'fill',
@@ -63,23 +79,6 @@ export default {
                 'paint': {
                     'fill-color': 'hsl(47, 26%, 88%)'
                 }
-
-            },
-            {
-                'id': 'Counties',
-                'type': 'line',
-                'source': 'basemap',
-                'source-layer': 'counties',
-                'minzoom': 4.5,
-                'maxzoom': 24,
-                'layout': {
-                    'visibility': 'none'
-                },
-                'paint': {
-                    'line-color': 'rgb(0,0,0)',
-                    'line-dasharray': [2, 4]
-                },
-                'showButtonLayerToggle': true
             },
             {
                 'id': 'streams_interpolated',
@@ -140,6 +139,32 @@ export default {
                 }
             },
             {
+                'id': 'Terrain',
+                'type': 'raster',
+                'source': 'hillshade',
+                'layout': {
+                    'visibility': 'visible'
+                },
+                'showButtonLayerToggle': true,
+                'showButtonStreamToggle': false,
+            },
+            {
+                'id': 'Counties',
+                'type': 'line',
+                'source': 'basemap',
+                'source-layer': 'counties',
+                'minzoom': 4.5,
+                'maxzoom': 24,
+                'layout': {
+                    'visibility': 'none'
+                },
+                'paint': {
+                    'line-color': 'rgb(0,0,0)',
+                    'line-dasharray': [2, 4]
+                },
+                'showButtonLayerToggle': true
+            },
+            {
                 'id': 'states',
                 'type': 'line',
                 'source': 'basemap',
@@ -153,15 +178,6 @@ export default {
                     'line-color': 'rgb(0,0,0)'
                 }
 
-            },
-            {
-                'id': 'Terrain',
-                'type': 'raster',
-                'source': 'hillshade',
-                'layout': {
-                    'visibility': 'none'
-                },
-                'showButtonLayerToggle': true
             },
             {
                 'filter': ['all', ['==', '$type', 'Point'],
