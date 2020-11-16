@@ -143,10 +143,9 @@ export default {
                 'type': 'raster',
                 'source': 'hillshade',
                 'layout': {
-                    'visibility': 'visible'
+                    'visibility': 'none'
                 },
-                'showButtonLayerToggle': true,
-                'showButtonStreamToggle': false,
+                'showButtonLayerToggle': true
             },
             {
                 'id': 'Counties',
