@@ -202,7 +202,11 @@ export default {
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451; = 86&#8457;"
+      topTemp.innerHTML = "30&#8451; = 86&#8457;";
+      //create middle temp div
+      let middleTemp = document.createElement('div');
+      middleTemp.id = "middleTemp";
+      middleTemp.innerHTML = "15&#8451; = 59&#8457;"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
@@ -213,6 +217,7 @@ export default {
       //append divs to parents
       gradientContainer.appendChild(gradient);
       tempContainer.appendChild(topTemp);
+      tempContainer.appendChild(middleTemp);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
