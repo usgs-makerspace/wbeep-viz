@@ -9,7 +9,7 @@
         <p>
           Last year, on December 18, 2019, a research team that includes hydrologic modelers, software developers, 
           cloud specialists, and data visualization experts released the first application in a set of applications 
-          that represent a national view of <a href="https://labs.waterdata.usgs.gov/estimated-availability/index.html#/" target="_blank">water availability</a>. While only a concept prototype, for the first time 
+          that represent a national view of <router-link to="/water-storage">water availability</router-link> . While only a concept prototype, for the first time 
           the USGS began delivering a daily water storage product that integrates our active monitoring with continuous 
           modeling. The water storage application uses modeling to enhance our active monitoring network and provides 
           comprehensive reporting at more than 100,000 watershed units. The National <router-link to="/water-storage">water storage application</router-link> 
