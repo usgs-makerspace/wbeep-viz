@@ -71,8 +71,15 @@
           return {
               pageContents: questionsAndAnswers.pageContents,
               titleWaterStorage: references.referenceSectionWaterStorage.title,
-              referencesWaterStorage: references.referenceSectionWaterStorage.references
+              referencesWaterStorage: references.referenceSectionWaterStorage.references,
+              from: null
           };
+        },
+        beforeRouteEnter(to, from, next){
+          next((vm) => {
+            vm.from = from;
+          })
+          console.log(from);
         }
     }
 </script>

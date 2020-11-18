@@ -35,7 +35,7 @@
         },
         data() {
             return {
-                currentTab: "Storage",
+                currentTab: this.$store.state.tabToOpen,
                 tabs: ["Storage", "Use", "Temp"],
                 title: process.env.VUE_APP_TITLE,
                 developmentTier: process.env.VUE_APP_TIER,

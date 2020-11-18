@@ -11,8 +11,9 @@
         @clickedInfoIcon="clickAnywhereToCloseMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
-      <router-link to="QuestionsAndAnswers#waterUseSection">
+      <router-link to="QuestionsAndAnswers">
         <div
+          v-on:click="$store.commit('changeTabToBeOpened', 'Use')"
           id="waterUseQuestion"
         >
           <font-awesome-icon
