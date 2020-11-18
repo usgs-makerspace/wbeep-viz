@@ -180,10 +180,10 @@
                   const targetElement = document.getElementById(`${buttonId}-button`);
 
                   if (layerToChange[0].minzoom > self.currentZoom) {
-                      targetElement.className = 'unavailable';
+                      targetElement.classList.add('unavailable');
                       targetElement.disabled = true;
-                  } else if (targetElement.className === 'unavailable') {
-                      targetElement.className = '';
+                  } else if (targetElement.classList.contains('unavailable')){
+                      targetElement.classList.remove('unavailable');
                       targetElement.disabled = false;
                   }
               });
@@ -207,6 +207,7 @@
                   idsOfButtonsOffWhenPageFirstLoads.includes(elementId) ? mapLayerButton.className = '' : mapLayerButton.className = 'active';
                   mapLayerButton.textContent = elementId; // Set the wording (label) for the layer toggle button to match the 'elementId' listed in the style sheet
                   mapLayerButton.onclick = function(e) {  // Creates a click event for each button so that when clicked by the user, the visibility property is changed as is the class (color) of the button
+                      console.log(elementId);
                       googleAnalytics('layers-menu', 'click', 'user clicked ' + elementId);
                       let clickedLayer = this.textContent;
                       let clickedLayerParent = this.parentElement;
