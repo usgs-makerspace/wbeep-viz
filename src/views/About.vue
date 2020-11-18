@@ -12,7 +12,7 @@
           that represent a national view of <a href="https://labs.waterdata.usgs.gov/estimated-availability/index.html#/" target="_blank">water availability</a>. While only a concept prototype, for the first time 
           the USGS began delivering a daily water storage product that integrates our active monitoring with continuous 
           modeling. The water storage application uses modeling to enhance our active monitoring network and provides 
-          comprehensive reporting at more than 100,000 watershed units. The National <a href="https://labs-beta.waterdata.usgs.gov/estimated-availability/index.html#/water-storage" target="_blank">water storage application</a> 
+          comprehensive reporting at more than 100,000 watershed units. The National <router-link to="/water-storage">water storage application</router-link> 
           compares current natural water storage to daily historical values. 
         </p>
         <p>
@@ -27,9 +27,9 @@
         <img class="applicationImage" src="@/assets/images/about/temp.jpg"/>
         <p>
           A new addition to the Water Availability mapper is a 
-          <a href="https://labs-beta.waterdata.usgs.gov/estimated-availability/index.html#/water-temperature" target="_blank">
+          <router-link to="/water-temperature">
             National stream temperature application
-          </a>.  
+          </router-link>.  
           This application displays a near real-time indicator of daily-average stream temperature for approximately 
           58,000 stream segments. These modeled results provide comprehensive spatial improvements and enhance the active 
           monitoring network of XX continuous temperature monitors currently operated by USGS. The daily model run requires 
@@ -49,9 +49,9 @@
         <img class="applicationImage" src="@/assets/images/about/use.png"/>
         <p>
           The third application in the water availability application is the 
-          <a href="https://labs-beta.waterdata.usgs.gov/estimated-availability/index.html#/water-use" target="_blank">
+          <router-link to="/water-use">
             National water use application
-          </a>.  
+          </router-link>.  
           Water Use data for each county and state were compiled from various sources (depending on the category 
           of use and the information available for each state) into annual total withdrawals representing 2015. 
           These annual data were downscaled both spatially and temporally to represent average daily values for 
