@@ -180,10 +180,10 @@
                   const targetElement = document.getElementById(`${buttonId}-button`);
 
                   if (layerToChange[0].minzoom > self.currentZoom) {
-                      targetElement.className = 'unavailable';
+                      targetElement.classList.add('unavailable');
                       targetElement.disabled = true;
-                  } else if (targetElement.className === 'unavailable') {
-                      targetElement.className = '';
+                  } else if (targetElement.classList.contains('unavailable')){
+                      targetElement.classList.remove('unavailable');
                       targetElement.disabled = false;
                   }
               });
