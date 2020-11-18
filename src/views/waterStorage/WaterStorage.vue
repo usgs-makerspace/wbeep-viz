@@ -207,7 +207,6 @@
                   idsOfButtonsOffWhenPageFirstLoads.includes(elementId) ? mapLayerButton.className = '' : mapLayerButton.className = 'active';
                   mapLayerButton.textContent = elementId; // Set the wording (label) for the layer toggle button to match the 'elementId' listed in the style sheet
                   mapLayerButton.onclick = function(e) {  // Creates a click event for each button so that when clicked by the user, the visibility property is changed as is the class (color) of the button
-                      console.log(elementId);
                       googleAnalytics('layers-menu', 'click', 'user clicked ' + elementId);
                       let clickedLayer = this.textContent;
                       let clickedLayerParent = this.parentElement;
