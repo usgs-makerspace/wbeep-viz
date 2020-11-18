@@ -175,7 +175,7 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps show daily average water withdrawals during 2015 divided into 3 month periods (representing seasons) for thermoelectric, irrigation, and public supply categories of use within each watershed (<a\n" +
+                        "answer": "The maps show seasonal-average daily water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within each watershed (<a\n" +
                         "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for HUC/National Watershed Boundary Dataset 2014')\"\n" +
