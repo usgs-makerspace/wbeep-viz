@@ -9,12 +9,12 @@ export default {
                     {
                         "id": "storageQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The " + process.env.VUE_APP_TITLE + " shows the latest available daily estimate of natural water storage for approximately 110,000 regions across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical conditions for this time of year."
+                        "answer": "The " + process.env.VUE_APP_TITLE + " shows the latest available daily estimate of natural water storage for approximately 110,000 regions or Hydrologic Response Units (HRUs, Bock et al. 2020) across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical conditions for this time of year."
                     },
                     {
                         "id": "storageQuestion2",
                        "question": "What is the meaning of \"natural water storage\"?",
-                       "answer": "Natural water storage shown here includes water present on the landscape such as standing water and water on trees, snowpack, soil water, and shallow groundwater. It does not include water in rivers or deep groundwater."
+                       "answer": "Natural water storage shown here includes water present on the landscape such as standing water (ponds, lakes, and wetlands), and water on trees, snowpack, soil water, and shallow groundwater. It does not include water in rivers or deep groundwater."
                     },
                     {
                         "id": "storageQuestion3",
@@ -24,7 +24,7 @@ export default {
                     {
                         "id": "storageQuestion4",
                         "question": "What is being highlighted when I move my mouse on the map?",
-                        "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
+                        "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs, Bock et al. 2020). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
                         "id": "storageQuestion5",
@@ -103,7 +103,7 @@ export default {
                     {
                         "id": "storageDeepScience3",
                         "question": "Why was \"natural water storage\" used as an indicator of water availability?",
-                        "answer": "For the first phase of operationalizing a national hydrologic model to indicate water availability across the lower forty-eight states, the model focused only on natural flows (without human modification from reservoirs and withdrawals). As the model matures, additional hydrologic parameters will be produced by the operational model and additional indicators of water availability will be included on this map."
+                        "answer": "For the first phase of developing a national hydrologic model to indicate water availability across the lower forty-eight states, required modeling focused only on quantification of natural flows (without human modification from reservoirs and withdrawals). As the model matures, additional hydrologic parameters will be produced by the model (like human water use). Additional indicators of water availability will be included on this map to create a complete picture of water availability and quality."
                     },
                     {
                         "id": "storageDeepScience4",
@@ -114,55 +114,7 @@ export default {
                         "id": "storageDeepScience5",
                         "question": "What are IWAAs?",
                         "answer": "<p>\n" +
-                                "      The <a\n" +
-                                "        href=\"https://www.usgs.gov/mission-areas/water-resources/science/integrated-water-availability-assessments-iwaas\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for IWAAs')\"\n" +
-                                "      >USGS Integrated Water Availability Assessments (IWAAs)</a>\n" +
-                                "      are a multi-extent, stakeholder driven, near real-time census and seasonal\n" +
-                                "      prediction of water availability for both human and ecological uses at\n" +
-                                "      regional and national extents.\n" +
-                                "    </p>\n" +
-                                "\n" +
-                                "    <p>\n" +
-                                "      The USGS IWAAs combine resources and knowledge gained from previous and\n" +
-                                "      ongoing USGS efforts such as <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/focusarea.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for Focus Area Studies')\"\n" +
-                                "      >Focus Area Studies</a>,\n" +
-                                "      <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/groundwater.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for Regional Groundwater Availability Studies')\"\n" +
-                                "      >Regional Groundwater Availability Studies</a>,\n" +
-                                "      <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/water-use.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for Water Use Estimation')\"\n" +
-                                "      >Water Use estimation</a>,\n" +
-                                "      <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/ecowater.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for Ecological Water Needs')\"\n" +
-                                "      >Ecological Water Needs</a>,\n" +
-                                "      and <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/streamflow.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for Streamflow estimation')\"\n" +
-                                "      >Streamflow estimation</a>,\n" +
-                                "      in addition to utilizing and providing feedback to the\n" +
-                                "      <a\n" +
-                                "        href=\"http://water.noaa.gov/about/nwm\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for National Water Model')\"\n" +
-                                "      >National Water Model</a>. The IWAAs\n" +
-                                "      are designed to provide information to meet the goals of the\n" +
-                                "      <a\n" +
-                                "        href=\"https://water.usgs.gov/watercensus/index.html\"\n" +
-                                "        target=\"_blank\"\n" +
-                                "        @click=\"runGoogleAnalytics('about page', 'click', 'clicked text link for National Water Census')\"\n" +
-                                "      >National Water Census</a> as established through the SECURE Water Act.\n" +
+                                "      The USGS Integrated Water Availability Assessments (IWAAs) are a multi-extent, stakeholder driven, near real-time census and seasonal prediction of water availability for both human and ecological uses at regional and national extents. The USGS IWAAs combine resources and knowledge gained from previous and ongoing USGS efforts such as Focus Area Studies, Regional Groundwater Availability Studies, Water Use estimation, Ecological Water Needs, and Streamflow estimation, in addition to utilizing and providing feedback to the National Water Model. The IWAAs are designed to provide information to meet the goals of the National Water Census as established through the <a href='https://www.congress.gov/bill/110th-congress/senate-bill/2156/text?r=5&s=1' target='_blank'>SECURE Water Act</a>." +
                                 "    </p>"
                     }
                 ]
@@ -175,11 +127,7 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps show seasonal-average daily water withdrawals during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use within each watershed (<a\n" +
-                        "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
-                        "target=\"_blank\"\n" +
-                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for HUC/National Watershed Boundary Dataset 2014')\"\n" +
-                        ">10-digit hydrologic unit code, USGS 2014</a>) in the continental United States."
+                        "answer": "The maps shows each season's average daily water use rate of withdrawal for each watershed during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use. Original modeled data are available at watershed units or 12-digit hydrologic unit code (HUC), USGS 2014, that were aggregated to larger 10-digit HUC for ease of display at a National scale.  The locations of dots on the map do not necessarily represent the exact location of the withdrawals."
                     },
                     {
                         "id": "useQuestion2",
@@ -274,40 +222,32 @@ export default {
                     {
                         "id": "tempQuestion2",
                         "question": "What stream network is represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
-                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
-                        "target=\"_blank\"\n" +
-                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +
-                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale)."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006)."
                     },
                     {
                         "id": "tempQuestion3",
-                        "question": "Why is the “latest available” stream temperature map not for today?",
+                        "question": "Why is the “latest available” water temperature map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
                         "id": "tempQuestion4",
-                        "question": "How can I see the previous day’s stream temperature?",
+                        "question": "How can I see the previous day’s water temperature?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
                         "id": "tempQuestion5",
-                        "question": "I live in Puerto Rico, why don't I see any stream temperature data there?",
+                        "question": "I live in Puerto Rico, why don't I see any water temperature data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
                         "id": "tempQuestion6",
                         "question": "Are brook trout streams represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
-                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
-                        "target=\"_blank\"\n" +
-                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +
-                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale).  This medium scale river network will most likely not contain typical trout streams that are small, headwater, mountain streams due to the nature of the size of streams represented."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006). This medium scale river network will most likely not contain typical trout streams that are small, headwater, first-order mountain streams."
                     },
                     {
                         "id": "tempQuestion7",
                         "question": "Will there be improvements to this map in the future?",
-                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream temperature for approximately 85,000 stream segments. In the future this map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to <a\n"+
+                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream water temperature for approximately 85,000 stream segments which may be increased over time with new models and new geospatial dataset availability.  Water Temperature may be combined with other water availability factors in one map, or additional capabilities to query data, view historic model temperature estimates, or export data may be included in future releases. If you’re interested in contributing ideas or learning more, please reach out to <a\n"+
                         "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_onhm@usgs.gov email link')\"\n" +
@@ -320,8 +260,8 @@ export default {
                 "questionsAndAnswers": [
                     {
                         "id": "tempDeepScience1",
-                        "question": "How are the stream temperature estimates generated? ",
-                        "answer": "Stream temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; <a\n"+
+                        "question": "How are the water temperature estimates generated? ",
+                        "answer": "Water temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; <a\n"+
                         "href=\"https://doi.org/10.3133/tm6B7\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al 2015')\"\n" +
@@ -341,12 +281,12 @@ export default {
                     },
                     {
                         "id": "tempDeepScience2",
-                        "question": "Why was stream temperature used as an indicator of water quality?",
+                        "question": "Why was water temperature used as an indicator of water quality?",
                         "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat.  Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
                     },
                     {
                         "id": "tempDeepScience3",
-                        "question": "How does stream temperature impact aquatic biology? ",
+                        "question": "How does water temperature impact aquatic biology? ",
                         "answer": "Stream temperature provides cues to aquatic organisms for every stage of their lifecycles.  Temperatures that are artificially kept cool (such as below dams) may inadvertently delay spawning in some organisms.  Elevated temperatures above certain thresholds may adversely affect aquatic organisms in chronic or acute ways through increases metabolic stress.  The US EPA and states have processes in place to select and maintain temperature standards for streams across the country (<a\n"+
                         "href=\"https://www.epa.gov/sites/production/files/2016-02/documents/guidelines-water-quality-criteria.pdf\"\n" +
                         "target=\"_blank\"\n" +
@@ -355,12 +295,12 @@ export default {
                     },
                     {
                         "id": "tempDeepScience4",
-                        "question": "How does stream temperature impact the availability of water for beneficial uses?",
-                        "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Warmer than typical water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
+                        "question": "How does water temperature impact the availability of water for beneficial uses?",
+                        "answer": "Beneficial uses could be water supply for public supply, agricultural, or industrial water use; recreation such as fishing and swimming; and aquatic life and habitats.  Stream water temperature is related to chemical and biological processes which occur in streams.  With increased temperatures, algae production may increase, potentially creating difficulty for drinking water treatment plants to disinfect supplies.  Warmer than typical water temperatures may affect fish and other aquatic organisms which may impact fishing success.  Industries that require cooling water for processes depend on natural cooling benefits that streams and lakes can provide.    "
                     },
                     {
                         "id": "tempDeepScience5",
-                        "question": "Do stream temperature data reflect impacts of in-stream lakes and dams?",
+                        "question": "Do water temperature data reflect impacts of in-stream lakes and dams?",
                         "answer": "No, the current model application does not represent in-stream lakes or reservoirs, it only represents natural water temperature."
                     }
                 ]
