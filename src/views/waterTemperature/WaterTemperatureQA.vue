@@ -1,7 +1,7 @@
 <template>
   <div class="usa-prose">
     <h2 id="waterTempSection">
-      Stream Temperature
+      Water Temperature
     </h2>
     <!-- Water Temp -->
     <div

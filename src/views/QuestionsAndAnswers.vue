@@ -17,7 +17,7 @@
 <script>
     import tab_storage from "../views/waterStorage/WaterStorageQA";
     import tab_use from "../views/waterUse/WaterUseQA";
-    import tab_temp from "../views/waterTemperature/WaterTemperatureQA";
+    import tab_temperature from "../views/waterTemperature/WaterTemperatureQA";
     import ContactUs from "../components/ContactUs";
     import References from "../components/References";
     import QuestionsAnswersAccordion from "../components/QuestionsAnswersAccordion";
@@ -31,12 +31,12 @@
             QuestionsAnswersAccordion,
             tab_storage,
             tab_use,
-            tab_temp
+            tab_temperature
         },
         data() {
             return {
                 currentTab: this.$store.state.tabToOpen,
-                tabs: ["Storage", "Use", "Temp"],
+                tabs: ["Storage", "Use", "Temperature"],
                 title: process.env.VUE_APP_TITLE,
                 developmentTier: process.env.VUE_APP_TIER,
                 feedbackEmailAddress: process.env.VUE_APP_FEEDBACK_EMAIL_ADDRESS,
@@ -61,6 +61,7 @@
     background: #f0f0f0;
     margin-bottom: -1px;
     margin-right: -1px;
+    font-size: .9em;
   }
   button:not([disabled]):focus{
     outline: none;
@@ -116,6 +117,9 @@
           float: right;
         }
       }
+    }
+    .tab-button{
+      font-size: 1em;
     }
   }
 </style>
