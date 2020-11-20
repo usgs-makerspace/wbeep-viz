@@ -67,7 +67,7 @@ export default {
   transform: translateX(-50%);
   z-index: 2000;
   width: 70%;
-  max-width: 260px;
+  max-width: 350px;
 }
 
 #subtitle {
