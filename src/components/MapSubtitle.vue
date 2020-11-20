@@ -7,7 +7,7 @@
             An Indicator of Natural Water Storage
           </p>
           <p v-if="currentFeature === 'waterTemperature'">
-            Stream Temperature
+            Water Temperature
           </p>
           <p v-if="currentFeature === 'waterUse'">
             Water Use

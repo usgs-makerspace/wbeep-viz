@@ -28,9 +28,9 @@
         <p>
           A new addition to the Water Availability mapper is a 
           <router-link to="/water-temperature">
-            National stream temperature application
+            National Water temperature application
           </router-link>.  
-          This application displays a near real-time indicator of daily-average stream temperature for approximately 
+          This application displays a near real-time indicator of daily-average water temperature for approximately 
           58,000 stream segments. These modeled results provide comprehensive spatial improvements and enhance the active 
           monitoring network of XX continuous temperature monitors currently operated by USGS. The daily model run requires 
           a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight 
@@ -38,7 +38,7 @@
           <a href="https://pubs.er.usgs.gov/publication/tm6B7" target="_blank">
             Precipitation-Runoff Modeling System (PRMS)
           </a> 
-          and SNTemp stream temperature model to calculate estimates of natural water temperature, then sending those data from the Cloud 
+          and SNTemp water temperature model to calculate estimates of natural water temperature, then sending those data from the Cloud 
           to the mapping application to update symbology for all stream segments.  This prototype application will be enhanced with new 
           modeling technologies in future releases that will increase predication accuracy and may increase the spatial representation 
           of data. 
