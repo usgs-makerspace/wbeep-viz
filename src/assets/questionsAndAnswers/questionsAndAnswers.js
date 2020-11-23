@@ -9,7 +9,11 @@ export default {
                     {
                         "id": "storageQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The " + process.env.VUE_APP_TITLE + " shows the latest available daily estimate of natural water storage for approximately 110,000 regions or Hydrologic Response Units (HRUs, Bock et al. 2020) across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical conditions for this time of year."
+                        "answer": "The " + process.env.VUE_APP_TITLE + " shows the latest available daily estimate of natural water storage for approximately 110,000 regions or Hydrologic Response Units (HRUs, <a\n"+
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +                        
+                        ">Bock et al. 2020</a>) across the lower forty-eight states. Map shading indicates the current natural water storage relative to historical conditions for this time of year."
                     },
                     {
                         "id": "storageQuestion2",
@@ -24,7 +28,11 @@ export default {
                     {
                         "id": "storageQuestion4",
                         "question": "What is being highlighted when I move my mouse on the map?",
-                        "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs, Bock et al. 2020). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
+                        "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs, <a\n"+
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +                               
+                        ">Bock et al. 2020</a>). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
                         "id": "storageQuestion5",
@@ -222,7 +230,11 @@ export default {
                     {
                         "id": "tempQuestion2",
                         "question": "What stream network is represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006)."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +                        
+                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006)."
                     },
                     {
                         "id": "tempQuestion3",
@@ -242,7 +254,15 @@ export default {
                     {
                         "id": "tempQuestion6",
                         "question": "Are brook trout streams represented in this map?",
-                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (Bock et al., 2020) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006). This medium scale river network will most likely not contain typical trout streams that are small, headwater, first-order mountain streams."
+                        "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n"+
+                        "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" + 
+                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, <a\n"+
+                        "href=\"https://www.epa.gov/sites/production/files/2016-02/documents/guidelines-water-quality-criteria.pdf\"\n" +
+                        "target=\"_blank\"\n" +
+                        "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for US EPA and USGS 2006')\"\n" +
+                        ">US EPA and USGS 2006</a>). This medium scale river network will most likely not contain typical trout streams that are small, headwater, first-order mountain streams."
                     },
                     {
                         "id": "tempQuestion7",
