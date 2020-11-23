@@ -60,7 +60,7 @@
                     e.preventDefault();
                     e.stopPropagation();
                     if(element.classList.contains("waterTemperature")){
-                        self.$store.commit('changeTabToBeOpened', 'Temp');
+                        self.$store.commit('changeTabToBeOpened', 'Temperature');
                     }else{
                         self.$store.commit('changeTabToBeOpened', 'Storage');
                     }
