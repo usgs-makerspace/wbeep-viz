@@ -13,8 +13,8 @@
       />
       <router-link to="QuestionsAndAnswers">
         <div
-          v-on:click="$store.commit('changeTabToBeOpened', 'Use')"
           id="waterUseQuestion"
+          @click="$store.commit('changeTabToBeOpened', 'Use')"
         >
           <font-awesome-icon
             icon="question"

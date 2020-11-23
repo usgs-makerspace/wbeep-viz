@@ -3,28 +3,47 @@
     <WorkInProgressWarning />
     <div id="aboutContent">
       <h2><strong>Water Availability Mapper:</strong> Water Storage, Water Temperature, Water Use</h2>
-      <div class="application" id="waterStorage">
+      <div
+        id="waterStorage"
+        class="application"
+      >
         <h3>Water Storage</h3>
-        <img class="applicationImage" src="@/assets/images/about/storage.jpg"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/storage.jpg"
+        >
         <p>
           Last year, on December 18, 2019, a research team that includes hydrologic modelers, software developers, 
           cloud specialists, and data visualization experts released the first application in a set of applications 
-          that represent a national view of <router-link to="/water-storage">water availability</router-link> . While only a concept prototype, for the first time 
+          that represent a national view of <router-link to="/water-storage">
+            water availability
+          </router-link> . While only a concept prototype, for the first time 
           the USGS began delivering a daily water storage product that integrates our active monitoring with continuous 
           modeling. The water storage application uses modeling to enhance our active monitoring network and provides 
-          comprehensive reporting at more than 100,000 watershed units. The National <router-link to="/water-storage">water storage application</router-link> 
+          comprehensive reporting at more than 100,000 watershed units. The National <router-link to="/water-storage">
+            water storage application
+          </router-link> 
           compares current natural water storage to daily historical values. 
         </p>
         <p>
           To expand upon the current visualization of daily estimated water storage, the second and third deliverables 
           of the USGS IWAAs program are map-based displays of modeled daily stream temperatures, and modeled 2015 water 
           use estimates. Together, these three indicators provide water quality and availability summaries in response to 
-          the <a href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-promoting-reliable-supply-delivery-water-west/" target="_blank">Presidential Memo on Water in the West</a>.
+          the <a
+            href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-promoting-reliable-supply-delivery-water-west/"
+            target="_blank"
+          >Presidential Memo on Water in the West</a>.
         </p>
       </div>
-      <div class="application" id="waterTemp">
+      <div
+        id="waterTemp"
+        class="application"
+      >
         <h3>Water Temperature</h3>
-        <img class="applicationImage" src="@/assets/images/about/temp.jpg"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/temp.jpg"
+        >
         <p>
           A new addition to the Water Availability mapper is a 
           <router-link to="/water-temperature">
@@ -35,7 +54,10 @@
           monitoring network of XX continuous temperature monitors currently operated by USGS. The daily model run requires 
           a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight 
           starting with collecting observed weather data, using 
-          <a href="https://pubs.er.usgs.gov/publication/tm6B7" target="_blank">
+          <a
+            href="https://pubs.er.usgs.gov/publication/tm6B7"
+            target="_blank"
+          >
             Precipitation-Runoff Modeling System (PRMS)
           </a> 
           and SNTemp water temperature model to calculate estimates of natural water temperature, then sending those data from the Cloud 
@@ -44,9 +66,15 @@
           of data. 
         </p>
       </div>
-      <div class="application" id="waterUse">
+      <div
+        id="waterUse"
+        class="application"
+      >
         <h3>Water Use</h3>
-        <img class="applicationImage" src="@/assets/images/about/use.png"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/use.png"
+        >
         <p>
           The third application in the water availability application is the 
           <router-link to="/water-use">
@@ -58,7 +86,10 @@
           each watershed (12-digit hydrologic unit code) using methods that include reference to climate, 
           population and other parameters. Withdrawals are reported for nine categories of use, but these maps 
           show withdrawals for only thermoelectric power, irrigation, and public supply which make up more than 90% 
-          of the total withdrawals in the U.S. (<a href="https://pubs.er.usgs.gov/publication/cir1441" target="_blank">Dieter and others, 2018</a>).  
+          of the total withdrawals in the U.S. (<a
+            href="https://pubs.er.usgs.gov/publication/cir1441"
+            target="_blank"
+          >Dieter and others, 2018</a>).  
           The accurate estimation of water use nationally at the HUC 12 watershed scale provides a consistent national source of water use data for the first time. 
         </p>
       </div>

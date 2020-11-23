@@ -38,20 +38,22 @@
       </router-link>
       <router-link
         v-if="currentFeature === 'waterUse'"
-        to="/questionsandanswers#waterUseSection"
+        to="/questionsandanswers"
       >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
+          @click="$store.commit('changeTabToBeOpened', 'Use')"
         >
           Learn More
         </button>
       </router-link>
       <router-link
         v-if="currentFeature === 'waterTemperature'"
-        to="/questionsandanswers#waterTempSection"
+        to="/questionsandanswers"
       >
         <button
           v-ga="$ga.commands.trackName.bind(this, 'button-subtitle', 'click', 'user went to questions and answers page')"
+          @click="$store.commit('changeTabToBeOpened', 'Temperature')"
         >
           Learn More
         </button>
