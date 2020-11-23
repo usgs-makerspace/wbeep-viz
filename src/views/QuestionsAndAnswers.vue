@@ -3,13 +3,16 @@
     <div id="dynamicComponentTabs">
       <button
         v-for="tab in tabs"
-        v-bind:key="tab"
-        v-bind:class="['tab-button', { active: currentTab === tab }]"
-        v-on:click="currentTab = tab"
+        :key="tab"
+        :class="['tab-button', { active: currentTab === tab }]"
+        @click="currentTab = tab"
       >
-           Water {{ tab }}
-        </button>
-      <component v-bind:is="currentTabComponent" class="QAtab"></component>
+        Water {{ tab }}
+      </button>
+      <component
+        :is="currentTabComponent"
+        class="QAtab"
+      />
     </div> 
   </div>
 </template>

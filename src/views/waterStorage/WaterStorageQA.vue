@@ -42,7 +42,7 @@
     <div
       id="referencesContainer"
       class="usa-prose"
-      >
+    >
       <h2>{{ titleWaterStorage }}</h2>
       <div
         v-for="reference in referencesWaterStorage"
@@ -57,8 +57,8 @@
             <span v-html="reference.href" />
           </a>
         </p>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
