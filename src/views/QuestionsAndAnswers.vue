@@ -9,7 +9,7 @@
       >
            Water {{ tab }}
         </button>
-      <component v-bind:is="currentTabComponent" class="tab"></component>
+      <component v-bind:is="currentTabComponent" class="QAtab"></component>
     </div> 
   </div>
 </template>
@@ -72,7 +72,7 @@
   .tab-button.active {
     background: #e0e0e0;
   }
-  .tab {
+  .QAtab {
     border: 1px solid #ccc;
     padding: 10px;
   }
