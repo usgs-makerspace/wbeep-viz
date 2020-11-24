@@ -77,7 +77,7 @@
         MglAttributionControl
     } from 'vue-mapbox';
     import mapStyles from "../../assets/mapStyles/waterTemperature/mapStyles";
-
+    import waterTempLocations from "../../assets/stations/waterTempLocations";
     export default {
         name: 'WaterStorage',
         components: {
@@ -121,6 +121,10 @@
                 this.currentZoom = map.getZoom();
                 process.env.VUE_APP_ADD_ZOOM_LEVEL_DISPLAY === 'true' ?
                         document.getElementById('zoom-level-div').innerHTML = 'Current Zoom Level (listed for development purposes): ' + this.currentZoom : null;
+            },
+            addTempLocations() {
+              const map = this.$store.temperaturePredictionMap;
+              
             },
             filterLayersForButtons: function(targetId) {
               const map = this.$store.temperaturePredictionMap;
