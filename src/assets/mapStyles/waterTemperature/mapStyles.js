@@ -222,7 +222,7 @@ export default {
                 'circle-color':  '#006633',
                 'circle-stroke-color': 'white',
                 'circle-stroke-width': 1,
-                'circle-opacity': 0,
+                'circle-opacity': 0.5,
                 'circle-radius': 4
             },
             'minzoom': 4,
