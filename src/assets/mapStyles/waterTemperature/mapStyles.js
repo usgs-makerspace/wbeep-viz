@@ -37,6 +37,10 @@ export default {
                 'tiles': ['https://maptiles-prod-website.s3-us-west-2.amazonaws.com/greatlakes/{z}/{x}/{y}.pbf'],
                 'minzoom': 2,
                 'maxzoom': 6
+            },
+            watertemplocations: {
+                type: 'geojson',
+                data: 'http://maptiles-prod-website.s3-us-west-2.amazonaws.com/geojson/QW_Temp_2019.json'
             }
         },
         'sprite': '',
@@ -206,7 +210,24 @@ export default {
                 'source-layer': 'place',
                 'type': 'symbol',
                 'showButtonLayerToggle': false
-            }
+            },
+            {
+            'id': 'temp_gages',
+            'type': 'circle',
+            'source': 'watertemplocations',
+            'layout': {
+                'visibility': 'visible'
+            },
+            'paint': {
+                'circle-color':  '#006633',
+                'circle-stroke-color': 'white',
+                'circle-stroke-width': 1,
+                'circle-opacity': 0,
+                'circle-radius': 4
+            },
+            'minzoom': 4,
+            'maxzoom': 23
+        }
         ]
     }
 };
