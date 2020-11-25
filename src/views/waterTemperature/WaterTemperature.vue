@@ -62,6 +62,7 @@
 
 <script>
     import LoadingScreenInternal from "../../components/LoadingScreenInternal";
+    import mapboxgl from "mapbox-gl";
     import MapSubtitle from "../../components/MapSubtitle";
     import MapLayers from "../../components/MapLayers";
     import MapLegend from "../../components/MapLegend";
@@ -291,15 +292,19 @@
                 this.populateLayerMenuGroupsAndButtons(googleAnalytics);
                 document.body.classList.remove("stop-scrolling");
                 map.on('click','temp_gages', function (e) {
-                  var coordinates = e.features[0].geometry.coordinates.slice();
-                  var description = e.features[0].properties.SITE_NO;
+                  let coordinates = e.features[0].geometry.coordinates.slice();
+                  let description = e.features[0].properties.SITE_NO;
+                  let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
+                  let paramCD = "&parm_cd=00010&period=7";
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                   }
+                  let graph = "<img src='" + imgURL + description + paramCD +"'/>";
  
                 new mapboxgl.Popup()
                   .setLngLat(coordinates)
-                  .setHTML(description)
+                  .setHTML(graph)
+                  .setMaxWidth("none")
                   .addTo(map);
                 });
             }
@@ -426,11 +431,6 @@
       flex: 1;
     }
   }
-
-      .mapboxgl-popup {
-    max-width: 400px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  }
 }
   @media screen and (min-width: 600px) and (min-height: 850px) {
     #temperature_viz_container {
@@ -482,8 +482,8 @@
     color: #fff;
   }
 
-    .mapboxgl-popup {
-    max-width: 400px;
+  .mapboxgl-popup {
+    max-width: 800px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
