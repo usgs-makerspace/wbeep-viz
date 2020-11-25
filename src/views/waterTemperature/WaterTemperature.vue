@@ -290,6 +290,18 @@
                 this.createLayerMenu();
                 this.populateLayerMenuGroupsAndButtons(googleAnalytics);
                 document.body.classList.remove("stop-scrolling");
+                map.on('click','temp_gages', function (e) {
+                  var coordinates = e.features[0].geometry.coordinates.slice();
+                  var description = e.features[0].properties.SITE_NO;
+                  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                  }
+ 
+                new mapboxgl.Popup()
+                  .setLngLat(coordinates)
+                  .setHTML(description)
+                  .addTo(map);
+                });
             }
         }
     };
@@ -414,6 +426,11 @@
       flex: 1;
     }
   }
+
+      .mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
 }
   @media screen and (min-width: 600px) and (min-height: 850px) {
     #temperature_viz_container {
@@ -463,6 +480,11 @@
     font-size: 1.4em;
     background: #003366;
     color: #fff;
+  }
+
+    .mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
   #toggleTitle {
