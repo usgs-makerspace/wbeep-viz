@@ -54,7 +54,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .tab-button {
     padding: 6px 10px;
     border-top-left-radius: 3px;
@@ -85,7 +85,25 @@
     padding: 10px;
     max-width: 50em;
   }
-  .section-title {
+  hr {
+    margin: 1em 0 1em 0;
+  }
+  .usa-accordion__content{
+    p{
+      display: inline;
+    }
+  }
+  #referencesContainer {
+    margin-top: 3em;
+  }
+  @media screen and (min-width: 600px){
+    .tab-button{
+      font-size: 1em;
+    }
+  }
+</style>
+<style lang="scss">
+.section-title {
     margin: 0.5em 0 0.5em 0;
     font-size: larger;
     button {
@@ -101,17 +119,6 @@
       font-weight: bold;
     }
   }
-  hr {
-    margin: 1em 0 1em 0;
-  }
-  .usa-accordion__content{
-    p{
-      display: inline;
-    }
-  }
-  #referencesContainer {
-    margin-top: 3em;
-  }
   @media screen and (min-width: 600px){
     #container-questions-answers{
       .section-title {
@@ -120,9 +127,6 @@
           float: right;
         }
       }
-    }
-    .tab-button{
-      font-size: 1em;
     }
   }
 </style>
