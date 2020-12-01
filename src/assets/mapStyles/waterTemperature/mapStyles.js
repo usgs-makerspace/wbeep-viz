@@ -40,7 +40,7 @@ export default {
             },
             watertemplocations: {
                 type: 'geojson',
-                data: 'https://maptiles-prod-website.s3-us-west-2.amazonaws.com/geojson/QW_Temp_2019.json'
+                data: 'https://maptiles-prod-website.s3-us-west-2.amazonaws.com/geojson/currentQW.json'
             }
         },
         'sprite': '',

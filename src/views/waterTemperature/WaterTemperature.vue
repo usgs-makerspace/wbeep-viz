@@ -293,7 +293,7 @@
                 document.body.classList.remove("stop-scrolling");
                 map.on('click','temp_gages', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
-                  let description = e.features[0].properties.SITE_NO;
+                  let description = e.features[0].properties.site_no;
                   let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
                   let paramCD = "&parm_cd=00010&period=7";
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
