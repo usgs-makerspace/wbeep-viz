@@ -309,7 +309,6 @@
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "pointer";
-                  console.log(e);
                 });
                 map.on('mouseleave','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "";
