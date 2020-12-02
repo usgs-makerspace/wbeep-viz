@@ -214,13 +214,20 @@ export default {
       //add classes to temp divs
       topTemp.classList.add('temp');
       bottomTemp.classList.add('temp');
+      //create site legend content
+      let siteContainer = document.createElement('div');
+      siteContainer.id = "siteContainer";
+      let siteDot = document.createElement('div');
+      siteDot.classList.add('siteDot');
       //append divs to parents
+      siteContainer.appendChild(siteDot);
       gradientContainer.appendChild(gradient);
       tempContainer.appendChild(topTemp);
       tempContainer.appendChild(middleTemp);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
+      mainContainerContent.appendChild(siteContainer);
       mainContainer.appendChild(mainContainerContent);
       keys.appendChild(mainContainer);
     },
