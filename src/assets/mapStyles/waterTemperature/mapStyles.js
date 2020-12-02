@@ -11,13 +11,13 @@ export default {
                 type: 'vector',
                 'tiles': ['https://maptiles-prod-website.s3-us-west-2.amazonaws.com/misctilesets/usstatecounties/{z}/{x}/{y}.pbf'],
                 'minzoom': 2, // setting this to equal the minzoom of main map, real tile extent is 2
-                'maxzoom': 6  // setting this to equal the maxzoom of main map, real tile extent is 10
+                'maxzoom': 8  // setting this to equal the maxzoom of main map, real tile extent is 10
             },
             openmaptiles: {
                 type: 'vector',
                 'tiles': ['https://maptiles-prod-website.s3-us-west-2.amazonaws.com/openmaptiles/baselayers/{z}/{x}/{y}.pbf'],
                 'minzoom': 2,
-                'maxzoom': 6
+                'maxzoom': 8
             },
             hillshade: {
                 type: 'raster',
@@ -30,13 +30,13 @@ export default {
                 type: 'vector',
                 'tiles': streamsTileUrl,
                 'minzoom': 2,
-                'maxzoom': 6
+                'maxzoom': 8
             },
             greatlakes: {
                 type: 'vector',
                 'tiles': ['https://maptiles-prod-website.s3-us-west-2.amazonaws.com/greatlakes/{z}/{x}/{y}.pbf'],
                 'minzoom': 2,
-                'maxzoom': 6
+                'maxzoom': 8
             },
             watertemplocations: {
                 type: 'geojson',
@@ -91,7 +91,7 @@ export default {
                 'source': 'streams',
                 'source-layer': 'segsAllConus',
                 'minzoom': 2,
-                'maxzoom': 6,
+                'maxzoom': 9,
                 'layout': {
                     'visibility': 'visible'
                 },
@@ -133,7 +133,7 @@ export default {
                 'type': 'fill',
                 'source': 'greatlakes',
                 'minzoom' : 0,
-                'maxzoom': 6,
+                'maxzoom': 9,
                 'source-layer': 'Great_Lakes',
                 'layout' : {
                     'visibility': 'visible'
@@ -212,9 +212,10 @@ export default {
                 'showButtonLayerToggle': false
             },
             {
-            'id': 'temp_gages',
+            'id': 'USGS temperature monitoring stations',
             'type': 'circle',
             'source': 'watertemplocations',
+            'showButtonLayerToggle': true,
             'layout': {
                 'visibility': 'visible'
             },
