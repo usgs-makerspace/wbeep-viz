@@ -363,8 +363,6 @@ $buttonActiveTextColor: #fff;
 #mainContainer{
   display: flex;
   padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
 }
 #mainContainerContent{
   display: flex;
@@ -399,7 +397,6 @@ $buttonActiveTextColor: #fff;
   display: flex;
   padding: 10px;
   align-items: center;
-  justify-content: center;
   .siteDot{
     background: #006633;
     width:10px;
