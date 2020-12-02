@@ -18,7 +18,7 @@
       </p>
       <div v-if="currentFeature === 'waterTemperature'">
         <p>
-          This is a <strong>demonstration map and is not for decision making</strong>. It shows the latest available daily estimates of natural water temperature for approximately 58,000 stream reaches across the lower forty-eight states. The real-time temperature monitoring sites are visible at finer zoom levels, and clicking will open a graph of the past 7 days of temperature monitoring data along-side the modeled temperature estimates.  
+          This is a <strong>demonstration map and is not for decision making</strong>. It shows the latest available daily estimates of natural water temperature for approximately 58,000 stream reaches across the lower forty-eight states. Water temperature is one factor of overall water quality due to its impact on aquatic habitat. Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. However, there are also external forces such as thermoelectric power plants that may change a stream's temperature and impact aquatic life or the usability of the stream for other purposes. The real-time temperature monitoring sites are visible at finer zoom levels, and clicking will open a graph of the past 7 days of temperature monitoring data along-side the modeled temperature estimates.  
         </p>
       </div>
       <div v-if="currentFeature === 'waterUse'">
