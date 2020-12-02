@@ -102,7 +102,7 @@
                 container: 'map',
                 zoom: 2,
                 minZoom: 2,
-                maxZoom: 5.99,
+                maxZoom: 8,
                 center: [-95.7129, 37.0902],
                 pitch: 0, // tips the map from 0 to 60 degrees
                 bearing: 0, // starting rotation of the map from 0 to 360
@@ -291,7 +291,7 @@
                 this.createLayerMenu();
                 this.populateLayerMenuGroupsAndButtons(googleAnalytics);
                 document.body.classList.remove("stop-scrolling");
-                map.on('click','temp_gages', function (e) {
+                map.on('click','USGS temperature monitoring stations', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let description = e.features[0].properties.site_no;
                   let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
