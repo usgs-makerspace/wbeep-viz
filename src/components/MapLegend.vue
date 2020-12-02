@@ -402,7 +402,7 @@ $buttonActiveTextColor: #fff;
     width:10px;
     height: 10px;
     border-radius: 5px;
-    border: 1px solid #fff;
+    border: 1px solid #014421;
     margin-right: 5px;
   }
 }
