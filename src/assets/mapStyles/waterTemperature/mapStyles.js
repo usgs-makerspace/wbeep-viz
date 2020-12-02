@@ -221,7 +221,7 @@ export default {
             },
             'paint': {
                 'circle-color':  '#006633',
-                'circle-stroke-color': 'white',
+                'circle-stroke-color': '#014421',
                 'circle-stroke-width': 1,
                 'circle-opacity': 0.5,
                 'circle-radius': 4
