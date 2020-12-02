@@ -135,7 +135,7 @@ export default {
                     {
                         "id": "useQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "The maps shows each season's average daily water use rate of withdrawal for each watershed during 2015 divided into 3 month periods for thermoelectric, irrigation, and public supply categories of use. Original modeled data are available at watershed units or 12-digit hydrologic unit code (HUC), USGS 2014, that were aggregated to larger 10-digit HUC for ease of display at a National scale.  The locations of dots on the map do not necessarily represent the exact location of the withdrawals."
+                        "answer": "The maps shows each season's average daily water use rate-of-withdrawal for each watershed during 2015 for thermoelectric, irrigation, and public supply categories of use. Original modeled data are available at watershed units or 12-digit hydrologic unit code (HUC), <a href='https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products' target='_blank'>USGS 2014</a>, that were aggregated to larger 10-digit HUC for ease of display at a National scale.  The locations of dots on the map do not necessarily represent the exact location of the withdrawals."
                     },
                     {
                         "id": "useQuestion2",
@@ -225,7 +225,12 @@ export default {
                     {
                         "id": "tempQuestion1",
                         "question": "What does this map show me?",
-                        "answer": "This map displays river networks with daily water temperature represented by colors shaded from light blue to dark red. These temperatures are generated from models that consider daily fluctuations in environmental variables to calculate average of stream temperature conditions for a given day."
+                        "answer": "This map displays river networks with daily water temperature represented by colors shaded " + 
+                                "from light blue to dark red. These temperatures are generated from models that consider daily " +
+                                "fluctuations in environmental variables to calculate average of stream temperature conditions for " + 
+                                "a given day. This map also contains USGS real-time temperature monitoring sites that are visible at " + 
+                                "finer zoom levels. Clicking on the symbol will open a graph of the past 7 days of temperature " + 
+                                "monitoring data along-side the modeled temperature estimates."
                     },
                     {
                         "id": "tempQuestion2",
@@ -249,7 +254,7 @@ export default {
                     {
                         "id": "tempQuestion5",
                         "question": "I live in Puerto Rico, why don't I see any water temperature data there?",
-                        "answer": "The model used currently only has the data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
+                        "answer": "The model used currently only has the input data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
                         "id": "tempQuestion6",
