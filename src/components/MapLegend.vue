@@ -219,17 +219,21 @@ export default {
       siteContainer.id = "siteContainer";
       let siteDot = document.createElement('div');
       siteDot.classList.add('siteDot');
+      let siteDotText = document.createElement('div');
+      siteDotText.id = "siteDotText";
+      siteDotText.innerHTML = "USGS monitoring station";
       //append divs to parents
       siteContainer.appendChild(siteDot);
+      siteContainer.appendChild(siteDotText);
       gradientContainer.appendChild(gradient);
       tempContainer.appendChild(topTemp);
       tempContainer.appendChild(middleTemp);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
-      mainContainerContent.appendChild(siteContainer);
       mainContainer.appendChild(mainContainerContent);
       keys.appendChild(mainContainer);
+      keys.appendChild(siteContainer);
     },
     SwapLegendIcon(){
       this.waterUseParameter = this.useParameter;
@@ -364,6 +368,7 @@ $buttonActiveTextColor: #fff;
 }
 #mainContainerContent{
   display: flex;
+  flex-wrap: wrap;
 }
 #legendGradientContainer{
   padding: 5px 0;
@@ -388,6 +393,20 @@ $buttonActiveTextColor: #fff;
   div{
     position: absolute;
     bottom: 0;
+  }
+}
+#siteContainer{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  .siteDot{
+    background: #006633;
+    width:10px;
+    height: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin-right: 5px;
   }
 }
 </style>
