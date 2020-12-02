@@ -398,11 +398,11 @@ $buttonActiveTextColor: #fff;
   padding: 10px;
   align-items: center;
   .siteDot{
-    background: #006633;
-    width:10px;
-    height: 10px;
+    background: #000000;
+    width:6px;
+    height: 6px;
     border-radius: 5px;
-    border: 1px solid #014421;
+    border: 1px solid #000000;
     margin-right: 5px;
   }
 }

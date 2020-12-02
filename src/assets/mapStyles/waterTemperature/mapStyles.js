@@ -220,11 +220,11 @@ export default {
                 'visibility': 'visible'
             },
             'paint': {
-                'circle-color':  '#006633',
-                'circle-stroke-color': '#014421',
+                'circle-color':  '#000000',
+                'circle-stroke-color': '#ffffff',
                 'circle-stroke-width': 1,
-                'circle-opacity': 0.5,
-                'circle-radius': 4
+                'circle-opacity': 1,
+                'circle-radius': 2
             },
             'minzoom': 4,
             'maxzoom': 23
