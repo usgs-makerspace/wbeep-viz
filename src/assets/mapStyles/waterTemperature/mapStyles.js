@@ -41,6 +41,10 @@ export default {
             watertemplocations: {
                 type: 'geojson',
                 data: 'https://maptiles-prod-website.s3-us-west-2.amazonaws.com/geojson/currentQW.json'
+            },
+            riverlabels: {
+                type: 'geojson',
+                data: 'https://maptiles-prod-website.s3-us-west-2.amazonaws.com/geojson/rivers_and_names.json'
             }
         },
         'sprite': '',
@@ -217,7 +221,7 @@ export default {
             'source': 'watertemplocations',
             'showButtonLayerToggle': true,
             'layout': {
-                'visibility': 'visible'
+                'visibility': 'visible',
             },
             'paint': {
                 'circle-color':  '#000000',
@@ -230,7 +234,37 @@ export default {
             },
             'minzoom': 4,
             'maxzoom': 23
-        }
+        },
+        {
+            'id': 'Major River Names',
+            'type': 'symbol',
+            'source': 'riverlabels',
+            'layout': {
+                'symbol-placement': 'line',
+                'visibility': 'visible',
+                'text-field': '{NAME}',
+                'text-font': ['Noto Sans Italic'],
+                    'text-max-width': 20,
+                    'text-size': {
+                        'stops': [
+                            [4, 12],
+                            [5, 16],
+                            [6, 16],
+                            [7, 16],
+                            [8, 16]
+                        ]
+                    }
+            },
+            'paint': {
+                'text-color': 'blue',
+                'text-halo-blur': 0,
+                'text-halo-color': 'white',
+                'text-halo-width': 2
+            },
+            'minzoom': 4,
+            'maxzoom': 9,
+            'showButtonLayerToggle': true
+        },
         ]
     }
 };
