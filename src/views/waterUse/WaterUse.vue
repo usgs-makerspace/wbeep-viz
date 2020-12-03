@@ -194,6 +194,7 @@
         let checkClass = event.target.classList.contains("wu-bars-hover");
         let target = event.target;
         let className = document.querySelector(".activeSeason");
+        this.runGoogleAnalytics("Water Use", "Click", "User selected " + target.id + " as the season.")
         if(checkClass){
           this.season = target.id;
           //Update SVG map by season
@@ -211,6 +212,7 @@
         let button = event.target;
         //update useParameter
         this.useParameter = event.target.id;
+        this.runGoogleAnalytics("Water Use", "Click", "User selected " + event.target.id + " as the water use parameter.")
         //concat to change svg map
         this.svg =  "svg_map_" + this.useParameter + "_" + this.season;
         //concat to change svg barchart
