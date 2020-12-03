@@ -551,6 +551,15 @@
       color: #a0aec4;
     }
   }
+  #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+    max-width: 300px;
+  }
+
+  @media screen and (min-width: 650px){
+    #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+      max-width: 600px;
+    }
+  }
 
   @media screen and (min-width: 960px){
     #mapLayersToggleContainer{
