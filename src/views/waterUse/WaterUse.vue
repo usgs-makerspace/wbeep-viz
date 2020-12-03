@@ -102,7 +102,6 @@
     data() {
       return {
         title: process.env.VUE_APP_TITLE,
-        titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,

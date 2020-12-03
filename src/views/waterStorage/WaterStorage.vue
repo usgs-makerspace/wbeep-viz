@@ -12,7 +12,7 @@
     >
       <div class="usa-prose">
         <h1>
-          {{ title }} {{ featureName }}{{ titleSuffix }} {{ developmentTier }}
+          {{ title }} {{ featureName }} {{ developmentTier }}
         </h1>
       </div>
     </div>
@@ -103,7 +103,6 @@
       data() {
           return {
               title: process.env.VUE_APP_TITLE,
-              titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
               featureName: 'Natural Water Storage',
               developmentTier: process.env.VUE_APP_TIER,
               mapStyle: mapStyles.style,
