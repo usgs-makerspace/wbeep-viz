@@ -290,7 +290,6 @@
         })
       },
       runGoogleAnalytics(eventName, action, label) {
-        console.log(eventName, action, label);
         this.$ga.set({ dimension2: Date.now() });
         this.$ga.event(eventName, action, label);
       },
