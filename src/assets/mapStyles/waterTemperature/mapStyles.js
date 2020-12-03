@@ -221,7 +221,7 @@ export default {
             'source': 'watertemplocations',
             'showButtonLayerToggle': true,
             'layout': {
-                'visibility': 'visible',
+                'visibility': 'visible'
             },
             'paint': {
                 'circle-color':  '#000000',
