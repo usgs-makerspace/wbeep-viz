@@ -552,7 +552,7 @@
     }
   }
   #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-    max-width: 300px;
+    max-width: 240px;
   }
 
   @media screen and (min-width: 650px){
