@@ -296,6 +296,7 @@
                   let description = e.features[0].properties.site_no;
                   let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
                   let paramCD = "&parm_cd=00010&period=7";
+                  googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                   }
