@@ -224,7 +224,9 @@ export default {
                 'circle-stroke-color': '#ffffff',
                 'circle-stroke-width': 1,
                 'circle-opacity': 1,
-                'circle-radius': 2
+                'circle-radius': {
+                    stops: [[4, 2], [6, 3], [7, 4], [8,4]]
+                }
             },
             'minzoom': 4,
             'maxzoom': 23
