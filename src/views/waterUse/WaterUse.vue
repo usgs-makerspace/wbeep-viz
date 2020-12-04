@@ -11,9 +11,10 @@
         @clickedInfoIcon="clickAnywhereToCloseMapInfoBox()"
         @clickedExit="toggleMapInfoBox()"
       />
-      <router-link to="QuestionsAndAnswers#waterUseSection">
+      <router-link to="QuestionsAndAnswers">
         <div
           id="waterUseQuestion"
+          @click="$store.commit('changeTabToBeOpened', 'Use')"
         >
           <font-awesome-icon
             icon="question"
@@ -22,10 +23,7 @@
         </div>
       </router-link>
     </div>
-    <div
-      id="water-use-content"
-      class="waterUseFlex"
-    >
+    <div class="water-use-content">
       <LoadingScreenInternal :is-loading="isLoading" />
       <div
         id="buttonsContainer"
@@ -38,7 +36,7 @@
           <div class="instructionNumber">
             1
           </div>
-          <p>First, select water use type (spring default view)</p>
+          <p>First, select water use type (Spring season is the default view)</p>
         </div>
         <button
           id="te"
@@ -62,17 +60,15 @@
           Public Supply
         </button>
       </div>
-      <div
-        id="waterUseMapContainer"
-      >
-        <DynamicSVG
-          id="dynamicSVG"
-          :svg="svg"
-        />
-      </div>
-      <div
-        id="waterUseBarChartContainer"
-      >
+    </div>
+    <div id="waterUseMapContainer">
+      <DynamicSVG
+        id="dynamicSVG"
+        :svg="svg"
+      />
+    </div>
+    <div class="water-use-content">
+      <div id="waterUseBarChartContainer">
         <div
           id="chartExplanation"
           class="explanation"
@@ -106,7 +102,6 @@
     data() {
       return {
         title: process.env.VUE_APP_TITLE,
-        titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
         featureName: 'Water Use',
         developmentTier: process.env.VUE_APP_TIER,
         isLoading: true,
@@ -198,6 +193,7 @@
         let checkClass = event.target.classList.contains("wu-bars-hover");
         let target = event.target;
         let className = document.querySelector(".activeSeason");
+        this.runGoogleAnalytics("Water Use", "Click", "User selected " + target.id + " as the season.")
         if(checkClass){
           this.season = target.id;
           //Update SVG map by season
@@ -215,6 +211,7 @@
         let button = event.target;
         //update useParameter
         this.useParameter = event.target.id;
+        this.runGoogleAnalytics("Water Use", "Click", "User selected " + event.target.id + " as the water use parameter.")
         //concat to change svg map
         this.svg =  "svg_map_" + this.useParameter + "_" + this.season;
         //concat to change svg barchart
@@ -237,6 +234,11 @@
           self.checkUseParameter(activeSeason);
           activeSeason.style.fillOpacity = 1;
         });
+        //Color the season diviiders the same as the seasons
+        let dividers = document.querySelectorAll(".wu-season-dividers");
+        dividers.forEach(function(divider){
+          divider.style.stroke = document.querySelector(".activeSeason").style.fill;
+        })
       },
       checkUseParameter(element){
         //Find out which parameter is in use and color elements accordingly
@@ -348,12 +350,10 @@ $barChartHighlight: red;
     color: #000;
   }
 }
-#water-use-content{
+.water-use-content{
   width: 100%;
   padding: 0 10px;
   max-width: 800px;
-  flex: 1;
-  display: flex;
 }
 #mapSubtitleContainer{
   position: relative;
@@ -441,6 +441,8 @@ $barChartHighlight: red;
   }
 }
 #waterUseMapContainer{
+  width: 100%;
+  max-width: 1500px;
   margin: 20px 0;
   position: relative;
   /*colors the SVG map*/
@@ -521,6 +523,10 @@ path.wu-bars-axis {
   stroke: rgb(100,100,100);
   stroke-width: 2;
 }
+.wu-season-dividers{
+  stroke: $thermo;
+  stroke-dasharray: 5;
+}
 .seasonLabel{
   font-size: 1.2em;
 }
@@ -535,17 +541,17 @@ path.wu-bars-axis {
   }
 }
 @media screen and (min-width: 1100px) and (min-height: 1400px){
-  #water-use-content{
+  .water-use-content{
     max-width: 1100px;
   }
 }
 @media screen and (min-width: 1300px) and (max-height: 768px){
-  #water-use-content{
+  .water-use-content{
     width: 650px;
   }
 }
 @media screen and (min-width: 1000px) and (max-height: 652px){
-  #water-use-content{
+  .water-use-content{
     width: 530px;
   }
 }

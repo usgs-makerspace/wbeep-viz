@@ -4,9 +4,15 @@
     <div id="aboutContent">
       <h1>National Integrated Water Availability Assessments (IWAAs)</h1>
       <h2><strong>Water Availability Mapper:</strong> Water Storage, Water Temperature, Water Use</h2>
-      <div class="application" id="waterStorage">
+      <div
+        id="waterStorage"
+        class="application"
+      >
         <h3>Water Storage</h3>
-        <img class="applicationImage" src="@/assets/images/about/storage.jpg"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/storage.jpg"
+        >
         <p>
           In 2019, a research team that includes hydrologic modelers, software developers, cloud specialists, 
           and data visualization experts released the first application in a set of applications that represent 
@@ -22,9 +28,15 @@
           to the <a href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-promoting-reliable-supply-delivery-water-west/" target="_blank" @click="runGoogleAnalytics('About Page', 'click', 'clicked Presidential Memo on Water in the West')">Presidential Memo on Water in the West</a>.
         </p>
       </div>
-      <div class="application" id="waterTemp">
+      <div
+        id="waterTemp"
+        class="application"
+      >
         <h3>Water Temperature</h3>
-        <img class="applicationImage" src="@/assets/images/about/temp.jpg"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/temp.jpg"
+        >
         <p>
           <router-link to="/water-temperature">National stream temperature application</router-link> displays a near real-time indicator of daily-average water temperature 
           for approximately 58,000 stream segments. These modeled results provide comprehensive spatial improvements and 
@@ -37,9 +49,15 @@
           and update the visualizations require a complex ‘operational pipeline’ in the Cloud
         </p>
       </div>
-      <div class="application" id="waterUse">
+      <div
+        id="waterUse"
+        class="application"
+      >
         <h3>Water Use</h3>
-        <img class="applicationImage" src="@/assets/images/about/use.png"/>
+        <img
+          class="applicationImage"
+          src="@/assets/images/about/use.png"
+        >
         <p>
           Third, the <router-link to="/water-use">National water use application</router-link> provides a consistent national source of water use data.  
           Water Use data for each county and state were compiled from various sources (depending on the category 

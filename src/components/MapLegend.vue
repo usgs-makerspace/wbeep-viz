@@ -202,7 +202,11 @@ export default {
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451; = 86&#8457;"
+      topTemp.innerHTML = "30&#8451; = 86&#8457;";
+      //create middle temp div
+      let middleTemp = document.createElement('div');
+      middleTemp.id = "middleTemp";
+      middleTemp.innerHTML = "15&#8451; = 59&#8457;"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
@@ -210,14 +214,26 @@ export default {
       //add classes to temp divs
       topTemp.classList.add('temp');
       bottomTemp.classList.add('temp');
+      //create site legend content
+      let siteContainer = document.createElement('div');
+      siteContainer.id = "siteContainer";
+      let siteDot = document.createElement('div');
+      siteDot.classList.add('siteDot');
+      let siteDotText = document.createElement('div');
+      siteDotText.id = "siteDotText";
+      siteDotText.innerHTML = "USGS monitoring station";
       //append divs to parents
+      siteContainer.appendChild(siteDot);
+      siteContainer.appendChild(siteDotText);
       gradientContainer.appendChild(gradient);
       tempContainer.appendChild(topTemp);
+      tempContainer.appendChild(middleTemp);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
       mainContainer.appendChild(mainContainerContent);
       keys.appendChild(mainContainer);
+      keys.appendChild(siteContainer);
     },
     SwapLegendIcon(){
       this.waterUseParameter = this.useParameter;
@@ -347,11 +363,10 @@ $buttonActiveTextColor: #fff;
 #mainContainer{
   display: flex;
   padding: 5px 10px;
-  align-items: center;
-  justify-content: center;
 }
 #mainContainerContent{
   display: flex;
+  flex-wrap: wrap;
 }
 #legendGradientContainer{
   padding: 5px 0;
@@ -376,6 +391,19 @@ $buttonActiveTextColor: #fff;
   div{
     position: absolute;
     bottom: 0;
+  }
+}
+#siteContainer{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  .siteDot{
+    background: #000000;
+    width:6px;
+    height: 6px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    margin-right: 5px;
   }
 }
 </style>

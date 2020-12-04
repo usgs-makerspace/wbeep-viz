@@ -62,6 +62,7 @@
 
 <script>
     import LoadingScreenInternal from "../../components/LoadingScreenInternal";
+    import mapboxgl from "mapbox-gl";
     import MapSubtitle from "../../components/MapSubtitle";
     import MapLayers from "../../components/MapLayers";
     import MapLegend from "../../components/MapLegend";
@@ -101,7 +102,7 @@
                 container: 'map',
                 zoom: 2,
                 minZoom: 2,
-                maxZoom: 5.99,
+                maxZoom: 8,
                 center: [-95.7129, 37.0902],
                 pitch: 0, // tips the map from 0 to 60 degrees
                 bearing: 0, // starting rotation of the map from 0 to 360
@@ -112,7 +113,7 @@
                 currentZoom: null,
                 isAboutMapInfoBoxOpen: true,
                 isFirstClick: true,
-                mapLayerIdsForZoomDependentButtons: ['Roads', 'Terrain', 'Counties']
+                mapLayerIdsForZoomDependentButtons: ['Terrain', 'Counties']
             }
         },
         methods: {
@@ -290,6 +291,29 @@
                 this.createLayerMenu();
                 this.populateLayerMenuGroupsAndButtons(googleAnalytics);
                 document.body.classList.remove("stop-scrolling");
+                map.on('click','USGS temperature monitoring stations', function (e) {
+                  let coordinates = e.features[0].geometry.coordinates.slice();
+                  let description = e.features[0].properties.site_no;
+                  let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
+                  let paramCD = "&parm_cd=00010&period=7";
+                  googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
+                  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                  }
+                  let graph = "<img src='" + imgURL + description + paramCD +"'/>";
+ 
+                new mapboxgl.Popup()
+                  .setLngLat(coordinates)
+                  .setHTML(graph)
+                  .setMaxWidth("none")
+                  .addTo(map);
+                });
+                map.on('mousemove','USGS temperature monitoring stations', function (e) {
+                  map.getCanvas().style.cursor = "pointer";
+                });
+                map.on('mouseleave','USGS temperature monitoring stations', function (e) {
+                  map.getCanvas().style.cursor = "";
+                });
             }
         }
     };
@@ -465,6 +489,11 @@
     color: #fff;
   }
 
+  .mapboxgl-popup {
+    max-width: 800px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+
   #toggleTitle {
     flex: 1;
   }
@@ -489,7 +518,7 @@
   }
 
   #toggleOptions {
-    min-height: 100px;
+    min-height: 75px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -520,6 +549,15 @@
       background: #7f8da3;
       opacity: .7;
       color: #a0aec4;
+    }
+  }
+  #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+    max-width: 240px;
+  }
+
+  @media screen and (min-width: 650px){
+    #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+      max-width: 600px;
     }
   }
 
