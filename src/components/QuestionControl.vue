@@ -52,6 +52,7 @@
             },
             //Trash function to deal with how we have two different question button situtations
             prepareClickEvent(googleAnalytics, router){
+                let self = this;
                 let element = document.getElementById("icon-map-control-question")
                 element.classList.add(this.currentFeature);
                 element.onclick = function(e){
@@ -59,12 +60,12 @@
                     e.preventDefault();
                     e.stopPropagation();
                     if(element.classList.contains("waterTemperature")){
-                        router.push({ path: 'QuestionsAndAnswers#waterTempSection' });
+                        self.$store.commit('changeTabToBeOpened', 'Temperature');
                     }else{
-                        router.push({ path: 'QuestionsAndAnswers' });
+                        self.$store.commit('changeTabToBeOpened', 'Storage');
                     }
+                    router.push({ path: 'QuestionsAndAnswers' });    
                 }
-                    
             }
         }
     };

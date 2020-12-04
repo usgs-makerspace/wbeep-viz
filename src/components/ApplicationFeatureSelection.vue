@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-header">
     <h1>
-      {{ title }}{{ titleSuffix }} {{ developmentTier }}
+      {{ title }} {{ developmentTier }}
     </h1>
     <ul>
       <li @click="$router.push({name: 'about'})">
@@ -38,7 +38,6 @@
     data() {
         return {
             title: process.env.VUE_APP_TITLE,
-            titleSuffix: process.env.VUE_APP_TITLE_SUFFIX,
             developmentTier: process.env.VUE_APP_TIER,
             about: 'About',
             waterStorageName: 'water storage',
