@@ -38,7 +38,7 @@
           src="@/assets/images/about/temp.jpg"
         >
         <p>
-          <router-link to="/water-temperature">National stream temperature application</router-link> displays a near real-time indicator of daily-average water temperature 
+          <router-link to="/water-temperature">National water temperature application</router-link> displays a near real-time indicator of daily-average water temperature 
           for approximately 58,000 stream segments. These modeled results provide comprehensive spatial improvements and 
           enhance the active monitoring network of over 2,000 continuous temperature monitors currently operated by USGS. 
           Water temperature models are run using 
@@ -46,7 +46,7 @@
             Precipitation-Runoff Modeling System (PRMS)
           </a>
           and SNTemp stream temperature model to calculate estimates of natural water temperature. The activities needed to obtain input data, model temperatures, 
-          and update the visualizations require a complex ‘operational pipeline’ in the Cloud
+          and update the visualizations require a complex ‘operational pipeline’ in the Cloud.
         </p>
       </div>
       <div
@@ -89,8 +89,8 @@
           The basemap geospatial data in the applications are formatted, stored, and updated as needed in the Cloud. Different 
           containers are used to receive the geospatial data sets
           <a href="https://doi.org/10.5066/P971JAGF" target="_blank" @click="runGoogleAnalytics('About Page', 'click', 'clicked Bock et. al, 2020')"> 
-          (Bock et. al, 2020)
-          </a>, re-format them into GeoJSON, and convert 
+          (Bock et. al, 2020),
+          </a> re-format them into GeoJSON, and convert 
           into vector tiles which are stored in the Cloud for use in the visualization.
         </p>
         <p>
