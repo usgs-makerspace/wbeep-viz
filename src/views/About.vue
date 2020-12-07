@@ -39,7 +39,7 @@
         id="waterTemp"
         class="application"
       >
-        <h3>Water Temperature</h3>
+        <h3>Estimated Water Temperature</h3>
         <img
           class="applicationImage"
           src="@/assets/images/about/temp.jpg"
@@ -47,8 +47,8 @@
         <p>
           A new addition to the Water Availability mapper is a 
           <router-link to="/water-temperature">
-            National Water temperature application
-          </router-link>.  
+            National estimated water temperature application.
+          </router-link>
           This application displays a near real-time indicator of daily-average water temperature for approximately 
           58,000 stream segments. These modeled results provide comprehensive spatial improvements and enhance the active 
           monitoring network of XX continuous temperature monitors currently operated by USGS. The daily model run requires 
@@ -70,7 +70,7 @@
         id="waterUse"
         class="application"
       >
-        <h3>Water Use</h3>
+        <h3>Estimated Water Use</h3>
         <img
           class="applicationImage"
           src="@/assets/images/about/use.png"
@@ -78,8 +78,8 @@
         <p>
           The third application in the water availability application is the 
           <router-link to="/water-use">
-            National water use application
-          </router-link>.  
+            National estimated water use application.
+          </router-link> 
           Water Use data for each county and state were compiled from various sources (depending on the category 
           of use and the information available for each state) into annual total withdrawals representing 2015. 
           These annual data were downscaled both spatially and temporally to represent average daily values for 
