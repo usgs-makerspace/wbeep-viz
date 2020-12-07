@@ -13,7 +13,7 @@
         <router-link
           to="/water-temperature"
         >
-          <button>
+          <button @click="runGoogleAnalytics('Questions & Answers', 'Click', 'User Returned to Water Temperature')">
             Return to Temperature
           </button>
         </router-link>
@@ -75,6 +75,12 @@
                 titleWaterTemp: references.referenceSectionWaterTemp.title,
                 referencesWaterTemp: references.referenceSectionWaterTemp.references,
             }
+        },
+        methods:{
+          runGoogleAnalytics(eventName, action, label) {
+              this.$ga.set({ dimension2: Date.now() });
+              this.$ga.event(eventName, action, label)
+          }
         }
     }
 </script>

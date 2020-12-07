@@ -13,7 +13,7 @@
         <router-link
           to="/water-use"
         >
-          <button>
+          <button @click="runGoogleAnalytics('Questions & Answers', 'Click', 'User Returned to Water Use')">
             Return to Water Use
           </button>
         </router-link>
@@ -76,6 +76,12 @@
                 titleWaterUse: references.referenceSectionWaterUse.title,
                 referencesWaterUse: references.referenceSectionWaterUse.references
             }
+        },
+        methods:{
+          runGoogleAnalytics(eventName, action, label) {
+              this.$ga.set({ dimension2: Date.now() });
+              this.$ga.event(eventName, action, label)
+          }
         }
     }
 </script>

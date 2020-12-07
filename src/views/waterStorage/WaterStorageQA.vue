@@ -11,7 +11,7 @@
         <router-link
           to="/"
         >
-          <button>
+          <button @click="runGoogleAnalytics('Questions & Answers', 'Click', 'User Returned to Water Storage')">
             Return to Water Storage
           </button>
         </router-link>
@@ -80,6 +80,12 @@
             vm.from = from;
           })
           console.log(from);
+        },
+        methods:{
+          runGoogleAnalytics(eventName, action, label) {
+              this.$ga.set({ dimension2: Date.now() });
+              this.$ga.event(eventName, action, label)
+          }
         }
     }
 </script>

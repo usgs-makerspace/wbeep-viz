@@ -56,7 +56,7 @@
                 let element = document.getElementById("icon-map-control-question")
                 element.classList.add(this.currentFeature);
                 element.onclick = function(e){
-                    googleAnalytics('about', 'click', 'user went to about page');
+                    googleAnalytics('about', 'click', 'user went to QA page');
                     e.preventDefault();
                     e.stopPropagation();
                     if(element.classList.contains("waterTemperature")){
