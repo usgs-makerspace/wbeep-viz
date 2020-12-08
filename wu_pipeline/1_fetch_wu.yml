@@ -68,4 +68,4 @@ targets:
     command: unzip_file(
       target_name = target_name,
       zipped_fn = '1_fetch/out/huc10_centroids.zip', 
-      file_to_extract = I('HUC10_CONUS_Clip_Centroids_v2.geojson'))
+      file_to_extract = I('WBDHUC10_CONUS_centroids.geojson'))
