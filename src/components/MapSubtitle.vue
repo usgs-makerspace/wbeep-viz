@@ -7,10 +7,10 @@
             An Indicator of Natural Water Storage
           </p>
           <p v-if="currentFeature === 'waterTemperature'">
-            Water Temperature
+            Estimated Water Temperature
           </p>
           <p v-if="currentFeature === 'waterUse'">
-            Water Use
+            Estimated Water Use
           </p>
         </div>
         <div id="subtitleInfoButton">
