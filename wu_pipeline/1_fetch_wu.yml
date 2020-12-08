@@ -20,7 +20,7 @@ targets:
     command: c(I("2020-08-21"))
   
   sbid_thermoelectric:
-    command: c(I("5ee3d77682ce3bd58d7e1dcb"))
+    command: c(I("5f92055082ce720ee2d33d35"))
   sbid_irrigation:
     command: c(I("5f92170782ce720ee2d33f18"))
   sbid_publicsupply:
@@ -36,7 +36,7 @@ targets:
     command: download_sb_single_file(
       target_name = target_name,
       sb_id = sbid_thermoelectric, 
-      sb_filename = I('HUC12_TE_2015_SWGWwith.csv'),
+      sb_filename = I('HUC12_TE_2015_SWGWwith_newWBD.csv'),
       dummy = sb_dl_date,
       user_specific = TRUE)
       
