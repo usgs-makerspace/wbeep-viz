@@ -13,7 +13,6 @@ export const store = new Vuex.Store({
             state.mapSVGRenderOnInitialLoad = true;
         },
         changeTabToBeOpened(state, tab){
-            console.log("Ran Function");
             state.tabToOpen = tab;
         }
     }

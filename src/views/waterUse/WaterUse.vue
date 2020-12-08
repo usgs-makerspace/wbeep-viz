@@ -14,7 +14,7 @@
       <router-link to="QuestionsAndAnswers">
         <div
           id="waterUseQuestion"
-          @click="$store.commit('changeTabToBeOpened', 'Use')"
+          @click="$store.commit('changeTabToBeOpened', 'Use'), runGoogleAnalytics('Water Use', 'Click', 'User went to QA page from Water Use ?')"
         >
           <font-awesome-icon
             icon="question"
