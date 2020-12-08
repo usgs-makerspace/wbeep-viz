@@ -22,7 +22,7 @@ targets:
   sbid_thermoelectric:
     command: c(I("5ee3d77682ce3bd58d7e1dcb"))
   sbid_irrigation:
-    command: c(I("5ee3d70d82ce3bd58d7e1dc0"))
+    command: c(I("5f92170782ce720ee2d33f18"))
   sbid_publicsupply:
     command: c(I("5f5a3ce682cefd9f20863bb0"))
   sbid_huc10:
@@ -44,7 +44,7 @@ targets:
     command: download_sb_single_file(
       target_name = target_name,
       sb_id = sbid_irrigation, 
-      sb_filename = I('HUC12_Irr_Daily_ETa_ratio5_TW.csv'),
+      sb_filename = I('huc12irrDailyWthdrlsTW.csv'),
       dummy = sb_dl_date,
       user_specific = TRUE)
       
