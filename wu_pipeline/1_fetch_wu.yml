@@ -24,7 +24,7 @@ targets:
   sbid_irrigation:
     command: c(I("5f92170782ce720ee2d33f18"))
   sbid_publicsupply:
-    command: c(I("5f5a3ce682cefd9f20863bb0"))
+    command: c(I("5fd0e7ddd34e30b91239b653"))
   sbid_huc10:
     command: c(I("5fa15e86d34e198cb793cb0d"))
   
