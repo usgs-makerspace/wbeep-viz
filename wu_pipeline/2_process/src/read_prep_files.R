@@ -1,25 +1,19 @@
-read_and_parse_huc12 <- function(huc12_fn) {
-  geojson_sf(huc12_fn) %>% 
+read_and_parse_huc10 <- function(huc10_fn) {
+  geojson_sf(huc10_fn) %>% 
     st_make_valid() %>% 
-    select(HUC12, NAME, geometry) %>% 
+    select(HUC10 = huc10, NAME = name, geometry) %>% 
     st_transform("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs")
-}
-
-calc_huc10_from_huc12 <- function(huc12_centroids) {
-  huc12_centroids %>%
-    mutate(HUC10 = substr(HUC12, 1, 10)) %>% 
-    group_by(HUC10) %>% 
-    summarize(geometry = st_union(geometry)) %>% 
-    st_centroid()
 }
 
 read_and_parse_wu <- function(filepath, is_irr = FALSE, is_ps = FALSE) {
   
   # Columns have different names between water use types
-  col_name <- ifelse(is_irr, "HUC_12t", "huc12")
+  col_name <- ifelse(is_irr, "huc12t", "HUC12")
   col_name <- ifelse(is_ps, "HUC12t", col_name) # PS huc12 col was in sci notation...
-  col_prefix <- ifelse(is_ps, "C", "W_") # PS just has "C" as the prefix due to an error but is withdrawal values
-  date_format <- ifelse(is_ps, "%m_%d_%Y", "%m-%d-%Y")
+  col_prefix <- ifelse(is_irr, "TW_", "W_") # Irr now has a different prefix than before
+  col_prefix <- ifelse(is_ps, "C", col_prefix) # PS just has "C" as the prefix due to an error but is withdrawal values
+  date_format <- ifelse(is_irr, "%m_%d_%Y", "%m-%d-%Y") # Irr now has a different date format
+  date_format <- ifelse(is_ps, "%m_%d_%Y", date_format)
   
   readr::read_csv(filepath) %>% 
     rename(HUC12 = !!col_name) %>% # Columns have different names between water use types
