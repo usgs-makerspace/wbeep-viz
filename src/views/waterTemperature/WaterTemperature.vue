@@ -61,7 +61,6 @@
 </template>
 
 <script>
-    import axios from "axios";
     import LoadingScreenInternal from "../../components/LoadingScreenInternal";
     import mapboxgl from "mapbox-gl";
     import MapSubtitle from "../../components/MapSubtitle";
@@ -327,10 +326,9 @@
                   reader.onloadend = function(){
                     let base64data = reader.result;
                     let graph = "<img src='" + base64data + "'/>";
-                    console.log(graph);
                     popup.setHTML(graph);
                   }
-                })
+                });
             }
         }
     };
