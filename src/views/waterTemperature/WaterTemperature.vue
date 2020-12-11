@@ -279,6 +279,7 @@
               this.createLayerButtons(toggleableLayerIds, layersTurnedOffAtStart, 'mapLayers',  googleAnalytics);
           },
             onMapLoaded(event) {
+                let self = this;
                 this.$store.temperaturePredictionMap = event.map; // The 'event' gives us access to the map as an object but only after the map has loaded. Once we have that, we add the map object to the Vuex store
                 const map = this.$store.temperaturePredictionMap;
                 let googleAnalytics = this.runGoogleAnalytics; // We need to get the global Google Analytics (GA) plugin object 'this.$ga' into this scope, so let's make a local variable and assign our GA event tracking method to that.
@@ -300,19 +301,33 @@
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                   }
-                  let graph = "<img src='" + imgURL + description + paramCD +"'/>";
  
-                new mapboxgl.Popup()
-                  .setLngLat(coordinates)
-                  .setHTML(graph)
-                  .setMaxWidth("none")
-                  .addTo(map);
+                  let popup = new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML("Loading...")
+                    .setMaxWidth("none")
+                    .addTo(map);
+
+                  self.getGraph(imgURL, description, paramCD, popup);
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "pointer";
                 });
                 map.on('mouseleave','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "";
+                });
+            },
+            getGraph(url, id, params, popup){
+              fetch(url + id + params)
+                .then(response => response.blob())
+                .then(image => {
+                  let reader = new FileReader();
+                  reader.readAsDataURL(image);
+                  reader.onloadend = function(){
+                    let base64data = reader.result;
+                    let graph = "<img src='" + base64data + "'/>";
+                    popup.setHTML(graph);
+                  }
                 });
             }
         }
