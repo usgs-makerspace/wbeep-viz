@@ -295,8 +295,8 @@
                 map.on('click','USGS temperature monitoring stations', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let description = e.features[0].properties.site_no;
-                  let imgURL = "http://labs.waterdata.usgs.gov/api/graph-images/monitoring-location/";
-                  let paramCD = "?parameterCode=00010&period=P4D&title=true";
+                  let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
+                  let paramCD = "&parm_cd=00010&period=4";
                   googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -571,7 +571,7 @@
     max-width: 240px;
   }
 
-  @media screen and (min-width: 650px) and (min-height: 600px){
+  @media screen and (min-width: 650px) and (min-height: 800px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
       max-width: 400px;
     }
