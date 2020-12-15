@@ -296,19 +296,19 @@
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let description = e.features[0].properties.site_no;
                   let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
-                  let paramCD = "&parm_cd=00010&period=7";
+                  let paramCD = "&parm_cd=00010&period=4";
                   googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                   }
  
-                  let popup = new mapboxgl.Popup()
+                  let popup = new mapboxgl.Popup({closeButton: false})
                     .setLngLat(coordinates)
                     .setHTML("Loading...")
                     .setMaxWidth("none")
                     .addTo(map);
 
-                  self.getGraph(imgURL, description, paramCD, popup);
+                  self.getGraph(imgURL, description, paramCD, popup, coordinates, map);
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "pointer";
@@ -317,7 +317,7 @@
                   map.getCanvas().style.cursor = "";
                 });
             },
-            getGraph(url, id, params, popup){
+            getGraph(url, id, params, popup, coordinates, map){
               fetch(url + id + params)
                 .then(response => response.blob())
                 .then(image => {
@@ -326,6 +326,7 @@
                   reader.onloadend = function(){
                     let base64data = reader.result;
                     let graph = "<img src='" + base64data + "'/>";
+                    map.panTo(coordinates, {offset: [0, 100]});
                     popup.setHTML(graph);
                   }
                 });
@@ -570,7 +571,13 @@
     max-width: 240px;
   }
 
-  @media screen and (min-width: 650px){
+  @media screen and (min-width: 650px) and (min-height: 800px){
+    #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+      max-width: 400px;
+    }
+  }
+
+  @media screen and (min-width: 650px) and (min-height: 1200px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
       max-width: 600px;
     }
