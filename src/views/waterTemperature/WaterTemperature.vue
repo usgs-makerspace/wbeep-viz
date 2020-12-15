@@ -295,8 +295,8 @@
                 map.on('click','USGS temperature monitoring stations', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let description = e.features[0].properties.site_no;
-                  let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
-                  let paramCD = "&parm_cd=00010&period=4";
+                  let imgURL = "https://labs.waterdata.usgs.gov/api/graph-images/monitoring-location/";
+                  let paramCD = "?parameterCode=00010&period=P4D&title=true";
                   googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -318,18 +318,9 @@
                 });
             },
             getGraph(url, id, params, popup, coordinates, map){
-              fetch(url + id + params)
-                .then(response => response.blob())
-                .then(image => {
-                  let reader = new FileReader();
-                  reader.readAsDataURL(image);
-                  reader.onloadend = function(){
-                    let base64data = reader.result;
-                    let graph = "<img src='" + base64data + "'/>";
-                    map.panTo(coordinates, {offset: [0, 100]});
-                    popup.setHTML(graph);
-                  }
-                });
+              let graph = "<img src='" + url + id + params + "'/>";
+              console.log(graph);
+              popup.setHTML(graph)
             }
         }
     };
