@@ -570,9 +570,15 @@
     max-width: 240px;
   }
 
-  @media screen and (min-width: 650px){
+  @media screen and (min-width: 650px) and (min-height: 800px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 600px;
+      max-width: 300px;
+    }
+  }
+
+  @media screen and (min-width: 650px) and (min-height: 1200px){
+    #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
+      max-width: 400px;
     }
   }
 
