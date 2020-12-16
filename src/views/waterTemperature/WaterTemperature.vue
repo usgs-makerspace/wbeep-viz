@@ -308,7 +308,9 @@
                     .setMaxWidth("none")
                     .addTo(map);
 
-                  self.getGraph(imgURL, description, paramCD, popup, coordinates, map);
+                  let src = imgURL + description + paramCD;
+
+                  self.getGraph(src, popup, coordinates, map);
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
                   map.getCanvas().style.cursor = "pointer";
@@ -317,19 +319,20 @@
                   map.getCanvas().style.cursor = "";
                 });
             },
-            getGraph(url, id, params, popup, coordinates, map){
-              fetch(url + id + params)
-                .then(response => response.blob())
-                .then(image => {
-                  let reader = new FileReader();
-                  reader.readAsDataURL(image);
-                  reader.onloadend = function(){
-                    let base64data = reader.result;
-                    let graph = "<img src='" + base64data + "'/>";
-                    map.panTo(coordinates, {offset: [0, 170]});
-                    popup.setHTML(graph);
-                  }
-                });
+            getGraph(src, popup, coordinates, map){
+              new Promise((resolve, reject) => {
+                let img = new Image;
+                img.src = src;
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                setTimeout(function(){reject('timeout')}, 20000)
+              }).then(function(img){
+                map.panTo(coordinates, {offset: [0, 150]});
+                popup.setDOMContent(img);
+              })
+              .catch(function(error){
+                popup.setHTML("An error has occured.")
+              })
             }
         }
     };
