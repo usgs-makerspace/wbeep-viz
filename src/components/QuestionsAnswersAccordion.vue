@@ -137,7 +137,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   #container-questions-answers {
     .section-title {
       margin: 0.5em 0 0.5em 0;
@@ -160,10 +160,21 @@
       p{
         display: inline;
       }
+      a{
+        color: #003366;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
     }
     hr {
       margin: 1em 0 1em 0;
     }
+  }
+  .usa-prose > p{
+    max-width: none;
   }
   @media screen and (min-width: 600px){
     #container-questions-answers{
