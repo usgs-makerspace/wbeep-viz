@@ -17,16 +17,25 @@ export default {
                     },
                     {
                         "id": "storageQuestion2",
+                        "question": "What does “Concept Map” mean, and why aren’t these data available here for decision making? ",
+                        "answer": "The data presented within the IWAAs water availability series of maps demonstrate a new USGS capability for calculating near real-time estimates of water budget variables.  The process (or concept) behind the data acquisition, modeling, and delivery of water temperature or water storage data throughout the lower 48 states are orchestrated using an operational pipeline in the Cloud (See About tab for more information).  While the models used for these calculations are complex and verified (" +
+                        "<a href='https://doi.org/10.5066/P9NM8K8W' " + 
+                        "target='_blank' " + 
+                        "@click='runGoogleAnalytics('QA page', 'click', 'clicked reference for Hay 2019, Sanders et. al, 2017')' " +
+                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time.  In the future operational models with decision-ready data downloading will be a functionality."
+                    },
+                    {
+                       "id": "storageQuestion3",
                        "question": "What is the meaning of \"natural water storage\"?",
                        "answer": "Natural water storage shown here includes water present on the landscape such as standing water (ponds, lakes, and wetlands), and water on trees, snowpack, soil water, and shallow groundwater. It does not include water in rivers or deep groundwater."
                     },
                     {
-                        "id": "storageQuestion3",
+                        "id": "storageQuestion4",
                         "question": "Why is the \"latest available\" map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
-                        "id": "storageQuestion4",
+                        "id": "storageQuestion5",
                         "question": "What is being highlighted when I move my mouse on the map?",
                         "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs, <a\n"+
                         "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
@@ -35,22 +44,22 @@ export default {
                         ">Bock et al. 2020</a>). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
-                        "id": "storageQuestion5",
+                        "id": "storageQuestion6",
                         "question": "How can I see a previous day’s natural water storage value for my region?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
-                        "id": "storageQuestion6",
+                        "id": "storageQuestion7",
                         "question": "I live in Hawaii, why do I not see any natural water storage data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate daily natural water storage for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "storageQuestion7",
+                        "id": "storageQuestion8",
                         "question": "How can I print or save this map?",
                         "answer": "No specific features are built into this web site to print or save images at this time, but you can use those available in your web browser to save the image locally (In the Menu, look for Save As, which may give you options to save the HTML or PDF). Alternatively, you can use your computer’s screen capture capabilities to grab a screenshot of the map image and paste it into a local image editor to save it (for example, paste it into Microsoft Paint on a Windows computer)."
                     },
                     {
-                        "id": "storageQuestion8",
+                        "id": "storageQuestion9",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes! This is the first iteration of a USGS product that displays a near real-time indicator of water availability across the lower forty-eight states. Future plans include additional indicators of near real-time water availability (beyond natural water storage), as well as predictions of future water availability. If you’re interested in contributing ideas or learning more, please reach out to       <a\n" +
                         "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
@@ -144,15 +153,6 @@ export default {
                     },
                     {
                         "id": "useQuestion2",
-                        "question": "What does “Concept Map” mean, and why aren’t these data available here for decision making? ",
-                        "answer": "The data presented within the IWAAs water availability series of maps demonstrate a new USGS capability for calculating near real-time estimates of water budget variables.  The process (or concept) behind the data acquisition, modeling, and delivery of water temperature or water storage data throughout the lower 48 states are orchestrated using an operational pipeline in the Cloud (See About tab for more information).  While the models used for these calculations are complex and verified (" +
-                        "<a href='https://doi.org/10.5066/P9NM8K8W' " + 
-                        "target='_blank' " + 
-                        "@click='runGoogleAnalytics('QA page', 'click', 'clicked reference for Hay 2019, Sanders et. al, 2017')' " +
-                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time."
-                    },
-                    {
-                        "id": "useQuestion3",
                         "question": "What is the meaning of “water use” Thermoelectric, Irrigation, and Public Supply?",
                         "answer": "Water for thermoelectric power is used in the process of generating electricity with steam-driven turbine generators. Water for irrigation is withdrawn to supplement water needs for agricultural crops. Public supply refers to water withdrawn by public and private water suppliers that provide water to at least 25 people or have a minimum of 15 connections and is used mostly for domestic purposes but also serves other customers such as commercial and industrial establishments. (See <a\n" +
                         "href=\"https://doi.org/10.3133/cir1441\"\n" +
@@ -161,17 +161,17 @@ export default {
                         ">Dieter and others, 2018</a> for more information)"
                     },
                     {
-                        "id": "useQuestion4",
+                        "id": "useQuestion3",
                         "question": "What is the difference between water withdrawal and water consumption? ",
                         "answer": "Water withdrawal is the total amount removed from a water source such as a river or an aquifer. Often, a portion of this water is returned to the source and is available to be used again. Water consumed is the portion of water that is removed and not returned to its source. For example, the amount of evapotranspiration caused by irrigating a crop is an example of the amount of water consumed."
                     },
                     {
-                        "id": "useQuestion5",
+                        "id": "useQuestion4",
                         "question": "Why are the data for 2015?",
                         "answer": "The USGS compiled water use estimates by individual counties and reported state totals most recently for 2015. These data were used to estimate water use shown in these maps. Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates."
                     },
                     {
-                        "id": "useQuestion6",
+                        "id": "useQuestion5",
                         "question": "How does the water use map relate to the daily bar chart? ",
                         "answer": "The water use map represents each season's average daily water use rate of withdrawal for each watershed (<a\n" +
                         "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
@@ -180,7 +180,7 @@ export default {
                         ">10-digit hydrologic unit code, USGS 2014</a>) in the lower 48-states.  The daily bar chart represents national daily water use for the selected water use category for each day of the year."
                     },
                     {
-                        "id": "useQuestion7",
+                        "id": "useQuestion6",
                         "question": "What is the spatial unit represented by each circle or dot on the map?",
                         "answer": "Each circle or dot on the map represents the water use referenced to the centroid of a watershed (<a\n" +
                         "href=\"https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products\"\n" +
@@ -189,12 +189,12 @@ export default {
                         ">10-digit hydrologic unit code, USGS 2014</a>) in the lower 48-states."
                     },
                     {
-                        "id": "useQuestion8",
+                        "id": "useQuestion7",
                         "question": "I live in Alaska, why don't I see any water use data there?",
                         "answer": "The water use data are estimated across the lower forty-eight states using geospatial analysis and temporal disaggregation methods, but the data needed for these methods are not available in Hawaii, Alaska and Puerto Rico. In the future, the goal is to expand the water use map to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "useQuestion9",
+                        "id": "useQuestion8",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes. This water use map is part of a USGS product that displays multiple aspects of the water budget for all watersheds across the lower forty-eight states.  Future water use estimates will be made using models that are under development by the USGS, and these models will provide historical, current, and forecasted water use estimates. This map will be updated or used to develop new products for enhanced data delivery and visualization. If you’re interested in contributing ideas or learning more, please reach out to <a\n" +
                         "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
@@ -253,7 +253,7 @@ export default {
                         "<a href='https://doi.org/10.5066/P9NM8K8W' " + 
                         "target='_blank' " + 
                         "@click='runGoogleAnalytics('QA page', 'click', 'clicked reference for Hay 2019, Sanders et. al, 2017')' " +
-                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time."
+                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time.  In the future operational models with decision-ready data downloading will be a functionality."
                     },
                     {
                         "id": "tempQuestion3",
