@@ -326,7 +326,7 @@
                   reader.onloadend = function(){
                     let base64data = reader.result;
                     let graph = "<img src='" + base64data + "'/>";
-                    map.panTo(coordinates, {offset: [0, 100]});
+                    map.panTo(coordinates, {offset: [0, 150]});
                     popup.setHTML(graph);
                   }
                 });
@@ -506,7 +506,6 @@
   }
 
   .mapboxgl-popup {
-    max-width: 800px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
@@ -568,18 +567,18 @@
     }
   }
   #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-    max-width: 240px;
+    max-width: 308px; /*# 20px larger for padding real image size is 288#*/
   }
 
   @media screen and (min-width: 650px) and (min-height: 600px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 400px;
+      max-width: 475px; /*# Determined size that looks okay on windows #*/
     }
   }
 
   @media screen and (min-width: 650px) and (min-height: 1200px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 600px;
+      max-width: 596px; /*# 20px larger for padding real image size is 576#*/
     }
   }
 
