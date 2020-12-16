@@ -320,19 +320,21 @@
                 });
             },
             getGraph(src, popup, coordinates, map){
-              fetch(src)
-                .then(response => response.blob())
-                .then(image => {
-                  let reader = new FileReader();
-                  reader.readAsDataURL(image);
-                  reader.onloadend = function(){
-                    console.log(reader.result)
-                    let base64data = reader.result;
-                    let graph = "<img src='" + base64data + "'/>";
-                    map.panTo(coordinates, {offset: [0, 150]});
-                    popup.setHTML(graph);
-                  }
-                });
+              new Promise((resolve, reject) => {
+                let img = new Image;
+                img.src = src;
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                setTimeout(function(){reject('timeout')}, 10000)
+              }).then(function(img){
+                console.log(img)
+                map.panTo(coordinates, {offset: [0, 150]});
+                popup.setDOMContent(img);
+              })
+              .catch(function(error){
+                console.log(error);
+                popup.setHTML("An error has occured.")
+              })
             }
         }
     };
