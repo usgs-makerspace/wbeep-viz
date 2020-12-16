@@ -4,7 +4,6 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
-    <WorkInProgressWarning />
     <div id="mapSubtitleContainer">
       <MapSubtitle 
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -89,7 +88,6 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
-  import WorkInProgressWarning from "../../components/WorkInProgressWarning";
   export default {
     name: 'WaterUse',
     components: {

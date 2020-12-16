@@ -1,6 +1,5 @@
 <template>
   <div id="aboutContainer">
-    <WorkInProgressWarning />
     <div id="aboutContent">
       <h1>National Integrated Water Availability Assessments (IWAAs)</h1>
       <h2><strong>Water Availability Mapper:</strong> Water Storage, Water Temperature, Water Use</h2>
@@ -127,7 +126,6 @@
 </template>
 
 <script>
-    import WorkInProgressWarning from "@/components/WorkInProgressWarning";
     import pipelineDiagram from "@/assets/images/about/pipelinesdiagram-01.svg";
     export default {
         name: "About",
