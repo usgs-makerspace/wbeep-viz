@@ -326,7 +326,7 @@
                   reader.onloadend = function(){
                     let base64data = reader.result;
                     let graph = "<img src='" + base64data + "'/>";
-                    map.panTo(coordinates, {offset: [0, 150]});
+                    map.panTo(coordinates, {offset: [0, 170]});
                     popup.setHTML(graph);
                   }
                 });
