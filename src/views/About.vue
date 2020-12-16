@@ -130,7 +130,6 @@
     export default {
         name: "About",
         components:{
-          WorkInProgressWarning,
           pipelineDiagram
         },
         methods:{

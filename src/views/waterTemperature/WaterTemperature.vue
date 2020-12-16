@@ -90,8 +90,7 @@
             MglAttributionControl,
             MapLegend,
             MapLayers,
-            QuestionControl,
-            WorkInProgressWarning
+            QuestionControl
         },
         data() {
             return {
