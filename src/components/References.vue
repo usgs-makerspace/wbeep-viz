@@ -69,9 +69,17 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   #referencesContainer {
-    margin-top: 3em;
+    margin-top: 30px;
+    a{
+        color: #003366;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      };
   }
 
 </style>
