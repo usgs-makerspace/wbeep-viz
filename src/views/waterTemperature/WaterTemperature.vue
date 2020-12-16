@@ -324,10 +324,10 @@
                 img.src = src;
                 img.onload = () => resolve(img);
                 img.onerror = reject;
-                setTimeout(function(){reject('timeout')}, 60000)
+                setTimeout(function(){reject('timeout')}, 40000)
               }).then(function(img){
                 console.log(img)
-                map.panTo(coordinates, {offset: [0, 100]});
+                map.panTo(coordinates, {offset: [0, 120]});
                 popup.setDOMContent(img);
               })
               .catch(function(error){
@@ -577,13 +577,13 @@
 
   @media screen and (min-width: 650px) and (min-height: 600px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 400px;
+      max-width: 500px;
     }
   }
 
   @media screen and (min-width: 650px) and (min-height: 1200px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 600px;
+      max-width: 700px;
     }
   }
 
