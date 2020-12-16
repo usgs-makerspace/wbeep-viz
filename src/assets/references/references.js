@@ -50,8 +50,18 @@ export default {
         title: "Water Temperature References",
         references: [
             {
+                reference: "Abatzoglou, J.T., 2013. Development of gridded surface meteorological data for ecological applications and modelling. Int. J. Climatol. 33, 121–131.",
+                href: "https://doi.org/10.1002/joc.3413",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water temperature reference')",
+            },
+            {
                 reference: "Bock, A.R., Santiago, M., Wieczorek, M.E., Foks, S.S., and Lombard, M.A., 2020, Geospatial Fabric for National Hydrologic Modeling, version 1.1: U.S. Geological Survey data release, ",
                 href: "https://doi.org/10.5066/P971JAGF",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water temperature reference')",
+            },
+            {
+                reference: "Hay, L., 2019. Application of the National Hydrologic Model Infrastructure with the Precipitation-Runoff Modeling System (NHM-PRMS), by HRU Calibrated Version.",
+                href: "https://doi.org/10.5066/P9NM8K8W",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water temperature reference')",
             },
             {
