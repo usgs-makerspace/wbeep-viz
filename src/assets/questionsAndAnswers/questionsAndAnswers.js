@@ -240,7 +240,7 @@ export default {
                         "id": "tempQuestion1",
                         "question": "What does this map show me?",
                         "answer": "This map displays river networks with daily water temperature represented by colors shaded " + 
-                                "from light blue to dark red. These temperatures are generated from models that consider daily " +  
+                                "from dark blue to dark red. These temperatures are generated from models that consider daily " +  
                                 "fluctuations in environmental variables to calculate average stream temperature conditions for a " + 
                                 "given day. This map also contains USGS real-time temperature monitoring sites that are visible at finer " + 
                                 "zoom levels. Clicking on the symbol will open a graph of the past 7 days of temperature monitoring data " + 

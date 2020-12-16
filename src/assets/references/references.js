@@ -103,7 +103,12 @@ export default {
                 reference: "U.S. Geological Survey, 2014, National Watershed Boundary Dataset (WBD), vector digital data.",
                 href: "https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products",
                 googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water use reference')",
-            }
+            },
+            {
+                reference: "Hay, L., 2019. Application of the National Hydrologic Model Infrastructure with the Precipitation-Runoff Modeling System (NHM-PRMS), by HRU Calibrated Version.",
+                href: "https://doi.org/10.5066/P9NM8K8W",
+                googleAnalytics: "$ga.commands.trackName.bind(this, 'click-reference', 'click', 'user went to water temperature reference')",
+            },
         ]
     }
 }
