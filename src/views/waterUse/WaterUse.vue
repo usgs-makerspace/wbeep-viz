@@ -438,7 +438,7 @@ $barChartHighlight: red;
   }
 }
 #waterUseMapContainer{
-  width: 100%;
+  width: 80vw;
   max-width: 1500px;
   margin: 20px 0;
   position: relative;
@@ -548,8 +548,8 @@ path.wu-bars-axis {
   }
 }
 @media screen and (min-width: 1000px) and (max-height: 652px){
-  .water-use-content{
-    width: 530px;
+  #waterUseMapContainer{
+    width: 70vw;
   }
 }
 </style>
