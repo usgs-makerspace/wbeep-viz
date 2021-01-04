@@ -548,8 +548,8 @@ path.wu-bars-axis {
   }
 }
 @media screen and (min-width: 1000px) and (max-height: 652px){
-  .water-use-content{
-    width: 530px;
+  #waterUseMapContainer{
+    width: 70vw;
   }
 }
 </style>
