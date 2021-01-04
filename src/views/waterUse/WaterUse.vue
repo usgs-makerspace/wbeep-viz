@@ -438,7 +438,7 @@ $barChartHighlight: red;
   }
 }
 #waterUseMapContainer{
-  width: 100%;
+  width: 80vw;
   max-width: 1500px;
   margin: 20px 0;
   position: relative;
