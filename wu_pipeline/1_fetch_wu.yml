@@ -17,7 +17,7 @@ targets:
       - 1_fetch/out/huc10_centroids.geojson
   
   sb_dl_date:
-    command: c(I("2020-08-21"))
+    command: c(I("2020-12-29"))
   
   sbid_thermoelectric:
     command: c(I("5f92055082ce720ee2d33d35"))

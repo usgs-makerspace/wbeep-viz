@@ -17,16 +17,25 @@ export default {
                     },
                     {
                         "id": "storageQuestion2",
+                        "question": "What does “Concept Map” mean, and why aren’t these data available here for decision making? ",
+                        "answer": "The data presented within the IWAAs water availability series of maps demonstrate a new USGS capability for calculating near real-time estimates of water budget variables.  The process (or concept) behind the data acquisition, modeling, and delivery of water temperature or water storage data throughout the lower 48 states are orchestrated using an operational pipeline in the Cloud (See About tab for more information).  While the models used for these calculations are complex and verified (" +
+                        "<a href='https://doi.org/10.5066/P9NM8K8W' " + 
+                        "target='_blank' " + 
+                        "@click='runGoogleAnalytics('QA page', 'click', 'clicked reference for Hay 2019, Sanders et. al, 2017')' " +
+                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time.  In the future operational models with decision-ready data downloading will be a functionality."
+                    },
+                    {
+                       "id": "storageQuestion3",
                        "question": "What is the meaning of \"natural water storage\"?",
                        "answer": "Natural water storage shown here includes water present on the landscape such as standing water (ponds, lakes, and wetlands), and water on trees, snowpack, soil water, and shallow groundwater. It does not include water in rivers or deep groundwater."
                     },
                     {
-                        "id": "storageQuestion3",
+                        "id": "storageQuestion4",
                         "question": "Why is the \"latest available\" map not for today?",
                         "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
                     },
                     {
-                        "id": "storageQuestion4",
+                        "id": "storageQuestion5",
                         "question": "What is being highlighted when I move my mouse on the map?",
                         "answer": "Highlighted modeling units or regions are called Hydrologic Response Units (HRUs, <a\n"+
                         "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
@@ -35,22 +44,22 @@ export default {
                         ">Bock et al. 2020</a>). Each watershed is broken up into these regions in order to estimate the daily natural water storage. The units are based on the area that flows to the left or right side of a river between an upstream and downstream location."
                     },
                     {
-                        "id": "storageQuestion5",
+                        "id": "storageQuestion6",
                         "question": "How can I see a previous day’s natural water storage value for my region?",
                         "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
                     },
                     {
-                        "id": "storageQuestion6",
+                        "id": "storageQuestion7",
                         "question": "I live in Hawaii, why do I not see any natural water storage data there?",
                         "answer": "The model used currently only has the data it needs in order to calculate daily natural water storage for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "storageQuestion7",
+                        "id": "storageQuestion8",
                         "question": "How can I print or save this map?",
                         "answer": "No specific features are built into this web site to print or save images at this time, but you can use those available in your web browser to save the image locally (In the Menu, look for Save As, which may give you options to save the HTML or PDF). Alternatively, you can use your computer’s screen capture capabilities to grab a screenshot of the map image and paste it into a local image editor to save it (for example, paste it into Microsoft Paint on a Windows computer)."
                     },
                     {
-                        "id": "storageQuestion8",
+                        "id": "storageQuestion9",
                         "question": "Will there be improvements to this map in the future?",
                         "answer": "Yes! This is the first iteration of a USGS product that displays a near real-time indicator of water availability across the lower forty-eight states. Future plans include additional indicators of near real-time water availability (beyond natural water storage), as well as predictions of future water availability. If you’re interested in contributing ideas or learning more, please reach out to       <a\n" +
                         "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
@@ -231,38 +240,47 @@ export default {
                         "id": "tempQuestion1",
                         "question": "What does this map show me?",
                         "answer": "This map displays river networks with daily water temperature represented by colors shaded " + 
-                                "from light blue to dark red. These temperatures are generated from models that consider daily " +
-                                "fluctuations in environmental variables to calculate average of stream temperature conditions for " + 
-                                "a given day. This map also contains USGS real-time temperature monitoring sites that are visible at " + 
-                                "finer zoom levels. Clicking on the symbol will open a graph of the past 7 days of temperature " + 
-                                "monitoring data along-side the modeled temperature estimates."
+                                "from dark blue to dark red. These temperatures are generated from models that consider daily " +  
+                                "fluctuations in environmental variables to calculate average stream temperature conditions for a " + 
+                                "given day. This map also contains USGS real-time temperature monitoring sites that are visible at finer " + 
+                                "zoom levels. Clicking on the symbol will open a graph of the past 7 days of temperature monitoring data " + 
+                                "along-side the modeled temperature estimates. "
                     },
                     {
                         "id": "tempQuestion2",
+                        "question": "What does “Concept Map” mean, and why aren’t these data available here for decision making? ",
+                        "answer": "The data presented within the IWAAs water availability series of maps demonstrate a new USGS capability for calculating near real-time estimates of water budget variables.  The process (or concept) behind the data acquisition, modeling, and delivery of water temperature or water storage data throughout the lower 48 states are orchestrated using an operational pipeline in the Cloud (See About tab for more information).  While the models used for these calculations are complex and verified (" +
+                        "<a href='https://doi.org/10.5066/P9NM8K8W' " + 
+                        "target='_blank' " + 
+                        "@click='runGoogleAnalytics('QA page', 'click', 'clicked reference for Hay 2019, Sanders et. al, 2017')' " +
+                        ">Hay 2019, Sanders et. al, 2017</a>), the operational pipeline delivery and display capability was the focus of this work.  For those reasons, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time.  In the future operational models with decision-ready data downloading will be a functionality."
+                    },
+                    {
+                        "id": "tempQuestion3",
                         "question": "What stream network is represented in this map?",
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n" +
                         "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked reference for Bock et al. 2020')\"\n" +                        
-                        ">Bock et al., 2020</a>) which have a similar scope as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006)."
-                    },
-                    {
-                        "id": "tempQuestion3",
-                        "question": "Why is the “latest available” water temperature map not for today?",
-                        "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the date at the top of the map will be yesterday or the day before yesterday. If the date is more than two days ago, that is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online."
+                        ">Bock et al., 2020</a>) which have a similar scale as the National Hydrography Dataset Plus version 1 (1:100,000 scale, US EPA and USGS 2006)."
                     },
                     {
                         "id": "tempQuestion4",
-                        "question": "How can I see the previous day’s water temperature?",
-                        "answer": "There is not currently a way for users to view maps for previous days. In the future, this may be a capability."
+                        "question": "Why is the “latest available” water temperature map not for today?",
+                        "answer": "The latest model run requires a summary of the weather (precipitation and temperature) for a complete day. A sequence of operations begin at midnight starting with collecting observed weather data and ending several hours later with estimates of natural water storage and an updated map. For this reason, depending on the time of day relative to the latest update, the “date of latest available data” at the top of the map will be yesterday or the day before yesterday. Occasionally, the date at the top of the page is more than two days ago.  This is an indication that some part of the update operations did not run successfully and the team is working to bring the system back online. "
                     },
                     {
                         "id": "tempQuestion5",
+                        "question": "How can I see the previous day’s water temperature?",
+                        "answer": "Currently, users can not view maps for previous days. As a “Concept Map”, data are displayed so that the range of values may be observed, but the actual predictions are not available for download, and we discourage policy or decision making from these data at the present time.  In the future as the models are updated and further verified, viewing the previous day’s data and downloading will be a capability. "
+                    },
+                    {
+                        "id": "tempQuestion6",
                         "question": "I live in Puerto Rico, why don't I see any water temperature data there?",
                         "answer": "The model used currently only has the input data it needs in order to calculate stream temperatures for the lower forty-eight states. In the future, the goal is to expand the model to include Hawaii, Alaska and Puerto Rico."
                     },
                     {
-                        "id": "tempQuestion6",
+                        "id": "tempQuestion7",
                         "question": "Are brook trout streams represented in this map?",
                         "answer": "The streams which have model estimates developed are represented with the National Geospatial Fabric (<a\n"+
                         "href=\"https://doi.org/10.5066/P971JAGF\"\n" +
@@ -275,9 +293,9 @@ export default {
                         ">US EPA and USGS 2006</a>). This medium scale river network will most likely not contain typical trout streams that are small, headwater, first-order mountain streams."
                     },
                     {
-                        "id": "tempQuestion7",
+                        "id": "tempQuestion8",
                         "question": "Will there be improvements to this map in the future?",
-                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream water temperature for approximately 85,000 stream segments which may be increased over time with new models and new geospatial dataset availability.  Water Temperature may be combined with other water availability factors in one map, or additional capabilities to query data, view historic model temperature estimates, or export data may be included in future releases. If you’re interested in contributing ideas or learning more, please reach out to <a\n"+
+                        "answer": "Yes. This water temperature map is part of a USGS product that displays multiple aspects of water availability for all hydrologic units across the lower forty-eight states. This application displays a near real-time indicator of stream water temperature for approximately 58,000 stream segments which may be increased over time with new models and new geospatial dataset availability. Water Temperature may be combined with other water availability factors in one map, or additional capabilities to query data, view historic model temperature estimates, or export data may be included in future releases. If you’re interested in contributing ideas or learning more, please reach out to <a\n"+
                         "href=\"mailto:gs-w_onhm@usgs.gov?subject=IWAAs Ideas or Contribution\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked gs-w_onhm@usgs.gov email link')\"\n" +
@@ -291,7 +309,7 @@ export default {
                     {
                         "id": "tempDeepScience1",
                         "question": "How are the water temperature estimates generated? ",
-                        "answer": "Water temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; <a\n"+
+                        "answer": "The process behind the data acquisition, modeling, and delivery of water temperature data for streams throughout the lower 48 states are orchestrated using an operational pipeline in the Cloud (See About tab for more information). Water temperatures are estimated using the Precipitation-Runoff Modeling System (PRMS; <a\n"+
                         "href=\"https://doi.org/10.3133/tm6B7\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Markstrom et al 2015')\"\n" +
@@ -307,12 +325,20 @@ export default {
                         "href=\"https://pubs.er.usgs.gov/publication/ofr99112\"\n" +
                         "target=\"_blank\"\n" +
                         "@click=\"runGoogleAnalytics('about page', 'click', 'clicked text reference for Bartholow 2000')\"\n" +
-                        ">Bartholow, 2000</a>)."
+                        ">Bartholow, 2000</a>). Climate input data (<a " +
+                        "href='https://doi.org/10.1002/joc.3413' " + 
+                        "target='_blank' " +  
+                        "@click='runGoogleAnalytics('about page', 'click', 'clicked text reference for Abatzoglou, 2013')'" +
+                        ">Abatzoglou, 2013</a>) represent provisional estimates for the previous day.  "
                     },
                     {
                         "id": "tempDeepScience2",
                         "question": "Why was water temperature used as an indicator of water quality?",
-                        "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat.  Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
+                        "answer": "Stream temperature is one factor of overall water quality due to its impact on chemical cycling in rivers, aquatic organisms and their habitat. (<a " + 
+                        "href='https://www.usgs.gov/special-topic/water-science-school/science/temperature-and-water?qt-science_center_objects=0#qt-science_center_objects' " + 
+                        "target='_blank' " + 
+                        "@click='runGoogleAnalytics('about page', 'click', 'clicked USGS science school overview on water temperature')'" + 
+                        ">USGS science school overview on water temperature</a>) Streams naturally have different temperatures depending on how big they are, where they are located, and the time of year. "
                     },
                     {
                         "id": "tempDeepScience3",

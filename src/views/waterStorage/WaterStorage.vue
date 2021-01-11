@@ -6,16 +6,6 @@
     <LoadingScreenInternal
       :is-loading="isLoading"
     />
-    <div
-      v-if="developmentTier !== '-test build-'"
-      class="header-container"
-    >
-      <div class="usa-prose">
-        <h1>
-          {{ title }} {{ featureName }} {{ developmentTier }}
-        </h1>
-      </div>
-    </div>
     <div id="mapContainer">
       <MapSubtitle
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
