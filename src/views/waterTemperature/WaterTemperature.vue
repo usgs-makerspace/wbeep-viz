@@ -6,7 +6,6 @@
     <LoadingScreenInternal
       :is-loading="isLoading"
     />
-    <WorkInProgressWarning />
     <div id="mapContainer">
       <MapSubtitle
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -68,7 +67,6 @@
     import MapLegend from "../../components/MapLegend";
     import { icon } from "@fortawesome/fontawesome-svg-core";
     import QuestionControl from "../../components/QuestionControl";
-    import WorkInProgressWarning from "../../components/WorkInProgressWarning";
     import {
         MglMap,
         MglNavigationControl,
@@ -92,8 +90,7 @@
             MglAttributionControl,
             MapLegend,
             MapLayers,
-            QuestionControl,
-            WorkInProgressWarning
+            QuestionControl
         },
         data() {
             return {
@@ -308,7 +305,6 @@
                     .setMaxWidth("none")
                     .addTo(map);
                   let src = imgURL + description + paramCD;
-                  console.log(src);
                   self.getGraph(src, popup, coordinates, map);
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
@@ -327,7 +323,7 @@
                 setTimeout(function(){reject('timeout')}, 60000)
               }).then(function(img){
                 console.log(img)
-                map.panTo(coordinates, {offset: [0, 120]});
+                map.panTo(coordinates, {offset: [0, 150]});
                 popup.setDOMContent(img);
               })
               .catch(function(error){
@@ -510,7 +506,6 @@
   }
 
   .mapboxgl-popup {
-    max-width: 800px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
@@ -572,18 +567,18 @@
     }
   }
   #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-    max-width: 240px;
+    max-width: 308px; /*# 20px larger for padding real image size is 288#*/
   }
 
   @media screen and (min-width: 650px) and (min-height: 600px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 500px;
+      max-width: 475px; /*# Determined size that looks okay on windows #*/
     }
   }
 
   @media screen and (min-width: 650px) and (min-height: 1200px){
     #mapgl-water-temperature-mapbox-map .mapboxgl-popup-content{
-      max-width: 700px;
+      max-width: 596px; /*# 20px larger for padding real image size is 576#*/
     }
   }
 

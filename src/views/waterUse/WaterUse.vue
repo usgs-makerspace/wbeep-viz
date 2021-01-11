@@ -4,7 +4,6 @@
     class="centeredContent waterUseFlex"
     @click.once="clickAnywhereToCloseMapInfoBox"
   >
-    <WorkInProgressWarning />
     <div id="mapSubtitleContainer">
       <MapSubtitle 
         :is-about-map-info-box-open="isAboutMapInfoBoxOpen"
@@ -89,15 +88,13 @@
 
 <script>
   import LoadingScreenInternal from "../../components/LoadingScreenInternal";
-  import WorkInProgressWarning from "../../components/WorkInProgressWarning";
   export default {
     name: 'WaterUse',
     components: {
         LoadingScreenInternal,
         MapSubtitle: () => import(/*webpackChunkName: "MapSubtitle"*/ "../../components/MapSubtitle"),
         DynamicSVG: () => import(/* webpackPrefetch: true */ /*webpackChunkName: "SVGMaps"*/ "../../components/DynamicSVG"),
-        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart"),
-        WorkInProgressWarning
+        DynamicBarChart: () => import(/*webpackChunkName: "SVGBarChart"*/ "../../components/DynamicBarChart")
     },
     data() {
       return {
@@ -441,7 +438,7 @@ $barChartHighlight: red;
   }
 }
 #waterUseMapContainer{
-  width: 100%;
+  width: 80vw;
   max-width: 1500px;
   margin: 20px 0;
   position: relative;
@@ -551,8 +548,8 @@ path.wu-bars-axis {
   }
 }
 @media screen and (min-width: 1000px) and (max-height: 652px){
-  .water-use-content{
-    width: 530px;
+  #waterUseMapContainer{
+    width: 70vw;
   }
 }
 </style>
