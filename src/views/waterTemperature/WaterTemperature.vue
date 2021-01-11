@@ -324,7 +324,7 @@
                 img.src = src;
                 img.onload = () => resolve(img);
                 img.onerror = reject;
-                setTimeout(function(){reject('timeout')}, 40000)
+                setTimeout(function(){reject('timeout')}, 60000)
               }).then(function(img){
                 console.log(img)
                 map.panTo(coordinates, {offset: [0, 120]});
