@@ -322,7 +322,6 @@
                 img.onerror = reject;
                 setTimeout(function(){reject('timeout')}, 60000)
               }).then(function(img){
-                console.log(img)
                 map.panTo(coordinates, {offset: [0, 150]});
                 popup.setDOMContent(img);
               })
