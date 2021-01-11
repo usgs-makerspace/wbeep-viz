@@ -292,8 +292,8 @@
                 map.on('click','USGS temperature monitoring stations', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let description = e.features[0].properties.site_no;
-                  let imgURL = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=";
-                  let paramCD = "&parm_cd=00010&period=4";
+                  let imgURL = "https://labs.waterdata.usgs.gov/api/graph-images/monitoring-location/";
+                  let paramCD = "?parameterCode=00010&period=P4D&title=true";
                   googleAnalytics("Water Temperature", "Click", "Site " + description + " was clicked");
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -304,9 +304,7 @@
                     .setHTML("Loading...")
                     .setMaxWidth("none")
                     .addTo(map);
-
                   let src = imgURL + description + paramCD;
-
                   self.getGraph(src, popup, coordinates, map);
                 });
                 map.on('mousemove','USGS temperature monitoring stations', function (e) {
@@ -322,12 +320,14 @@
                 img.src = src;
                 img.onload = () => resolve(img);
                 img.onerror = reject;
-                setTimeout(function(){reject('timeout')}, 20000)
+                setTimeout(function(){reject('timeout')}, 60000)
               }).then(function(img){
+                console.log(img)
                 map.panTo(coordinates, {offset: [0, 150]});
                 popup.setDOMContent(img);
               })
               .catch(function(error){
+                console.log(error);
                 popup.setHTML("An error has occured.")
               })
             }
