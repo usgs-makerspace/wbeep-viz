@@ -81,7 +81,7 @@ export default {
                     'visibility': 'visible',
                 },
                 'paint': {
-                    'fill-color': 'hsl(47, 26%, 88%)'
+                    'fill-color': '#ffffff'
                 }
             },
             {
@@ -104,11 +104,22 @@ export default {
                         5, 1,
                         6, 2
                     ],
+                    // ['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061']
                     "line-color": [
-                        "interpolate", ["linear"], ["get", "temp"],
-                        0, "#10305d", 
-                        15, "#c4c1b6",
-                        30, "#730000"
+                        "step",
+                        ["get", "temp"],
+                        "#053061",
+                        0, "#053061", 
+                        2, "#2166ac",
+                        6, "#4393c3",
+                        9, "#92c5de",
+                        12, "#d1e5f0",
+                        15, "#fddbc7",
+                        18, "#f4a582",
+                        21, "#d6604d",
+                        24, "#b2182b",
+                        27, "#67001f",
+                        30, "#67001f"
                     ]
                   }
 

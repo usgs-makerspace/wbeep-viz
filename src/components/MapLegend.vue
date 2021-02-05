@@ -202,17 +202,52 @@ export default {
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451; = 86&#8457;";
+      topTemp.innerHTML = "30-27&#8451; | 86-81&#8457;";
+      //second hottest
+      let secondHot = document.createElement('div');
+      secondHot.id = "secondHot";
+      secondHot.innerHTML = "26-24&#8451; | 79-75&#8457;";
+      //third hottest
+      let thirdHot = document.createElement('div');
+      thirdHot.id = "thirdHot";
+      thirdHot.innerHTML = "23-21&#8451; | 73-69&#8457;"
+      //fourth hottest
+      let fourthHot = document.createElement('div');
+      fourthHot.id = "fourthHot";
+      fourthHot.innerHTML = "20-18&#8451; | 68-64&#8457;"
       //create middle temp div
       let middleTemp = document.createElement('div');
       middleTemp.id = "middleTemp";
-      middleTemp.innerHTML = "15&#8451; = 59&#8457;"
+      middleTemp.innerHTML = "17-15&#8451; | 63-59&#8457;"
+      //14-12
+      let firstLower = document.createElement('div');
+      firstLower.id = "firstLower";
+      firstLower.innerHTML= "14-12&#8451; | 57-53&#8457"
+      //11-9
+      let secondLower = document.createElement('div');
+      secondLower.id = "secondLower";
+      secondLower.innerHTML= "11-9&#8451;&nbsp;&nbsp; | 51-48&#8457"
+      //8-6
+      let thirdLower = document.createElement('div');
+      thirdLower.id = "thirdLower";
+      thirdLower.innerHTML= "8-6&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 46-42&#8457"
+      //5-3
+      let fourthLower = document.createElement('div');
+      fourthLower.id = "fourthLower";
+      fourthLower.innerHTML= "5-3&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 41-37&#8457"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
-      bottomTemp.innerHTML = "<div>0&#8451; = 32&#8457;</div>"
+      bottomTemp.innerHTML = "2-0&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 35-32&#8457;"
       //add classes to temp divs
       topTemp.classList.add('temp');
+      secondHot.classList.add('temp');
+      thirdHot.classList.add('temp');
+      fourthHot.classList.add('temp');
+      firstLower.classList.add('temp');
+      secondLower.classList.add('temp');
+      thirdLower.classList.add('temp');
+      fourthLower.classList.add('temp');
       bottomTemp.classList.add('temp');
       //create site legend content
       let siteContainer = document.createElement('div');
@@ -227,7 +262,14 @@ export default {
       siteContainer.appendChild(siteDotText);
       gradientContainer.appendChild(gradient);
       tempContainer.appendChild(topTemp);
+      tempContainer.appendChild(secondHot);
+      tempContainer.appendChild(thirdHot);
+      tempContainer.appendChild(fourthHot);
       tempContainer.appendChild(middleTemp);
+      tempContainer.appendChild(firstLower);
+      tempContainer.appendChild(secondLower);
+      tempContainer.appendChild(thirdLower);
+      tempContainer.appendChild(fourthLower);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
@@ -277,6 +319,7 @@ $buttonActiveTextColor: #fff;
   border: $border;
   border-radius: $borderRadius 0 $borderRadius $borderRadius;
   overflow: hidden;
+  font-size: .85em;
 }
 #collapsedLegend{
   display: flex;
@@ -372,11 +415,12 @@ $buttonActiveTextColor: #fff;
   padding: 5px 0;
 }
 #legendGradient{
-  background-image: linear-gradient(180deg, #730000, #c4c1b6, #10305d);
-  min-height: 100px;
+  background-image: linear-gradient(180deg,#67001f,#b2182b,#d6604d,#f4a582,#fddbc7,#d1e5f0,#92c5de,#4393c3,#2166ac,#053061);
+  min-height: 200px;
   width: 30px;
   margin: 0 5px 0 0;
   border-radius: 5px;
+  
 }
 #tempContainer{
   flex: 1;
