@@ -19,8 +19,6 @@
 
 <script>
     import tab_storage from "../views/waterStorage/WaterStorageQA";
-    import tab_use from "../views/waterUse/WaterUseQA";
-    import tab_temperature from "../views/waterTemperature/WaterTemperatureQA";
     import ContactUs from "../components/ContactUs";
     import References from "../components/References";
     import QuestionsAnswersAccordion from "../components/QuestionsAnswersAccordion";
@@ -32,14 +30,12 @@
             ContactUs,
             References,
             QuestionsAnswersAccordion,
-            tab_storage,
-            tab_use,
-            tab_temperature
+            tab_storage
         },
         data() {
             return {
                 currentTab: this.$store.state.tabToOpen,
-                tabs: ["Storage", "Use", "Temperature"],
+                tabs: ["Storage"],
                 title: process.env.VUE_APP_TITLE,
                 developmentTier: process.env.VUE_APP_TIER,
                 feedbackEmailAddress: process.env.VUE_APP_FEEDBACK_EMAIL_ADDRESS,
