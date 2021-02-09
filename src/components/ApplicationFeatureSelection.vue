@@ -16,7 +16,7 @@
           class="router-link-name"
         >{{ waterStorageName }}</span>
       </li>
-      <li @click="$router.push({name: 'waterUse'})">
+      <!--li @click="$router.push({name: 'waterUse'})">
         <span
           id="waterUse"
           class="router-link-name"
@@ -27,7 +27,7 @@
           id="waterTemperature"
           class="router-link-name"
         >{{ waterTemperatureName }}</span>
-      </li>
+      </li-->
     </ul>
   </div>
 </template>
