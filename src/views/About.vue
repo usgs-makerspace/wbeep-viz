@@ -2,7 +2,7 @@
   <div id="aboutContainer">
     <div id="aboutContent">
       <h1>National Integrated Water Availability Assessments (IWAAs)</h1>
-      <h2><strong>Water Availability Mapper:</strong> Water Storage, Water Temperature, Water Use</h2>
+      <!--h2><strong>Water Availability Mapper:</strong> Water Storage, Water Temperature, Water Use</h2-->
       <div
         id="waterStorage"
         class="application"
@@ -24,7 +24,7 @@
           </router-link> provides comprehensive reporting at more than 100,000 watershed units. The 
           National water storage application compares current natural water storage to daily historical values.
         </p>
-        <p>
+        <!--p>
           To expand upon the current visualization of daily estimated water storage, the second and third deliverables 
           of the USGS IWAAs program are map-based displays of modeled daily stream temperatures and modeled 2015 water 
           use estimates. Together, these three indicators provide water quality and availability summaries in response 
@@ -33,9 +33,9 @@
             target="_blank"
             @click="runGoogleAnalytics('About Page', 'click', 'clicked Presidential Memo on Water in the West')"
           >Presidential Memo on Water in the West</a>.
-        </p>
+        </p-->
       </div>
-      <div
+      <!--div
         id="waterTemp"
         class="application"
       >
@@ -89,18 +89,18 @@
             (Dieter and others, 2018).
           </a>  
         </p>
-      </div>
+      </div-->
       <div
         id="operationalPipeline"
         class="application"
       >
         <h3>Operational Pipeline</h3>
         <p>
-          In order to update the water storage and water temperature applications for near-real time conditions, an 
+          In order to update the water storage <!--and water temperature -->application<!--s--> for near-real time conditions, an 
           operational pipeline was implemented in the Cloud. The major steps in the operational pipeline include: 
           1) obtaining and formatting the underlying spatial datasets, 2) obtaining and formatting gridded climate inputs for modeling, 
-          3) hydrologic model execution, 4) post-processing of model outputs, and 5) updating the water storage and water temperature 
-          visualizations. A containerized workflow has been implemented for this process to allow for modularization and flexibility of 
+          3) hydrologic model execution, 4) post-processing of model outputs, and 5) updating the water storage <!--and water temperature -->
+          visualization<!--s-->. A containerized workflow has been implemented for this process to allow for modularization and flexibility of 
           various components, as well as allowing for efficient troubleshooting. Each container in the workflow, as shown in the accompanying 
           diagram, executes a specific, independent, task.
         </p>
@@ -120,7 +120,7 @@
           into vector tiles which are stored in the Cloud for use in the visualization.
         </p>
         <p>
-          To produce the daily-updating modeled water storage or temperature estimates, a series of actions are completed in 
+          To produce the daily-updating modeled water storage <!--or temperature--> estimates, a series of actions are completed in 
           containers in the Cloud.  The first container checks to see if the climate inputs of daily maximum and minimum air 
           temperature and precipitation accumulation from the GridMET dataset 
           <a
@@ -138,8 +138,8 @@
           The model simulations are extracted and stored in the Cloud.    
         </p>
         <p>
-          The last few containers access the stored model simulation results and update the visualizations of water storage and water 
-          temperature. This part of the pipeline combines (joins) the spatial vector tile data with the latest model simulation results 
+          The last few containers access the stored model simulation results and update the visualizations of water storage<!-- and water 
+          temperature-->. This part of the pipeline combines (joins) the spatial vector tile data with the latest model simulation results 
           and places these data-infused tiles back into the Cloud. For water storage, the latest model simulation results are compared 
           to all historic results to bin the data into quantiles. After the model simulation completes, these actions are triggered on a 
           daily-basis to update the vector tile data with the latest available model simulation results. Finally, the vector tiles are 
