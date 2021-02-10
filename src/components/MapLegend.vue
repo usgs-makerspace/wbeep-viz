@@ -194,60 +194,44 @@ export default {
       let gradientContainer = document.createElement('div');
       gradientContainer.id = "legendGradientContainer";
       //create gradient
-      let gradient = document.createElement('div');
-      gradient.id = "legendGradient";
+      let gradient1 = document.createElement('div');
+      gradient1.id = "legendGradient1";
+      let gradient2 = document.createElement('div');
+      gradient2.id = "legendGradient2";
+      let gradient3 = document.createElement('div');
+      gradient3.id = "legendGradient3";
+      let gradient4 = document.createElement('div');
+      gradient4.id = "legendGradient4";
+      let gradient5 = document.createElement('div');
+      gradient5.id = "legendGradient5";
       //create temps container
       let tempContainer = document.createElement('div');
       tempContainer.id = "tempContainer";
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30-27&#8451; | 86-81&#8457;";
+      topTemp.innerHTML = "25-30&#8451; | 77-86&#8457;";
       //second hottest
       let secondHot = document.createElement('div');
       secondHot.id = "secondHot";
-      secondHot.innerHTML = "26-24&#8451; | 79-75&#8457;";
-      //third hottest
-      let thirdHot = document.createElement('div');
-      thirdHot.id = "thirdHot";
-      thirdHot.innerHTML = "23-21&#8451; | 73-69&#8457;"
-      //fourth hottest
-      let fourthHot = document.createElement('div');
-      fourthHot.id = "fourthHot";
-      fourthHot.innerHTML = "20-18&#8451; | 68-64&#8457;"
+      secondHot.innerHTML = "18-24&#8451; | 64-75&#8457;";
       //create middle temp div
       let middleTemp = document.createElement('div');
       middleTemp.id = "middleTemp";
-      middleTemp.innerHTML = "17-15&#8451; | 63-59&#8457;"
+      middleTemp.innerHTML = "12-17&#8451; | 53-63&#8457;"
       //14-12
       let firstLower = document.createElement('div');
       firstLower.id = "firstLower";
-      firstLower.innerHTML= "14-12&#8451; | 57-53&#8457"
-      //11-9
-      let secondLower = document.createElement('div');
-      secondLower.id = "secondLower";
-      secondLower.innerHTML= "11-9&#8451;&nbsp;&nbsp; | 51-48&#8457"
-      //8-6
-      let thirdLower = document.createElement('div');
-      thirdLower.id = "thirdLower";
-      thirdLower.innerHTML= "8-6&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 46-42&#8457"
-      //5-3
-      let fourthLower = document.createElement('div');
-      fourthLower.id = "fourthLower";
-      fourthLower.innerHTML= "5-3&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 41-37&#8457"
+      firstLower.innerHTML= "6-11&#8451;&nbsp;&nbsp;&nbsp; | 43-52&#8457"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
-      bottomTemp.innerHTML = "2-0&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 35-32&#8457;"
+      bottomTemp.innerHTML = "0-5&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 32-41&#8457;"
       //add classes to temp divs
       topTemp.classList.add('temp');
       secondHot.classList.add('temp');
-      thirdHot.classList.add('temp');
-      fourthHot.classList.add('temp');
+      middleTemp.classList.add('temp);')
       firstLower.classList.add('temp');
-      secondLower.classList.add('temp');
-      thirdLower.classList.add('temp');
-      fourthLower.classList.add('temp');
       bottomTemp.classList.add('temp');
       //create site legend content
       let siteContainer = document.createElement('div');
@@ -260,16 +244,15 @@ export default {
       //append divs to parents
       siteContainer.appendChild(siteDot);
       siteContainer.appendChild(siteDotText);
-      gradientContainer.appendChild(gradient);
+      gradientContainer.appendChild(gradient1);
+      gradientContainer.appendChild(gradient2);
+      gradientContainer.appendChild(gradient3);
+      gradientContainer.appendChild(gradient4);
+      gradientContainer.appendChild(gradient5);
       tempContainer.appendChild(topTemp);
       tempContainer.appendChild(secondHot);
-      tempContainer.appendChild(thirdHot);
-      tempContainer.appendChild(fourthHot);
       tempContainer.appendChild(middleTemp);
       tempContainer.appendChild(firstLower);
-      tempContainer.appendChild(secondLower);
-      tempContainer.appendChild(thirdLower);
-      tempContainer.appendChild(fourthLower);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
@@ -414,12 +397,44 @@ $buttonActiveTextColor: #fff;
 #legendGradientContainer{
   padding: 5px 0;
 }
-#legendGradient{
-  background-image: linear-gradient(180deg,#67001f,#b2182b,#d6604d,#f4a582,#fddbc7,#d1e5f0,#92c5de,#4393c3,#2166ac,#053061);
-  min-height: 200px;
+#legendGradient5{
+  background-color: #10305d;
+  min-height: 20px;
   width: 30px;
-  margin: 0 5px 0 0;
-  border-radius: 5px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient4{
+  background-color: #6a798a;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient3{
+  background-color: #c4c1b6;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient2{
+  background-color: #9c615b;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient1{
+  background-color:#730000;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
   
 }
 #tempContainer{
