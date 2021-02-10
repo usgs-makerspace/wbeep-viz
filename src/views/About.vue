@@ -15,9 +15,7 @@
         <p>
           In 2019, a research team that includes hydrologic modelers, software developers, cloud specialists, 
           and data visualization experts released the first application in a set of applications that represent 
-          a national view of <router-link to="/">
-            water availability
-          </router-link>. While only a concept prototype, for the first time the USGS began 
+          a national view of <router-link to="/">water availability</router-link>. While only a concept prototype, for the first time the USGS began 
           delivering a daily water storage product that integrates our active monitoring with continuous modeling. 
           The <router-link to="/">
             water storage application
