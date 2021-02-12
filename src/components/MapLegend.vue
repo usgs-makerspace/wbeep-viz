@@ -194,25 +194,44 @@ export default {
       let gradientContainer = document.createElement('div');
       gradientContainer.id = "legendGradientContainer";
       //create gradient
-      let gradient = document.createElement('div');
-      gradient.id = "legendGradient";
+      let gradient1 = document.createElement('div');
+      gradient1.id = "legendGradient1";
+      let gradient2 = document.createElement('div');
+      gradient2.id = "legendGradient2";
+      let gradient3 = document.createElement('div');
+      gradient3.id = "legendGradient3";
+      let gradient4 = document.createElement('div');
+      gradient4.id = "legendGradient4";
+      let gradient5 = document.createElement('div');
+      gradient5.id = "legendGradient5";
       //create temps container
       let tempContainer = document.createElement('div');
       tempContainer.id = "tempContainer";
       //create top temp div
       let topTemp = document.createElement('div');
       topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451; = 86&#8457;";
+      topTemp.innerHTML = "25-30&#8451; | 77-86&#8457;";
+      //second hottest
+      let secondHot = document.createElement('div');
+      secondHot.id = "secondHot";
+      secondHot.innerHTML = "18-24&#8451; | 64-75&#8457;";
       //create middle temp div
       let middleTemp = document.createElement('div');
       middleTemp.id = "middleTemp";
-      middleTemp.innerHTML = "15&#8451; = 59&#8457;"
+      middleTemp.innerHTML = "12-17&#8451; | 53-63&#8457;"
+      //14-12
+      let firstLower = document.createElement('div');
+      firstLower.id = "firstLower";
+      firstLower.innerHTML= "6-11&#8451;&nbsp;&nbsp;&nbsp; | 43-52&#8457"
       //create bottom temp div
       let bottomTemp = document.createElement('div');
       bottomTemp.id = "bottomTemp";
-      bottomTemp.innerHTML = "<div>0&#8451; = 32&#8457;</div>"
+      bottomTemp.innerHTML = "0-5&#8451;&nbsp;&nbsp;&nbsp;&nbsp; | 32-41&#8457;"
       //add classes to temp divs
       topTemp.classList.add('temp');
+      secondHot.classList.add('temp');
+      middleTemp.classList.add('temp);')
+      firstLower.classList.add('temp');
       bottomTemp.classList.add('temp');
       //create site legend content
       let siteContainer = document.createElement('div');
@@ -225,9 +244,15 @@ export default {
       //append divs to parents
       siteContainer.appendChild(siteDot);
       siteContainer.appendChild(siteDotText);
-      gradientContainer.appendChild(gradient);
+      gradientContainer.appendChild(gradient1);
+      gradientContainer.appendChild(gradient2);
+      gradientContainer.appendChild(gradient3);
+      gradientContainer.appendChild(gradient4);
+      gradientContainer.appendChild(gradient5);
       tempContainer.appendChild(topTemp);
+      tempContainer.appendChild(secondHot);
       tempContainer.appendChild(middleTemp);
+      tempContainer.appendChild(firstLower);
       tempContainer.appendChild(bottomTemp);
       mainContainerContent.appendChild(gradientContainer);
       mainContainerContent.appendChild(tempContainer);
@@ -277,6 +302,7 @@ $buttonActiveTextColor: #fff;
   border: $border;
   border-radius: $borderRadius 0 $borderRadius $borderRadius;
   overflow: hidden;
+  font-size: .85em;
 }
 #collapsedLegend{
   display: flex;
@@ -371,12 +397,45 @@ $buttonActiveTextColor: #fff;
 #legendGradientContainer{
   padding: 5px 0;
 }
-#legendGradient{
-  background-image: linear-gradient(180deg, #730000, #c4c1b6, #10305d);
-  min-height: 100px;
+#legendGradient5{
+  background-color: #10305d;
+  min-height: 20px;
   width: 30px;
-  margin: 0 5px 0 0;
-  border-radius: 5px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient4{
+  background-color: #6a798a;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient3{
+  background-color: #c4c1b6;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient2{
+  background-color: #9c615b;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
+}
+#legendGradient1{
+  background-color:#730000;
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+  
 }
 #tempContainer{
   flex: 1;
