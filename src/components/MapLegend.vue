@@ -183,57 +183,85 @@ export default {
       }
     },
     createWaterTempLegend(){
-      let keys = document.getElementById("keysAndText");
-      //create main container
-      let mainContainer = document.createElement('div');
-      mainContainer.id = "mainContainer";
-
-      let mainContainerContent = document.createElement('div');
-      mainContainerContent.id = "mainContainerContent";
-      //create gradient container
-      let gradientContainer = document.createElement('div');
-      gradientContainer.id = "legendGradientContainer";
-      //create gradient
-      let gradient = document.createElement('div');
-      gradient.id = "legendGradient";
-      //create temps container
-      let tempContainer = document.createElement('div');
-      tempContainer.id = "tempContainer";
-      //create top temp div
-      let topTemp = document.createElement('div');
-      topTemp.id = "topTemp";
-      topTemp.innerHTML = "30&#8451; = 86&#8457;";
-      //create middle temp div
-      let middleTemp = document.createElement('div');
-      middleTemp.id = "middleTemp";
-      middleTemp.innerHTML = "15&#8451; = 59&#8457;"
-      //create bottom temp div
-      let bottomTemp = document.createElement('div');
-      bottomTemp.id = "bottomTemp";
-      bottomTemp.innerHTML = "<div>0&#8451; = 32&#8457;</div>"
-      //add classes to temp divs
-      topTemp.classList.add('temp');
-      bottomTemp.classList.add('temp');
-      //create site legend content
-      let siteContainer = document.createElement('div');
-      siteContainer.id = "siteContainer";
-      let siteDot = document.createElement('div');
-      siteDot.classList.add('siteDot');
-      let siteDotText = document.createElement('div');
-      siteDotText.id = "siteDotText";
-      siteDotText.innerHTML = "USGS monitoring station";
-      //append divs to parents
-      siteContainer.appendChild(siteDot);
-      siteContainer.appendChild(siteDotText);
-      gradientContainer.appendChild(gradient);
-      tempContainer.appendChild(topTemp);
-      tempContainer.appendChild(middleTemp);
-      tempContainer.appendChild(bottomTemp);
-      mainContainerContent.appendChild(gradientContainer);
-      mainContainerContent.appendChild(tempContainer);
-      mainContainer.appendChild(mainContainerContent);
-      keys.appendChild(mainContainer);
-      keys.appendChild(siteContainer);
+      const keys = document.getElementById("keysAndText");
+      const colorsHTML = `
+        <div id="mainContainer">
+          <div id="mainContainerContent">
+            <div id="legendColorTemps">
+              <div class="legendColorTemp">
+                  <div id="legendColorTemp1" class="colorBlock"></div>
+                  <div id="topTemp" class="temp">
+                    <div class="celsius">
+                      25-30&#8451;
+                    </div>
+                    <div class="bar">|</div>
+                    <div class="fahrenheit">
+                      77-86&#8457;
+                    </div>
+                  </div> 
+              </div>
+              <div class="legendColorTemp">
+                  <div id="legendColorTemp2" class="colorBlock"></div>
+                  <div id="secondHot" class="temp">
+                    <div class="celsius">
+                        18-24&#8451;
+                    </div>
+                    <div class="bar">|</div>
+                    <div class="fahrenheit">
+                        64-75&#8457;
+                    </div>
+                  </div> 
+              </div>
+              <div class="legendColorTemp">
+                  <div id="legendColorTemp3" class="colorBlock"></div>
+                  <div id="middleTemp" class="temp">
+                    <div class="celsius">
+                          12-17&#8451;
+                      </div>
+                      <div class="bar">|</div>
+                      <div class="fahrenheit">
+                          53-63&#8457;
+                      </div>
+                  </div> 
+              </div>
+              <div class="legendColorTemp">
+                  <div id="legendColorTemp4" class="colorBlock"></div>
+                  <div id="firstLower" class="temp">
+                    <div class="celsius">
+                          6-11&#8451;
+                      </div>
+                      <div class="bar">|</div>
+                      <div class="fahrenheit">
+                          43-52&#8457
+                      </div>
+                  </div> 
+              </div>
+              <div class="legendColorTemp">
+                  <div id="legendColorTemp5" class="colorBlock"></div>
+                  <div id="bottomTemp" class="temp">
+                    <div class="celsius">
+                        0-5&#8451;
+                    </div>
+                    <div class="bar">|</div>
+                    <div class="fahrenheit">
+                        32-41&#8457;
+                    </div>
+                  </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      ` 
+      const siteHTML = `
+        <div id="siteContainer">
+          <div class="siteDot"></div>
+          <div id="siteDotText">
+            USGS monitoring station
+          </div>
+        </div>
+      `
+      keys.insertAdjacentHTML("beforeend", colorsHTML);
+      keys.insertAdjacentHTML("beforeend", siteHTML);
     },
     SwapLegendIcon(){
       this.waterUseParameter = this.useParameter;
@@ -277,6 +305,7 @@ $buttonActiveTextColor: #fff;
   border: $border;
   border-radius: $borderRadius 0 $borderRadius $borderRadius;
   overflow: hidden;
+  font-size: .85em;
 }
 #collapsedLegend{
   display: flex;
@@ -360,42 +389,64 @@ $buttonActiveTextColor: #fff;
 }
 </style>
 <style lang="scss">
+/*#########TEMP LEGEND#########*/
 #mainContainer{
-  display: flex;
+  
   padding: 5px 10px;
 }
-#mainContainerContent{
-  display: flex;
-  flex-wrap: wrap;
-}
-#legendGradientContainer{
+#legendColorTemps{
   padding: 5px 0;
 }
-#legendGradient{
-  background-image: linear-gradient(180deg, #730000, #c4c1b6, #10305d);
-  min-height: 100px;
-  width: 30px;
-  margin: 0 5px 0 0;
-  border-radius: 5px;
-}
-#tempContainer{
-  flex: 1;
+.legendColorTemp{
   display: flex;
-  flex-direction: column;
+  margin-bottom: 2px;
+  align-items: center;
+  &:last-child{
+    margin-bottom: 0;;
+  }
 }
+.colorBlock{
+  min-height: 20px;
+  width: 30px;
+  margin: 2px 5px 0 0;
+  border-radius: 2px;
+}
+#legendColorTemp5{
+  background-color: #10305d;
+}
+#legendColorTemp4{
+  background-color: #6a798a;
+}
+#legendColorTemp3{
+  background-color: #c4c1b6;
+}
+#legendColorTemp2{
+  background-color: #9c615b;
+}
+#legendColorTemp1{
+  background-color:#730000;
+}
+
 .temp{
   flex: 1;
-}
-#bottomTemp{
-  position: relative;
-  div{
-    position: absolute;
-    bottom: 0;
+  display: flex;
+  margin-top: 2px;
+  .celsius,
+  .fahrenheit{
+    flex: 1;
+  }
+  .celsius{
+    text-align: right;
+  }
+  .bar{
+    width: 5px;
+    margin:0 5px;
+    // text-align: center;
   }
 }
 #siteContainer{
   display: flex;
-  padding: 10px;
+  padding:0 10px 10px 10px;
   align-items: center;
   .siteDot{
     background: #000000;

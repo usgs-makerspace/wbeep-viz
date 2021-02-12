@@ -81,7 +81,7 @@ export default {
                     'visibility': 'visible',
                 },
                 'paint': {
-                    'fill-color': 'hsl(47, 26%, 88%)'
+                    'fill-color': '#ffffff'
                 }
             },
             {
@@ -104,10 +104,16 @@ export default {
                         5, 1,
                         6, 2
                     ],
+                    // ['#10305d', '#6a798a', '#c4c1b6', '#9c615b', '#730000'] https://gka.github.io/palettes/#/5|s|10305d,c4c1b6,730000|ffffe0,ff005e,93003a|0|0
                     "line-color": [
-                        "interpolate", ["linear"], ["get", "temp"],
+                        "step",
+                        ["get", "temp"],
+                        "#10305d",
                         0, "#10305d", 
-                        15, "#c4c1b6",
+                        6, "#6a798a",
+                        12, "#c4c1b6",
+                        18, "#9c615b",
+                        24, "#730000",
                         30, "#730000"
                     ]
                   }
